@@ -1,0 +1,39 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package DAO;
+
+import clientews.servicio.Areas;
+import clientews.servicio.AreasServiceImplService;
+import clientews.servicio.AreasServiceWs;
+import java.util.List;
+import javax.xml.ws.BindingProvider;
+
+/**
+ *
+ * @author alanm
+ */
+
+public class AreasDaoImpl implements AreasDao {
+
+    private AreasServiceWs areasService = null;
+
+    private AreasServiceWs getAreasService() {
+        if (areasService == null) {
+            areasService = new AreasServiceImplService().getAreasServiceImplPort();
+            ((BindingProvider) areasService).getRequestContext().put(BindingProvider.USERNAME_PROPERTY, LoginData.user);
+            ((BindingProvider) areasService).getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, LoginData.password);
+        }
+        return this.areasService;
+    }
+
+    @Override
+    public Areas encontrarPorId(Integer id) {
+        return getAreasService().listarPorId(new Areas(id));
+    }
+
+    
+    
+}
