@@ -5,10 +5,18 @@
  */
 package DAO;
 
+import clientews.servicio.Conceptos;
+import java.util.List;
+
 /**
  *
  * @author alanm
  */
 public interface ConceptosDao {
-    
+
+    public Conceptos encontrarConceptoPorId(Conceptos conceptos);
+
+    public List<Conceptos> encontrarConceptosPorIdVentaConceptos(Long idVentaConceptos);
+
+    public List<Conceptos> encontrarConceptosPorIdArea(Integer idArea);
 }

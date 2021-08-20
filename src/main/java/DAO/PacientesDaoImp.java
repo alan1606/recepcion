@@ -5,22 +5,55 @@
  */
 package DAO;
 
+import clientews.servicio.PacienteServiceImplService;
+import clientews.servicio.PacienteServiceWs;
+import clientews.servicio.Pacientes;
 import java.util.List;
+import javax.swing.JOptionPane;
+import javax.xml.ws.BindingProvider;
 
 /**
  *
  * @author alanm
  */
-public class PacientesDaoImp implements PacientesDao{
-/*
+public class PacientesDaoImp implements PacientesDao {
+
+    private PacienteServiceWs servicio = null;
+
+    public PacientesDaoImp() {
+        if (servicio == null) {
+            servicio = new PacienteServiceImplService().getPacienteServiceImplPort();
+            ((BindingProvider) servicio).getRequestContext().put(BindingProvider.USERNAME_PROPERTY, LoginData.user);
+            ((BindingProvider) servicio).getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, LoginData.password);
+        }
+    }
+
     @Override
     public List<Pacientes> buscarLikeNombre(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        return servicio.encontrarPacienteLikeNombre(nombre);
     }
 
     @Override
     public List<Pacientes> buscarLikeCurp(String curp) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }*/
-    
+        return servicio.encontrarPacienteLikeCurp(curp);
+    }
+
+    @Override
+    public Pacientes buscarPorId(Long id) {
+        Pacientes paciente = new Pacientes();
+        paciente.setIdP(id);
+        return servicio.encontrarPacientePorId(paciente);
+    }
+
+    @Override
+    public void guardar(Pacientes paciente) {
+        servicio.registrarPaciente(paciente);
+    }
+
+    @Override
+    public void actualizar(Pacientes paciente) {
+        servicio.actualizarPaciente(paciente);
+    }
+
 }

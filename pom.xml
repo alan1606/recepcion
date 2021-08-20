@@ -66,6 +66,8 @@
                                 <wsdlUrl>http://localhost:8080/VentaConceptosServiceImplService/VentaConceptosServiceImpl?wsdl</wsdlUrl>
                                 <wsdlUrl>http://localhost:8080/ConceptosServiceImplService/ConceptosServiceImpl?wsdl</wsdlUrl>
                                 <wsdlUrl>http://localhost:8080/PacienteServiceImplService/PacienteServiceImpl?wsdl</wsdlUrl>
+                                <wsdlUrl>http://localhost:8080/CatalogoFormaPagoServiceImplService/CatalogoFormaPagoServiceImpl?wsdl</wsdlUrl>
+                                <wsdlUrl>http://localhost:8080/OrdenVentaServiceImplService/OrdenVentaServiceImpl?wsdl</wsdlUrl>
                             </wsdlUrls>
                             <packageName>clientews.servicio</packageName>
                             <sourceDestDir>${basedir}/src/main/java</sourceDestDir>

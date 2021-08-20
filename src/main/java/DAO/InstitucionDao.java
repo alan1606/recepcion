@@ -5,10 +5,19 @@
  */
 package DAO;
 
+import clientews.servicio.Institucion;
+import java.util.List;
+
 /**
  *
  * @author alanm
  */
 public interface InstitucionDao {
-    
+
+    public List<Institucion> listar();
+
+    public Institucion encontrarPorId(Institucion institucion);
+
+    public Institucion encontrarPorNombre(Institucion institucion);
+
 }

@@ -5,11 +5,9 @@
  */
 package Vistas;
 
-import DAO.AreasDao;
-import DAO.AreasDaoImpl;
-import clientews.servicio.Areas;
+
 import javax.swing.JOptionPane;
-import com.sun.awt.AWTUtilities;
+
 
 /**
  *

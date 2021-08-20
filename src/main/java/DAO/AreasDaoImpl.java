@@ -15,25 +15,33 @@ import javax.xml.ws.BindingProvider;
  *
  * @author alanm
  */
-
 public class AreasDaoImpl implements AreasDao {
 
     private AreasServiceWs areasService = null;
 
-    private AreasServiceWs getAreasService() {
+    public AreasDaoImpl() {
         if (areasService == null) {
             areasService = new AreasServiceImplService().getAreasServiceImplPort();
             ((BindingProvider) areasService).getRequestContext().put(BindingProvider.USERNAME_PROPERTY, LoginData.user);
             ((BindingProvider) areasService).getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, LoginData.password);
         }
-        return this.areasService;
     }
 
     @Override
     public Areas encontrarPorId(Integer id) {
-        return getAreasService().listarPorId(new Areas(id));
+        Areas area = new Areas();
+        area.setIdA(id);
+        return areasService.listarPorId(area);
     }
 
-    
-    
+    @Override
+    public List<Areas> listar() {
+       return areasService.listarTodasAreas();
+    }
+
+    @Override
+    public Areas encontrarPorNombre(String nombre) {
+        return areasService.obtenerAreaPorNombre(nombre);
+    }
+
 }

@@ -1,11 +1,8 @@
 
 package clientews.servicio;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -21,37 +18,36 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idTo" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="aleatorioC" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="categoriaTo" type="{http://www.w3.org/2001/XMLSchema}short" minOccurs="0"/>
+ *         &lt;element name="codigoBarrasTo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="conceptoTo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="costoTo" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
+ *         &lt;element name="descripcionTo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="diasEntregaTo" type="{http://www.w3.org/2001/XMLSchema}short" minOccurs="0"/>
+ *         &lt;element name="dicom" type="{http://www.w3.org/2001/XMLSchema}short" minOccurs="0"/>
+ *         &lt;element name="fechaTo" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="formato" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="idAreaTo" type="{http://servicio.sga.gm.com.mx/}areas" minOccurs="0"/>
+ *         &lt;element name="idBeneficioTo" type="{http://www.w3.org/2001/XMLSchema}short" minOccurs="0"/>
+ *         &lt;element name="idCategoriaTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="idConvenioTo" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="idDepartamentoTo" type="{http://www.w3.org/2001/XMLSchema}short"/>
+ *         &lt;element name="idGrupoTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="idMarcaTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="idMedicamentoG" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="idModeloTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="idPresentacionTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="idTipoConceptoTo" type="{http://www.w3.org/2001/XMLSchema}short"/>
+ *         &lt;element name="idTo" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="idUmedidaTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="linkPlmTo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="nivelMedTo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="precioM" type="{http://www.w3.org/2001/XMLSchema}float"/>
+ *         &lt;element name="precioMu" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *         &lt;element name="precioTo" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *         &lt;element name="precioUrgenciaTo" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *         &lt;element name="usuarioTo" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="fechaTo" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *         &lt;element name="formato" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="idConvenioTo" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="descripcionTo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="precioM" type="{http://www.w3.org/2001/XMLSchema}float"/>
- *         &lt;element name="precioMu" type="{http://www.w3.org/2001/XMLSchema}float"/>
- *         &lt;element name="idBeneficioTo" type="{http://www.w3.org/2001/XMLSchema}short" minOccurs="0"/>
- *         &lt;element name="diasEntregaTo" type="{http://www.w3.org/2001/XMLSchema}short" minOccurs="0"/>
- *         &lt;element name="aleatorioC" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="costoTo" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
- *         &lt;element name="idMedicamentoG" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="codigoBarrasTo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="linkPlmTo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="nivelMedTo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="categoriaTo" type="{http://www.w3.org/2001/XMLSchema}short" minOccurs="0"/>
- *         &lt;element name="dicom" type="{http://www.w3.org/2001/XMLSchema}short" minOccurs="0"/>
- *         &lt;element name="idGrupoTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="idCategoriaTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="idUmedidaTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="idMarcaTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="idModeloTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="idPresentacionTo" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="idAreaTo" type="{http://servicio.sga.gm.com.mx/}areas" minOccurs="0"/>
- *         &lt;element name="ventaConceptosList" type="{http://servicio.sga.gm.com.mx/}ventaConceptos" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -62,96 +58,141 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "conceptos", propOrder = {
-    "idTo",
+    "aleatorioC",
+    "categoriaTo",
+    "codigoBarrasTo",
     "conceptoTo",
-    "idDepartamentoTo",
-    "idTipoConceptoTo",
-    "precioTo",
-    "precioUrgenciaTo",
-    "usuarioTo",
+    "costoTo",
+    "descripcionTo",
+    "diasEntregaTo",
+    "dicom",
     "fechaTo",
     "formato",
-    "idConvenioTo",
-    "descripcionTo",
-    "precioM",
-    "precioMu",
+    "idAreaTo",
     "idBeneficioTo",
-    "diasEntregaTo",
-    "aleatorioC",
-    "costoTo",
-    "idMedicamentoG",
-    "codigoBarrasTo",
-    "linkPlmTo",
-    "nivelMedTo",
-    "categoriaTo",
-    "dicom",
-    "idGrupoTo",
     "idCategoriaTo",
-    "idUmedidaTo",
+    "idConvenioTo",
+    "idDepartamentoTo",
+    "idGrupoTo",
     "idMarcaTo",
+    "idMedicamentoG",
     "idModeloTo",
     "idPresentacionTo",
-    "idAreaTo",
-    "ventaConceptosList"
+    "idTipoConceptoTo",
+    "idTo",
+    "idUmedidaTo",
+    "linkPlmTo",
+    "nivelMedTo",
+    "precioM",
+    "precioMu",
+    "precioTo",
+    "precioUrgenciaTo",
+    "usuarioTo"
 })
 public class Conceptos {
 
-    protected Long idTo;
+    protected String aleatorioC;
+    protected Short categoriaTo;
+    protected String codigoBarrasTo;
     protected String conceptoTo;
-    protected short idDepartamentoTo;
-    protected short idTipoConceptoTo;
-    protected float precioTo;
-    protected float precioUrgenciaTo;
-    protected int usuarioTo;
+    protected Float costoTo;
+    protected String descripcionTo;
+    protected Short diasEntregaTo;
+    protected Short dicom;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar fechaTo;
     protected String formato;
-    protected int idConvenioTo;
-    protected String descripcionTo;
-    protected float precioM;
-    protected float precioMu;
+    protected Areas idAreaTo;
     protected Short idBeneficioTo;
-    protected Short diasEntregaTo;
-    protected String aleatorioC;
-    protected Float costoTo;
-    protected Integer idMedicamentoG;
-    protected String codigoBarrasTo;
-    protected String linkPlmTo;
-    protected String nivelMedTo;
-    protected Short categoriaTo;
-    protected Short dicom;
-    protected Integer idGrupoTo;
     protected Integer idCategoriaTo;
-    protected Integer idUmedidaTo;
+    protected int idConvenioTo;
+    protected short idDepartamentoTo;
+    protected Integer idGrupoTo;
     protected Integer idMarcaTo;
+    protected Integer idMedicamentoG;
     protected Integer idModeloTo;
     protected Integer idPresentacionTo;
-    protected Areas idAreaTo;
-    @XmlElement(nillable = true)
-    protected List<VentaConceptos> ventaConceptosList;
+    protected short idTipoConceptoTo;
+    protected Long idTo;
+    protected Integer idUmedidaTo;
+    protected String linkPlmTo;
+    protected String nivelMedTo;
+    protected float precioM;
+    protected float precioMu;
+    protected float precioTo;
+    protected float precioUrgenciaTo;
+    protected int usuarioTo;
 
     /**
-     * Obtiene el valor de la propiedad idTo.
+     * Obtiene el valor de la propiedad aleatorioC.
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link String }
      *     
      */
-    public Long getIdTo() {
-        return idTo;
+    public String getAleatorioC() {
+        return aleatorioC;
     }
 
     /**
-     * Define el valor de la propiedad idTo.
+     * Define el valor de la propiedad aleatorioC.
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link String }
      *     
      */
-    public void setIdTo(Long value) {
-        this.idTo = value;
+    public void setAleatorioC(String value) {
+        this.aleatorioC = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad categoriaTo.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Short }
+     *     
+     */
+    public Short getCategoriaTo() {
+        return categoriaTo;
+    }
+
+    /**
+     * Define el valor de la propiedad categoriaTo.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Short }
+     *     
+     */
+    public void setCategoriaTo(Short value) {
+        this.categoriaTo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad codigoBarrasTo.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCodigoBarrasTo() {
+        return codigoBarrasTo;
+    }
+
+    /**
+     * Define el valor de la propiedad codigoBarrasTo.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCodigoBarrasTo(String value) {
+        this.codigoBarrasTo = value;
     }
 
     /**
@@ -179,83 +220,99 @@ public class Conceptos {
     }
 
     /**
-     * Obtiene el valor de la propiedad idDepartamentoTo.
+     * Obtiene el valor de la propiedad costoTo.
      * 
+     * @return
+     *     possible object is
+     *     {@link Float }
+     *     
      */
-    public short getIdDepartamentoTo() {
-        return idDepartamentoTo;
+    public Float getCostoTo() {
+        return costoTo;
     }
 
     /**
-     * Define el valor de la propiedad idDepartamentoTo.
+     * Define el valor de la propiedad costoTo.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Float }
+     *     
      */
-    public void setIdDepartamentoTo(short value) {
-        this.idDepartamentoTo = value;
+    public void setCostoTo(Float value) {
+        this.costoTo = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad idTipoConceptoTo.
+     * Obtiene el valor de la propiedad descripcionTo.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public short getIdTipoConceptoTo() {
-        return idTipoConceptoTo;
+    public String getDescripcionTo() {
+        return descripcionTo;
     }
 
     /**
-     * Define el valor de la propiedad idTipoConceptoTo.
+     * Define el valor de la propiedad descripcionTo.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setIdTipoConceptoTo(short value) {
-        this.idTipoConceptoTo = value;
+    public void setDescripcionTo(String value) {
+        this.descripcionTo = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad precioTo.
+     * Obtiene el valor de la propiedad diasEntregaTo.
      * 
+     * @return
+     *     possible object is
+     *     {@link Short }
+     *     
      */
-    public float getPrecioTo() {
-        return precioTo;
+    public Short getDiasEntregaTo() {
+        return diasEntregaTo;
     }
 
     /**
-     * Define el valor de la propiedad precioTo.
+     * Define el valor de la propiedad diasEntregaTo.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Short }
+     *     
      */
-    public void setPrecioTo(float value) {
-        this.precioTo = value;
+    public void setDiasEntregaTo(Short value) {
+        this.diasEntregaTo = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad precioUrgenciaTo.
+     * Obtiene el valor de la propiedad dicom.
      * 
+     * @return
+     *     possible object is
+     *     {@link Short }
+     *     
      */
-    public float getPrecioUrgenciaTo() {
-        return precioUrgenciaTo;
+    public Short getDicom() {
+        return dicom;
     }
 
     /**
-     * Define el valor de la propiedad precioUrgenciaTo.
+     * Define el valor de la propiedad dicom.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Short }
+     *     
      */
-    public void setPrecioUrgenciaTo(float value) {
-        this.precioUrgenciaTo = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad usuarioTo.
-     * 
-     */
-    public int getUsuarioTo() {
-        return usuarioTo;
-    }
-
-    /**
-     * Define el valor de la propiedad usuarioTo.
-     * 
-     */
-    public void setUsuarioTo(int value) {
-        this.usuarioTo = value;
+    public void setDicom(Short value) {
+        this.dicom = value;
     }
 
     /**
@@ -307,75 +364,27 @@ public class Conceptos {
     }
 
     /**
-     * Obtiene el valor de la propiedad idConvenioTo.
-     * 
-     */
-    public int getIdConvenioTo() {
-        return idConvenioTo;
-    }
-
-    /**
-     * Define el valor de la propiedad idConvenioTo.
-     * 
-     */
-    public void setIdConvenioTo(int value) {
-        this.idConvenioTo = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad descripcionTo.
+     * Obtiene el valor de la propiedad idAreaTo.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Areas }
      *     
      */
-    public String getDescripcionTo() {
-        return descripcionTo;
+    public Areas getIdAreaTo() {
+        return idAreaTo;
     }
 
     /**
-     * Define el valor de la propiedad descripcionTo.
+     * Define el valor de la propiedad idAreaTo.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Areas }
      *     
      */
-    public void setDescripcionTo(String value) {
-        this.descripcionTo = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad precioM.
-     * 
-     */
-    public float getPrecioM() {
-        return precioM;
-    }
-
-    /**
-     * Define el valor de la propiedad precioM.
-     * 
-     */
-    public void setPrecioM(float value) {
-        this.precioM = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad precioMu.
-     * 
-     */
-    public float getPrecioMu() {
-        return precioMu;
-    }
-
-    /**
-     * Define el valor de la propiedad precioMu.
-     * 
-     */
-    public void setPrecioMu(float value) {
-        this.precioMu = value;
+    public void setIdAreaTo(Areas value) {
+        this.idAreaTo = value;
     }
 
     /**
@@ -403,219 +412,59 @@ public class Conceptos {
     }
 
     /**
-     * Obtiene el valor de la propiedad diasEntregaTo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Short }
-     *     
-     */
-    public Short getDiasEntregaTo() {
-        return diasEntregaTo;
-    }
-
-    /**
-     * Define el valor de la propiedad diasEntregaTo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Short }
-     *     
-     */
-    public void setDiasEntregaTo(Short value) {
-        this.diasEntregaTo = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad aleatorioC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAleatorioC() {
-        return aleatorioC;
-    }
-
-    /**
-     * Define el valor de la propiedad aleatorioC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAleatorioC(String value) {
-        this.aleatorioC = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad costoTo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Float }
-     *     
-     */
-    public Float getCostoTo() {
-        return costoTo;
-    }
-
-    /**
-     * Define el valor de la propiedad costoTo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Float }
-     *     
-     */
-    public void setCostoTo(Float value) {
-        this.costoTo = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad idMedicamentoG.
+     * Obtiene el valor de la propiedad idCategoriaTo.
      * 
      * @return
      *     possible object is
      *     {@link Integer }
      *     
      */
-    public Integer getIdMedicamentoG() {
-        return idMedicamentoG;
+    public Integer getIdCategoriaTo() {
+        return idCategoriaTo;
     }
 
     /**
-     * Define el valor de la propiedad idMedicamentoG.
+     * Define el valor de la propiedad idCategoriaTo.
      * 
      * @param value
      *     allowed object is
      *     {@link Integer }
      *     
      */
-    public void setIdMedicamentoG(Integer value) {
-        this.idMedicamentoG = value;
+    public void setIdCategoriaTo(Integer value) {
+        this.idCategoriaTo = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoBarrasTo.
+     * Obtiene el valor de la propiedad idConvenioTo.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getCodigoBarrasTo() {
-        return codigoBarrasTo;
+    public int getIdConvenioTo() {
+        return idConvenioTo;
     }
 
     /**
-     * Define el valor de la propiedad codigoBarrasTo.
+     * Define el valor de la propiedad idConvenioTo.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setCodigoBarrasTo(String value) {
-        this.codigoBarrasTo = value;
+    public void setIdConvenioTo(int value) {
+        this.idConvenioTo = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad linkPlmTo.
+     * Obtiene el valor de la propiedad idDepartamentoTo.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getLinkPlmTo() {
-        return linkPlmTo;
+    public short getIdDepartamentoTo() {
+        return idDepartamentoTo;
     }
 
     /**
-     * Define el valor de la propiedad linkPlmTo.
+     * Define el valor de la propiedad idDepartamentoTo.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setLinkPlmTo(String value) {
-        this.linkPlmTo = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nivelMedTo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNivelMedTo() {
-        return nivelMedTo;
-    }
-
-    /**
-     * Define el valor de la propiedad nivelMedTo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNivelMedTo(String value) {
-        this.nivelMedTo = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad categoriaTo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Short }
-     *     
-     */
-    public Short getCategoriaTo() {
-        return categoriaTo;
-    }
-
-    /**
-     * Define el valor de la propiedad categoriaTo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Short }
-     *     
-     */
-    public void setCategoriaTo(Short value) {
-        this.categoriaTo = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad dicom.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Short }
-     *     
-     */
-    public Short getDicom() {
-        return dicom;
-    }
-
-    /**
-     * Define el valor de la propiedad dicom.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Short }
-     *     
-     */
-    public void setDicom(Short value) {
-        this.dicom = value;
+    public void setIdDepartamentoTo(short value) {
+        this.idDepartamentoTo = value;
     }
 
     /**
@@ -643,54 +492,6 @@ public class Conceptos {
     }
 
     /**
-     * Obtiene el valor de la propiedad idCategoriaTo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getIdCategoriaTo() {
-        return idCategoriaTo;
-    }
-
-    /**
-     * Define el valor de la propiedad idCategoriaTo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setIdCategoriaTo(Integer value) {
-        this.idCategoriaTo = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad idUmedidaTo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getIdUmedidaTo() {
-        return idUmedidaTo;
-    }
-
-    /**
-     * Define el valor de la propiedad idUmedidaTo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setIdUmedidaTo(Integer value) {
-        this.idUmedidaTo = value;
-    }
-
-    /**
      * Obtiene el valor de la propiedad idMarcaTo.
      * 
      * @return
@@ -712,6 +513,30 @@ public class Conceptos {
      */
     public void setIdMarcaTo(Integer value) {
         this.idMarcaTo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad idMedicamentoG.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
+     */
+    public Integer getIdMedicamentoG() {
+        return idMedicamentoG;
+    }
+
+    /**
+     * Define el valor de la propiedad idMedicamentoG.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
+     */
+    public void setIdMedicamentoG(Integer value) {
+        this.idMedicamentoG = value;
     }
 
     /**
@@ -763,56 +588,195 @@ public class Conceptos {
     }
 
     /**
-     * Obtiene el valor de la propiedad idAreaTo.
+     * Obtiene el valor de la propiedad idTipoConceptoTo.
+     * 
+     */
+    public short getIdTipoConceptoTo() {
+        return idTipoConceptoTo;
+    }
+
+    /**
+     * Define el valor de la propiedad idTipoConceptoTo.
+     * 
+     */
+    public void setIdTipoConceptoTo(short value) {
+        this.idTipoConceptoTo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad idTo.
      * 
      * @return
      *     possible object is
-     *     {@link Areas }
+     *     {@link Long }
      *     
      */
-    public Areas getIdAreaTo() {
-        return idAreaTo;
+    public Long getIdTo() {
+        return idTo;
     }
 
     /**
-     * Define el valor de la propiedad idAreaTo.
+     * Define el valor de la propiedad idTo.
      * 
      * @param value
      *     allowed object is
-     *     {@link Areas }
+     *     {@link Long }
      *     
      */
-    public void setIdAreaTo(Areas value) {
-        this.idAreaTo = value;
+    public void setIdTo(Long value) {
+        this.idTo = value;
     }
 
     /**
-     * Gets the value of the ventaConceptosList property.
+     * Obtiene el valor de la propiedad idUmedidaTo.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the ventaConceptosList property.
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
+     */
+    public Integer getIdUmedidaTo() {
+        return idUmedidaTo;
+    }
+
+    /**
+     * Define el valor de la propiedad idUmedidaTo.
      * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getVentaConceptosList().add(newItem);
-     * </pre>
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
+     */
+    public void setIdUmedidaTo(Integer value) {
+        this.idUmedidaTo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad linkPlmTo.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLinkPlmTo() {
+        return linkPlmTo;
+    }
+
+    /**
+     * Define el valor de la propiedad linkPlmTo.
      * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link VentaConceptos }
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLinkPlmTo(String value) {
+        this.linkPlmTo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad nivelMedTo.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNivelMedTo() {
+        return nivelMedTo;
+    }
+
+    /**
+     * Define el valor de la propiedad nivelMedTo.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNivelMedTo(String value) {
+        this.nivelMedTo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad precioM.
      * 
      */
-    public List<VentaConceptos> getVentaConceptosList() {
-        if (ventaConceptosList == null) {
-            ventaConceptosList = new ArrayList<VentaConceptos>();
-        }
-        return this.ventaConceptosList;
+    public float getPrecioM() {
+        return precioM;
+    }
+
+    /**
+     * Define el valor de la propiedad precioM.
+     * 
+     */
+    public void setPrecioM(float value) {
+        this.precioM = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad precioMu.
+     * 
+     */
+    public float getPrecioMu() {
+        return precioMu;
+    }
+
+    /**
+     * Define el valor de la propiedad precioMu.
+     * 
+     */
+    public void setPrecioMu(float value) {
+        this.precioMu = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad precioTo.
+     * 
+     */
+    public float getPrecioTo() {
+        return precioTo;
+    }
+
+    /**
+     * Define el valor de la propiedad precioTo.
+     * 
+     */
+    public void setPrecioTo(float value) {
+        this.precioTo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad precioUrgenciaTo.
+     * 
+     */
+    public float getPrecioUrgenciaTo() {
+        return precioUrgenciaTo;
+    }
+
+    /**
+     * Define el valor de la propiedad precioUrgenciaTo.
+     * 
+     */
+    public void setPrecioUrgenciaTo(float value) {
+        this.precioUrgenciaTo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad usuarioTo.
+     * 
+     */
+    public int getUsuarioTo() {
+        return usuarioTo;
+    }
+
+    /**
+     * Define el valor de la propiedad usuarioTo.
+     * 
+     */
+    public void setUsuarioTo(int value) {
+        this.usuarioTo = value;
     }
 
 }

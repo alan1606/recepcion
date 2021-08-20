@@ -24,22 +24,16 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Conceptos_QNAME = new QName("http://servicio.sga.gm.com.mx/", "conceptos");
-    private final static QName _EncontrarPacientePorIdResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "encontrarPacientePorIdResponse");
+    private final static QName _RegistrarOrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarOrdenVenta");
+    private final static QName _ObtenerOrdenVentaNoPagadosEnFechaResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosEnFechaResponse");
     private final static QName _CatalogoFormaPago_QNAME = new QName("http://servicio.sga.gm.com.mx/", "catalogoFormaPago");
-    private final static QName _EncontrarEnVentaConceptos_QNAME = new QName("http://servicio.sga.gm.com.mx/", "encontrarEnVentaConceptos");
-    private final static QName _EncontrarPacientePorCurpResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "encontrarPacientePorCurpResponse");
+    private final static QName _RegistrarOrdenVentaResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarOrdenVentaResponse");
+    private final static QName _ObtenerOrdenVentaNoPagadosFechaPacienteResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosFechaPacienteResponse");
+    private final static QName _ObtenerOrdenVentaNoPagadosPacienteResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosPacienteResponse");
     private final static QName _OrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "ordenVenta");
-    private final static QName _Pacientes_QNAME = new QName("http://servicio.sga.gm.com.mx/", "pacientes");
-    private final static QName _ListarTodoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "listarTodoResponse");
-    private final static QName _EncontrarEnVentaConceptosResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "encontrarEnVentaConceptosResponse");
-    private final static QName _EquipoDicom_QNAME = new QName("http://servicio.sga.gm.com.mx/", "equipoDicom");
-    private final static QName _EncontrarPacientePorId_QNAME = new QName("http://servicio.sga.gm.com.mx/", "encontrarPacientePorId");
-    private final static QName _VentaConceptos_QNAME = new QName("http://servicio.sga.gm.com.mx/", "ventaConceptos");
-    private final static QName _ListarTodo_QNAME = new QName("http://servicio.sga.gm.com.mx/", "listarTodo");
-    private final static QName _EncontrarPacientePorCurp_QNAME = new QName("http://servicio.sga.gm.com.mx/", "encontrarPacientePorCurp");
-    private final static QName _Areas_QNAME = new QName("http://servicio.sga.gm.com.mx/", "areas");
-    private final static QName _Institucion_QNAME = new QName("http://servicio.sga.gm.com.mx/", "institucion");
+    private final static QName _ObtenerOrdenVentaNoPagadosEnFecha_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosEnFecha");
+    private final static QName _ObtenerOrdenVentaNoPagadosFechaPaciente_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosFechaPaciente");
+    private final static QName _ObtenerOrdenVentaNoPagadosPaciente_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosPaciente");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: clientews.servicio
@@ -49,75 +43,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link VentaConceptos }
+     * Create an instance of {@link ObtenerOrdenVentaNoPagadosFechaPacienteResponse }
      * 
      */
-    public VentaConceptos createVentaConceptos() {
-        return new VentaConceptos();
+    public ObtenerOrdenVentaNoPagadosFechaPacienteResponse createObtenerOrdenVentaNoPagadosFechaPacienteResponse() {
+        return new ObtenerOrdenVentaNoPagadosFechaPacienteResponse();
     }
 
     /**
-     * Create an instance of {@link EncontrarPacientePorId }
+     * Create an instance of {@link ObtenerOrdenVentaNoPagadosPacienteResponse }
      * 
      */
-    public EncontrarPacientePorId createEncontrarPacientePorId() {
-        return new EncontrarPacientePorId();
-    }
-
-    /**
-     * Create an instance of {@link EncontrarEnVentaConceptosResponse }
-     * 
-     */
-    public EncontrarEnVentaConceptosResponse createEncontrarEnVentaConceptosResponse() {
-        return new EncontrarEnVentaConceptosResponse();
-    }
-
-    /**
-     * Create an instance of {@link EquipoDicom }
-     * 
-     */
-    public EquipoDicom createEquipoDicom() {
-        return new EquipoDicom();
-    }
-
-    /**
-     * Create an instance of {@link Institucion }
-     * 
-     */
-    public Institucion createInstitucion() {
-        return new Institucion();
-    }
-
-    /**
-     * Create an instance of {@link Areas }
-     * 
-     */
-    public Areas createAreas() {
-        return new Areas();
-    }
-
-    /**
-     * Create an instance of {@link EncontrarPacientePorCurp }
-     * 
-     */
-    public EncontrarPacientePorCurp createEncontrarPacientePorCurp() {
-        return new EncontrarPacientePorCurp();
-    }
-
-    /**
-     * Create an instance of {@link ListarTodo }
-     * 
-     */
-    public ListarTodo createListarTodo() {
-        return new ListarTodo();
-    }
-
-    /**
-     * Create an instance of {@link EncontrarPacientePorCurpResponse }
-     * 
-     */
-    public EncontrarPacientePorCurpResponse createEncontrarPacientePorCurpResponse() {
-        return new EncontrarPacientePorCurpResponse();
+    public ObtenerOrdenVentaNoPagadosPacienteResponse createObtenerOrdenVentaNoPagadosPacienteResponse() {
+        return new ObtenerOrdenVentaNoPagadosPacienteResponse();
     }
 
     /**
@@ -129,43 +67,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EncontrarEnVentaConceptos }
+     * Create an instance of {@link RegistrarOrdenVentaResponse }
      * 
      */
-    public EncontrarEnVentaConceptos createEncontrarEnVentaConceptos() {
-        return new EncontrarEnVentaConceptos();
+    public RegistrarOrdenVentaResponse createRegistrarOrdenVentaResponse() {
+        return new RegistrarOrdenVentaResponse();
     }
 
     /**
-     * Create an instance of {@link EncontrarPacientePorIdResponse }
+     * Create an instance of {@link ObtenerOrdenVentaNoPagadosEnFechaResponse }
      * 
      */
-    public EncontrarPacientePorIdResponse createEncontrarPacientePorIdResponse() {
-        return new EncontrarPacientePorIdResponse();
+    public ObtenerOrdenVentaNoPagadosEnFechaResponse createObtenerOrdenVentaNoPagadosEnFechaResponse() {
+        return new ObtenerOrdenVentaNoPagadosEnFechaResponse();
     }
 
     /**
-     * Create an instance of {@link Conceptos }
+     * Create an instance of {@link RegistrarOrdenVenta }
      * 
      */
-    public Conceptos createConceptos() {
-        return new Conceptos();
+    public RegistrarOrdenVenta createRegistrarOrdenVenta() {
+        return new RegistrarOrdenVenta();
     }
 
     /**
-     * Create an instance of {@link ListarTodoResponse }
+     * Create an instance of {@link ObtenerOrdenVentaNoPagadosPaciente }
      * 
      */
-    public ListarTodoResponse createListarTodoResponse() {
-        return new ListarTodoResponse();
+    public ObtenerOrdenVentaNoPagadosPaciente createObtenerOrdenVentaNoPagadosPaciente() {
+        return new ObtenerOrdenVentaNoPagadosPaciente();
     }
 
     /**
-     * Create an instance of {@link Pacientes }
+     * Create an instance of {@link ObtenerOrdenVentaNoPagadosEnFecha }
      * 
      */
-    public Pacientes createPacientes() {
-        return new Pacientes();
+    public ObtenerOrdenVentaNoPagadosEnFecha createObtenerOrdenVentaNoPagadosEnFecha() {
+        return new ObtenerOrdenVentaNoPagadosEnFecha();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerOrdenVentaNoPagadosFechaPaciente }
+     * 
+     */
+    public ObtenerOrdenVentaNoPagadosFechaPaciente createObtenerOrdenVentaNoPagadosFechaPaciente() {
+        return new ObtenerOrdenVentaNoPagadosFechaPaciente();
     }
 
     /**
@@ -177,21 +123,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Conceptos }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarOrdenVenta }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "conceptos")
-    public JAXBElement<Conceptos> createConceptos(Conceptos value) {
-        return new JAXBElement<Conceptos>(_Conceptos_QNAME, Conceptos.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarOrdenVenta")
+    public JAXBElement<RegistrarOrdenVenta> createRegistrarOrdenVenta(RegistrarOrdenVenta value) {
+        return new JAXBElement<RegistrarOrdenVenta>(_RegistrarOrdenVenta_QNAME, RegistrarOrdenVenta.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarPacientePorIdResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosEnFechaResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "encontrarPacientePorIdResponse")
-    public JAXBElement<EncontrarPacientePorIdResponse> createEncontrarPacientePorIdResponse(EncontrarPacientePorIdResponse value) {
-        return new JAXBElement<EncontrarPacientePorIdResponse>(_EncontrarPacientePorIdResponse_QNAME, EncontrarPacientePorIdResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosEnFechaResponse")
+    public JAXBElement<ObtenerOrdenVentaNoPagadosEnFechaResponse> createObtenerOrdenVentaNoPagadosEnFechaResponse(ObtenerOrdenVentaNoPagadosEnFechaResponse value) {
+        return new JAXBElement<ObtenerOrdenVentaNoPagadosEnFechaResponse>(_ObtenerOrdenVentaNoPagadosEnFechaResponse_QNAME, ObtenerOrdenVentaNoPagadosEnFechaResponse.class, null, value);
     }
 
     /**
@@ -204,21 +150,30 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarEnVentaConceptos }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarOrdenVentaResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "encontrarEnVentaConceptos")
-    public JAXBElement<EncontrarEnVentaConceptos> createEncontrarEnVentaConceptos(EncontrarEnVentaConceptos value) {
-        return new JAXBElement<EncontrarEnVentaConceptos>(_EncontrarEnVentaConceptos_QNAME, EncontrarEnVentaConceptos.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarOrdenVentaResponse")
+    public JAXBElement<RegistrarOrdenVentaResponse> createRegistrarOrdenVentaResponse(RegistrarOrdenVentaResponse value) {
+        return new JAXBElement<RegistrarOrdenVentaResponse>(_RegistrarOrdenVentaResponse_QNAME, RegistrarOrdenVentaResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarPacientePorCurpResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosFechaPacienteResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "encontrarPacientePorCurpResponse")
-    public JAXBElement<EncontrarPacientePorCurpResponse> createEncontrarPacientePorCurpResponse(EncontrarPacientePorCurpResponse value) {
-        return new JAXBElement<EncontrarPacientePorCurpResponse>(_EncontrarPacientePorCurpResponse_QNAME, EncontrarPacientePorCurpResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosFechaPacienteResponse")
+    public JAXBElement<ObtenerOrdenVentaNoPagadosFechaPacienteResponse> createObtenerOrdenVentaNoPagadosFechaPacienteResponse(ObtenerOrdenVentaNoPagadosFechaPacienteResponse value) {
+        return new JAXBElement<ObtenerOrdenVentaNoPagadosFechaPacienteResponse>(_ObtenerOrdenVentaNoPagadosFechaPacienteResponse_QNAME, ObtenerOrdenVentaNoPagadosFechaPacienteResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosPacienteResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosPacienteResponse")
+    public JAXBElement<ObtenerOrdenVentaNoPagadosPacienteResponse> createObtenerOrdenVentaNoPagadosPacienteResponse(ObtenerOrdenVentaNoPagadosPacienteResponse value) {
+        return new JAXBElement<ObtenerOrdenVentaNoPagadosPacienteResponse>(_ObtenerOrdenVentaNoPagadosPacienteResponse_QNAME, ObtenerOrdenVentaNoPagadosPacienteResponse.class, null, value);
     }
 
     /**
@@ -231,93 +186,30 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Pacientes }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosEnFecha }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "pacientes")
-    public JAXBElement<Pacientes> createPacientes(Pacientes value) {
-        return new JAXBElement<Pacientes>(_Pacientes_QNAME, Pacientes.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosEnFecha")
+    public JAXBElement<ObtenerOrdenVentaNoPagadosEnFecha> createObtenerOrdenVentaNoPagadosEnFecha(ObtenerOrdenVentaNoPagadosEnFecha value) {
+        return new JAXBElement<ObtenerOrdenVentaNoPagadosEnFecha>(_ObtenerOrdenVentaNoPagadosEnFecha_QNAME, ObtenerOrdenVentaNoPagadosEnFecha.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarTodoResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosFechaPaciente }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "listarTodoResponse")
-    public JAXBElement<ListarTodoResponse> createListarTodoResponse(ListarTodoResponse value) {
-        return new JAXBElement<ListarTodoResponse>(_ListarTodoResponse_QNAME, ListarTodoResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosFechaPaciente")
+    public JAXBElement<ObtenerOrdenVentaNoPagadosFechaPaciente> createObtenerOrdenVentaNoPagadosFechaPaciente(ObtenerOrdenVentaNoPagadosFechaPaciente value) {
+        return new JAXBElement<ObtenerOrdenVentaNoPagadosFechaPaciente>(_ObtenerOrdenVentaNoPagadosFechaPaciente_QNAME, ObtenerOrdenVentaNoPagadosFechaPaciente.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarEnVentaConceptosResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosPaciente }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "encontrarEnVentaConceptosResponse")
-    public JAXBElement<EncontrarEnVentaConceptosResponse> createEncontrarEnVentaConceptosResponse(EncontrarEnVentaConceptosResponse value) {
-        return new JAXBElement<EncontrarEnVentaConceptosResponse>(_EncontrarEnVentaConceptosResponse_QNAME, EncontrarEnVentaConceptosResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EquipoDicom }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "equipoDicom")
-    public JAXBElement<EquipoDicom> createEquipoDicom(EquipoDicom value) {
-        return new JAXBElement<EquipoDicom>(_EquipoDicom_QNAME, EquipoDicom.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarPacientePorId }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "encontrarPacientePorId")
-    public JAXBElement<EncontrarPacientePorId> createEncontrarPacientePorId(EncontrarPacientePorId value) {
-        return new JAXBElement<EncontrarPacientePorId>(_EncontrarPacientePorId_QNAME, EncontrarPacientePorId.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VentaConceptos }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "ventaConceptos")
-    public JAXBElement<VentaConceptos> createVentaConceptos(VentaConceptos value) {
-        return new JAXBElement<VentaConceptos>(_VentaConceptos_QNAME, VentaConceptos.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListarTodo }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "listarTodo")
-    public JAXBElement<ListarTodo> createListarTodo(ListarTodo value) {
-        return new JAXBElement<ListarTodo>(_ListarTodo_QNAME, ListarTodo.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarPacientePorCurp }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "encontrarPacientePorCurp")
-    public JAXBElement<EncontrarPacientePorCurp> createEncontrarPacientePorCurp(EncontrarPacientePorCurp value) {
-        return new JAXBElement<EncontrarPacientePorCurp>(_EncontrarPacientePorCurp_QNAME, EncontrarPacientePorCurp.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Areas }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "areas")
-    public JAXBElement<Areas> createAreas(Areas value) {
-        return new JAXBElement<Areas>(_Areas_QNAME, Areas.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Institucion }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "institucion")
-    public JAXBElement<Institucion> createInstitucion(Institucion value) {
-        return new JAXBElement<Institucion>(_Institucion_QNAME, Institucion.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosPaciente")
+    public JAXBElement<ObtenerOrdenVentaNoPagadosPaciente> createObtenerOrdenVentaNoPagadosPaciente(ObtenerOrdenVentaNoPagadosPaciente value) {
+        return new JAXBElement<ObtenerOrdenVentaNoPagadosPaciente>(_ObtenerOrdenVentaNoPagadosPaciente_QNAME, ObtenerOrdenVentaNoPagadosPaciente.class, null, value);
     }
 
 }

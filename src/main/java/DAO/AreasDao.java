@@ -6,15 +6,17 @@
 package DAO;
 
 import clientews.servicio.Areas;
-
+import java.util.List;
 
 /**
  *
  * @author alanm
  */
 public interface AreasDao {
-     
-public Areas encontrarPorId(Integer id);
-     
-       
+
+    public Areas encontrarPorId(Integer id);
+
+    public List<Areas> listar();
+    
+    public Areas encontrarPorNombre(String nombre);
 }

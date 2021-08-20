@@ -49,14 +49,14 @@ public interface VentaConceptosServiceWs {
     /**
      * 
      * @return
-     *     returns java.util.List<clientews.servicio.Institucion>
+     *     returns boolean
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarTodo", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodo")
-    @ResponseWrapper(localName = "listarTodoResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodoResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/listarTodoRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/listarTodoResponse")
-    public List<Institucion> listarTodo();
+    @RequestWrapper(localName = "actualizarIdOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarIdOrdenVenta")
+    @ResponseWrapper(localName = "actualizarIdOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarIdOrdenVentaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/actualizarIdOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/actualizarIdOrdenVentaResponse")
+    public boolean actualizarIdOrdenVenta();
 
     /**
      * 
@@ -76,14 +76,14 @@ public interface VentaConceptosServiceWs {
     /**
      * 
      * @return
-     *     returns boolean
+     *     returns java.util.List<clientews.servicio.Pacientes>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "actualizarIdOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarIdOrdenVenta")
-    @ResponseWrapper(localName = "actualizarIdOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarIdOrdenVentaResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/actualizarIdOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/actualizarIdOrdenVentaResponse")
-    public boolean actualizarIdOrdenVenta();
+    @RequestWrapper(localName = "listarTodo", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodo")
+    @ResponseWrapper(localName = "listarTodoResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodoResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/listarTodoRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/listarTodoResponse")
+    public List<Pacientes> listarTodo();
 
     /**
      * 
@@ -105,5 +105,20 @@ public interface VentaConceptosServiceWs {
         String arg1,
         @WebParam(name = "arg2", targetNamespace = "")
         String arg2);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<clientews.servicio.VentaConceptos>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontarVentaConceptosPorIdOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontarVentaConceptosPorIdOrdenVenta")
+    @ResponseWrapper(localName = "encontarVentaConceptosPorIdOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontarVentaConceptosPorIdOrdenVentaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontarVentaConceptosPorIdOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontarVentaConceptosPorIdOrdenVentaResponse")
+    public List<VentaConceptos> encontarVentaConceptosPorIdOrdenVenta(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Long arg0);
 
 }
