@@ -24,16 +24,14 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _RegistrarOrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarOrdenVenta");
-    private final static QName _ObtenerOrdenVentaNoPagadosEnFechaResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosEnFechaResponse");
-    private final static QName _CatalogoFormaPago_QNAME = new QName("http://servicio.sga.gm.com.mx/", "catalogoFormaPago");
-    private final static QName _RegistrarOrdenVentaResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarOrdenVentaResponse");
-    private final static QName _ObtenerOrdenVentaNoPagadosFechaPacienteResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosFechaPacienteResponse");
-    private final static QName _ObtenerOrdenVentaNoPagadosPacienteResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosPacienteResponse");
-    private final static QName _OrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "ordenVenta");
-    private final static QName _ObtenerOrdenVentaNoPagadosEnFecha_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosEnFecha");
-    private final static QName _ObtenerOrdenVentaNoPagadosFechaPaciente_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosFechaPaciente");
-    private final static QName _ObtenerOrdenVentaNoPagadosPaciente_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerOrdenVentaNoPagadosPaciente");
+    private final static QName _Conceptos_QNAME = new QName("http://servicio.sga.gm.com.mx/", "conceptos");
+    private final static QName _ConceptosInstitucion_QNAME = new QName("http://servicio.sga.gm.com.mx/", "conceptosInstitucion");
+    private final static QName _ActualizarConceptosInstitucion_QNAME = new QName("http://servicio.sga.gm.com.mx/", "actualizarConceptosInstitucion");
+    private final static QName _RegistrarConceptosInstitucion_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarConceptosInstitucion");
+    private final static QName _Areas_QNAME = new QName("http://servicio.sga.gm.com.mx/", "areas");
+    private final static QName _RegistrarConceptosInstitucionResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarConceptosInstitucionResponse");
+    private final static QName _ActualizarConceptosInstitucionResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "actualizarConceptosInstitucionResponse");
+    private final static QName _Institucion_QNAME = new QName("http://servicio.sga.gm.com.mx/", "institucion");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: clientews.servicio
@@ -43,173 +41,139 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ObtenerOrdenVentaNoPagadosFechaPacienteResponse }
+     * Create an instance of {@link ActualizarConceptosInstitucion }
      * 
      */
-    public ObtenerOrdenVentaNoPagadosFechaPacienteResponse createObtenerOrdenVentaNoPagadosFechaPacienteResponse() {
-        return new ObtenerOrdenVentaNoPagadosFechaPacienteResponse();
+    public ActualizarConceptosInstitucion createActualizarConceptosInstitucion() {
+        return new ActualizarConceptosInstitucion();
     }
 
     /**
-     * Create an instance of {@link ObtenerOrdenVentaNoPagadosPacienteResponse }
+     * Create an instance of {@link ConceptosInstitucion }
      * 
      */
-    public ObtenerOrdenVentaNoPagadosPacienteResponse createObtenerOrdenVentaNoPagadosPacienteResponse() {
-        return new ObtenerOrdenVentaNoPagadosPacienteResponse();
+    public ConceptosInstitucion createConceptosInstitucion() {
+        return new ConceptosInstitucion();
     }
 
     /**
-     * Create an instance of {@link CatalogoFormaPago }
+     * Create an instance of {@link Conceptos }
      * 
      */
-    public CatalogoFormaPago createCatalogoFormaPago() {
-        return new CatalogoFormaPago();
+    public Conceptos createConceptos() {
+        return new Conceptos();
     }
 
     /**
-     * Create an instance of {@link RegistrarOrdenVentaResponse }
+     * Create an instance of {@link Institucion }
      * 
      */
-    public RegistrarOrdenVentaResponse createRegistrarOrdenVentaResponse() {
-        return new RegistrarOrdenVentaResponse();
+    public Institucion createInstitucion() {
+        return new Institucion();
     }
 
     /**
-     * Create an instance of {@link ObtenerOrdenVentaNoPagadosEnFechaResponse }
+     * Create an instance of {@link ActualizarConceptosInstitucionResponse }
      * 
      */
-    public ObtenerOrdenVentaNoPagadosEnFechaResponse createObtenerOrdenVentaNoPagadosEnFechaResponse() {
-        return new ObtenerOrdenVentaNoPagadosEnFechaResponse();
+    public ActualizarConceptosInstitucionResponse createActualizarConceptosInstitucionResponse() {
+        return new ActualizarConceptosInstitucionResponse();
     }
 
     /**
-     * Create an instance of {@link RegistrarOrdenVenta }
+     * Create an instance of {@link Areas }
      * 
      */
-    public RegistrarOrdenVenta createRegistrarOrdenVenta() {
-        return new RegistrarOrdenVenta();
+    public Areas createAreas() {
+        return new Areas();
     }
 
     /**
-     * Create an instance of {@link ObtenerOrdenVentaNoPagadosPaciente }
+     * Create an instance of {@link RegistrarConceptosInstitucionResponse }
      * 
      */
-    public ObtenerOrdenVentaNoPagadosPaciente createObtenerOrdenVentaNoPagadosPaciente() {
-        return new ObtenerOrdenVentaNoPagadosPaciente();
+    public RegistrarConceptosInstitucionResponse createRegistrarConceptosInstitucionResponse() {
+        return new RegistrarConceptosInstitucionResponse();
     }
 
     /**
-     * Create an instance of {@link ObtenerOrdenVentaNoPagadosEnFecha }
+     * Create an instance of {@link RegistrarConceptosInstitucion }
      * 
      */
-    public ObtenerOrdenVentaNoPagadosEnFecha createObtenerOrdenVentaNoPagadosEnFecha() {
-        return new ObtenerOrdenVentaNoPagadosEnFecha();
+    public RegistrarConceptosInstitucion createRegistrarConceptosInstitucion() {
+        return new RegistrarConceptosInstitucion();
     }
 
     /**
-     * Create an instance of {@link ObtenerOrdenVentaNoPagadosFechaPaciente }
+     * Create an instance of {@link JAXBElement }{@code <}{@link Conceptos }{@code >}}
      * 
      */
-    public ObtenerOrdenVentaNoPagadosFechaPaciente createObtenerOrdenVentaNoPagadosFechaPaciente() {
-        return new ObtenerOrdenVentaNoPagadosFechaPaciente();
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "conceptos")
+    public JAXBElement<Conceptos> createConceptos(Conceptos value) {
+        return new JAXBElement<Conceptos>(_Conceptos_QNAME, Conceptos.class, null, value);
     }
 
     /**
-     * Create an instance of {@link OrdenVenta }
+     * Create an instance of {@link JAXBElement }{@code <}{@link ConceptosInstitucion }{@code >}}
      * 
      */
-    public OrdenVenta createOrdenVenta() {
-        return new OrdenVenta();
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "conceptosInstitucion")
+    public JAXBElement<ConceptosInstitucion> createConceptosInstitucion(ConceptosInstitucion value) {
+        return new JAXBElement<ConceptosInstitucion>(_ConceptosInstitucion_QNAME, ConceptosInstitucion.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarOrdenVenta }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ActualizarConceptosInstitucion }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarOrdenVenta")
-    public JAXBElement<RegistrarOrdenVenta> createRegistrarOrdenVenta(RegistrarOrdenVenta value) {
-        return new JAXBElement<RegistrarOrdenVenta>(_RegistrarOrdenVenta_QNAME, RegistrarOrdenVenta.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "actualizarConceptosInstitucion")
+    public JAXBElement<ActualizarConceptosInstitucion> createActualizarConceptosInstitucion(ActualizarConceptosInstitucion value) {
+        return new JAXBElement<ActualizarConceptosInstitucion>(_ActualizarConceptosInstitucion_QNAME, ActualizarConceptosInstitucion.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosEnFechaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarConceptosInstitucion }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosEnFechaResponse")
-    public JAXBElement<ObtenerOrdenVentaNoPagadosEnFechaResponse> createObtenerOrdenVentaNoPagadosEnFechaResponse(ObtenerOrdenVentaNoPagadosEnFechaResponse value) {
-        return new JAXBElement<ObtenerOrdenVentaNoPagadosEnFechaResponse>(_ObtenerOrdenVentaNoPagadosEnFechaResponse_QNAME, ObtenerOrdenVentaNoPagadosEnFechaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarConceptosInstitucion")
+    public JAXBElement<RegistrarConceptosInstitucion> createRegistrarConceptosInstitucion(RegistrarConceptosInstitucion value) {
+        return new JAXBElement<RegistrarConceptosInstitucion>(_RegistrarConceptosInstitucion_QNAME, RegistrarConceptosInstitucion.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CatalogoFormaPago }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Areas }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "catalogoFormaPago")
-    public JAXBElement<CatalogoFormaPago> createCatalogoFormaPago(CatalogoFormaPago value) {
-        return new JAXBElement<CatalogoFormaPago>(_CatalogoFormaPago_QNAME, CatalogoFormaPago.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "areas")
+    public JAXBElement<Areas> createAreas(Areas value) {
+        return new JAXBElement<Areas>(_Areas_QNAME, Areas.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarOrdenVentaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarConceptosInstitucionResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarOrdenVentaResponse")
-    public JAXBElement<RegistrarOrdenVentaResponse> createRegistrarOrdenVentaResponse(RegistrarOrdenVentaResponse value) {
-        return new JAXBElement<RegistrarOrdenVentaResponse>(_RegistrarOrdenVentaResponse_QNAME, RegistrarOrdenVentaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarConceptosInstitucionResponse")
+    public JAXBElement<RegistrarConceptosInstitucionResponse> createRegistrarConceptosInstitucionResponse(RegistrarConceptosInstitucionResponse value) {
+        return new JAXBElement<RegistrarConceptosInstitucionResponse>(_RegistrarConceptosInstitucionResponse_QNAME, RegistrarConceptosInstitucionResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosFechaPacienteResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ActualizarConceptosInstitucionResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosFechaPacienteResponse")
-    public JAXBElement<ObtenerOrdenVentaNoPagadosFechaPacienteResponse> createObtenerOrdenVentaNoPagadosFechaPacienteResponse(ObtenerOrdenVentaNoPagadosFechaPacienteResponse value) {
-        return new JAXBElement<ObtenerOrdenVentaNoPagadosFechaPacienteResponse>(_ObtenerOrdenVentaNoPagadosFechaPacienteResponse_QNAME, ObtenerOrdenVentaNoPagadosFechaPacienteResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "actualizarConceptosInstitucionResponse")
+    public JAXBElement<ActualizarConceptosInstitucionResponse> createActualizarConceptosInstitucionResponse(ActualizarConceptosInstitucionResponse value) {
+        return new JAXBElement<ActualizarConceptosInstitucionResponse>(_ActualizarConceptosInstitucionResponse_QNAME, ActualizarConceptosInstitucionResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosPacienteResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Institucion }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosPacienteResponse")
-    public JAXBElement<ObtenerOrdenVentaNoPagadosPacienteResponse> createObtenerOrdenVentaNoPagadosPacienteResponse(ObtenerOrdenVentaNoPagadosPacienteResponse value) {
-        return new JAXBElement<ObtenerOrdenVentaNoPagadosPacienteResponse>(_ObtenerOrdenVentaNoPagadosPacienteResponse_QNAME, ObtenerOrdenVentaNoPagadosPacienteResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrdenVenta }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "ordenVenta")
-    public JAXBElement<OrdenVenta> createOrdenVenta(OrdenVenta value) {
-        return new JAXBElement<OrdenVenta>(_OrdenVenta_QNAME, OrdenVenta.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosEnFecha }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosEnFecha")
-    public JAXBElement<ObtenerOrdenVentaNoPagadosEnFecha> createObtenerOrdenVentaNoPagadosEnFecha(ObtenerOrdenVentaNoPagadosEnFecha value) {
-        return new JAXBElement<ObtenerOrdenVentaNoPagadosEnFecha>(_ObtenerOrdenVentaNoPagadosEnFecha_QNAME, ObtenerOrdenVentaNoPagadosEnFecha.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosFechaPaciente }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosFechaPaciente")
-    public JAXBElement<ObtenerOrdenVentaNoPagadosFechaPaciente> createObtenerOrdenVentaNoPagadosFechaPaciente(ObtenerOrdenVentaNoPagadosFechaPaciente value) {
-        return new JAXBElement<ObtenerOrdenVentaNoPagadosFechaPaciente>(_ObtenerOrdenVentaNoPagadosFechaPaciente_QNAME, ObtenerOrdenVentaNoPagadosFechaPaciente.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerOrdenVentaNoPagadosPaciente }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerOrdenVentaNoPagadosPaciente")
-    public JAXBElement<ObtenerOrdenVentaNoPagadosPaciente> createObtenerOrdenVentaNoPagadosPaciente(ObtenerOrdenVentaNoPagadosPaciente value) {
-        return new JAXBElement<ObtenerOrdenVentaNoPagadosPaciente>(_ObtenerOrdenVentaNoPagadosPaciente_QNAME, ObtenerOrdenVentaNoPagadosPaciente.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "institucion")
+    public JAXBElement<Institucion> createInstitucion(Institucion value) {
+        return new JAXBElement<Institucion>(_Institucion_QNAME, Institucion.class, null, value);
     }
 
 }

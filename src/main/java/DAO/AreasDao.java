@@ -6,6 +6,7 @@
 package DAO;
 
 import clientews.servicio.Areas;
+import clientews.servicio.Institucion;
 import java.util.List;
 
 /**
@@ -19,4 +20,6 @@ public interface AreasDao {
     public List<Areas> listar();
     
     public Areas encontrarPorNombre(String nombre);
+    
+    public List<Areas> encontrarPorInstitucion(Institucion institucion);
 }

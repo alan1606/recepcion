@@ -27,13 +27,13 @@ public interface CatalogoFormaPagoServiceWs {
     /**
      * 
      * @return
-     *     returns java.util.List<clientews.servicio.Pacientes>
+     *     returns java.util.List<clientews.servicio.VentaConceptos>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "listarTodo", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodo")
     @ResponseWrapper(localName = "listarTodoResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodoResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/listarTodoRequest", output = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/listarTodoResponse")
-    public List<Pacientes> listarTodo();
+    public List<VentaConceptos> listarTodo();
 
 }

@@ -35,6 +35,63 @@ public interface VentaConceptosServiceWs {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarVentaConceptosPorInstitucionFechas", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarVentaConceptosPorInstitucionFechas")
+    @ResponseWrapper(localName = "encontrarVentaConceptosPorInstitucionFechasResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarVentaConceptosPorInstitucionFechasResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontrarVentaConceptosPorInstitucionFechasRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontrarVentaConceptosPorInstitucionFechasResponse")
+    public List<VentaConceptos> encontrarVentaConceptosPorInstitucionFechas(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Institucion arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2);
+
+    /**
+     * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.util.List<clientews.servicio.VentaConceptos>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarAgendadosPorAreaEquipoDicomFecha", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarAgendadosPorAreaEquipoDicomFecha")
+    @ResponseWrapper(localName = "encontrarAgendadosPorAreaEquipoDicomFechaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarAgendadosPorAreaEquipoDicomFechaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontrarAgendadosPorAreaEquipoDicomFechaRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontrarAgendadosPorAreaEquipoDicomFechaResponse")
+    public List<VentaConceptos> encontrarAgendadosPorAreaEquipoDicomFecha(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        Long arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<clientews.servicio.VentaConceptos>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontarVentaConceptosPorIdOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontarVentaConceptosPorIdOrdenVenta")
+    @ResponseWrapper(localName = "encontarVentaConceptosPorIdOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontarVentaConceptosPorIdOrdenVentaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontarVentaConceptosPorIdOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontarVentaConceptosPorIdOrdenVentaResponse")
+    public List<VentaConceptos> encontarVentaConceptosPorIdOrdenVenta(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Long arg0);
+
+    /**
+     * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.util.List<clientews.servicio.VentaConceptos>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "encontrarVentaConceptosPorPacienteFechaEnWorklist", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarVentaConceptosPorPacienteFechaEnWorklist")
     @ResponseWrapper(localName = "encontrarVentaConceptosPorPacienteFechaEnWorklistResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarVentaConceptosPorPacienteFechaEnWorklistResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontrarVentaConceptosPorPacienteFechaEnWorklistRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontrarVentaConceptosPorPacienteFechaEnWorklistResponse")
@@ -48,15 +105,27 @@ public interface VentaConceptosServiceWs {
 
     /**
      * 
+     * @param arg3
+     * @param arg2
+     * @param arg1
+     * @param arg0
      * @return
-     *     returns boolean
+     *     returns java.util.List<clientews.servicio.VentaConceptos>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "actualizarIdOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarIdOrdenVenta")
-    @ResponseWrapper(localName = "actualizarIdOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarIdOrdenVentaResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/actualizarIdOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/actualizarIdOrdenVentaResponse")
-    public boolean actualizarIdOrdenVenta();
+    @RequestWrapper(localName = "encontrarAgendadosPorAreaEquipoDicomFechaInstitucion", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarAgendadosPorAreaEquipoDicomFechaInstitucion")
+    @ResponseWrapper(localName = "encontrarAgendadosPorAreaEquipoDicomFechaInstitucionResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarAgendadosPorAreaEquipoDicomFechaInstitucionResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontrarAgendadosPorAreaEquipoDicomFechaInstitucionRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontrarAgendadosPorAreaEquipoDicomFechaInstitucionResponse")
+    public List<VentaConceptos> encontrarAgendadosPorAreaEquipoDicomFechaInstitucion(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        Long arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        Long arg3);
 
     /**
      * 
@@ -76,49 +145,25 @@ public interface VentaConceptosServiceWs {
     /**
      * 
      * @return
-     *     returns java.util.List<clientews.servicio.Pacientes>
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "actualizarIdOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarIdOrdenVenta")
+    @ResponseWrapper(localName = "actualizarIdOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarIdOrdenVentaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/actualizarIdOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/actualizarIdOrdenVentaResponse")
+    public boolean actualizarIdOrdenVenta();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<clientews.servicio.VentaConceptos>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "listarTodo", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodo")
     @ResponseWrapper(localName = "listarTodoResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodoResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/listarTodoRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/listarTodoResponse")
-    public List<Pacientes> listarTodo();
-
-    /**
-     * 
-     * @param arg2
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns java.util.List<clientews.servicio.VentaConceptos>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarVentaConceptosPorInstitucionFechas", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarVentaConceptosPorInstitucionFechas")
-    @ResponseWrapper(localName = "encontrarVentaConceptosPorInstitucionFechasResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarVentaConceptosPorInstitucionFechasResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontrarVentaConceptosPorInstitucionFechasRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontrarVentaConceptosPorInstitucionFechasResponse")
-    public List<VentaConceptos> encontrarVentaConceptosPorInstitucionFechas(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Institucion arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<clientews.servicio.VentaConceptos>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontarVentaConceptosPorIdOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontarVentaConceptosPorIdOrdenVenta")
-    @ResponseWrapper(localName = "encontarVentaConceptosPorIdOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontarVentaConceptosPorIdOrdenVentaResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontarVentaConceptosPorIdOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/encontarVentaConceptosPorIdOrdenVentaResponse")
-    public List<VentaConceptos> encontarVentaConceptosPorIdOrdenVenta(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Long arg0);
+    public List<VentaConceptos> listarTodo();
 
 }

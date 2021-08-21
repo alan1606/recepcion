@@ -4,7 +4,9 @@ package clientews.servicio;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -30,7 +32,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="descDServ" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *         &lt;element name="estatusOv" type="{http://www.w3.org/2001/XMLSchema}short"/>
  *         &lt;element name="facturadaOv" type="{http://www.w3.org/2001/XMLSchema}short"/>
- *         &lt;element name="fechaVentaOv" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="fechaVentaOv" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="granTotalOv" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
  *         &lt;element name="idFormaPago" type="{http://servicio.sga.gm.com.mx/}catalogoFormaPago" minOccurs="0"/>
  *         &lt;element name="idOv" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
@@ -165,7 +167,8 @@ public class OrdenVenta {
     protected float descDServ;
     protected short estatusOv;
     protected short facturadaOv;
-    protected String fechaVentaOv;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar fechaVentaOv;
     protected Float granTotalOv;
     protected CatalogoFormaPago idFormaPago;
     protected Long idOv;
@@ -477,10 +480,10 @@ public class OrdenVenta {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public String getFechaVentaOv() {
+    public XMLGregorianCalendar getFechaVentaOv() {
         return fechaVentaOv;
     }
 
@@ -489,10 +492,10 @@ public class OrdenVenta {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setFechaVentaOv(String value) {
+    public void setFechaVentaOv(XMLGregorianCalendar value) {
         this.fechaVentaOv = value;
     }
 

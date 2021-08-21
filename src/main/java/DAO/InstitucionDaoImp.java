@@ -15,7 +15,7 @@ import javax.xml.ws.BindingProvider;
  *
  * @author alanm
  */
-public class InstitucionDaoImp implements InstitucionDao{
+public class InstitucionDaoImp implements InstitucionDao {
 
     private InstitucionServiceWs servicio = null;
 
@@ -26,9 +26,7 @@ public class InstitucionDaoImp implements InstitucionDao{
             ((BindingProvider) servicio).getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, LoginData.password);
         }
     }
-    
-    
-    
+
     @Override
     public List<Institucion> listar() {
         return servicio.listarTodasInstituciones();
@@ -36,12 +34,14 @@ public class InstitucionDaoImp implements InstitucionDao{
 
     @Override
     public Institucion encontrarPorId(Institucion institucion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return servicio.encontrarInstitucionPorId(institucion);
     }
 
     @Override
     public Institucion encontrarPorNombre(Institucion institucion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Institucion encontrada = servicio.encontrarInstitucionPorNombre(institucion);
+        System.out.println(encontrada.getIdInstitucion() + " " + encontrada.getNombreInstitucion());
+        return encontrada;
     }
-    
+
 }

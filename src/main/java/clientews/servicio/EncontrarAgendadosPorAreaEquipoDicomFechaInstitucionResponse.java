@@ -10,12 +10,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para listarTodoResponse complex type.
+ * <p>Clase Java para encontrarAgendadosPorAreaEquipoDicomFechaInstitucionResponse complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="listarTodoResponse">
+ * &lt;complexType name="encontrarAgendadosPorAreaEquipoDicomFechaInstitucionResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -29,10 +29,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "listarTodoResponse", propOrder = {
+@XmlType(name = "encontrarAgendadosPorAreaEquipoDicomFechaInstitucionResponse", propOrder = {
     "_return"
 })
-public class ListarTodoResponse {
+public class EncontrarAgendadosPorAreaEquipoDicomFechaInstitucionResponse {
 
     @XmlElement(name = "return")
     protected List<VentaConceptos> _return;

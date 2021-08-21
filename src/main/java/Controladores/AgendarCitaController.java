@@ -74,7 +74,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
         setRadioNombreEnabled(true);
         cargarInstituciones();
-        cargarAreas();
+
     }
 
     public void iniciar() {
@@ -93,8 +93,17 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             setRadioNombreEnabled(true);
         } else if (e.getSource() == this.vista.comboArea) {
             if (this.vista.comboArea.getSelectedIndex() != 0) {//Se selecciona una opción que es diferente de "Seleccione una opción"
-                cargarEstudiosDeArea(vista.comboArea.getSelectedItem().toString());
+                cargarEstudiosDeAreaInstitucion(vista.comboArea.getSelectedItem().toString(), vista.comboInstitucion.getSelectedItem().toString());
                 cargarSalasDeArea(vista.comboArea.getSelectedItem().toString());
+            }
+        } else if (e.getSource() == this.vista.comboInstitucion) {
+            if (this.vista.comboInstitucion.getSelectedIndex() != 0) //Selección de opción válida
+            {
+                cargarAreas(this.vista.comboInstitucion.getSelectedItem().toString());
+            }
+        } else if (e.getSource() == this.vista.comboSala) {
+            if (todoListoVerificarAgenda()) {
+                agenda();
             }
         }
     }
@@ -190,12 +199,15 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         }
     }
 
-    private void cargarAreas() {
+    private void cargarAreas(String nombreInstitucion) {
+        Institucion institucion = new Institucion();
+        institucion.setNombreInstitucion(nombreInstitucion);
+        institucion = modeloInstituciones.encontrarPorNombre(institucion);
         try {
             JComboBox combo = new JComboBox();
             combo.removeAllItems();
             combo.addItem("SELECCIONE UNA OPCIÓN");
-            for (Areas area : modeloAreas.listar()) {
+            for (Areas area : modeloAreas.encontrarPorInstitucion(institucion)) {
                 combo.addItem(area.getNombreA());
             }
             vista.comboArea.setModel(combo.getModel());
@@ -204,13 +216,18 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         }
     }
 
-    private void cargarEstudiosDeArea(String nombre) {
+    private void cargarEstudiosDeAreaInstitucion(String nombre, String nombreInstitucion) {
         Areas area = modeloAreas.encontrarPorNombre(nombre);
+
+        Institucion institucion = new Institucion();
+        institucion.setNombreInstitucion(nombreInstitucion);
+        institucion = modeloInstituciones.encontrarPorNombre(institucion);
+
         try {
             JComboBox combo = new JComboBox();
             combo.removeAllItems();
             combo.addItem("SELECCIONE UNA OPCIÓN");
-            for (Conceptos concepto : modeloConceptos.encontrarConceptosPorIdArea(area.getIdA())) {
+            for (Conceptos concepto : modeloConceptos.encontrarConceptosPorAreaInstitucion(institucion.getIdInstitucion(), area.getIdA())) {
                 combo.addItem(concepto.getConceptoTo());
             }
             vista.comboEstudio.setModel(combo.getModel());
@@ -221,17 +238,53 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
     private void cargarSalasDeArea(String nombre) {
         Areas area = modeloAreas.encontrarPorNombre(nombre);
+
         try {
             JComboBox combo = new JComboBox();
             combo.removeAllItems();
             combo.addItem("SELECCIONE UNA OPCIÓN");
-            for (EquipoDicom equipo : modeloEquipoDicom.encontrarEquipoDicomPorArea(area) ) {
+            for (EquipoDicom equipo : modeloEquipoDicom.encontrarEquipoDicomPorArea(area)) {
                 combo.addItem(equipo.getNombre());
             }
             vista.comboSala.setModel(combo.getModel());
         } catch (Exception e) {
             e.printStackTrace(System.out);
         }
+    }
+
+    private boolean todoListoVerificarAgenda() {
+        if (vista.comboInstitucion.getSelectedIndex() == 0) {
+            return false;
+        }
+        if(vista.comboArea.getSelectedIndex()==0){
+            return false;
+        }
+        if(vista.comboEstudio.getSelectedIndex()==0){
+            return false;
+        }
+        if(vista.comboSala.getSelectedIndex()==0){
+            return false;
+        }
+        return true;
+    }
+
+    private void agenda() {
+        if(vista.comboInstitucion.getSelectedItem().toString().equals("PARTICULAR")){
+            verificarAgendaParticular();
+        }
+        else{
+            verificarAgendaInstitucion();
+        }
+    }
+
+    private void verificarAgendaParticular() {
+        Institucion particular = new Institucion();
+        particular.setNombreInstitucion("PARTICULAR");
+        
+    }
+
+    private void verificarAgendaInstitucion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

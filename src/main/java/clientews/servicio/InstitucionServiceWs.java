@@ -42,6 +42,18 @@ public interface InstitucionServiceWs {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<clientews.servicio.Institucion>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarTodasInstituciones", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasInstituciones")
+    @ResponseWrapper(localName = "listarTodasInstitucionesResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasInstitucionesResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/listarTodasInstitucionesRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/listarTodasInstitucionesResponse")
+    public List<Institucion> listarTodasInstituciones();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns clientews.servicio.Institucion
@@ -54,17 +66,5 @@ public interface InstitucionServiceWs {
     public Institucion encontrarInstitucionPorNombre(
         @WebParam(name = "arg0", targetNamespace = "")
         Institucion arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<clientews.servicio.Institucion>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarTodasInstituciones", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasInstituciones")
-    @ResponseWrapper(localName = "listarTodasInstitucionesResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasInstitucionesResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/listarTodasInstitucionesRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/listarTodasInstitucionesResponse")
-    public List<Institucion> listarTodasInstituciones();
 
 }

@@ -8,6 +8,7 @@ package DAO;
 import clientews.servicio.Areas;
 import clientews.servicio.AreasServiceImplService;
 import clientews.servicio.AreasServiceWs;
+import clientews.servicio.Institucion;
 import java.util.List;
 import javax.xml.ws.BindingProvider;
 
@@ -42,6 +43,11 @@ public class AreasDaoImpl implements AreasDao {
     @Override
     public Areas encontrarPorNombre(String nombre) {
         return areasService.obtenerAreaPorNombre(nombre);
+    }
+
+    @Override
+    public List<Areas> encontrarPorInstitucion(Institucion institucion) {
+        return areasService.obtenerAreasPorInstitucion(institucion.getIdInstitucion());
     }
 
 }

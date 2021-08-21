@@ -27,6 +27,24 @@ public interface OrdenVentaServiceWs {
 
     /**
      * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.util.List<clientews.servicio.OrdenVenta>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerOrdenVentaNoPagadosFechaPaciente", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaNoPagadosFechaPaciente")
+    @ResponseWrapper(localName = "obtenerOrdenVentaNoPagadosFechaPacienteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaNoPagadosFechaPacienteResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaNoPagadosFechaPacienteRequest", output = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaNoPagadosFechaPacienteResponse")
+    public List<OrdenVenta> obtenerOrdenVentaNoPagadosFechaPaciente(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        Long arg1);
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns java.util.List<clientews.servicio.OrdenVenta>
@@ -54,24 +72,6 @@ public interface OrdenVentaServiceWs {
     public List<OrdenVenta> obtenerOrdenVentaNoPagadosPaciente(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns java.util.List<clientews.servicio.OrdenVenta>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerOrdenVentaNoPagadosFechaPaciente", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaNoPagadosFechaPaciente")
-    @ResponseWrapper(localName = "obtenerOrdenVentaNoPagadosFechaPacienteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaNoPagadosFechaPacienteResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaNoPagadosFechaPacienteRequest", output = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaNoPagadosFechaPacienteResponse")
-    public List<OrdenVenta> obtenerOrdenVentaNoPagadosFechaPaciente(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        Long arg1);
 
     /**
      * 
