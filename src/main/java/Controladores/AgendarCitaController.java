@@ -15,20 +15,29 @@ import DAO.InstitucionDao;
 import DAO.InstitucionDaoImp;
 import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
+import DAO.VentaConceptosDao;
+import DAO.VentaConceptosDaoImp;
 import Tables.TablePacientes;
 import Vistas.AgendarCita;
 import clientews.servicio.Areas;
 import clientews.servicio.Conceptos;
 import clientews.servicio.EquipoDicom;
 import clientews.servicio.Institucion;
+import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  *
@@ -42,6 +51,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private ConceptosDao modeloConceptos;
     private EquipoDicomDao modeloEquipoDicom;
     private AreasDao modeloAreas;
+    private VentaConceptosDao modeloVentaConceptos;
 
     public AgendarCitaController(AgendarCita vista) {
         this.vista = vista;
@@ -51,6 +61,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         modeloConceptos = new ConceptosDaoImp();
         modeloEquipoDicom = new EquipoDicomDaoImp();
         modeloAreas = new AreasDaoImpl();
+        modeloVentaConceptos = new VentaConceptosDaoImp();
 
         this.vista.radioNombre.addActionListener(this);
         this.vista.radioCurp.addActionListener(this);
@@ -256,35 +267,85 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         if (vista.comboInstitucion.getSelectedIndex() == 0) {
             return false;
         }
-        if(vista.comboArea.getSelectedIndex()==0){
+        if (vista.comboArea.getSelectedIndex() == 0) {
             return false;
         }
-        if(vista.comboEstudio.getSelectedIndex()==0){
+        if (vista.comboEstudio.getSelectedIndex() == 0) {
             return false;
         }
-        if(vista.comboSala.getSelectedIndex()==0){
+        if (vista.comboSala.getSelectedIndex() == 0) {
+            return false;
+        }
+        if (vista.fecha.getDateFormatString().equals("")) {
             return false;
         }
         return true;
     }
 
     private void agenda() {
-        if(vista.comboInstitucion.getSelectedItem().toString().equals("PARTICULAR")){
+        if (vista.comboInstitucion.getSelectedItem().toString().equals("PARTICULAR")) {
             verificarAgendaParticular();
-        }
-        else{
+        } else {
             verificarAgendaInstitucion();
         }
     }
 
     private void verificarAgendaParticular() {
-        Institucion particular = new Institucion();
-        particular.setNombreInstitucion("PARTICULAR");
+        Areas area = modeloAreas.encontrarPorNombre(vista.comboArea.getSelectedItem().toString());
+        EquipoDicom sala = modeloEquipoDicom.encontrarEquipoDicomPorNombre(vista.comboSala.getSelectedItem().toString());
+        
+        int horaInicio = horaAInt(area.getHoraInicio().toString());
+        int horaFin = horaAInt(area.getHoraFin().toString());
+
+        JOptionPane.showMessageDialog(null, horaInicio + " - " + horaFin);
+        int duracion = area.getDuracionMinutos();
+
+        String fecha = dateToString(vista.fecha.getDate().getTime());
+        
+        List<VentaConceptos> agendados = modeloVentaConceptos.findAgendadosByAreaEquipoDicomFecha(area.getIdA(), sala.getIdEquipo(), fecha);
+        
+        for(VentaConceptos venta : agendados){
+            JOptionPane.showMessageDialog(null,venta);
+        }
+        
+        List<Integer> horas = new ArrayList<>();
+        
+        for(VentaConceptos venta : agendados){
+            JOptionPane.showMessageDialog(null,venta.getHoraAsignado().toString());
+            horas.add(horaAInt(venta.getHoraAsignado().toString()));
+        }
+        
         
     }
 
     private void verificarAgendaInstitucion() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private int horaAInt(String hora) {
+        String horasString = "";
+        String minutosString = "";
+        int horaInt = 0;
+        int minutosInt = 0;
+        for (int i = 11; i < 13; i++) {
+            horasString += hora.charAt(i);
+        }
+        for (int i = 14; i < 16; i++) {
+            minutosString += hora.charAt(i);
+        }
+        try {
+            horaInt = Integer.parseInt(horasString);
+            minutosInt = Integer.parseInt(minutosString);
+        } catch (Exception e) {
+        }
+
+        return ((horaInt * 100) + minutosInt);
+    }
+
+    private String dateToString(Long date) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String strDate = dateFormat.format(date);
+        return strDate;
     }
 
 }

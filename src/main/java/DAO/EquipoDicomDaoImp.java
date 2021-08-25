@@ -48,5 +48,10 @@ public class EquipoDicomDaoImp implements EquipoDicomDao{
     public List<EquipoDicom> encontrarEquipoDicomPorIdArea(Integer idArea) {
         return servicio.encontrarEquipoDicomPorIdArea(idArea);
     }
+
+    @Override
+    public EquipoDicom encontrarEquipoDicomPorNombre(String nombre) {
+        return servicio.encontrarEquipoDicomPorNombre(nombre);
+    }
     
 }

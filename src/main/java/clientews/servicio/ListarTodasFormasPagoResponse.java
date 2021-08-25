@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para listarTodoResponse complex type.
+ * <p>Clase Java para listarTodasFormasPagoResponse complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="listarTodoResponse">
+ * &lt;complexType name="listarTodasFormasPagoResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://servicio.sga.gm.com.mx/}ventaConceptos" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://servicio.sga.gm.com.mx/}catalogoFormaPago" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,13 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "listarTodoResponse", propOrder = {
+@XmlType(name = "listarTodasFormasPagoResponse", propOrder = {
     "_return"
 })
-public class ListarTodoResponse {
+public class ListarTodasFormasPagoResponse {
 
     @XmlElement(name = "return")
-    protected List<VentaConceptos> _return;
+    protected List<CatalogoFormaPago> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class ListarTodoResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link VentaConceptos }
+     * {@link CatalogoFormaPago }
      * 
      * 
      */
-    public List<VentaConceptos> getReturn() {
+    public List<CatalogoFormaPago> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<VentaConceptos>();
+            _return = new ArrayList<CatalogoFormaPago>();
         }
         return this._return;
     }

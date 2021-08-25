@@ -54,7 +54,7 @@ public class AgendarCita extends javax.swing.JFrame {
         btnQuitar = new javax.swing.JButton();
         btnNuevoPaciente = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        fecha = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -130,7 +130,7 @@ public class AgendarCita extends javax.swing.JFrame {
 
         jLabel5.setText("Fecha");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, -1, 20));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 670, 210, 20));
+        jPanel1.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 670, 210, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -189,7 +189,7 @@ public class AgendarCita extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> comboHora;
     public javax.swing.JComboBox<String> comboInstitucion;
     public javax.swing.JComboBox<String> comboSala;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    public com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
