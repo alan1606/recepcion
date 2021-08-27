@@ -5,7 +5,9 @@
  */
 package DAO;
 
+import clientews.servicio.Conceptos;
 import clientews.servicio.Institucion;
+import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
 import clientews.servicio.VentaConceptos;
 import clientews.servicio.VentaConceptosServiceImplService;
@@ -52,12 +54,12 @@ public class VentaConceptosDaoImp implements VentaConceptosDao{
 
     @Override
     public void registrarVentaConceptos(VentaConceptos ventaConceptos) {
-       // servicio.
+       servicio.registrarVentaConceptos(ventaConceptos);
     }
 
     @Override
     public void registrarVentaConceptos(List<VentaConceptos> ventaConceptos) {
-       
+       servicio.registrarVentaConceptosList(ventaConceptos);
     }
 
     @Override
@@ -78,6 +80,11 @@ public class VentaConceptosDaoImp implements VentaConceptosDao{
     @Override
     public List<VentaConceptos> findAgendadosByAreaEquipoDicomFechaInstitucion(Integer idArea, Long idEquipoDicom, String fecha, Long idInstitucion) {
         return servicio.encontrarAgendadosPorAreaEquipoDicomFechaInstitucion(idArea, idInstitucion, fecha, idInstitucion);
+    }
+
+    @Override
+    public VentaConceptos encontrarVentaConceptoPorOrdenVentaConceptoHoraAsignado(OrdenVenta ordenVenta, Conceptos conceptos, String horaAsingnado) {
+        return servicio.encontrarVentaConceptoPorOrdenVentaConceptoHoraAsignado(ordenVenta, conceptos, horaAsingnado);
     }
     
 }

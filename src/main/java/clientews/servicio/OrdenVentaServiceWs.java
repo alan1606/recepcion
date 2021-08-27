@@ -27,21 +27,6 @@ public interface OrdenVentaServiceWs {
 
     /**
      * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<clientews.servicio.OrdenVenta>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerOrdenVentaNoPagadosEnFecha", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaNoPagadosEnFecha")
-    @ResponseWrapper(localName = "obtenerOrdenVentaNoPagadosEnFechaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaNoPagadosEnFechaResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaNoPagadosEnFechaRequest", output = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaNoPagadosEnFechaResponse")
-    public List<OrdenVenta> obtenerOrdenVentaNoPagadosEnFecha(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
      * @param arg1
      * @param arg0
      * @return
@@ -70,6 +55,33 @@ public interface OrdenVentaServiceWs {
     @ResponseWrapper(localName = "obtenerOrdenVentaNoPagadosPacienteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaNoPagadosPacienteResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaNoPagadosPacienteRequest", output = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaNoPagadosPacienteResponse")
     public List<OrdenVenta> obtenerOrdenVentaNoPagadosPaciente(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @return
+     *     returns clientews.servicio.OrdenVenta
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerUltimaOrdenVentaRegistrada", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerUltimaOrdenVentaRegistrada")
+    @ResponseWrapper(localName = "obtenerUltimaOrdenVentaRegistradaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerUltimaOrdenVentaRegistradaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerUltimaOrdenVentaRegistradaRequest", output = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerUltimaOrdenVentaRegistradaResponse")
+    public OrdenVenta obtenerUltimaOrdenVentaRegistrada();
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<clientews.servicio.OrdenVenta>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerOrdenVentaNoPagadosEnFecha", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaNoPagadosEnFecha")
+    @ResponseWrapper(localName = "obtenerOrdenVentaNoPagadosEnFechaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaNoPagadosEnFechaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaNoPagadosEnFechaRequest", output = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaNoPagadosEnFechaResponse")
+    public List<OrdenVenta> obtenerOrdenVentaNoPagadosEnFecha(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
 

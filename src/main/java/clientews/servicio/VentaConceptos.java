@@ -26,7 +26,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="esBeneficioVc" type="{http://www.w3.org/2001/XMLSchema}short"/>
  *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="estatusVc" type="{http://www.w3.org/2001/XMLSchema}short"/>
- *         &lt;element name="fechaAsignado" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="fechaAsignado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="fechaEdo1e" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="fechaEdo2e" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="fechaEdo3e" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
@@ -35,7 +35,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="fechaEdo6e" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="fechaTransfiereVc" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="fechaVentaVc" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="horaAsignado" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="horaAsignado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="idAnesteciologoVc" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="idConceptoEs" type="{http://servicio.sga.gm.com.mx/}conceptos" minOccurs="0"/>
  *         &lt;element name="idConceptosBeneficios" type="{http://www.w3.org/2001/XMLSchema}long"/>
@@ -139,8 +139,7 @@ public class VentaConceptos {
     protected short esBeneficioVc;
     protected String estado;
     protected short estatusVc;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar fechaAsignado;
+    protected String fechaAsignado;
     @XmlElement(name = "fechaEdo1e")
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar fechaEdo1E;
@@ -162,8 +161,7 @@ public class VentaConceptos {
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar fechaTransfiereVc;
     protected String fechaVentaVc;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar horaAsignado;
+    protected String horaAsignado;
     protected Integer idAnesteciologoVc;
     protected Conceptos idConceptoEs;
     protected long idConceptosBeneficios;
@@ -330,10 +328,10 @@ public class VentaConceptos {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getFechaAsignado() {
+    public String getFechaAsignado() {
         return fechaAsignado;
     }
 
@@ -342,10 +340,10 @@ public class VentaConceptos {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setFechaAsignado(XMLGregorianCalendar value) {
+    public void setFechaAsignado(String value) {
         this.fechaAsignado = value;
     }
 
@@ -546,10 +544,10 @@ public class VentaConceptos {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getHoraAsignado() {
+    public String getHoraAsignado() {
         return horaAsignado;
     }
 
@@ -558,10 +556,10 @@ public class VentaConceptos {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setHoraAsignado(XMLGregorianCalendar value) {
+    public void setHoraAsignado(String value) {
         this.horaAsignado = value;
     }
 

@@ -21,4 +21,6 @@ public interface ConceptosDao {
     public List<Conceptos> encontrarConceptosPorIdArea(Integer idArea);
     
     public List<Conceptos> encontrarConceptosPorAreaInstitucion(Long idInstitucion, Integer idArea);
+    
+    public Conceptos encontrarConceptoPorNombre(String nombre);
 }

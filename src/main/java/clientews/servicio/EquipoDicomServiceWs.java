@@ -29,6 +29,21 @@ public interface EquipoDicomServiceWs {
      * 
      * @param arg0
      * @return
+     *     returns clientews.servicio.EquipoDicom
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarEquipoDicomPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEquipoDicomPorId")
+    @ResponseWrapper(localName = "encontrarEquipoDicomPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEquipoDicomPorIdResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/EquipoDicomServiceWs/encontrarEquipoDicomPorIdRequest", output = "http://servicio.sga.gm.com.mx/EquipoDicomServiceWs/encontrarEquipoDicomPorIdResponse")
+    public EquipoDicom encontrarEquipoDicomPorId(
+        @WebParam(name = "arg0", targetNamespace = "")
+        EquipoDicom arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns java.util.List<clientews.servicio.EquipoDicom>
      */
     @WebMethod
@@ -59,16 +74,16 @@ public interface EquipoDicomServiceWs {
      * 
      * @param arg0
      * @return
-     *     returns clientews.servicio.EquipoDicom
+     *     returns java.util.List<clientews.servicio.EquipoDicom>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarEquipoDicomPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEquipoDicomPorId")
-    @ResponseWrapper(localName = "encontrarEquipoDicomPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEquipoDicomPorIdResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/EquipoDicomServiceWs/encontrarEquipoDicomPorIdRequest", output = "http://servicio.sga.gm.com.mx/EquipoDicomServiceWs/encontrarEquipoDicomPorIdResponse")
-    public EquipoDicom encontrarEquipoDicomPorId(
+    @RequestWrapper(localName = "encontrarEquipoDicomPorIdArea", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEquipoDicomPorIdArea")
+    @ResponseWrapper(localName = "encontrarEquipoDicomPorIdAreaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEquipoDicomPorIdAreaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/EquipoDicomServiceWs/encontrarEquipoDicomPorIdAreaRequest", output = "http://servicio.sga.gm.com.mx/EquipoDicomServiceWs/encontrarEquipoDicomPorIdAreaResponse")
+    public List<EquipoDicom> encontrarEquipoDicomPorIdArea(
         @WebParam(name = "arg0", targetNamespace = "")
-        EquipoDicom arg0);
+        Integer arg0);
 
     /**
      * 
@@ -84,20 +99,5 @@ public interface EquipoDicomServiceWs {
     public EquipoDicom encontrarEquipoDicomPorNombre(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<clientews.servicio.EquipoDicom>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarEquipoDicomPorIdArea", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEquipoDicomPorIdArea")
-    @ResponseWrapper(localName = "encontrarEquipoDicomPorIdAreaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEquipoDicomPorIdAreaResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/EquipoDicomServiceWs/encontrarEquipoDicomPorIdAreaRequest", output = "http://servicio.sga.gm.com.mx/EquipoDicomServiceWs/encontrarEquipoDicomPorIdAreaResponse")
-    public List<EquipoDicom> encontrarEquipoDicomPorIdArea(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
 
 }

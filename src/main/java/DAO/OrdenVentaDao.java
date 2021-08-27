@@ -5,10 +5,13 @@
  */
 package DAO;
 
+import clientews.servicio.OrdenVenta;
+
 /**
  *
  * @author alanm
  */
 public interface OrdenVentaDao {
-    
+    public OrdenVenta encontrarUltimno();
+    public void registrar(OrdenVenta orden);
 }
