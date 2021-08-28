@@ -86,5 +86,15 @@ public class VentaConceptosDaoImp implements VentaConceptosDao{
     public VentaConceptos encontrarVentaConceptoPorOrdenVentaConceptoHoraAsignado(OrdenVenta ordenVenta, Conceptos conceptos, String horaAsingnado) {
         return servicio.encontrarVentaConceptoPorOrdenVentaConceptoHoraAsignado(ordenVenta, conceptos, horaAsingnado);
     }
+
+    @Override
+    public VentaConceptos findById(Long id) {
+        return servicio.encontrarVentaConceptosPorId(id);
+    }
+
+    @Override
+    public void eliminarVentaConceptos(VentaConceptos venta) {
+     servicio.eliminarVentaConceptos(venta);
+    }
     
 }

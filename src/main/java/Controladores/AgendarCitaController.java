@@ -119,6 +119,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
         DefaultTableModel dt = new DefaultTableModel();
 
+        dt.addColumn("Id");
         dt.addColumn("Estudio");
         dt.addColumn("Hora");
 
@@ -166,6 +167,13 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             if (datosValidos()) {
                 agregarVentaConcepto();
             }
+        } else if (e.getSource() == vista.btnQuitar) {
+            if (vista.tableEstudios.getSelectedRow() != -1) {
+                eliminarVenta();
+                if(todoListoVerificarAgenda()){
+                    agenda();
+                }
+            }
         }
     }
 
@@ -204,6 +212,10 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                     vista.txtPaciente.setText(curp);
                     obtenerPaciente();
                 }
+            }
+        } else if (e.getSource() == vista.tableEstudios) {
+            if (vista.tableEstudios.getRowCount() != 0 && vista.tableEstudios.getSelectedRow() != -1) {
+                obtenerVentaSeleccionada();
             }
         }
     }
@@ -332,8 +344,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     }
 
     private void verificarAgendaParticular() {
-        int horaInicio = horaAInt(area.getHoraInicio().toString());
-        int horaFin = horaAInt(area.getHoraFin().toString());
+        int horaInicio = horaAInt(area.getHoraInicio().toString(), 11, 14);
+        int horaFin = horaAInt(area.getHoraFin().toString(), 11, 14);
 
         int duracion = area.getDuracionMinutos();
 
@@ -344,7 +356,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         List<Integer> horasList = new ArrayList<>();
 
         for (VentaConceptos ventaFor : agendados) {
-            horasList.add(horaAInt(ventaFor.getHoraAsignado()));
+            horasList.add(horaAInt(ventaFor.getHoraAsignado(), 0, 3));
         }
 
         int minutos = 0;
@@ -369,7 +381,11 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                     horasMostrar = i / 100;
                     minutosMostrar = i % 100;
 
-                    horarioMostrar += (horasMostrar + ":");
+                    if (horasMostrar > 9) {
+                        horarioMostrar += (horasMostrar + ":");
+                    } else {
+                        horarioMostrar += ("0" + horasMostrar + ":");
+                    }
 
                     if (minutosMostrar == 0) {
                         horarioMostrar += "00";
@@ -405,15 +421,27 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private int horaAInt(String hora) {
+    private int horaAInt(String hora, int inicioHora, int inicioMinutos) {
         String horasString = "";
         String minutosString = "";
+        boolean dosPuntosSuperado = false;
+        int posDospuntos = 0;
         int horaInt = 0;
         int minutosInt = 0;
-        for (int i = 0; i < 2; i++) {
-            horasString += hora.charAt(i);
+        for (int i = inicioHora; i < inicioHora + 2; i++) {
+            if (hora.charAt(i) == ':') {
+                dosPuntosSuperado = true;
+                posDospuntos = i;
+                break;
+            }
+            if (!dosPuntosSuperado) {
+                horasString += hora.charAt(i);
+            }
         }
-        for (int i = 3; i < 5; i++) {
+        if (!dosPuntosSuperado) {
+            posDospuntos = inicioMinutos - 1;
+        }
+        for (int i = posDospuntos + 1; i < (posDospuntos + 1) + 2; i++) {
             minutosString += hora.charAt(i);
         }
         try {
@@ -469,8 +497,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         DefaultTableModel dt = (DefaultTableModel) vista.tableEstudios.getModel();
 
         Object[] ventaAgregar = new Object[3];
-        ventaAgregar[0] = venta.getIdConceptoEs().getConceptoTo();
-        ventaAgregar[1] = venta.getHoraAsignado();
+        ventaAgregar[0] = venta.getIdVc();
+        ventaAgregar[1] = venta.getIdConceptoEs().getConceptoTo();
+        ventaAgregar[2] = venta.getHoraAsignado();
 
         dt.addRow(ventaAgregar);
 
@@ -489,9 +518,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         registrarVenta();
 
         obtenerVentaHecha();
-        
+
         agregarATabla(venta);
-        
+
         agenda();
 
     }
@@ -654,6 +683,16 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
     private void obtenerVentaHecha() {
         venta = modeloVentaConceptos.encontrarVentaConceptoPorOrdenVentaConceptoHoraAsignado(orden, estudio, venta.getHoraAsignado());
+    }
+
+    private void obtenerVentaSeleccionada() {
+        int fila = vista.tableEstudios.getSelectedRow();
+        venta = modeloVentaConceptos.findById(Long.parseLong(vista.tableEstudios.getValueAt(fila, 0).toString()));
+        System.out.println(venta.getIdVc());
+    }
+
+    private void eliminarVenta() {
+        modeloVentaConceptos.eliminarVentaConceptos(venta);
     }
 
 }

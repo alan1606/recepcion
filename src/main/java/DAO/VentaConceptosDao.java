@@ -18,7 +18,8 @@ import java.util.List;
  * @author alanm
  */
 public interface VentaConceptosDao {
-
+    public VentaConceptos findById(Long id);
+    
     public List<VentaConceptos> findAllVentaConceptos();
 
     public List<VentaConceptos> findVentaConceptosByPacienteFechaEnWorklist(Pacientes paciente, String fecha, boolean enWorklist);
@@ -41,4 +42,6 @@ public interface VentaConceptosDao {
 
     public VentaConceptos encontrarVentaConceptoPorOrdenVentaConceptoHoraAsignado(OrdenVenta ordenVenta, Conceptos conceptos, String horaAsingnado);
 
+    public void eliminarVentaConceptos(VentaConceptos venta);
+    
 }
