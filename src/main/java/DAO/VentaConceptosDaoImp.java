@@ -6,6 +6,7 @@
 package DAO;
 
 import clientews.servicio.Conceptos;
+import clientews.servicio.EquipoDicom;
 import clientews.servicio.Institucion;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
@@ -95,6 +96,11 @@ public class VentaConceptosDaoImp implements VentaConceptosDao{
     @Override
     public void eliminarVentaConceptos(VentaConceptos venta) {
      servicio.eliminarVentaConceptos(venta);
+    }
+
+    @Override
+    public Long encontrarNumeroVentaConceptosPorEquipoFechaHora(EquipoDicom equipo, String fecha, String horaAsingnado) {
+        return servicio.encontrarNumeroVentaConceptosPorEquipoFechaHora(equipo, fecha, fecha);
     }
     
 }

@@ -44,7 +44,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -170,10 +169,14 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         } else if (e.getSource() == vista.btnQuitar) {
             if (vista.tableEstudios.getSelectedRow() != -1) {
                 eliminarVenta();
-                if(todoListoVerificarAgenda()){
+                quitarDeTabla();
+                if (todoListoVerificarAgenda()) {
                     agenda();
                 }
             }
+        } else if (e.getSource() == vista.btnGuardar) {
+            reiniciarVariables();
+            limpiarCampos();
         }
     }
 
@@ -515,13 +518,17 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
         generarVentaConceptos();
 
-        registrarVenta();
+        if (enRealidadEstaDisponibleElEstudio()) {
+            registrarVenta();
 
-        obtenerVentaHecha();
+            obtenerVentaHecha();
 
-        agregarATabla(venta);
+            agregarATabla(venta);
 
-        agenda();
+            agenda();
+        } else {
+            agenda();
+        }
 
     }
 
@@ -693,6 +700,57 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
     private void eliminarVenta() {
         modeloVentaConceptos.eliminarVentaConceptos(venta);
+    }
+
+    private boolean enRealidadEstaDisponibleElEstudio() {
+        Long agendados = modeloVentaConceptos.encontrarNumeroVentaConceptosPorEquipoFechaHora(sala, venta.getFechaAsignado(), venta.getHoraAsignado());
+        return agendados == 0;
+    }
+
+    private void quitarDeTabla() {
+        DefaultTableModel dt = (DefaultTableModel) vista.tableEstudios.getModel();
+
+        dt.removeRow(vista.tableEstudios.getSelectedRow());
+
+        vista.tableEstudios.setModel(dt);
+    }
+
+    private void reiniciarVariables() {
+        ordenVentaGenerada = false;
+        orden = new OrdenVenta();
+        area = new Areas();
+        institucion = new Institucion();
+        sala = new EquipoDicom();
+        paciente = new Pacientes();
+        estudio = new Conceptos();
+        venta = new VentaConceptos();
+
+    }
+
+    private void limpiarCampos() {
+        vista.txtBuscar.setText("");
+        vista.radioNombre.setSelected(true);
+        vista.radioCurp.setSelected(false);
+        vista.txtPaciente.setText("");
+        vista.comboInstitucion.setSelectedIndex(0);
+        vista.fecha.setDate(null);
+
+        vista.comboArea.setSelectedIndex(0);
+        vista.comboEstudio.setSelectedIndex(0);
+        vista.comboHora.setSelectedIndex(0);
+        vista.comboSala.setSelectedIndex(0);
+
+        limpiarTabla();
+    }
+
+    private void limpiarTabla() {
+        DefaultTableModel dt = (DefaultTableModel) vista.tableEstudios.getModel();
+
+        while (dt.getRowCount() > 0) {
+            dt.removeRow(0);
+        }
+
+        vista.tableEstudios.setModel(dt);
     }
 
 }

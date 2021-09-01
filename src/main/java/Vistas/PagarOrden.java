@@ -42,6 +42,8 @@ public class PagarOrden extends javax.swing.JFrame {
         tablePacientes = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel13 = new javax.swing.JLabel();
+        txtTotal1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -53,16 +55,16 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 560, 210));
 
         jLabel8.setText("Forma de pago");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 600, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, -1, -1));
 
-        jPanel1.add(comboFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, 160, -1));
+        jPanel1.add(comboFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, 160, -1));
 
         checkFactura.setText("Requiere factura");
-        jPanel1.add(checkFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 660, -1, -1));
+        jPanel1.add(checkFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 660, -1, -1));
 
         jLabel9.setText("Total");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 600, -1, -1));
-        jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, 170, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 620, -1, -1));
+        jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 610, 170, 30));
 
         btnCancelar.setText("Pagar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +72,7 @@ public class PagarOrden extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 660, 80, 30));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 660, 80, 30));
 
         jLabel11.setText("Paciente");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
@@ -85,7 +87,11 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
         jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 160, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        jLabel13.setText("Total");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, -1, -1));
+        jPanel1.add(txtTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, 170, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -144,6 +150,7 @@ public class PagarOrden extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -152,5 +159,6 @@ public class PagarOrden extends javax.swing.JFrame {
     public javax.swing.JTable tableEstudios;
     public javax.swing.JTable tablePacientes;
     public javax.swing.JTextField txtTotal;
+    public javax.swing.JTextField txtTotal1;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package DAO;
 
 import clientews.servicio.Conceptos;
+import clientews.servicio.EquipoDicom;
 import clientews.servicio.Institucion;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
@@ -43,5 +44,8 @@ public interface VentaConceptosDao {
     public VentaConceptos encontrarVentaConceptoPorOrdenVentaConceptoHoraAsignado(OrdenVenta ordenVenta, Conceptos conceptos, String horaAsingnado);
 
     public void eliminarVentaConceptos(VentaConceptos venta);
+    
+            public Long encontrarNumeroVentaConceptosPorEquipoFechaHora(EquipoDicom equipo, String fecha, String horaAsingnado);
+
     
 }
