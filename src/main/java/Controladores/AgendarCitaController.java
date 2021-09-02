@@ -21,6 +21,7 @@ import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TablePacientes;
 import Vistas.AgendarCita;
+import Vistas.NuevoPaciente;
 import clientews.servicio.Areas;
 import clientews.servicio.CatalogoFormaPago;
 import clientews.servicio.Conceptos;
@@ -177,6 +178,10 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         } else if (e.getSource() == vista.btnGuardar) {
             reiniciarVariables();
             limpiarCampos();
+        } else if (e.getSource() == vista.btnNuevoPaciente) {
+            vista.dispose();
+            NuevoPacienteController controladorNuevoPaciente = new NuevoPacienteController(new NuevoPaciente());
+            controladorNuevoPaciente.iniciar();
         }
     }
 
