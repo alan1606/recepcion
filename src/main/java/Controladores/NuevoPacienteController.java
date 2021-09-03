@@ -58,6 +58,10 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         this.vista.btnLimpiar.addActionListener(this);
         this.vista.comboSexo.addActionListener(this);
 
+        this.vista.txtNombre.addKeyListener(this);
+        this.vista.txtApellidoMaterno.addKeyListener(this);
+        this.vista.txtApellidoPaterno.addKeyListener(this);
+
     }
 
     public void iniciar() {
@@ -148,6 +152,8 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         if (deseaRegistrar() == 0) {
             modeloPacientes.guardar(paciente);
             JOptionPane.showMessageDialog(null, "Paciente registrado");
+            limpiar();
+            habilitarEstados(true);
         }
     }
 
@@ -405,6 +411,16 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
     private int deseaRegistrar() {
         int dialog = JOptionPane.YES_NO_OPTION;
         return (JOptionPane.showConfirmDialog(null, "¿Seguro que desea registrar el paciente? ", "Registrar", dialog));
+    }
+
+    private void limpiar() {
+        vista.txtNombre.setText("");
+        vista.txtApellidoMaterno.setText("");
+        vista.txtApellidoPaterno.setText("");
+        vista.txtCorreo.setText("");
+        vista.txtCurp.setText("");
+        vista.txtTelefono.setText("");
+
     }
 
 }
