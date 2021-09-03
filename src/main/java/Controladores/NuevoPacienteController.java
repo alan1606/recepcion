@@ -5,7 +5,12 @@
  */
 package Controladores;
 
+import DAO.MexicoDao;
+import DAO.MexicoDaoImpl;
+import DAO.PacientesDao;
+import DAO.PacientesDaoImp;
 import Vistas.NuevoPaciente;
+import clientews.servicio.Mexico;
 import clientews.servicio.Pacientes;
 import curp.CurpGenerator;
 import java.awt.event.ActionEvent;
@@ -18,6 +23,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -32,11 +39,24 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
     private Pacientes paciente;
     private Date fechaActual;
     private XMLGregorianCalendar fechaActualXml;
+    private MexicoDao modeloMexico;
+    private PacientesDao modeloPacientes;
 
     public NuevoPacienteController(NuevoPaciente vista) {
         this.vista = vista;
 
         obtenerFechaActual();
+        cargarSexo();
+        cargarPaises();
+
+        modeloMexico = new MexicoDaoImpl();
+        modeloPacientes = new PacientesDaoImp();
+
+        this.vista.comboPais.addActionListener(this);
+        this.vista.btnCancelar.addActionListener(this);
+        this.vista.btnGuardar.addActionListener(this);
+        this.vista.btnLimpiar.addActionListener(this);
+        this.vista.comboSexo.addActionListener(this);
 
     }
 
@@ -56,6 +76,26 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
                     Logger.getLogger(NuevoPacienteController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 registrar();
+            }
+        }
+        if (e.getSource() == vista.comboPais) {
+            if (vista.comboPais.getSelectedItem().toString().equals("MEXICO")) {
+                cargarEstados();
+                habilitarEstados(true);
+            } else {
+                if (vista.comboEntidad.getItemCount() != 0) {
+                    vista.comboEntidad.setSelectedIndex(0);
+                }
+                habilitarEstados(false);
+            }
+        }
+        if (e.getSource() == vista.comboSexo) {
+            if (datosValidosCurp()) {
+                try {
+                    vista.txtCurp.setText(generarCurp());
+                } catch (Exception ex) {
+                    Logger.getLogger(NuevoPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }
@@ -105,7 +145,10 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
     }
 
     private void registrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (deseaRegistrar() == 0) {
+            modeloPacientes.guardar(paciente);
+            JOptionPane.showMessageDialog(null, "Paciente registrado");
+        }
     }
 
     private void crearPaciente() throws Exception {
@@ -171,6 +214,7 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         paciente.setTTrabajop("");
         paciente.setTViviendap(Short.parseShort("0"));
         paciente.setTamizP(Short.parseShort("0"));
+
     }
 
     private void obtenerFechaActual() {
@@ -206,14 +250,13 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         } else {
             sexo = "H";
         }
-
-        if (vista.comboEntidad.getSelectedItem().toString() != "MEXICO") {
+        if (vista.comboPais.getSelectedItem().toString() != "MEXICO") {
             entidad = "NE";
         } else {
             entidad = encontrarEntidad();
         }
-
-        return CurpGenerator.generar(vista.txtApellidoPaterno.getText(), vista.txtApellidoMaterno.toString(), vista.txtNombre.getText(), sexo, dateToString(vista.dateFechaNacimiento.getDate().getTime()), entidad);
+        System.out.println(dateToString(vista.dateFechaNacimiento.getDate().getTime()));
+        return CurpGenerator.generar(vista.txtApellidoPaterno.getText(), vista.txtApellidoMaterno.getText(), vista.txtNombre.getText(), sexo, dateToString(vista.dateFechaNacimiento.getDate().getTime()), entidad);
     }
 
     private String dateToString(Long date) {
@@ -222,139 +265,146 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         return strDate;
     }
 
+    private void cargarEstados() {
+        try {
+            JComboBox combo = new JComboBox();
+            combo.removeAllItems();
+            combo.addItem("SELECCIONE UNA OPCIÓN");
+            for (Mexico estado : modeloMexico.encontrarEstadosDeMexico()) {
+                combo.addItem(estado.getDEstado());
+            }
+            vista.comboEntidad.setModel(combo.getModel());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    private void cargarPaises() {
+        try {
+            JComboBox combo = new JComboBox();
+            combo.removeAllItems();
+            combo.addItem("SELECCIONE UNA OPCIÓN");
+            combo.addItem("MEXICO");
+            combo.addItem("OTRO");
+            vista.comboPais.setModel(combo.getModel());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    private void cargarSexo() {
+        try {
+            JComboBox combo = new JComboBox();
+            combo.removeAllItems();
+            combo.addItem("SELECCIONE UNA OPCIÓN");
+            combo.addItem("FEMENINO");
+            combo.addItem("MASCULINO");
+            vista.comboSexo.setModel(combo.getModel());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
     private String encontrarEntidad() {
         String entidad = vista.comboEntidad.getSelectedItem().toString();
-        String c12Y13 ="";
-        if (entidad == "AGUASCALIENTES")
-        {
+        String c12Y13 = "";
+        if (entidad.equals("AGUASCALIENTES")) {
             c12Y13 = "AS";
-        }
-        else if (entidad=="BAJA CALIFORNIA")
-        {
+        } else if (entidad.equals("BAJA CALIFORNIA")) {
             c12Y13 = "BC";
-        }
-        else if (entidad=="BAJA CALIFORNIA SUR")
-        {
+        } else if (entidad.equals("BAJA CALIFORNIA SUR")) {
             c12Y13 = "BS";
-        }
-        else if (entidad=="CAMPECHE")
-        {
+        } else if (entidad.equals("CAMPECHE")) {
             c12Y13 = "CC";
-        }
-        else if (entidad=="COAHUILA DE ZARAGOZA")
-        {
+        } else if (entidad.equals("COAHUILA DE ZARAGOZA")) {
             c12Y13 = "CL";
-        }
-        else if (entidad=="COLIMA")
-        {
+        } else if (entidad.equals("COLIMA")) {
             c12Y13 = "CM";
-        }
-        else if (entidad=="CHIAPAS")
-        {
+        } else if (entidad.equals("CHIAPAS")) {
             c12Y13 = "CS";
-        }
-        else if (entidad=="CHIHUAHUA")
-        {
+        } else if (entidad.equals("CHIHUAHUA")) {
             c12Y13 = "CH";
-        }
-        else if (entidad=="CIUDAD DE MEXICO")
-        {
+        } else if (entidad.equals("CIUDAD DE MEXICO")) {
             c12Y13 = "DF";
-        }
-        else if (entidad=="DURANGO")
-        {
+        } else if (entidad.equals("DURANGO")) {
             c12Y13 = "DG";
-        }
-        else if (entidad=="GUANAJUATO")
-        {
+        } else if (entidad.equals("GUANAJUATO")) {
             c12Y13 = "GT";
-        }
-        else if (entidad=="GUERRERO")
-        {
+        } else if (entidad.equals("GUERRERO")) {
             c12Y13 = "GR";
-        }
-        else if (entidad=="HIDALGO")
-        {
+        } else if (entidad.equals("HIDALGO")) {
             c12Y13 = "HG";
-        }
-        else if (entidad=="JALISCO")
-        {
+        } else if (entidad.equals("JALISCO")) {
             c12Y13 = "JC";
-        }
-        else if (entidad=="MEXICO")
-        {
+        } else if (entidad.equals("MEXICO")) {
             c12Y13 = "MC";
-        }
-        else if (entidad=="MICHOACAN DE OCAMPO")
-        {
+        } else if (entidad.equals("MICHOACAN DE OCAMPO")) {
             c12Y13 = "MN";
-        }
-        else if (entidad=="MORELOS")
-        {
+        } else if (entidad.equals("MORELOS")) {
             c12Y13 = "MS";
-        }
-        else if (entidad=="NAYARIT")
-        {
+        } else if (entidad.equals("NAYARIT")) {
             c12Y13 = "NT";
-        }
-        else if(entidad == "NUEVO LEON")
-        {
+        } else if (entidad.equals("NUEVO LEON")) {
             c12Y13 = "NL";
-        }
-        else if(entidad == "OAXACA")
-        {
+        } else if (entidad.equals("OAXACA")) {
             c12Y13 = "OC";
-        }
-        else if(entidad == "PUEBLA")
-        {
+        } else if (entidad.equals("PUEBLA")) {
             c12Y13 = "PL";
-        }
-        else if(entidad == "QUERETARO")
-        {
+        } else if (entidad.equals("QUERETARO")) {
             c12Y13 = "QT";
-        }
-        else if(entidad == "QUINTANA ROO")
-        {
+        } else if (entidad.equals("QUINTANA ROO")) {
             c12Y13 = "QR";
-        }
-        else if(entidad == "SAN LUIS POTOSI")
-        {
+        } else if (entidad.equals("SAN LUIS POTOSI")) {
             c12Y13 = "SP";
-        }
-        else if(entidad == "SINALOA")
-        {
+        } else if (entidad.equals("SINALOA")) {
             c12Y13 = "SL";
-        }
-        else if(entidad == "SONORA")
-        {
+        } else if (entidad.equals("SONORA")) {
             c12Y13 = "SR";
-        }
-        else if(entidad == "TABASCO")
-        {
+        } else if (entidad.equals("TABASCO")) {
             c12Y13 = "TC";
-        }
-        else if(entidad == "TAMAULIPAS")
-        {
+        } else if (entidad.equals("TAMAULIPAS")) {
             c12Y13 = "TS";
-        }
-        else if(entidad == "TLAXCALA")
-        {
+        } else if (entidad.equals("TLAXCALA")) {
             c12Y13 = "TL";
-        }
-        else if(entidad == "VERACRUZ DE IGNACIO DE LA LLAVE")
-        {
+        } else if (entidad.equals("VERACRUZ DE IGNACIO DE LA LLAVE")) {
             c12Y13 = "VZ";
-        }
-        else if(entidad == "YUCATAN")
-        {
+        } else if (entidad.equals("YUCATAN")) {
             c12Y13 = "YN";
-        }
-        else if(entidad == "ZACATECAS")
-        {
+        } else if (entidad.equals("ZACATECAS")) {
             c12Y13 = "ZS";
         }
         return c12Y13;
     }
 
- 
+    private void habilitarEstados(boolean b) {
+        vista.comboEntidad.setEnabled(b);
+    }
+
+    private boolean datosValidosCurp() {
+        if (vista.txtNombre.getText().equals("")) {
+            return false;
+        }
+        if (vista.txtApellidoMaterno.getText().equals("")) {
+            return false;
+        }
+        if (vista.txtApellidoPaterno.getText().equals("")) {
+            return false;
+        }
+        if (vista.dateFechaNacimiento.getDate() == null) {
+            return false;
+        }
+        if (vista.comboPais.getSelectedItem().toString().equals("MEXICO") && vista.comboEntidad.getSelectedIndex() == 0) {
+            return false;
+        }
+        if (vista.comboSexo.getSelectedIndex() == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    private int deseaRegistrar() {
+        int dialog = JOptionPane.YES_NO_OPTION;
+        return (JOptionPane.showConfirmDialog(null, "¿Seguro que desea registrar el paciente? ", "Registrar", dialog));
+    }
+
 }
