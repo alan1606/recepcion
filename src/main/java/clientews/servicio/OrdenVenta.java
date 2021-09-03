@@ -227,11 +227,6 @@ public class OrdenVenta {
     protected Float totalS;
     protected int usuarioOv;
 
-    public OrdenVenta() {
-    }
-
-    
-    
     public OrdenVenta(Float adicionalesCOv, Float adicionalesEiOv, Float adicionalesElOv, Float adicionalesPOv, Float adicionalesSOv, int contadorOv, float descDCta, float descDImg, float descDLab, float descDPro, float descDServ, short estatusOv, short facturadaOv, XMLGregorianCalendar fechaVentaOv, Float granTotalOv, CatalogoFormaPago idFormaPago, Long idOv, long idPacienteOv, float ivaOv, Integer medicoCOv, Integer medicoEiOv, Integer medicoElOv, String motivoCOv, String motivoDescCOv, String motivoDescFOv, String motivoDescIOv, String motivoDescLOv, String motivoDescSOv, String muestrasOv, String noTempOv, String observacionesIOv, String observacionesLOv, String observacionesSOv, short pDescCta, short pDescImg, short pDescLab, short pDescPro, short pDescServ, boolean pagado, Integer personalSOv, short procedenciaOv, String referenciaOv, boolean requiereFactura, Float subTotalC, Float subTotalI, Float subTotalL, Float subTotalP, Float subTotalS, float subtotalOv, Integer sucursalOv, float tDescCta, float tDescImg, float tDescLab, float tDescPro, float tDescServ, Float totalC, Float totalEi, Float totalEl, Float totalP, Float totalS, int usuarioOv) {
         this.adicionalesCOv = adicionalesCOv;
         this.adicionalesEiOv = adicionalesEiOv;
@@ -294,6 +289,9 @@ public class OrdenVenta {
         this.totalP = totalP;
         this.totalS = totalS;
         this.usuarioOv = usuarioOv;
+    }
+
+    public OrdenVenta() {
     }
 
     

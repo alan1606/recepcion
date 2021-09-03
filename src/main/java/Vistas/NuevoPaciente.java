@@ -51,59 +51,84 @@ public class NuevoPaciente extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nombre");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 270, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        txtNombre.setNextFocusableComponent(txtApellidoPaterno);
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 270, -1));
 
         jLabel2.setText("Apellido paterno");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
-        jPanel1.add(txtApellidoPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 270, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        txtApellidoPaterno.setNextFocusableComponent(txtApellidoMaterno);
+        jPanel1.add(txtApellidoPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 270, -1));
 
         jLabel3.setText("Apellido materno");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
-        jPanel1.add(txtApellidoMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 270, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        txtApellidoMaterno.setNextFocusableComponent(dateFechaNacimiento);
+        jPanel1.add(txtApellidoMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 270, -1));
 
         jLabel4.setText("Fecha de nacimiento");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
         jLabel5.setText("Sexo");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, -1, -1));
 
         jLabel6.setText("País de orígen");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
 
         jLabel7.setText("Entidad de nacimiento");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
 
         jLabel8.setText("CURP ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, -1, -1));
-        jPanel1.add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, 270, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, -1, -1));
+
+        txtCurp.setNextFocusableComponent(btnGuardar);
+        jPanel1.add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 270, -1));
 
         jLabel9.setText("Teléfono");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, -1, -1));
-        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 270, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
+
+        txtTelefono.setNextFocusableComponent(txtCurp);
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 270, -1));
 
         jLabel10.setText("Correo");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, -1));
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 270, -1));
-        jPanel1.add(dateFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 270, -1));
-        jPanel1.add(comboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 270, -1));
-        jPanel1.add(comboPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 270, -1));
-        jPanel1.add(comboEntidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 270, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, -1, -1));
+
+        txtCorreo.setNextFocusableComponent(txtTelefono);
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 270, -1));
+
+        dateFechaNacimiento.setNextFocusableComponent(comboPais);
+        jPanel1.add(dateFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 270, -1));
+
+        comboSexo.setNextFocusableComponent(txtCorreo);
+        jPanel1.add(comboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 270, -1));
+
+        comboPais.setNextFocusableComponent(comboEntidad);
+        comboPais.setOpaque(false);
+        jPanel1.add(comboPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 270, -1));
+
+        comboEntidad.setNextFocusableComponent(comboSexo);
+        jPanel1.add(comboEntidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 270, -1));
 
         btnGuardar.setText("Guardar");
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 590, -1, -1));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 630, -1, -1));
 
         btnCancelar.setText("Cancelar");
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, -1, -1));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 630, -1, -1));
 
         btnLimpiar.setText("Limpiar");
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 590, -1, -1));
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 630, -1, -1));
+
+        btnRegresar.setText("Regresar");
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,7 +138,7 @@ public class NuevoPaciente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
@@ -161,6 +186,7 @@ public class NuevoPaciente extends javax.swing.JFrame {
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnLimpiar;
+    public javax.swing.JButton btnRegresar;
     public javax.swing.JComboBox<String> comboEntidad;
     public javax.swing.JComboBox<String> comboPais;
     public javax.swing.JComboBox<String> comboSexo;

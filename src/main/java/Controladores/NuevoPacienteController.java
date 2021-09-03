@@ -9,6 +9,7 @@ import DAO.MexicoDao;
 import DAO.MexicoDaoImpl;
 import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
+import Vistas.AgendarCita;
 import Vistas.NuevoPaciente;
 import clientews.servicio.Mexico;
 import clientews.servicio.Pacientes;
@@ -48,6 +49,7 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         obtenerFechaActual();
         cargarSexo();
         cargarPaises();
+        ponerComboEntidadVacio();
 
         modeloMexico = new MexicoDaoImpl();
         modeloPacientes = new PacientesDaoImp();
@@ -57,7 +59,8 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         this.vista.btnGuardar.addActionListener(this);
         this.vista.btnLimpiar.addActionListener(this);
         this.vista.comboSexo.addActionListener(this);
-
+        this.vista.btnRegresar.addActionListener(this);
+        
         this.vista.txtNombre.addKeyListener(this);
         this.vista.txtApellidoMaterno.addKeyListener(this);
         this.vista.txtApellidoPaterno.addKeyListener(this);
@@ -81,19 +84,18 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
                 }
                 registrar();
             }
-        }
-        if (e.getSource() == vista.comboPais) {
+        } else if (e.getSource() == vista.comboPais) {
             if (vista.comboPais.getSelectedItem().toString().equals("MEXICO")) {
                 cargarEstados();
                 habilitarEstados(true);
             } else {
+                ponerComboEntidadVacio();
                 if (vista.comboEntidad.getItemCount() != 0) {
                     vista.comboEntidad.setSelectedIndex(0);
                 }
                 habilitarEstados(false);
             }
-        }
-        if (e.getSource() == vista.comboSexo) {
+        } else if (e.getSource() == vista.comboSexo) {
             if (datosValidosCurp()) {
                 try {
                     vista.txtCurp.setText(generarCurp());
@@ -101,6 +103,11 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
                     Logger.getLogger(NuevoPacienteController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+        } else if (e.getSource() == vista.btnLimpiar) {
+            limpiar();
+            habilitarEstados(true);
+        } else if (e.getSource() == vista.btnCancelar || e.getSource() == vista.btnRegresar) {
+            abrirAgenda();
         }
     }
 
@@ -114,6 +121,13 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        if (e.getSource() == vista.txtNombre) {
+            vista.txtNombre.setText(vista.txtNombre.getText().toUpperCase());
+        } else if (e.getSource() == vista.txtApellidoMaterno) {
+            vista.txtApellidoMaterno.setText(vista.txtApellidoMaterno.getText().toUpperCase());
+        } else if (e.getSource() == vista.txtApellidoPaterno) {
+            vista.txtApellidoPaterno.setText(vista.txtApellidoPaterno.getText().toUpperCase());
+        }
     }
 
     private boolean datosValidos() {
@@ -141,6 +155,7 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         if (vista.dateFechaNacimiento.getDate() == null) {
             return false;
         }
+
         //Tratar entidades
         if (vista.comboPais.getSelectedItem().toString() == "MEXICO" && vista.comboEntidad.getSelectedIndex() == 0) {
             return false;
@@ -159,7 +174,7 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
 
     private void crearPaciente() throws Exception {
         paciente = new Pacientes();
-        String curp = generarCurp();
+        String curp = vista.txtCurp.getText();
         //Estos sí importan o hay que ponerlos por defecto
         paciente.setAmaternoP(vista.txtApellidoMaterno.getText());
         paciente.setApaternoP(vista.txtApellidoPaterno.getText());
@@ -421,6 +436,29 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         vista.txtCurp.setText("");
         vista.txtTelefono.setText("");
 
+        vista.comboEntidad.setSelectedIndex(0);
+        vista.comboPais.setSelectedIndex(0);
+        vista.comboSexo.setSelectedIndex(0);
+
+        vista.dateFechaNacimiento.setDate(null);
+
+    }
+
+    private void ponerComboEntidadVacio() {
+        try {
+            JComboBox combo = new JComboBox();
+            combo.removeAllItems();
+            combo.addItem("SELECCIONE UNA OPCIÓN");
+            vista.comboEntidad.setModel(combo.getModel());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    private void abrirAgenda() {
+        vista.dispose();
+        AgendarCitaController controladorCitas = new AgendarCitaController(new AgendarCita());
+        controladorCitas.iniciar();
     }
 
 }

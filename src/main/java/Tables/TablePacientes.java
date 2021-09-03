@@ -32,7 +32,7 @@ public class TablePacientes {
         for (int i = 0; i < list.size(); i++) {
             Object fila[] = new Object[5];
             paciente = list.get(i);
-            fila[0] = paciente.getNombreP() + " " + paciente.getAmaternoP() + " " + paciente.getApaternoP();
+            fila[0] = paciente.getNombreP() + " " + paciente.getApaternoP() + " " + paciente.getAmaternoP();
             fila[1] = paciente.getFNacp();
             fila[2] = paciente.getCurpP();
             fila[3] = paciente.getEmailP();
