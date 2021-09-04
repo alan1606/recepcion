@@ -8,6 +8,7 @@ package DAO;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.OrdenVentaServiceImplService;
 import clientews.servicio.OrdenVentaServiceWs;
+import java.util.List;
 import javax.xml.ws.BindingProvider;
 
 /**
@@ -35,6 +36,11 @@ public class OrdenVentaDaoImp implements OrdenVentaDao {
     @Override
     public void registrar(OrdenVenta orden) {
         servicio.registrarOrdenVenta(orden);
+    }
+
+    @Override
+    public List<OrdenVenta> obtenerNoPagadosEnFecha(String date) {
+        return servicio.obtenerOrdenVentaNoPagadosEnFecha(date);
     }
     
     

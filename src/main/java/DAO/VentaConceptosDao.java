@@ -49,4 +49,6 @@ public interface VentaConceptosDao {
 
         public List<VentaConceptos> findAgendadosByFecha(String fecha);
 
+        public void actualizarVentaConceptos(VentaConceptos venta);
+        
 }

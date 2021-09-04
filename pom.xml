@@ -76,6 +76,7 @@
                                 <wsdlUrl>http://localhost:8080/OrdenVentaServiceImplService/OrdenVentaServiceImpl?wsdl</wsdlUrl>
                                 <wsdlUrl>http://localhost:8080/ConceptosInstitucionServiceImplService/ConceptosInstitucionServiceImpl?wsdl</wsdlUrl>
                                 <wsdlUrl>http://localhost:8080/MexicoServiceImplService/MexicoServiceImpl?wsdl</wsdlUrl>
+                                <wsdlUrl>http://localhost:8080/PagoOrdenVentaServiceImplService/PagoOrdenVentaServiceImpl?wsdl</wsdlUrl>
                             </wsdlUrls>
                             <packageName>clientews.servicio</packageName>
                             <sourceDestDir>${basedir}/src/main/java</sourceDestDir>

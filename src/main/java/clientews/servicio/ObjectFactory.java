@@ -24,9 +24,12 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _EncontrarEstadosDeMexicoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "encontrarEstadosDeMexicoResponse");
-    private final static QName _EncontrarEstadosDeMexico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "encontrarEstadosDeMexico");
-    private final static QName _Mexico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "mexico");
+    private final static QName _RegistrarPagoOrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarPagoOrdenVenta");
+    private final static QName _PagoOrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "pagoOrdenVenta");
+    private final static QName _CatalogoFormaPago_QNAME = new QName("http://servicio.sga.gm.com.mx/", "catalogoFormaPago");
+    private final static QName _OrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "ordenVenta");
+    private final static QName _RegistrarPagoOrdenVentaResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarPagoOrdenVentaResponse");
+    private final static QName _Pacientes_QNAME = new QName("http://servicio.sga.gm.com.mx/", "pacientes");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: clientews.servicio
@@ -36,54 +39,105 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Mexico }
+     * Create an instance of {@link CatalogoFormaPago }
      * 
      */
-    public Mexico createMexico() {
-        return new Mexico();
+    public CatalogoFormaPago createCatalogoFormaPago() {
+        return new CatalogoFormaPago();
     }
 
     /**
-     * Create an instance of {@link EncontrarEstadosDeMexico }
+     * Create an instance of {@link PagoOrdenVenta }
      * 
      */
-    public EncontrarEstadosDeMexico createEncontrarEstadosDeMexico() {
-        return new EncontrarEstadosDeMexico();
+    public PagoOrdenVenta createPagoOrdenVenta() {
+        return new PagoOrdenVenta();
     }
 
     /**
-     * Create an instance of {@link EncontrarEstadosDeMexicoResponse }
+     * Create an instance of {@link RegistrarPagoOrdenVenta }
      * 
      */
-    public EncontrarEstadosDeMexicoResponse createEncontrarEstadosDeMexicoResponse() {
-        return new EncontrarEstadosDeMexicoResponse();
+    public RegistrarPagoOrdenVenta createRegistrarPagoOrdenVenta() {
+        return new RegistrarPagoOrdenVenta();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarEstadosDeMexicoResponse }{@code >}}
+     * Create an instance of {@link Pacientes }
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "encontrarEstadosDeMexicoResponse")
-    public JAXBElement<EncontrarEstadosDeMexicoResponse> createEncontrarEstadosDeMexicoResponse(EncontrarEstadosDeMexicoResponse value) {
-        return new JAXBElement<EncontrarEstadosDeMexicoResponse>(_EncontrarEstadosDeMexicoResponse_QNAME, EncontrarEstadosDeMexicoResponse.class, null, value);
+    public Pacientes createPacientes() {
+        return new Pacientes();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarEstadosDeMexico }{@code >}}
+     * Create an instance of {@link RegistrarPagoOrdenVentaResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "encontrarEstadosDeMexico")
-    public JAXBElement<EncontrarEstadosDeMexico> createEncontrarEstadosDeMexico(EncontrarEstadosDeMexico value) {
-        return new JAXBElement<EncontrarEstadosDeMexico>(_EncontrarEstadosDeMexico_QNAME, EncontrarEstadosDeMexico.class, null, value);
+    public RegistrarPagoOrdenVentaResponse createRegistrarPagoOrdenVentaResponse() {
+        return new RegistrarPagoOrdenVentaResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Mexico }{@code >}}
+     * Create an instance of {@link OrdenVenta }
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "mexico")
-    public JAXBElement<Mexico> createMexico(Mexico value) {
-        return new JAXBElement<Mexico>(_Mexico_QNAME, Mexico.class, null, value);
+    public OrdenVenta createOrdenVenta() {
+        return new OrdenVenta();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarPagoOrdenVenta }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarPagoOrdenVenta")
+    public JAXBElement<RegistrarPagoOrdenVenta> createRegistrarPagoOrdenVenta(RegistrarPagoOrdenVenta value) {
+        return new JAXBElement<RegistrarPagoOrdenVenta>(_RegistrarPagoOrdenVenta_QNAME, RegistrarPagoOrdenVenta.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link PagoOrdenVenta }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "pagoOrdenVenta")
+    public JAXBElement<PagoOrdenVenta> createPagoOrdenVenta(PagoOrdenVenta value) {
+        return new JAXBElement<PagoOrdenVenta>(_PagoOrdenVenta_QNAME, PagoOrdenVenta.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CatalogoFormaPago }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "catalogoFormaPago")
+    public JAXBElement<CatalogoFormaPago> createCatalogoFormaPago(CatalogoFormaPago value) {
+        return new JAXBElement<CatalogoFormaPago>(_CatalogoFormaPago_QNAME, CatalogoFormaPago.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrdenVenta }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "ordenVenta")
+    public JAXBElement<OrdenVenta> createOrdenVenta(OrdenVenta value) {
+        return new JAXBElement<OrdenVenta>(_OrdenVenta_QNAME, OrdenVenta.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarPagoOrdenVentaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarPagoOrdenVentaResponse")
+    public JAXBElement<RegistrarPagoOrdenVentaResponse> createRegistrarPagoOrdenVentaResponse(RegistrarPagoOrdenVentaResponse value) {
+        return new JAXBElement<RegistrarPagoOrdenVentaResponse>(_RegistrarPagoOrdenVentaResponse_QNAME, RegistrarPagoOrdenVentaResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Pacientes }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "pacientes")
+    public JAXBElement<Pacientes> createPacientes(Pacientes value) {
+        return new JAXBElement<Pacientes>(_Pacientes_QNAME, Pacientes.class, null, value);
     }
 
 }

@@ -7,7 +7,9 @@ package Controladores;
 
 import Vistas.AgendarCita;
 import Vistas.ConfirmarCita;
+import Vistas.DatosFacturacion;
 import Vistas.Menu;
+import Vistas.PagarOrden;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -62,9 +64,9 @@ public class MenuController implements ActionListener {
     }
 
     private void abrirPagarOrden() {
-        /*vista.dispose();
-        PagarOrdenController controladorPagarOrden = new PagarOrdenController(new PagarOrden());
-        controladorPagarOrden.iniciar();*/
+        vista.dispose();
+        PagarOrdenController controladorPagarOrden = new PagarOrdenController(new PagarOrden(), new DatosFacturacion());
+        controladorPagarOrden.iniciar();
     }
 
 }

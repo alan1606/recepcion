@@ -107,5 +107,10 @@ public class VentaConceptosDaoImp implements VentaConceptosDao{
     public List<VentaConceptos> findAgendadosByFecha(String fecha) {
         return servicio.findAgendadosByFecha(fecha);
     }
+
+    @Override
+    public void actualizarVentaConceptos(VentaConceptos venta) {
+        servicio.actualizarVentaConceptos(venta);
+    }
     
 }

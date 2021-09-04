@@ -33,10 +33,37 @@ public interface PacienteServiceWs {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarPacientePorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorId")
+    @ResponseWrapper(localName = "encontrarPacientePorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorIdResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorIdRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorIdResponse")
+    public Pacientes encontrarPacientePorId(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Pacientes arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns clientews.servicio.Pacientes
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "encontrarPacientePorCurp", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorCurp")
     @ResponseWrapper(localName = "encontrarPacientePorCurpResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorCurpResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorCurpRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorCurpResponse")
     public Pacientes encontrarPacientePorCurp(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Pacientes arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "registrarPaciente", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarPaciente")
+    @ResponseWrapper(localName = "registrarPacienteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarPacienteResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/registrarPacienteRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/registrarPacienteResponse")
+    public void registrarPaciente(
         @WebParam(name = "arg0", targetNamespace = "")
         Pacientes arg0);
 
@@ -57,33 +84,6 @@ public interface PacienteServiceWs {
 
     /**
      * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "registrarPaciente", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarPaciente")
-    @ResponseWrapper(localName = "registrarPacienteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarPacienteResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/registrarPacienteRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/registrarPacienteResponse")
-    public void registrarPaciente(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Pacientes arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns clientews.servicio.Pacientes
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarPacientePorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorId")
-    @ResponseWrapper(localName = "encontrarPacientePorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorIdResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorIdRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorIdResponse")
-    public Pacientes encontrarPacientePorId(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Pacientes arg0);
-
-    /**
-     * 
      * @return
      *     returns java.util.List<clientews.servicio.Pacientes>
      */
@@ -93,6 +93,18 @@ public interface PacienteServiceWs {
     @ResponseWrapper(localName = "listarTodosPacientesResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodosPacientesResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/listarTodosPacientesRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/listarTodosPacientesResponse")
     public List<Pacientes> listarTodosPacientes();
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "actualizarPaciente", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarPaciente")
+    @ResponseWrapper(localName = "actualizarPacienteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarPacienteResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/actualizarPacienteRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/actualizarPacienteResponse")
+    public void actualizarPaciente(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Pacientes arg0);
 
     /**
      * 
@@ -123,17 +135,5 @@ public interface PacienteServiceWs {
     public List<Pacientes> encontrarEnVentaConceptos(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "actualizarPaciente", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarPaciente")
-    @ResponseWrapper(localName = "actualizarPacienteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarPacienteResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/actualizarPacienteRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/actualizarPacienteResponse")
-    public void actualizarPaciente(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Pacientes arg0);
 
 }

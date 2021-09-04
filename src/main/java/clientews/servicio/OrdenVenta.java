@@ -4,9 +4,7 @@ package clientews.servicio;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -32,11 +30,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="descDServ" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *         &lt;element name="estatusOv" type="{http://www.w3.org/2001/XMLSchema}short"/>
  *         &lt;element name="facturadaOv" type="{http://www.w3.org/2001/XMLSchema}short"/>
- *         &lt;element name="fechaVentaOv" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="fechaVentaOv" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="granTotalOv" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
  *         &lt;element name="idFormaPago" type="{http://servicio.sga.gm.com.mx/}catalogoFormaPago" minOccurs="0"/>
  *         &lt;element name="idOv" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="idPacienteOv" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="idPacienteOv" type="{http://servicio.sga.gm.com.mx/}pacientes" minOccurs="0"/>
  *         &lt;element name="ivaOv" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *         &lt;element name="medicoCOv" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="medicoEiOv" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
@@ -167,12 +165,11 @@ public class OrdenVenta {
     protected float descDServ;
     protected short estatusOv;
     protected short facturadaOv;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar fechaVentaOv;
+    protected String fechaVentaOv;
     protected Float granTotalOv;
     protected CatalogoFormaPago idFormaPago;
     protected Long idOv;
-    protected long idPacienteOv;
+    protected Pacientes idPacienteOv;
     protected float ivaOv;
     protected Integer medicoCOv;
     protected Integer medicoEiOv;
@@ -230,7 +227,7 @@ public class OrdenVenta {
     public OrdenVenta() {
     }
 
-    public OrdenVenta(Float adicionalesCOv, Float adicionalesEiOv, Float adicionalesElOv, Float adicionalesPOv, Float adicionalesSOv, int contadorOv, float descDCta, float descDImg, float descDLab, float descDPro, float descDServ, short estatusOv, short facturadaOv, XMLGregorianCalendar fechaVentaOv, Float granTotalOv, CatalogoFormaPago idFormaPago, Long idOv, long idPacienteOv, float ivaOv, Integer medicoCOv, Integer medicoEiOv, Integer medicoElOv, String motivoCOv, String motivoDescCOv, String motivoDescFOv, String motivoDescIOv, String motivoDescLOv, String motivoDescSOv, String muestrasOv, String noTempOv, String observacionesIOv, String observacionesLOv, String observacionesSOv, short pDescCta, short pDescImg, short pDescLab, short pDescPro, short pDescServ, boolean pagado, Integer personalSOv, short procedenciaOv, String referenciaOv, boolean requiereFactura, Float subTotalC, Float subTotalI, Float subTotalL, Float subTotalP, Float subTotalS, float subtotalOv, Integer sucursalOv, float tDescCta, float tDescImg, float tDescLab, float tDescPro, float tDescServ, Float totalC, Float totalEi, Float totalEl, Float totalP, Float totalS, int usuarioOv) {
+    public OrdenVenta(Float adicionalesCOv, Float adicionalesEiOv, Float adicionalesElOv, Float adicionalesPOv, Float adicionalesSOv, int contadorOv, float descDCta, float descDImg, float descDLab, float descDPro, float descDServ, short estatusOv, short facturadaOv, String fechaVentaOv, Float granTotalOv, CatalogoFormaPago idFormaPago, Long idOv, Pacientes idPacienteOv, float ivaOv, Integer medicoCOv, Integer medicoEiOv, Integer medicoElOv, String motivoCOv, String motivoDescCOv, String motivoDescFOv, String motivoDescIOv, String motivoDescLOv, String motivoDescSOv, String muestrasOv, String noTempOv, String observacionesIOv, String observacionesLOv, String observacionesSOv, short pDescCta, short pDescImg, short pDescLab, short pDescPro, short pDescServ, boolean pagado, Integer personalSOv, short procedenciaOv, String referenciaOv, boolean requiereFactura, Float subTotalC, Float subTotalI, Float subTotalL, Float subTotalP, Float subTotalS, float subtotalOv, Integer sucursalOv, float tDescCta, float tDescImg, float tDescLab, float tDescPro, float tDescServ, Float totalC, Float totalEi, Float totalEl, Float totalP, Float totalS, int usuarioOv) {
         this.adicionalesCOv = adicionalesCOv;
         this.adicionalesEiOv = adicionalesEiOv;
         this.adicionalesElOv = adicionalesElOv;
@@ -294,6 +291,7 @@ public class OrdenVenta {
         this.usuarioOv = usuarioOv;
     }
 
+    
     
     
     /**
@@ -549,10 +547,10 @@ public class OrdenVenta {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getFechaVentaOv() {
+    public String getFechaVentaOv() {
         return fechaVentaOv;
     }
 
@@ -561,10 +559,10 @@ public class OrdenVenta {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setFechaVentaOv(XMLGregorianCalendar value) {
+    public void setFechaVentaOv(String value) {
         this.fechaVentaOv = value;
     }
 
@@ -643,16 +641,24 @@ public class OrdenVenta {
     /**
      * Obtiene el valor de la propiedad idPacienteOv.
      * 
+     * @return
+     *     possible object is
+     *     {@link Pacientes }
+     *     
      */
-    public long getIdPacienteOv() {
+    public Pacientes getIdPacienteOv() {
         return idPacienteOv;
     }
 
     /**
      * Define el valor de la propiedad idPacienteOv.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Pacientes }
+     *     
      */
-    public void setIdPacienteOv(long value) {
+    public void setIdPacienteOv(Pacientes value) {
         this.idPacienteOv = value;
     }
 

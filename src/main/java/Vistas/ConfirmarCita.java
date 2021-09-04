@@ -34,6 +34,7 @@ public class ConfirmarCita extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         dateFecha = new com.toedter.calendar.JDateChooser();
         btnRegresar = new javax.swing.JButton();
+        btnConfirmarManual = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,6 +60,14 @@ public class ConfirmarCita extends javax.swing.JFrame {
         btnRegresar.setText("Regresar");
         jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 40));
 
+        btnConfirmarManual.setText("Confirmar manualmente");
+        btnConfirmarManual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarManualActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnConfirmarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 650, -1, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 720));
 
         pack();
@@ -68,6 +77,10 @@ public class ConfirmarCita extends javax.swing.JFrame {
         // TODO add your handling code here:
         ///cone
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnConfirmarManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarManualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirmarManualActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,6 +121,7 @@ public class ConfirmarCita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnConfirmarManual;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnRegresar;
     public com.toedter.calendar.JDateChooser dateFecha;

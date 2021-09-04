@@ -16,12 +16,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="costo" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         &lt;element name="activo" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="idConcepto" type="{http://servicio.sga.gm.com.mx/}conceptos" minOccurs="0"/>
  *         &lt;element name="idInstitucion" type="{http://servicio.sga.gm.com.mx/}institucion" minOccurs="0"/>
+ *         &lt;element name="idInternoInstitucion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="limiteDiario" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="pensionesClaveAnterior" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         &lt;element name="precioPublico" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -32,36 +35,42 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "conceptosInstitucion", propOrder = {
-    "costo",
+    "activo",
     "id",
     "idConcepto",
     "idInstitucion",
+    "idInternoInstitucion",
     "limiteDiario",
-    "precio"
+    "pensionesClaveAnterior",
+    "precio",
+    "precioPublico"
 })
 public class ConceptosInstitucion {
 
-    protected double costo;
+    protected boolean activo;
     protected Long id;
     protected Conceptos idConcepto;
     protected Institucion idInstitucion;
+    protected String idInternoInstitucion;
     protected int limiteDiario;
+    protected String pensionesClaveAnterior;
     protected double precio;
+    protected double precioPublico;
 
     /**
-     * Obtiene el valor de la propiedad costo.
+     * Obtiene el valor de la propiedad activo.
      * 
      */
-    public double getCosto() {
-        return costo;
+    public boolean isActivo() {
+        return activo;
     }
 
     /**
-     * Define el valor de la propiedad costo.
+     * Define el valor de la propiedad activo.
      * 
      */
-    public void setCosto(double value) {
-        this.costo = value;
+    public void setActivo(boolean value) {
+        this.activo = value;
     }
 
     /**
@@ -137,6 +146,30 @@ public class ConceptosInstitucion {
     }
 
     /**
+     * Obtiene el valor de la propiedad idInternoInstitucion.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getIdInternoInstitucion() {
+        return idInternoInstitucion;
+    }
+
+    /**
+     * Define el valor de la propiedad idInternoInstitucion.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setIdInternoInstitucion(String value) {
+        this.idInternoInstitucion = value;
+    }
+
+    /**
      * Obtiene el valor de la propiedad limiteDiario.
      * 
      */
@@ -153,6 +186,30 @@ public class ConceptosInstitucion {
     }
 
     /**
+     * Obtiene el valor de la propiedad pensionesClaveAnterior.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPensionesClaveAnterior() {
+        return pensionesClaveAnterior;
+    }
+
+    /**
+     * Define el valor de la propiedad pensionesClaveAnterior.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPensionesClaveAnterior(String value) {
+        this.pensionesClaveAnterior = value;
+    }
+
+    /**
      * Obtiene el valor de la propiedad precio.
      * 
      */
@@ -166,6 +223,22 @@ public class ConceptosInstitucion {
      */
     public void setPrecio(double value) {
         this.precio = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad precioPublico.
+     * 
+     */
+    public double getPrecioPublico() {
+        return precioPublico;
+    }
+
+    /**
+     * Define el valor de la propiedad precioPublico.
+     * 
+     */
+    public void setPrecioPublico(double value) {
+        this.precioPublico = value;
     }
 
 }

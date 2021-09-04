@@ -35,13 +35,13 @@ public class PagarOrden extends javax.swing.JFrame {
         checkFactura = new javax.swing.JCheckBox();
         jLabel9 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
-        btnCancelar = new javax.swing.JButton();
+        btnPagar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        comboEstudio1 = new javax.swing.JComboBox<>();
+        comboPaciente = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablePacientes = new javax.swing.JTable();
+        tableOrdenes = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dateFecha = new com.toedter.calendar.JDateChooser();
         jLabel13 = new javax.swing.JLabel();
         txtTotal1 = new javax.swing.JTextField();
 
@@ -66,26 +66,26 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 620, -1, -1));
         jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 610, 170, 30));
 
-        btnCancelar.setText("Pagar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnPagar.setText("Pagar");
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
+                btnPagarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 660, 80, 30));
+        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 660, 80, 30));
 
         jLabel11.setText("Paciente");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
 
-        jPanel1.add(comboEstudio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 360, -1));
+        jPanel1.add(comboPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 360, -1));
 
-        jScrollPane2.setViewportView(tablePacientes);
+        jScrollPane2.setViewportView(tableOrdenes);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 560, 210));
 
         jLabel12.setText("Fecha");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 160, -1));
+        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 160, -1));
 
         jLabel13.setText("Total");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, -1, -1));
@@ -96,9 +96,9 @@ public class PagarOrden extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    }//GEN-LAST:event_btnPagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,11 +143,11 @@ public class PagarOrden extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnPagar;
     public javax.swing.JCheckBox checkFactura;
-    public javax.swing.JComboBox<String> comboEstudio1;
     public javax.swing.JComboBox<String> comboFormaPago;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    public javax.swing.JComboBox<String> comboPaciente;
+    public com.toedter.calendar.JDateChooser dateFecha;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -157,7 +157,7 @@ public class PagarOrden extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tableEstudios;
-    public javax.swing.JTable tablePacientes;
+    public javax.swing.JTable tableOrdenes;
     public javax.swing.JTextField txtTotal;
     public javax.swing.JTextField txtTotal1;
     // End of variables declaration//GEN-END:variables

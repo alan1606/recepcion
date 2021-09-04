@@ -12,6 +12,7 @@ import DAO.VentaConceptosDaoImp;
 import Tables.TableConceptos;
 import Vistas.ConfirmarCita;
 import Vistas.Menu;
+import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -26,7 +27,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,7 +47,8 @@ public class ConfirmarCitaController implements ActionListener, KeyListener, Mou
 
         this.vista.btnGuardar.addActionListener(this);
         this.vista.btnRegresar.addActionListener(this);
-        
+        this.vista.btnConfirmarManual.addActionListener(this);
+
         this.vista.dateFecha.addPropertyChangeListener(this);
 
     }
@@ -55,12 +57,15 @@ public class ConfirmarCitaController implements ActionListener, KeyListener, Mou
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnGuardar) {
             enviarMensajes();
-        } 
-        else if(e.getSource() == vista.btnRegresar){
+        } else if (e.getSource() == vista.btnRegresar) {
             vista.dispose();
             Menu vista = new Menu();
             MenuController menu = new MenuController(vista);
             menu.iniciar();
+        } else if (e.getSource() == vista.btnConfirmarManual) {
+            if (deseaConfirmar() == 0) {
+                confirmacionManual();
+            }
         }
     }
 
@@ -195,5 +200,32 @@ public class ConfirmarCitaController implements ActionListener, KeyListener, Mou
             }
         }
         return nueva;
+    }
+
+    private void confirmacionManual() {
+        if (vista.tablePacientes.getSelectedRow() != -1) { //Si se seleccionó una fila
+            Long idVentaConcepto = obtenerIdVentaConceptoDeFila(vista.tablePacientes.getSelectedRow());
+            VentaConceptos seleccionado = modeloVentaConceptos.findById(idVentaConcepto);
+            seleccionado.setEstado("CONFIRMADO");
+            modeloVentaConceptos.actualizarVentaConceptos(seleccionado);
+            if (vista.dateFecha.getDate() != null) {
+                cargarConceptosDe(dateToString(vista.dateFecha.getDate().getTime()));
+            }
+            JOptionPane.showMessageDialog(null, "Se ha confirmado la orden");
+        }
+    }
+
+    private Long obtenerIdVentaConceptoDeFila(int selectedRow) {
+        Long id = 0l;
+        try {
+            id = Long.parseLong(vista.tablePacientes.getValueAt(selectedRow, 0).toString());
+        } catch (Exception e) {
+        }
+        return id;
+    }
+
+    private int deseaConfirmar() {
+ int dialog = JOptionPane.YES_NO_OPTION;
+        return (JOptionPane.showConfirmDialog(null, "¿Seguro que desea confirmar la cita? ", "Confirmar", dialog));
     }
 }

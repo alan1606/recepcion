@@ -6,6 +6,7 @@
 package DAO;
 
 import clientews.servicio.OrdenVenta;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,6 @@ import clientews.servicio.OrdenVenta;
 public interface OrdenVentaDao {
     public OrdenVenta encontrarUltimno();
     public void registrar(OrdenVenta orden);
+        public List<OrdenVenta> obtenerNoPagadosEnFecha(String date);
+
 }
