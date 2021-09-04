@@ -28,52 +28,38 @@ public class ConfirmarCita extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        comboArea = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
-        comboEstudio = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePacientes = new javax.swing.JTable();
         btnGuardar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dateFecha = new com.toedter.calendar.JDateChooser();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Área");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
-
-        jPanel1.add(comboArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 150, -1));
-
-        jLabel4.setText("Paciente");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
-
-        jPanel1.add(comboEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 360, -1));
-
         jScrollPane2.setViewportView(tablePacientes);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 730, 530));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 920, 530));
 
-        btnGuardar.setText("Confirmar");
+        btnGuardar.setText("Abrir whatsapp");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 650, -1, 30));
-
-        btnCancelar.setText("Rechazar");
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 650, -1, 30));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 650, -1, 30));
 
         jLabel5.setText("Fecha");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 160, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, -1));
+        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 320, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        btnRegresar.setText("Regresar");
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -122,13 +108,9 @@ public class ConfirmarCita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnGuardar;
-    public javax.swing.JComboBox<String> comboArea;
-    public javax.swing.JComboBox<String> comboEstudio;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    public javax.swing.JButton btnRegresar;
+    public com.toedter.calendar.JDateChooser dateFecha;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;

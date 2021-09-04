@@ -21,6 +21,7 @@ import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TablePacientes;
 import Vistas.AgendarCita;
+import Vistas.Menu;
 import Vistas.NuevoPaciente;
 import clientews.servicio.Areas;
 import clientews.servicio.CatalogoFormaPago;
@@ -108,6 +109,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         this.vista.tablePacientes.addMouseListener(this);
 
         this.vista.txtBuscar.addKeyListener(this);
+        this.vista.btnRegresar.addActionListener(this);
 
         setRadioNombreEnabled(true);
         cargarInstituciones();
@@ -182,6 +184,11 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             vista.dispose();
             NuevoPacienteController controladorNuevoPaciente = new NuevoPacienteController(new NuevoPaciente());
             controladorNuevoPaciente.iniciar();
+        } else if (e.getSource() == vista.btnRegresar) {
+            vista.dispose();
+            Menu vista = new Menu();
+            MenuController menu = new MenuController(vista);
+            menu.iniciar();
         }
     }
 
@@ -528,6 +535,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
             obtenerVentaHecha();
 
+            //Actualizar iuid
+           
+            
             agregarATabla(venta);
 
             agenda();

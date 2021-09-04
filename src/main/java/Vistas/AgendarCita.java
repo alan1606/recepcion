@@ -55,6 +55,7 @@ public class AgendarCita extends javax.swing.JFrame {
         btnNuevoPaciente = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         fecha = new com.toedter.calendar.JDateChooser();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,14 +63,14 @@ public class AgendarCita extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Buscar paciente");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 670, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 670, -1));
 
         radioNombre.setText("Nombre");
-        jPanel1.add(radioNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        jPanel1.add(radioNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         radioCurp.setText("CURP");
-        jPanel1.add(radioCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
+        jPanel1.add(radioCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
         jScrollPane1.setViewportView(tableEstudios);
 
@@ -111,7 +112,7 @@ public class AgendarCita extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablePacientes);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 670, 500));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 670, 460));
 
         btnAgregar.setText("Agregar");
         jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 180, -1, -1));
@@ -126,11 +127,14 @@ public class AgendarCita extends javax.swing.JFrame {
         jPanel1.add(btnQuitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 180, -1, -1));
 
         btnNuevoPaciente.setText("Nuevo paciente");
-        jPanel1.add(btnNuevoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, -1, -1));
+        jPanel1.add(btnNuevoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, -1, -1));
 
         jLabel5.setText("Fecha");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, -1, 20));
         jPanel1.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 670, 210, 20));
+
+        btnRegresar.setText("Regresar");
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -184,6 +188,7 @@ public class AgendarCita extends javax.swing.JFrame {
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnNuevoPaciente;
     public javax.swing.JButton btnQuitar;
+    public javax.swing.JButton btnRegresar;
     public javax.swing.JComboBox<String> comboArea;
     public javax.swing.JComboBox<String> comboEstudio;
     public javax.swing.JComboBox<String> comboHora;

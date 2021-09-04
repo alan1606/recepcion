@@ -6,6 +6,7 @@
 package Controladores;
 
 import Vistas.AgendarCita;
+import Vistas.ConfirmarCita;
 import Vistas.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -55,9 +56,9 @@ public class MenuController implements ActionListener {
     }
 
     private void abrirConfirmarCita() {
-       /* vista.dispose();
+        vista.dispose();
         ConfirmarCitaController controladorConfirmaciones = new ConfirmarCitaController(new ConfirmarCita());
-        controladorConfirmaciones.iniciar();*/
+        controladorConfirmaciones.iniciar();
     }
 
     private void abrirPagarOrden() {

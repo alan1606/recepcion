@@ -33,36 +33,6 @@ public interface ConceptosServiceWs {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarConceptoPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptoPorId")
-    @ResponseWrapper(localName = "encontrarConceptoPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptoPorIdResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptoPorIdRequest", output = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptoPorIdResponse")
-    public Conceptos encontrarConceptoPorId(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Conceptos arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<clientews.servicio.Conceptos>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarConceptosPorIdArea", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptosPorIdArea")
-    @ResponseWrapper(localName = "encontrarConceptosPorIdAreaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptosPorIdAreaResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptosPorIdAreaRequest", output = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptosPorIdAreaResponse")
-    public List<Conceptos> encontrarConceptosPorIdArea(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns clientews.servicio.Conceptos
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "encontrarConceptoPorNombre", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptoPorNombre")
     @ResponseWrapper(localName = "encontrarConceptoPorNombreResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptoPorNombreResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptoPorNombreRequest", output = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptoPorNombreResponse")
@@ -102,5 +72,35 @@ public interface ConceptosServiceWs {
         Long arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         Integer arg1);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns clientews.servicio.Conceptos
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarConceptoPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptoPorId")
+    @ResponseWrapper(localName = "encontrarConceptoPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptoPorIdResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptoPorIdRequest", output = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptoPorIdResponse")
+    public Conceptos encontrarConceptoPorId(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Conceptos arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<clientews.servicio.Conceptos>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarConceptosPorIdArea", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptosPorIdArea")
+    @ResponseWrapper(localName = "encontrarConceptosPorIdAreaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptosPorIdAreaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptosPorIdAreaRequest", output = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptosPorIdAreaResponse")
+    public List<Conceptos> encontrarConceptosPorIdArea(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
 
 }

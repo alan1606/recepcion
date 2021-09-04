@@ -102,5 +102,10 @@ public class VentaConceptosDaoImp implements VentaConceptosDao{
     public Long encontrarNumeroVentaConceptosPorEquipoFechaHora(EquipoDicom equipo, String fecha, String horaAsingnado) {
         return servicio.encontrarNumeroVentaConceptosPorEquipoFechaHora(equipo, fecha, fecha);
     }
+
+    @Override
+    public List<VentaConceptos> findAgendadosByFecha(String fecha) {
+        return servicio.findAgendadosByFecha(fecha);
+    }
     
 }
