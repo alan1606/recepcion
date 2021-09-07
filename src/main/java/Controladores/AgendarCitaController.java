@@ -46,6 +46,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -178,8 +179,13 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 }
             }
         } else if (e.getSource() == vista.btnGuardar) {
-            reiniciarVariables();
-            limpiarCampos();
+            if (deseaRegistrar() == 0) {
+                 try {
+                    reiniciarVariables();
+                    limpiarCampos();
+                } catch (Exception ex) {
+                }
+            }
         } else if (e.getSource() == vista.btnNuevoPaciente) {
             vista.dispose();
             NuevoPacienteController controladorNuevoPaciente = new NuevoPacienteController(new NuevoPaciente());
@@ -189,6 +195,14 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             Menu vista = new Menu();
             MenuController menu = new MenuController(vista);
             menu.iniciar();
+        } else if (e.getSource() == vista.btnCancelar) {
+            if (deseaCancelar() == 0) {
+                try {
+                    reiniciarVariables();
+                    limpiarCampos();
+                } catch (Exception ex) {
+                }
+            }
         }
     }
 
@@ -536,8 +550,6 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             obtenerVentaHecha();
 
             //Actualizar iuid
-           
-            
             agregarATabla(venta);
 
             agenda();
@@ -595,7 +607,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 0f,
                 formaPago,
                 0l,
-                paciente, 
+                paciente,
                 0,
                 0,
                 0,
@@ -767,6 +779,16 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         }
 
         vista.tableEstudios.setModel(dt);
+    }
+
+    private int deseaRegistrar() {
+        int dialog = JOptionPane.YES_NO_OPTION;
+        return (JOptionPane.showConfirmDialog(null, "¿Seguro que desea registrar los estudios? ", "Confirmar", dialog));
+    }
+
+    private int deseaCancelar() {
+        int dialog = JOptionPane.YES_NO_OPTION;
+        return (JOptionPane.showConfirmDialog(null, "¿Seguro que desea limpiar? ", "Confirmar", dialog));
     }
 
 }

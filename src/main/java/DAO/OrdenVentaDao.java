@@ -13,8 +13,15 @@ import java.util.List;
  * @author alanm
  */
 public interface OrdenVentaDao {
+
     public OrdenVenta encontrarUltimno();
+
     public void registrar(OrdenVenta orden);
-        public List<OrdenVenta> obtenerNoPagadosEnFecha(String date);
+
+    public List<OrdenVenta> obtenerNoPagadosEnFecha(String date);
+
+    public List<OrdenVenta> obtenerNoPagadosFechaPaciente(String date, Long idPaciente);
+
+    public List<OrdenVenta> obtenerNoPagadosPaciente(String idPaciente);
 
 }

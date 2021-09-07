@@ -120,7 +120,7 @@ public class AgendarCita extends javax.swing.JFrame {
         btnGuardar.setText("Guardar");
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 670, -1, 30));
 
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText("Limpiar");
         jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 670, -1, 30));
 
         btnQuitar.setText("Quitar");
