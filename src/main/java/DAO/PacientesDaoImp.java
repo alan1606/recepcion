@@ -56,4 +56,9 @@ public class PacientesDaoImp implements PacientesDao {
         servicio.actualizarPaciente(paciente);
     }
 
+    @Override
+    public List<Pacientes> encontrarTodos() {
+        return servicio.listarTodosPacientes();
+    }
+
 }

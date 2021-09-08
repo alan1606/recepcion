@@ -13,6 +13,7 @@ import java.util.List;
  * @author alanm
  */
 public interface PacientesDao {
+    List<Pacientes> encontrarTodos();
     List<Pacientes> buscarLikeNombre(String nombre);
     List<Pacientes> buscarLikeCurp(String curp);
     Pacientes buscarPorId(Long id);

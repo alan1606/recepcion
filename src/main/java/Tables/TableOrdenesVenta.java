@@ -23,17 +23,17 @@ public class TableOrdenesVenta {
         dt.addColumn("Id");
         dt.addColumn("Total");
         dt.addColumn("Paciente");
-        
+        dt.addColumn("Fecha");
        
         OrdenVenta ordenVenta = new OrdenVenta();
 
         for (int i = 0; i < list.size(); i++) {
-            Object fila[] = new Object[3];
+            Object fila[] = new Object[4];
             ordenVenta = list.get(i);
             fila[0] = ordenVenta.getIdOv();
             fila[1] = ordenVenta.getTotalEi();
             fila[2] = ordenVenta.getIdPacienteOv().getNombreCompletoP();
-
+            fila[3] = ordenVenta.getFechaVentaOv();
 
             dt.addRow(fila);
         }

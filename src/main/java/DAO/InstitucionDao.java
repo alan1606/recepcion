@@ -19,5 +19,8 @@ public interface InstitucionDao {
     public Institucion encontrarPorId(Institucion institucion);
 
     public Institucion encontrarPorNombre(Institucion institucion);
+    public Institucion findInstitucionByIdOrdenVenta(Long idOrdenVenta);
+    
 
+    
 }

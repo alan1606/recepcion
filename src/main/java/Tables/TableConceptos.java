@@ -30,7 +30,6 @@ public class TableConceptos {
         dt.addColumn("idPaciente");
         dt.addColumn("idConcepto");
 
-
         VentaConceptos venta = new VentaConceptos();
 
         for (int i = 0; i < list.size(); i++) {
@@ -55,9 +54,61 @@ public class TableConceptos {
         columnModel.getColumn(3).setPreferredWidth(250);
         columnModel.getColumn(4).setPreferredWidth(100);
         columnModel.getColumn(5).setPreferredWidth(250);
-                columnModel.getColumn(6).setPreferredWidth(1);
+        columnModel.getColumn(6).setPreferredWidth(1);
 
-                        columnModel.getColumn(7).setPreferredWidth(1);
+        columnModel.getColumn(7).setPreferredWidth(1);
+
+    }
+
+     public void cargarTablaEnPagos(JTable tabla, List<VentaConceptos> list) {
+
+        DefaultTableModel dt = new DefaultTableModel();
+        dt.addColumn("Id");
+        dt.addColumn("Estudio");
+        dt.addColumn("Hora");
+
+        VentaConceptos venta = new VentaConceptos();
+
+        for (int i = 0; i < list.size(); i++) {
+            Object fila[] = new Object[3];
+            venta = list.get(i);
+            fila[0] = venta.getIdVc();
+            fila[1] = venta.getIdConceptoEs().getConceptoTo();
+            fila[2] = venta.getHoraAsignado();
+            dt.addRow(fila);
+        }
+        tabla.setModel(dt);
+        tabla.setRowHeight(60);
+        TableColumnModel columnModel = tabla.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(30);
+        columnModel.getColumn(1).setPreferredWidth(250);
+        columnModel.getColumn(2).setPreferredWidth(80);
+    }
+    
+    public void cargarTablaVacia(JTable tabla) {
+
+        DefaultTableModel dt = new DefaultTableModel();
+        dt.addColumn("Id");
+        dt.addColumn("Estudio");
+        dt.addColumn("Hora");
+        dt.addColumn("Paciente");
+        dt.addColumn("Telefono");
+        dt.addColumn("Correo");
+        dt.addColumn("idPaciente");
+        dt.addColumn("idConcepto");
+
+        tabla.setModel(dt);
+        tabla.setRowHeight(60);
+        TableColumnModel columnModel = tabla.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(30);
+        columnModel.getColumn(1).setPreferredWidth(250);
+        columnModel.getColumn(2).setPreferredWidth(80);
+        columnModel.getColumn(3).setPreferredWidth(250);
+        columnModel.getColumn(4).setPreferredWidth(100);
+        columnModel.getColumn(5).setPreferredWidth(250);
+        columnModel.getColumn(6).setPreferredWidth(1);
+
+        columnModel.getColumn(7).setPreferredWidth(1);
 
     }
 }

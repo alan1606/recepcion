@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para obtenerOrdenVentaConfirmadasPaciente complex type.
+ * <p>Clase Java para findInstitucionByIdOrdenVenta complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="obtenerOrdenVentaConfirmadasPaciente">
+ * &lt;complexType name="findInstitucionByIdOrdenVenta">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -26,10 +26,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "obtenerOrdenVentaConfirmadasPaciente", propOrder = {
+@XmlType(name = "findInstitucionByIdOrdenVenta", propOrder = {
     "arg0"
 })
-public class ObtenerOrdenVentaConfirmadasPaciente {
+public class FindInstitucionByIdOrdenVenta {
 
     protected Long arg0;
 

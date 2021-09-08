@@ -24,4 +24,10 @@ public interface OrdenVentaDao {
 
     public List<OrdenVenta> obtenerNoPagadosPaciente(String idPaciente);
 
+    public List<OrdenVenta> obtenerConfirmadosEnFecha(String date);
+
+    public List<OrdenVenta> obtenerConfirmadosFechaPaciente(String date, Long idPaciente);
+
+    public List<OrdenVenta> obtenerConfirmadosPaciente(Long idPaciente);
+
 }

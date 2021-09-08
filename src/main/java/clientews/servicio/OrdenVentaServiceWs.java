@@ -143,6 +143,6 @@ public interface OrdenVentaServiceWs {
     @Action(input = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaConfirmadasPacienteRequest", output = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaConfirmadasPacienteResponse")
     public List<OrdenVenta> obtenerOrdenVentaConfirmadasPaciente(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        Long arg0);
 
 }

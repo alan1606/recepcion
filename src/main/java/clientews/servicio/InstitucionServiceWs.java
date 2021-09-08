@@ -67,4 +67,19 @@ public interface InstitucionServiceWs {
         @WebParam(name = "arg0", targetNamespace = "")
         Institucion arg0);
 
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns clientews.servicio.Institucion
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findInstitucionByIdOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.FindInstitucionByIdOrdenVenta")
+    @ResponseWrapper(localName = "findInstitucionByIdOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.FindInstitucionByIdOrdenVentaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/findInstitucionByIdOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/findInstitucionByIdOrdenVentaResponse")
+    public Institucion findInstitucionByIdOrdenVenta(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Long arg0);
+
 }

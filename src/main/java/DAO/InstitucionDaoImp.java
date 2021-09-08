@@ -44,4 +44,9 @@ public class InstitucionDaoImp implements InstitucionDao {
         return encontrada;
     }
 
+    @Override
+    public Institucion findInstitucionByIdOrdenVenta(Long idOrdenVenta) {
+        return servicio.findInstitucionByIdOrdenVenta(idOrdenVenta);
+    }
+
 }
