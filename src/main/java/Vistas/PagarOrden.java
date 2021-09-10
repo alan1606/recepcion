@@ -51,6 +51,8 @@ public class PagarOrden extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tablePagos = new javax.swing.JTable();
         btnPagar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtSubtotal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,7 +69,7 @@ public class PagarOrden extends javax.swing.JFrame {
                 checkFacturaActionPerformed(evt);
             }
         });
-        jPanel1.add(checkFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 580, 120, -1));
+        jPanel1.add(checkFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 500, 120, 30));
 
         jLabel9.setText("Total");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 560, -1, -1));
@@ -117,7 +119,7 @@ public class PagarOrden extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(tablePagos);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 340, 210));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 340, 150));
 
         btnPagar.setText("Pagar");
         btnPagar.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +128,10 @@ public class PagarOrden extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 560, 130, 50));
+
+        jLabel10.setText("Subtotal");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, 50, 20));
+        jPanel1.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 160, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 650));
 
@@ -194,6 +200,7 @@ public class PagarOrden extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> comboFormaPago;
     public javax.swing.JComboBox<String> comboPaciente;
     public com.toedter.calendar.JDateChooser dateFecha;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -210,6 +217,7 @@ public class PagarOrden extends javax.swing.JFrame {
     public javax.swing.JTable tablePagos;
     public javax.swing.JTextField txtCantidad;
     public javax.swing.JTextField txtInstitucion;
+    public javax.swing.JTextField txtSubtotal;
     public javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

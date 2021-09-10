@@ -67,6 +67,11 @@ public class OrdenVentaDaoImp implements OrdenVentaDao {
     public List<OrdenVenta> obtenerConfirmadosPaciente(Long idPaciente) {
         return servicio.obtenerOrdenVentaConfirmadasPaciente(idPaciente);
     }
+
+    @Override
+    public OrdenVenta obtenerOrdenVentaPorId(Long idOrdenVenta) {
+        return servicio.obtenerOrdenVentaPorId(idOrdenVenta);
+    }
     
     
 

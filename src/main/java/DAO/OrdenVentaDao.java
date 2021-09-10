@@ -14,6 +14,8 @@ import java.util.List;
  */
 public interface OrdenVentaDao {
 
+    public OrdenVenta obtenerOrdenVentaPorId(Long idOrdenVenta);
+    
     public OrdenVenta encontrarUltimno();
 
     public void registrar(OrdenVenta orden);

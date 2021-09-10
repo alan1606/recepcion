@@ -145,4 +145,19 @@ public interface OrdenVentaServiceWs {
         @WebParam(name = "arg0", targetNamespace = "")
         Long arg0);
 
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns clientews.servicio.OrdenVenta
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerOrdenVentaPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaPorId")
+    @ResponseWrapper(localName = "obtenerOrdenVentaPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerOrdenVentaPorIdResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaPorIdRequest", output = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/obtenerOrdenVentaPorIdResponse")
+    public OrdenVenta obtenerOrdenVentaPorId(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Long arg0);
+
 }
