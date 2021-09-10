@@ -180,7 +180,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             }
         } else if (e.getSource() == vista.btnGuardar) {
             if (deseaRegistrar() == 0) {
-                 try {
+                try {
                     reiniciarVariables();
                     limpiarCampos();
                 } catch (Exception ex) {
@@ -589,63 +589,131 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         formaPago.setIdFp(Short.parseShort("1"));
 
         //Este constructor de mierda es culpa de tantos datos de mierda en la base de datos
-        orden = new OrdenVenta(
-                0f,
-                0f,
-                0f,
-                0f,
-                0f,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                Short.parseShort("0"),
-                Short.parseShort("0"),
-                dateToString(fechaActual.getTime()),
-                0f,
-                formaPago,
-                0l,
-                paciente,
-                0,
-                0,
-                0,
-                0,
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                Short.parseShort("0"),
-                Short.parseShort("0"),
-                Short.parseShort("0"),
-                Short.parseShort("0"),
-                Short.parseShort("0"),
-                ordenVentaGenerada,
-                0,
-                Short.parseShort("0"),
-                "",
-                ordenVentaGenerada,
-                0f,
-                0f,
-                0f,
-                0f,
-                0f,
-                0,
-                0, 0, 0, 0, 0, 0,
-                0f,
-                0f,
-                0f,
-                0f,
-                0f,
-                0);
+        orden = new OrdenVenta();
+
+        orden.setAdicionalesCOv(0f);
+
+        orden.setAdicionalesEiOv(0f);
+
+        orden.setAdicionalesElOv(0f);
+
+        orden.setAdicionalesPOv(0f);
+
+        orden.setAdicionalesSOv(0f);
+
+        orden.setContadorOv(0);
+
+        orden.setDescDCta(0);
+
+        orden.setDescDImg(0);
+
+        orden.setDescDLab(0);
+
+        orden.setDescDPro(0);
+
+        orden.setDescDServ(0);
+
+        orden.setEstatusOv(Short.parseShort("0"));
+
+        orden.setFacturadaOv(Short.parseShort("0"));
+
+        orden.setFechaVentaOv(dateToString(fechaActual.getTime()));
+
+        orden.setGranTotalOv(0f);
+
+        orden.setIdFormaPago(formaPago);
+
+        orden.setIdOv(0l);
+
+        orden.setIdPacienteOv(paciente);
+
+        orden.setIvaOv(0);
+
+        orden.setMedicoCOv(0);
+
+        orden.setMedicoEiOv(0);
+
+        orden.setMedicoElOv(0);
+
+        orden.setMotivoCOv("");
+
+        orden.setMotivoDescCOv("");
+
+        orden.setMotivoDescFOv("");
+
+        orden.setMotivoDescIOv("");
+
+        orden.setMotivoDescLOv("");
+
+        orden.setMotivoDescSOv("");
+
+        orden.setMuestrasOv("");
+
+        orden.setNoTempOv("");
+
+        orden.setObservacionesIOv("");
+
+        orden.setObservacionesLOv("");
+
+        orden.setObservacionesSOv("");
+
+        orden.setPDescCta(Short.parseShort("0"));
+
+        orden.setPDescImg(Short.parseShort("0"));
+
+        orden.setPDescLab(Short.parseShort("0"));
+
+        orden.setPDescPro(Short.parseShort("0"));
+
+        orden.setPDescServ(Short.parseShort("0"));
+
+        orden.setPagado(false);
+
+        orden.setPersonalSOv(0);
+
+        orden.setProcedenciaOv(Short.parseShort("0"));
+
+        orden.setReferenciaOv("");
+
+        orden.setRequiereFactura(false);
+
+        orden.setSubTotalC(0f);
+
+        orden.setSubTotalI(0f);
+
+        orden.setSubTotalL(0f);
+
+        orden.setSubTotalP(0f);
+
+        orden.setSubTotalS(0f);
+
+        orden.setSubtotalOv(0);
+
+        orden.setSucursalOv(0);
+
+        orden.setTDescCta(0f);
+
+        orden.setTDescCta(0f);
+
+        orden.setTDescImg(0f);
+
+        orden.setTDescLab(0f);
+
+        orden.setTDescPro(0f);
+
+        orden.setTDescServ(0f);
+
+        orden.setTotalC(0f);
+
+        orden.setTotalEi(0f);
+
+        orden.setTotalEl(0f);
+
+        orden.setTotalP(0f);
+
+        orden.setTotalS(0f);
+
+        orden.setUsuarioOv(0);
 
         orden.setObservacionesIOv("");
         orden.setEstatusOv(Short.parseShort("1"));

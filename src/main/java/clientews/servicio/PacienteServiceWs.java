@@ -27,6 +27,33 @@ public interface PacienteServiceWs {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<clientews.servicio.Pacientes>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarTodosPacientes", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodosPacientes")
+    @ResponseWrapper(localName = "listarTodosPacientesResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodosPacientesResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/listarTodosPacientesRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/listarTodosPacientesResponse")
+    public List<Pacientes> listarTodosPacientes();
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns clientews.servicio.Pacientes
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarPacientePorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorId")
+    @ResponseWrapper(localName = "encontrarPacientePorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorIdResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorIdRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorIdResponse")
+    public Pacientes encontrarPacientePorId(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Pacientes arg0);
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns java.util.List<clientews.servicio.Pacientes>
@@ -43,41 +70,17 @@ public interface PacienteServiceWs {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns clientews.servicio.Pacientes
      */
     @WebMethod
-    @RequestWrapper(localName = "actualizarPaciente", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarPaciente")
-    @ResponseWrapper(localName = "actualizarPacienteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarPacienteResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/actualizarPacienteRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/actualizarPacienteResponse")
-    public void actualizarPaciente(
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarPacientePorCurp", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorCurp")
+    @ResponseWrapper(localName = "encontrarPacientePorCurpResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorCurpResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorCurpRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorCurpResponse")
+    public Pacientes encontrarPacientePorCurp(
         @WebParam(name = "arg0", targetNamespace = "")
         Pacientes arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<clientews.servicio.Pacientes>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarTodosPacientes", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodosPacientes")
-    @ResponseWrapper(localName = "listarTodosPacientesResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodosPacientesResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/listarTodosPacientesRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/listarTodosPacientesResponse")
-    public List<Pacientes> listarTodosPacientes();
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<clientews.servicio.Pacientes>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarEnVentaConceptos", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEnVentaConceptos")
-    @ResponseWrapper(localName = "encontrarEnVentaConceptosResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEnVentaConceptosResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarEnVentaConceptosRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarEnVentaConceptosResponse")
-    public List<Pacientes> encontrarEnVentaConceptos(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
 
     /**
      * 
@@ -109,15 +112,12 @@ public interface PacienteServiceWs {
     /**
      * 
      * @param arg0
-     * @return
-     *     returns clientews.servicio.Pacientes
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarPacientePorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorId")
-    @ResponseWrapper(localName = "encontrarPacientePorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorIdResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorIdRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorIdResponse")
-    public Pacientes encontrarPacientePorId(
+    @RequestWrapper(localName = "actualizarPaciente", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarPaciente")
+    @ResponseWrapper(localName = "actualizarPacienteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarPacienteResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/actualizarPacienteRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/actualizarPacienteResponse")
+    public void actualizarPaciente(
         @WebParam(name = "arg0", targetNamespace = "")
         Pacientes arg0);
 
@@ -125,15 +125,15 @@ public interface PacienteServiceWs {
      * 
      * @param arg0
      * @return
-     *     returns clientews.servicio.Pacientes
+     *     returns java.util.List<clientews.servicio.Pacientes>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarPacientePorCurp", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorCurp")
-    @ResponseWrapper(localName = "encontrarPacientePorCurpResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorCurpResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorCurpRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorCurpResponse")
-    public Pacientes encontrarPacientePorCurp(
+    @RequestWrapper(localName = "encontrarEnVentaConceptos", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEnVentaConceptos")
+    @ResponseWrapper(localName = "encontrarEnVentaConceptosResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarEnVentaConceptosResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarEnVentaConceptosRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarEnVentaConceptosResponse")
+    public List<Pacientes> encontrarEnVentaConceptos(
         @WebParam(name = "arg0", targetNamespace = "")
-        Pacientes arg0);
+        String arg0);
 
 }
