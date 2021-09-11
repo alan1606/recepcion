@@ -72,6 +72,11 @@ public class OrdenVentaDaoImp implements OrdenVentaDao {
     public OrdenVenta obtenerOrdenVentaPorId(Long idOrdenVenta) {
         return servicio.obtenerOrdenVentaPorId(idOrdenVenta);
     }
+
+    @Override
+    public void actualizar(OrdenVenta orden) {
+         servicio.actualizarOrdenVenta(orden);
+    }
     
     
 

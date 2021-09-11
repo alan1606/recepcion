@@ -27,6 +27,7 @@ import clientews.servicio.Institucion;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
 import clientews.servicio.PagoOrdenVenta;
+import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -36,6 +37,7 @@ import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -58,7 +60,8 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
     private ArrayList<CatalogoFormaPago> formasDePago;
     private CatalogoFormaPago formaPagoSeleccionada;
     private PagoOrdenVentaDao modeloPagoOrdenVenta;
-   
+    private OrdenVenta ordenSeleccionada;
+    private ArrayList<VentaConceptos> estudiosDeOrden;
     
     public PagarOrdenController(PagarOrden vistaPrincipal, DatosFacturacion vistaFacturacion) {
         this.vistaPrincipal = vistaPrincipal;
@@ -70,6 +73,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         modeloInstituciones = new InstitucionDaoImp();
         modeloFormasDePago = new CatalogoFormaPagoDaoImp();
         modeloPagoOrdenVenta = new PagoOrdenVentaDaoImp();
+        ordenSeleccionada = new OrdenVenta();
         
         this.vistaPrincipal.btnAgregar.addActionListener(this);
         this.vistaPrincipal.comboPaciente.addActionListener(this);
@@ -78,6 +82,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         this.vistaPrincipal.btnRegresar.addActionListener(this);
         this.vistaPrincipal.comboFormaPago.addActionListener(this);
         this.vistaPrincipal.btnPagar.addActionListener(this);
+        this.vistaPrincipal.checkFactura.addActionListener(this);
         
         this.vistaFacturacion.btnGuardar.addActionListener(this);
     }
@@ -145,12 +150,22 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             if (vistaPrincipal.comboFormaPago.getSelectedIndex() != 0) {
                 formaPagoSeleccionada = formasDePago.get(vistaPrincipal.comboFormaPago.getSelectedIndex() - 1);
             }
-        } else if (e.getSource() == vistaPrincipal.btnPagar) {
-            procesarPago();
-        }
-        else if(e.getSource() == vistaFacturacion.btnGuardar){
-            if(datosFacturacionValidos()){
-                 actualizarDatosFacturacion();
+        } else if (e.getSource() == vistaPrincipal.btnPagar ) {
+            if(datosValidos() && deseaPagar() == 0){
+                            procesarPago();
+            }
+        } else if (e.getSource() == vistaFacturacion.btnGuardar) {
+            if (datosFacturacionValidos() ) {
+                actualizarDatosFacturacion();
+                limpiarFacturacion();
+                vistaFacturacion.dispose();
+            }
+        } else if (e.getSource() == vistaPrincipal.checkFactura) {
+            if (vistaPrincipal.checkFactura.isSelected()) {
+                ordenSeleccionada.setRequiereFactura(true);
+                pedirDatosFacturacion();
+            } else {
+                ordenSeleccionada.setRequiereFactura(false);
             }
         }
     }
@@ -219,7 +234,8 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
     
     private void cargarEstudios(Long idOrden) {
         TableConceptos tableConceptos = new TableConceptos();
-        tableConceptos.cargarTablaEnPagos(vistaPrincipal.tableEstudios, modeloVentaConceptos.findByIdOrdenVenta(idOrden));
+        estudiosDeOrden = (ArrayList<VentaConceptos>) modeloVentaConceptos.findByIdOrdenVenta(idOrden);
+        tableConceptos.cargarTablaEnPagos(vistaPrincipal.tableEstudios,estudiosDeOrden );
     }
     
     private void cargarPacientes() {
@@ -366,22 +382,42 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             CatalogoFormaPago formaPagoTemporal;
             String formaPagoTabla = "";
             double cantidadTabla = 0d;
-            OrdenVenta orden = modeloOrdenesVenta.obtenerOrdenVentaPorId(Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(vistaPrincipal.tableOrdenes.getSelectedRow(), 0).toString()));
+            String fechaActual = dateToStringOrdenVenta();
+            ordenSeleccionada = modeloOrdenesVenta.obtenerOrdenVentaPorId(Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(vistaPrincipal.tableOrdenes.getSelectedRow(), 0).toString()));
+            ordenSeleccionada.setPagado(true);
+            ordenSeleccionada.setFechaVentaOv(fechaActual);
+            pago.setIdOrdenVenta(ordenSeleccionada);
             
             if (vistaPrincipal.checkFactura.isSelected()) {
-                orden.setRequiereFactura(true);
-                pedirDatosFacturacion();
+                ordenSeleccionada.setRequiereFactura(true);
+                while (pacienteSeleccionado.getRazonSocialP().equals("") || pacienteSeleccionado.getRfcP().equals("")) {
+                    pedirDatosFacturacion();
+                }
             }
-
+            
             for (int i = 0; i < vistaPrincipal.tablePagos.getRowCount(); i++) {
                 formaPagoTabla = vistaPrincipal.tablePagos.getValueAt(i, 0).toString();
                 formaPagoTemporal = encontrarFormaPago(formaPagoTabla);
                 cantidadTabla = Double.parseDouble(vistaPrincipal.tablePagos.getValueAt(i, 1).toString());
                 pago.setCantidad(cantidadTabla);
                 pago.setIdFormaPago(formaPagoTemporal);
-                pago.setIdOrdenVenta(orden);
                 modeloPagoOrdenVenta.registrarPagoOrdenVenta(pago);
+                System.out.println("me vengoooooooooo");
             }
+            
+            modeloOrdenesVenta.actualizar(ordenSeleccionada);
+            
+            for(VentaConceptos venta: estudiosDeOrden){
+                venta.setEstado("PAGADO");
+                venta.setFechaVentaVc(fechaActual);
+                modeloVentaConceptos.actualizarVentaConceptos(venta);
+            }
+            
+            limpiarTablaOrdenes();
+            limpiarTablaEstudios();
+            limpiarTablaPagos();
+            limpiar();
+            
         }
     }
     
@@ -405,31 +441,110 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         vistaFacturacion.txtRfc.setText(pacienteSeleccionado.getRfcP());
     }
     
-   
-
     private CatalogoFormaPago encontrarFormaPago(String formaPagoTabla) {
-        for(CatalogoFormaPago temporal : formasDePago){
-            if(temporal.getFormaPagoFp().equals(formaPagoTabla)){
+        for (CatalogoFormaPago temporal : formasDePago) {
+            if (temporal.getFormaPagoFp().equals(formaPagoTabla)) {
                 return temporal;
             }
         }
         return new CatalogoFormaPago();
     }
-
+    
     private boolean datosFacturacionValidos() {
-        if(vistaFacturacion.txtNombre.getText().equals("")){
+        if (vistaFacturacion.txtNombre.getText().equals("")) {
             return false;
         }
-        if(vistaFacturacion.txtRfc.getText().equals("")){
+        if (vistaFacturacion.txtRfc.getText().equals("")) {
             return false;
         }
         return true;
     }
-
+    
     private void actualizarDatosFacturacion() {
         pacienteSeleccionado.setRazonSocialP(vistaFacturacion.txtNombre.getText());
         pacienteSeleccionado.setRfcP(vistaFacturacion.txtRfc.getText());
         modeloPacientes.actualizar(pacienteSeleccionado);
     }
     
+    private void limpiarFacturacion() {
+        vistaFacturacion.txtNombre.setText("");
+        vistaFacturacion.txtRfc.setText("");
+    }
+    
+    private void limpiarTablaOrdenes() {
+        
+        DefaultTableModel dt = (DefaultTableModel) vistaPrincipal.tableOrdenes.getModel();
+        
+        while (dt.getRowCount() > 0) {
+            dt.removeRow(0);
+        }
+        
+        vistaPrincipal.tableOrdenes.setModel(dt);
+        
+    }
+    
+    private void limpiarTablaEstudios() {
+        DefaultTableModel dt = (DefaultTableModel) vistaPrincipal.tableEstudios.getModel();
+        
+        while (dt.getRowCount() > 0) {
+            dt.removeRow(0);
+        }
+        
+        vistaPrincipal.tableEstudios.setModel(dt);
+    }
+    
+    private void limpiarTablaPagos() {
+        DefaultTableModel dt = (DefaultTableModel) vistaPrincipal.tablePagos.getModel();
+        
+        while (dt.getRowCount() > 0) {
+            dt.removeRow(0);
+        }
+        
+        vistaPrincipal.tablePagos.setModel(dt);
+    }
+    
+    private void limpiar() {
+        vistaPrincipal.dateFecha.setDate(null);
+        vistaPrincipal.comboPaciente.setSelectedIndex(0);
+        vistaPrincipal.txtInstitucion.setText("");
+        vistaPrincipal.txtTotal.setText("");
+        vistaPrincipal.txtCantidad.setText("");
+        vistaPrincipal.txtSubtotal.setText("");
+        vistaPrincipal.checkFactura.setSelected(false);
+        ordenSeleccionada.setRequiereFactura(false);
+        vistaPrincipal.comboFormaPago.setSelectedIndex(0);
+        
+    }
+
+    private int deseaPagar() {
+        int dialog = JOptionPane.YES_NO_OPTION;
+        return (JOptionPane.showConfirmDialog(null, "¿Seguro que desea pagar la órden? ", "Confirmar", dialog));
+    }
+
+    private boolean datosValidos() {
+        double  total = 0d;
+        double subtotal = 0d;
+        if(vistaPrincipal.tableOrdenes.getSelectedRow() == -1){
+            return false;
+        }
+        try {
+           total = Double.parseDouble(vistaPrincipal.txtTotal.getText().toString());
+            subtotal =Double.parseDouble(vistaPrincipal.txtSubtotal.getText().toString());
+        } catch (Exception e) {
+            return false;
+        }
+        if(subtotal < total){
+            return false;
+        }
+        return true;
+    }
+    
+    
+      private String dateToStringOrdenVenta() {
+         Long date = new Date().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String strDate = dateFormat.format(date);
+        return strDate;
+    }
 }
+

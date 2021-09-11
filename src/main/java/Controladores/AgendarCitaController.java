@@ -588,7 +588,6 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         CatalogoFormaPago formaPago = new CatalogoFormaPago();
         formaPago.setIdFp(Short.parseShort("1"));
 
-        //Este constructor de mierda es culpa de tantos datos de mierda en la base de datos
         orden = new OrdenVenta();
 
         orden.setAdicionalesCOv(0f);
@@ -617,7 +616,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
         orden.setFacturadaOv(Short.parseShort("0"));
 
-        orden.setFechaVentaOv(dateToString(fechaActual.getTime()));
+        orden.setFechaVentaOv(dateToStringOrdenVenta(fechaActual.getTime()));
 
         orden.setGranTotalOv(0f);
 
@@ -857,6 +856,12 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private int deseaCancelar() {
         int dialog = JOptionPane.YES_NO_OPTION;
         return (JOptionPane.showConfirmDialog(null, "¿Seguro que desea limpiar? ", "Confirmar", dialog));
+    }
+
+    private String dateToStringOrdenVenta(long date) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String strDate = dateFormat.format(date);
+        return strDate;
     }
 
 }
