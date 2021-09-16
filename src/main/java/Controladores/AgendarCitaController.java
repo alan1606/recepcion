@@ -37,6 +37,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -56,7 +58,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *
  * @author alanm
  */
-public class AgendarCitaController implements KeyListener, MouseListener, ActionListener {
+public class AgendarCitaController implements KeyListener, MouseListener, ActionListener, PropertyChangeListener {
 
     private AgendarCita vista;
 
@@ -78,6 +80,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private VentaConceptos venta;
 
     private Date fechaActual;
+    private String fechaSeleccionada;
     private XMLGregorianCalendar fechaActualXml;
 
     public AgendarCitaController(AgendarCita vista) {
@@ -111,6 +114,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
         this.vista.txtBuscar.addKeyListener(this);
         this.vista.btnRegresar.addActionListener(this);
+
+        this.vista.fecha.addPropertyChangeListener(this);
 
         setRadioNombreEnabled(true);
         cargarInstituciones();
@@ -156,6 +161,11 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 institucion.setNombreInstitucion(vista.comboInstitucion.getSelectedItem().toString());
                 institucion = modeloInstituciones.encontrarPorNombre(institucion);
                 cargarAreas();
+                if (!institucion.getNombreInstitucion().equals("PARTICULAR") && vista.fecha.getDate() != null) { //Si no equivale a particular se procede a checar si no se ha superado el limite
+                    if (!aunEsPosibleAgendarEnInstitucion()) {
+                        JOptionPane.showMessageDialog(null, "La institución ha superado su límite diario en esa fecha");
+                    }
+                }
             }
         } else if (e.getSource() == this.vista.comboSala) {
             if (todoListoVerificarAgenda()) {
@@ -167,7 +177,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 obtenerConcepto();
             }
         } else if (e.getSource() == this.vista.btnAgregar) {
-            if (datosValidos()) {
+            if (datosValidos() && vista.comboHora.getSelectedIndex() != 0) {
                 agregarVentaConcepto();
             }
         } else if (e.getSource() == vista.btnQuitar) {
@@ -179,7 +189,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 }
             }
         } else if (e.getSource() == vista.btnGuardar) {
-            if (deseaRegistrar() == 0) {
+            if (datosValidos() && vista.tableEstudios.getRowCount() != 0 && deseaRegistrar() == 0) {
                 try {
                     reiniciarVariables();
                     limpiarCampos();
@@ -365,14 +375,6 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     }
 
     private void agenda() {
-        if (vista.comboInstitucion.getSelectedItem().toString().equals("PARTICULAR")) {
-            verificarAgendaParticular();
-        } else {
-            verificarAgendaInstitucion();
-        }
-    }
-
-    private void verificarAgendaParticular() {
         int horaInicio = horaAInt(area.getHoraInicio().toString(), 11, 14);
         int horaFin = horaAInt(area.getHoraFin().toString(), 11, 14);
 
@@ -443,11 +445,19 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         } catch (Exception e) {
             e.printStackTrace(System.out);
         }
-
     }
 
     private void verificarAgendaInstitucion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (aunEsPosibleAgendarEnInstitucion()) {
+            agenda();
+        } else {
+            JOptionPane.showMessageDialog(null, "La institución ha superado el límite diario de estudios");
+            vaciarComboEstudios();
+        }
+    }
+
+    private boolean aunEsPosibleAgendarEnInstitucion() {
+        return modeloInstituciones.aunEsPosibleAgendarEnInstitucion(institucion.getIdInstitucion(), fechaSeleccionada);
     }
 
     private int horaAInt(String hora, int inicioHora, int inicioMinutos) {
@@ -541,22 +551,34 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         if (!ordenVentaGenerada) {
             generarOrdenVenta(fechaActualXml);
         }
+        if (esInstitucionYHayDisponibilidad()) { //Si es particular o es institucion pero aún se puede agendar
+            generarVentaConceptos();
 
-        generarVentaConceptos();
+            if (enRealidadEstaDisponibleElEstudio()) {
+                registrarVenta();
 
-        if (enRealidadEstaDisponibleElEstudio()) {
-            registrarVenta();
+                obtenerVentaHecha();
 
-            obtenerVentaHecha();
+                //Actualizar iuid
+                agregarATabla(venta);
 
-            //Actualizar iuid
-            agregarATabla(venta);
-
-            agenda();
-        } else {
-            agenda();
+            } else {
+                JOptionPane.showMessageDialog(null, "El estudio ya ha sido asignado, intente con una hora diferente");
+            }
+            agenda();//Auneu se haya registrado o no el concepto, hay que recargar los horarios
+            //Una limpieza estaría bien
         }
+    }
 
+    private boolean esInstitucionYHayDisponibilidad() {
+        if (vista.comboInstitucion.getSelectedItem().equals("PARTICULAR")) {
+            return true;
+        }
+        if (aunEsPosibleAgendarEnInstitucion()) {
+            return true;
+        }
+        JOptionPane.showMessageDialog(null, "La institución ha superado su límite diario en esa fecha");
+        return false;
     }
 
     private boolean datosValidos() {
@@ -576,9 +598,6 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             return false;
         }
         if (vista.fecha.getDate() == null) {
-            return false;
-        }
-        if (vista.comboHora.getSelectedIndex() == 0) {
             return false;
         }
         return true;
@@ -862,6 +881,31 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String strDate = dateFormat.format(date);
         return strDate;
+    }
+
+    private void vaciarComboEstudios() {
+        try {
+            JComboBox combo = new JComboBox();
+            combo.removeAllItems();
+            combo.addItem("SELECCIONE UNA OPCIÓN");
+            vista.comboEstudio.setModel(combo.getModel());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if (evt.getSource() == vista.fecha) {
+            if (vista.fecha.getDate() != null) {
+                fechaSeleccionada = dateToString(vista.fecha.getDate().getTime());
+            }
+            if (vista.fecha.getDate() != null && vista.comboInstitucion.getSelectedIndex() != 0 && !vista.comboInstitucion.getSelectedItem().toString().equals("PARTICULAR")) {
+                if (!aunEsPosibleAgendarEnInstitucion()) { //Ya no hay
+                    JOptionPane.showMessageDialog(null, "La institución ha superado su límite diario en esa fecha");
+                }
+            }
+        }
     }
 
 }

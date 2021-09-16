@@ -7,6 +7,7 @@ package Controladores;
 
 import Vistas.AgendarCita;
 import Vistas.ConfirmarCita;
+import Vistas.Cortes;
 import Vistas.DatosFacturacion;
 import Vistas.Menu;
 import Vistas.PagarOrden;
@@ -38,6 +39,7 @@ public class MenuController implements ActionListener {
         this.vista.btnAgendar.addActionListener(this);
         this.vista.btnConfirmar.addActionListener(this);
         this.vista.btnPagar.addActionListener(this);
+        this.vista.btnCortes.addActionListener(this);
     }
 
     @Override
@@ -48,6 +50,8 @@ public class MenuController implements ActionListener {
             abrirConfirmarCita();
         } else if (e.getSource() == this.vista.btnPagar) {
             abrirPagarOrden();
+        } else if(e.getSource() == this.vista.btnCortes){
+            abrirCortes();
         }
     }
 
@@ -67,6 +71,12 @@ public class MenuController implements ActionListener {
         vista.dispose();
         PagarOrdenController controladorPagarOrden = new PagarOrdenController(new PagarOrden(), new DatosFacturacion());
         controladorPagarOrden.iniciar();
+    }
+
+    private void abrirCortes() {
+        vista.dispose();
+        CortesController controladorCortes = new CortesController(new Cortes());
+        controladorCortes.iniciar();
     }
 
 }

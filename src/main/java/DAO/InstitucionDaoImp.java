@@ -49,4 +49,19 @@ public class InstitucionDaoImp implements InstitucionDao {
         return servicio.findInstitucionByIdOrdenVenta(idOrdenVenta);
     }
 
+    @Override
+    public boolean aunEsPosibleAgendarEnInstitucion(Long idInstitucion, String fecha) {
+        return servicio.aunEsPosibleAgendarEnInstitucion(idInstitucion, fecha);
+    }
+
+    @Override
+    public Integer obtenerLimiteInstitucion(Long idInstitucion) {
+        return servicio.obtenerLimiteInstitucion(idInstitucion);
+    }
+
+    @Override
+    public Long obtenerCantidadDeEstudiosHechosEnInstitucionFecha(Long idInstitucion, String fecha) {
+        return servicio.obtenerCantidadDeEstudiosHechosEnInstitucionFecha(idInstitucion, fecha);
+    }
+
 }

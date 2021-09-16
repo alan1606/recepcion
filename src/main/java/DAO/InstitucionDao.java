@@ -20,7 +20,10 @@ public interface InstitucionDao {
 
     public Institucion encontrarPorNombre(Institucion institucion);
     public Institucion findInstitucionByIdOrdenVenta(Long idOrdenVenta);
-    
+             public boolean aunEsPosibleAgendarEnInstitucion(Long idInstitucion, String fecha);
 
+    public Integer obtenerLimiteInstitucion(Long idInstitucion);
+    
+    public Long obtenerCantidadDeEstudiosHechosEnInstitucionFecha(Long idInstitucion, String fecha);
     
 }

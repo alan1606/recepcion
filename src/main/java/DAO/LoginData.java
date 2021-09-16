@@ -12,4 +12,5 @@ package DAO;
 public class LoginData {
     public static final String user = "admin";
     public static final String password = "admin";
+    public static final String serverApiAddress = "http://localhost:8080/wl-jee/webservice";
 }

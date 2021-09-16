@@ -23,7 +23,7 @@ public class TableOrdenesVenta {
         dt.addColumn("Id");
         dt.addColumn("Total");
         dt.addColumn("Paciente");
-        dt.addColumn("Fecha");
+        dt.addColumn("Fecha de venta");
        
         OrdenVenta ordenVenta = new OrdenVenta();
 

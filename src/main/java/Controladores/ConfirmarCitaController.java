@@ -10,6 +10,7 @@ import DAO.PacientesDaoImp;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TableConceptos;
+import Utilidades.UrlUtil;
 import Vistas.ConfirmarCita;
 import Vistas.Menu;
 import clientews.servicio.VentaConceptos;
@@ -129,20 +130,7 @@ public class ConfirmarCitaController implements ActionListener, KeyListener, Mou
         tabla.cargarTabla(this.vista.tablePacientes, modeloVentaConceptos.findAgendadosByFecha(fecha));
     }
 
-    public void goToURL(String URL) {
-        if (java.awt.Desktop.isDesktopSupported()) {
-            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-
-            if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
-                try {
-                    java.net.URI uri = new java.net.URI(URL);
-                    desktop.browse(uri);
-                } catch (URISyntaxException | IOException ex) {
-                    Logger.getLogger(ConfirmarCitaController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
-    }
+    
 
     private void enviarMensajes() {
         for (int i = 0; i < vista.tablePacientes.getRowCount(); i++) {
@@ -169,7 +157,7 @@ public class ConfirmarCitaController implements ActionListener, KeyListener, Mou
                         + "%0A*NOTA: * Si no confirma su cita será asignada a otra persona, por lo que es indispensable que lo haga"
                 );
 
-                goToURL(mensaje);
+                UrlUtil.goToURL(mensaje);;
 
             } else {
                 continue;

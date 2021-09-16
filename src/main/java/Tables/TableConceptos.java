@@ -65,16 +65,18 @@ public class TableConceptos {
         DefaultTableModel dt = new DefaultTableModel();
         dt.addColumn("Id");
         dt.addColumn("Estudio");
+        dt.addColumn("Fecha");
         dt.addColumn("Hora");
 
         VentaConceptos venta = new VentaConceptos();
 
         for (int i = 0; i < list.size(); i++) {
-            Object fila[] = new Object[3];
+            Object fila[] = new Object[4];
             venta = list.get(i);
             fila[0] = venta.getIdVc();
             fila[1] = venta.getIdConceptoEs().getConceptoTo();
-            fila[2] = venta.getHoraAsignado();
+            fila[2] = venta.getFechaAsignado();
+            fila[3] = venta.getHoraAsignado();
             dt.addRow(fila);
         }
         tabla.setModel(dt);
@@ -82,7 +84,8 @@ public class TableConceptos {
         TableColumnModel columnModel = tabla.getColumnModel();
         columnModel.getColumn(0).setPreferredWidth(30);
         columnModel.getColumn(1).setPreferredWidth(250);
-        columnModel.getColumn(2).setPreferredWidth(80);
+                columnModel.getColumn(1).setPreferredWidth(100);
+        columnModel.getColumn(3).setPreferredWidth(80);
     }
     
     public void cargarTablaVacia(JTable tabla) {
