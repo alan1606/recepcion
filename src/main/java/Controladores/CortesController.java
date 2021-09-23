@@ -9,6 +9,7 @@ import DAO.LoginData;
 import Utilidades.DateUtil;
 import Utilidades.UrlUtil;
 import Vistas.Cortes;
+import Vistas.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -59,6 +60,12 @@ public class CortesController implements ActionListener {
                 fecha = DateUtil.dateToString(vista.dateFecha.getDate().getTime());
                 UrlUtil.goToURL(LoginData.serverApiAddress + "/ventaConceptos/generatePdf/" + fecha + "/turno/" + vista.comboTurnos.getSelectedItem().toString());
             }
+        }
+        else if(e.getSource() == vista.btnRegresar){
+            vista.dispose();
+            Menu vista = new Menu();
+            MenuController menu = new MenuController(vista);
+            menu.iniciar();
         }
     }
 

@@ -14,4 +14,6 @@ import java.util.List;
  */
 public interface CatalogoFormaPagoDao {
     public List<CatalogoFormaPago> obtenerFormasDePago();
+    public CatalogoFormaPago encontrarFormaPagoPorId(short id);
+    public CatalogoFormaPago encontrarFormaPagoPorNombre(String nombre);
 }

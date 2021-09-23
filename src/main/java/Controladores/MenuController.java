@@ -10,7 +10,10 @@ import Vistas.ConfirmarCita;
 import Vistas.Cortes;
 import Vistas.DatosFacturacion;
 import Vistas.Menu;
+import Vistas.MenuUrgencias;
+import Vistas.MovimientosCorte;
 import Vistas.PagarOrden;
+import Vistas.Reagendar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,6 +43,9 @@ public class MenuController implements ActionListener {
         this.vista.btnConfirmar.addActionListener(this);
         this.vista.btnPagar.addActionListener(this);
         this.vista.btnCortes.addActionListener(this);
+        this.vista.btnEntradas.addActionListener(this);
+        this.vista.btnUrgencias.addActionListener(this);
+        this.vista.btnReagendar.addActionListener(this);
     }
 
     @Override
@@ -52,6 +58,12 @@ public class MenuController implements ActionListener {
             abrirPagarOrden();
         } else if(e.getSource() == this.vista.btnCortes){
             abrirCortes();
+        }else if(e.getSource() == this.vista.btnEntradas){
+            abrirMovimientosCortes();
+        }else if(e.getSource() == this.vista.btnUrgencias){
+            abrirUrgencias();
+        }else if(e.getSource() == this.vista.btnReagendar){
+            abrirReagendar();
         }
     }
 
@@ -77,6 +89,24 @@ public class MenuController implements ActionListener {
         vista.dispose();
         CortesController controladorCortes = new CortesController(new Cortes());
         controladorCortes.iniciar();
+    }
+
+    private void abrirMovimientosCortes() {
+        vista.dispose();
+        MovimientosCorteController controladorMovimientos = new MovimientosCorteController(new MovimientosCorte());
+        controladorMovimientos.iniciar();
+    }
+
+    private void abrirUrgencias() {
+        vista.dispose();
+        MenuUrgenciasController controladorUrgencias = new MenuUrgenciasController(new MenuUrgencias());
+        controladorUrgencias.iniciar();
+    }
+
+    private void abrirReagendar() {
+        vista.dispose();
+        ReagendarController controladorReagendar = new ReagendarController(new Reagendar());
+        controladorReagendar.iniciar();
     }
 
 }

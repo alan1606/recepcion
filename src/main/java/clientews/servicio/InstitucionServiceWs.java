@@ -45,16 +45,28 @@ public interface InstitucionServiceWs {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<clientews.servicio.Institucion>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarTodasInstituciones", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasInstituciones")
+    @ResponseWrapper(localName = "listarTodasInstitucionesResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasInstitucionesResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/listarTodasInstitucionesRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/listarTodasInstitucionesResponse")
+    public List<Institucion> listarTodasInstituciones();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns clientews.servicio.Institucion
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarInstitucionPorNombre", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarInstitucionPorNombre")
-    @ResponseWrapper(localName = "encontrarInstitucionPorNombreResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarInstitucionPorNombreResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/encontrarInstitucionPorNombreRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/encontrarInstitucionPorNombreResponse")
-    public Institucion encontrarInstitucionPorNombre(
+    @RequestWrapper(localName = "encontrarInstitucionPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarInstitucionPorId")
+    @ResponseWrapper(localName = "encontrarInstitucionPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarInstitucionPorIdResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/encontrarInstitucionPorIdRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/encontrarInstitucionPorIdResponse")
+    public Institucion encontrarInstitucionPorId(
         @WebParam(name = "arg0", targetNamespace = "")
         Institucion arg0);
 
@@ -77,28 +89,16 @@ public interface InstitucionServiceWs {
      * 
      * @param arg0
      * @return
-     *     returns java.lang.Integer
+     *     returns clientews.servicio.Institucion
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerLimiteInstitucion", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerLimiteInstitucion")
-    @ResponseWrapper(localName = "obtenerLimiteInstitucionResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerLimiteInstitucionResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/obtenerLimiteInstitucionRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/obtenerLimiteInstitucionResponse")
-    public Integer obtenerLimiteInstitucion(
+    @RequestWrapper(localName = "encontrarInstitucionPorNombre", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarInstitucionPorNombre")
+    @ResponseWrapper(localName = "encontrarInstitucionPorNombreResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarInstitucionPorNombreResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/encontrarInstitucionPorNombreRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/encontrarInstitucionPorNombreResponse")
+    public Institucion encontrarInstitucionPorNombre(
         @WebParam(name = "arg0", targetNamespace = "")
-        Long arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<clientews.servicio.Institucion>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarTodasInstituciones", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasInstituciones")
-    @ResponseWrapper(localName = "listarTodasInstitucionesResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasInstitucionesResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/listarTodasInstitucionesRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/listarTodasInstitucionesResponse")
-    public List<Institucion> listarTodasInstituciones();
+        Institucion arg0);
 
     /**
      * 
@@ -122,15 +122,15 @@ public interface InstitucionServiceWs {
      * 
      * @param arg0
      * @return
-     *     returns clientews.servicio.Institucion
+     *     returns java.lang.Integer
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarInstitucionPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarInstitucionPorId")
-    @ResponseWrapper(localName = "encontrarInstitucionPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarInstitucionPorIdResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/encontrarInstitucionPorIdRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/encontrarInstitucionPorIdResponse")
-    public Institucion encontrarInstitucionPorId(
+    @RequestWrapper(localName = "obtenerLimiteInstitucion", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerLimiteInstitucion")
+    @ResponseWrapper(localName = "obtenerLimiteInstitucionResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerLimiteInstitucionResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/obtenerLimiteInstitucionRequest", output = "http://servicio.sga.gm.com.mx/InstitucionServiceWs/obtenerLimiteInstitucionResponse")
+    public Integer obtenerLimiteInstitucion(
         @WebParam(name = "arg0", targetNamespace = "")
-        Institucion arg0);
+        Long arg0);
 
 }

@@ -52,6 +52,9 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnCortes = new javax.swing.JButton();
+        btnEntradas = new javax.swing.JButton();
+        btnUrgencias = new javax.swing.JButton();
+        btnReagendar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,13 +62,18 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPagar.setText("Pagar orden");
-        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 99, 40));
+        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 120, 40));
 
         btnConfirmar.setText("Confirmar cita");
-        jPanel1.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 40));
+        jPanel1.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 120, 40));
 
         btnAgendar.setText("Agendar");
-        jPanel1.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 99, 40));
+        btnAgendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgendarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 120, 40));
 
         jPanel2.setBackground(new java.awt.Color(52, 73, 94));
         jPanel2.setForeground(new java.awt.Color(52, 73, 94));
@@ -78,7 +86,7 @@ public class Menu extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 38, 40));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 38, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\alanm\\Documents\\NetBeansProjects\\recepcion\\src\\images\\icons8_minus_50px.png")); // NOI18N
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -87,14 +95,28 @@ public class Menu extends javax.swing.JFrame {
                 jLabel8MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 35, 40));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 35, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 40));
 
         btnCortes.setText("Cortes");
-        jPanel1.add(btnCortes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 99, 40));
+        jPanel1.add(btnCortes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 120, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 330));
+        btnEntradas.setText("Entradas/salidas");
+        btnEntradas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntradasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 120, 40));
+
+        btnUrgencias.setText("Urgencias");
+        jPanel1.add(btnUrgencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 120, 40));
+
+        btnReagendar.setText("Reagendar");
+        jPanel1.add(btnReagendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 120, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -108,6 +130,14 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setState(Menu.ICONIFIED);
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgendarActionPerformed
+
+    private void btnEntradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEntradasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,7 +180,10 @@ public class Menu extends javax.swing.JFrame {
     public javax.swing.JButton btnAgendar;
     public javax.swing.JButton btnConfirmar;
     public javax.swing.JButton btnCortes;
+    public javax.swing.JButton btnEntradas;
     public javax.swing.JButton btnPagar;
+    public javax.swing.JButton btnReagendar;
+    public javax.swing.JButton btnUrgencias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;

@@ -53,6 +53,7 @@ public class PagarOrden extends javax.swing.JFrame {
         btnPagar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txtSubtotal = new javax.swing.JTextField();
+        txtPaciente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,13 +77,13 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, 170, 30));
 
         jLabel11.setText("Paciente");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
-        jPanel1.add(comboPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 360, -1));
+        jPanel1.add(comboPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 360, -1));
 
         jScrollPane2.setViewportView(tableOrdenes);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 520, 210));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 520, 210));
 
         jLabel12.setText("Fecha");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
@@ -115,7 +116,7 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
         jPanel2.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 270, 20));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 340, 210));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 340, 210));
 
         jScrollPane3.setViewportView(tablePagos);
 
@@ -132,6 +133,7 @@ public class PagarOrden extends javax.swing.JFrame {
         jLabel10.setText("Subtotal");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, 50, 20));
         jPanel1.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 160, 30));
+        jPanel1.add(txtPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 360, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 650));
 
@@ -217,6 +219,7 @@ public class PagarOrden extends javax.swing.JFrame {
     public javax.swing.JTable tablePagos;
     public javax.swing.JTextField txtCantidad;
     public javax.swing.JTextField txtInstitucion;
+    public javax.swing.JTextField txtPaciente;
     public javax.swing.JTextField txtSubtotal;
     public javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables

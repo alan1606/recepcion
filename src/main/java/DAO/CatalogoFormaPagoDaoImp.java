@@ -33,5 +33,15 @@ public class CatalogoFormaPagoDaoImp implements CatalogoFormaPagoDao{
     public List<CatalogoFormaPago> obtenerFormasDePago() {
         return servicio.listarTodasFormasPago();
     }
+
+    @Override
+    public CatalogoFormaPago encontrarFormaPagoPorId(short id) {
+        return servicio.encontrarFormaPagoPorId(id);
+    }
+
+    @Override
+    public CatalogoFormaPago encontrarFormaPagoPorNombre(String nombre) {
+        return servicio.encontrarFormaPagoPorNombre(nombre);
+    }
     
 }

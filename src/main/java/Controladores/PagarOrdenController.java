@@ -17,6 +17,8 @@ import DAO.PagoOrdenVentaDao;
 import DAO.PagoOrdenVentaDaoImp;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
+import DAO.WorklistDao;
+import DAO.WorklistDaoImp;
 import Tables.TableConceptos;
 import Tables.TableOrdenesVenta;
 import Vistas.DatosFacturacion;
@@ -30,6 +32,8 @@ import clientews.servicio.PagoOrdenVenta;
 import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.beans.PropertyChangeEvent;
@@ -46,18 +50,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author alanm
  */
-public class PagarOrdenController implements ActionListener, PropertyChangeListener, MouseListener {
+public class PagarOrdenController implements ActionListener, PropertyChangeListener, MouseListener, KeyListener {
 
     private PagarOrden vistaPrincipal;
     private DatosFacturacion vistaFacturacion;
     private OrdenVentaDao modeloOrdenesVenta;
     private VentaConceptosDao modeloVentaConceptos;
     private PacientesDao modeloPacientes;
-    private ArrayList<Pacientes> pacientes;
+    private WorklistDao modeloWorklist;
     private Pacientes pacienteSeleccionado;
     private InstitucionDao modeloInstituciones;
     private CatalogoFormaPagoDao modeloFormasDePago;
-    private ArrayList<CatalogoFormaPago> formasDePago;
     private CatalogoFormaPago formaPagoSeleccionada;
     private PagoOrdenVentaDao modeloPagoOrdenVenta;
     private OrdenVenta ordenSeleccionada;
@@ -73,6 +76,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         modeloInstituciones = new InstitucionDaoImp();
         modeloFormasDePago = new CatalogoFormaPagoDaoImp();
         modeloPagoOrdenVenta = new PagoOrdenVentaDaoImp();
+        modeloWorklist = new WorklistDaoImp();
         ordenSeleccionada = new OrdenVenta();
 
         this.vistaPrincipal.btnAgregar.addActionListener(this);
@@ -84,6 +88,8 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         this.vistaPrincipal.btnPagar.addActionListener(this);
         this.vistaPrincipal.checkFactura.addActionListener(this);
 
+        this.vistaPrincipal.txtPaciente.addKeyListener(this);
+
         this.vistaFacturacion.btnGuardar.addActionListener(this);
     }
 
@@ -91,16 +97,16 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         vistaPrincipal.setTitle("Pagar órdenes");
         vistaPrincipal.setLocationRelativeTo(null);
         vistaPrincipal.setVisible(true);
-        cargarPacientes();
         cargarFormasDePago();
         iniciarTablaPagos();
+        cargarPacienteVacio();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vistaPrincipal.comboPaciente) {
             if (vistaPrincipal.comboPaciente.getSelectedIndex() != 0) {
-                pacienteSeleccionado = pacientes.get(vistaPrincipal.comboPaciente.getSelectedIndex() - 1);
+                pacienteSeleccionado = buscarPacientePorId(obtenerIdPacienteDeComboBox());
                 if (vistaPrincipal.dateFecha.getDate() != null) {
                     buscarPorFechaYPaciente(dateToString(vistaPrincipal.dateFecha.getDate().getTime()), pacienteSeleccionado.getIdP());
                 } else {
@@ -148,17 +154,19 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             }
         } else if (e.getSource() == vistaPrincipal.comboFormaPago) {
             if (vistaPrincipal.comboFormaPago.getSelectedIndex() != 0) {
-                formaPagoSeleccionada = formasDePago.get(vistaPrincipal.comboFormaPago.getSelectedIndex() - 1);
+                formaPagoSeleccionada = obtenerFormaPagoPorId(obtenerIdFormaPago(vistaPrincipal.comboFormaPago.getSelectedItem().toString()));
+                System.out.println(formaPagoSeleccionada.getIdFp() + " " + formaPagoSeleccionada.getFormaPagoFp());
             }
         } else if (e.getSource() == vistaPrincipal.btnPagar) {
             if (datosValidos() && deseaPagar() == 0) {
+                procesarWorklist();
                 procesarPago();
             }
         } else if (e.getSource() == vistaFacturacion.btnGuardar) {
             if (datosFacturacionValidos()) {
                 actualizarDatosFacturacion();
                 limpiarFacturacion();
-                vistaFacturacion.dispose();
+                vistaFacturacion.setVisible(false);
             }
         } else if (e.getSource() == vistaPrincipal.checkFactura) {
             if (vistaPrincipal.checkFactura.isSelected()) {
@@ -198,7 +206,9 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             int fila = vistaPrincipal.tableOrdenes.getSelectedRow();
             if (fila != -1) {
                 Long idOrden = Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(fila, 0).toString());
+                Long idPaciente = Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(fila, 4).toString());
                 cargarEstudios(idOrden);
+                pacienteSeleccionado = buscarPacientePorId(idPaciente);
                 cargarTotal();
                 cargarInstitucion();
             }
@@ -239,13 +249,12 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
     }
 
     private void cargarPacientes() {
-        pacientes = (ArrayList<Pacientes>) modeloPacientes.encontrarTodos();
         try {
             JComboBox combo = new JComboBox();
             combo.removeAllItems();
             combo.addItem("SELECCIONE UNA OPCIÓN");
-            for (Pacientes pacientesFor : pacientes) {
-                combo.addItem(pacientesFor.getNombreCompletoP());
+            for (Pacientes pacientesFor : modeloPacientes.buscarLikeNombre(vistaPrincipal.txtPaciente.getText())) {
+                combo.addItem(pacientesFor.getNombreCompletoP() + " :" + pacientesFor.getIdP());
             }
             vistaPrincipal.comboPaciente.setModel(combo.getModel());
         } catch (Exception e) {
@@ -292,13 +301,12 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
     }
 
     private void cargarFormasDePago() {
-        formasDePago = (ArrayList<CatalogoFormaPago>) modeloFormasDePago.obtenerFormasDePago();
         try {
             JComboBox combo = new JComboBox();
             combo.removeAllItems();
             combo.addItem("SELECCIONE UNA OPCIÓN");
-            for (CatalogoFormaPago formaPagoFor : formasDePago) {
-                combo.addItem(formaPagoFor.getFormaPagoFp());
+            for (CatalogoFormaPago formaPagoFor : modeloFormasDePago.obtenerFormasDePago()) {
+                combo.addItem(formaPagoFor.getFormaPagoFp() + " :" + formaPagoFor.getIdFp());
             }
             vistaPrincipal.comboFormaPago.setModel(combo.getModel());
         } catch (Exception e) {
@@ -345,7 +353,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
     private void agregarATabla(String formaPagoFp, double cantidad) {
         DefaultTableModel dt = (DefaultTableModel) vistaPrincipal.tablePagos.getModel();
 
-        Object[] ventaAgregar = new Object[2];
+        Object[] ventaAgregar = new Object[3];
         ventaAgregar[0] = formaPagoFp;
         ventaAgregar[1] = cantidad;
 
@@ -469,17 +477,16 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         vistaFacturacion.setLocationRelativeTo(null);
         vistaFacturacion.setVisible(true);
 
-        vistaFacturacion.txtNombre.setText(pacienteSeleccionado.getRazonSocialP());
-        vistaFacturacion.txtRfc.setText(pacienteSeleccionado.getRfcP());
-    }
-
-    private CatalogoFormaPago encontrarFormaPago(String formaPagoTabla) {
-        for (CatalogoFormaPago temporal : formasDePago) {
-            if (temporal.getFormaPagoFp().equals(formaPagoTabla)) {
-                return temporal;
+        try {
+            if (pacienteSeleccionado.getRazonSocialP() != null) {
+                vistaFacturacion.txtNombre.setText(pacienteSeleccionado.getRazonSocialP());
             }
+            if (pacienteSeleccionado.getRfcP() != null) {
+                vistaFacturacion.txtRfc.setText(pacienteSeleccionado.getRfcP());
+            }
+        } catch (Exception e) {
         }
-        return new CatalogoFormaPago();
+
     }
 
     private boolean datosFacturacionValidos() {
@@ -579,5 +586,85 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String strDate = dateFormat.format(date);
         return strDate;
+    }
+
+    private Pacientes buscarPacientePorId(Long idPaciente) {
+        return modeloPacientes.buscarPorId(idPaciente);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getSource() == vistaPrincipal.txtPaciente && !vistaPrincipal.txtPaciente.getText().equals("")) {
+            cargarPacientes();
+        }
+    }
+
+    private void cargarPacienteVacio() {
+        try {
+            JComboBox combo = new JComboBox();
+            combo.removeAllItems();
+            combo.addItem("SELECCIONE UNA OPCIÓN");
+
+            vistaPrincipal.comboPaciente.setModel(combo.getModel());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    private Long obtenerIdPacienteDeComboBox() {
+        String id = "";
+        boolean dosPuntosSuperado = false;
+        String texto = vistaPrincipal.comboPaciente.getSelectedItem().toString();
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) == ':') {
+                dosPuntosSuperado = true;
+            } else if (dosPuntosSuperado) {
+                id += texto.charAt(i);
+            }
+        }
+        System.out.println(id);
+        return Long.parseLong(id);
+    }
+
+    private short obtenerIdFormaPago(String formaPago) {
+        String id = "";
+        boolean dosPuntosSuperado = false;
+        for (int i = 0; i < formaPago.length(); i++) {
+            if (formaPago.charAt(i) == ':') {
+                dosPuntosSuperado = true;
+            } else if (dosPuntosSuperado) {
+                id += formaPago.charAt(i);
+            }
+        }
+        return Short.parseShort(id);
+    }
+
+    private CatalogoFormaPago obtenerFormaPagoPorId(short idFormaPago) {
+        return modeloFormasDePago.encontrarFormaPagoPorId(idFormaPago);
+    }
+
+    private CatalogoFormaPago encontrarFormaPago(String formaPagoTabla) {
+        return modeloFormasDePago.encontrarFormaPagoPorNombre(formaPagoTabla);
+    }
+
+    private void procesarWorklist() {
+        int fila = vistaPrincipal.tableOrdenes.getSelectedRow();
+        if (fila != -1) {
+            try {
+                modeloWorklist.registrarEnWorklistPorOrdenVenta(Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(fila, 0).toString()));
+                System.out.println("Procesada worklist " + Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(fila, 0).toString()) );
+            } catch (Exception e) {
+                System.out.println("Error al procesar worklist");
+            }
+        }
+
     }
 }

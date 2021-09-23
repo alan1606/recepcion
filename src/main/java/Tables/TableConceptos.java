@@ -5,8 +5,10 @@
  */
 package Tables;
 
+import Utilidades.DateUtil;
 import clientews.servicio.Pacientes;
 import clientews.servicio.VentaConceptos;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -60,7 +62,7 @@ public class TableConceptos {
 
     }
 
-     public void cargarTablaEnPagos(JTable tabla, List<VentaConceptos> list) {
+    public void cargarTablaEnPagos(JTable tabla, List<VentaConceptos> list) {
 
         DefaultTableModel dt = new DefaultTableModel();
         dt.addColumn("Id");
@@ -75,7 +77,12 @@ public class TableConceptos {
             venta = list.get(i);
             fila[0] = venta.getIdVc();
             fila[1] = venta.getIdConceptoEs().getConceptoTo();
-            fila[2] = venta.getFechaAsignado();
+            try {
+                fila[2] = DateUtil.stringLegibleDate(venta.getFechaAsignado());
+            } catch (Exception e) {
+                                fila[2] = venta.getFechaAsignado();
+                                
+            }
             fila[3] = venta.getHoraAsignado();
             dt.addRow(fila);
         }
@@ -84,10 +91,10 @@ public class TableConceptos {
         TableColumnModel columnModel = tabla.getColumnModel();
         columnModel.getColumn(0).setPreferredWidth(30);
         columnModel.getColumn(1).setPreferredWidth(250);
-                columnModel.getColumn(1).setPreferredWidth(100);
+        columnModel.getColumn(1).setPreferredWidth(100);
         columnModel.getColumn(3).setPreferredWidth(80);
     }
-    
+
     public void cargarTablaVacia(JTable tabla) {
 
         DefaultTableModel dt = new DefaultTableModel();

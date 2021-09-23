@@ -27,18 +27,6 @@ public interface AreasServiceWs {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<clientews.servicio.Areas>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarTodasAreas", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasAreas")
-    @ResponseWrapper(localName = "listarTodasAreasResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasAreasResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/AreasServiceWs/listarTodasAreasRequest", output = "http://servicio.sga.gm.com.mx/AreasServiceWs/listarTodasAreasResponse")
-    public List<Areas> listarTodasAreas();
-
-    /**
-     * 
      * @param arg0
      * @return
      *     returns clientews.servicio.Areas
@@ -51,6 +39,18 @@ public interface AreasServiceWs {
     public Areas listarPorId(
         @WebParam(name = "arg0", targetNamespace = "")
         Areas arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<clientews.servicio.Areas>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarTodasAreas", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasAreas")
+    @ResponseWrapper(localName = "listarTodasAreasResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasAreasResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/AreasServiceWs/listarTodasAreasRequest", output = "http://servicio.sga.gm.com.mx/AreasServiceWs/listarTodasAreasResponse")
+    public List<Areas> listarTodasAreas();
 
     /**
      * 

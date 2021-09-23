@@ -20,9 +20,12 @@ import DAO.PacientesDaoImp;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TablePacientes;
+import Utilidades.GeneradorIdPacs;
+import Utilidades.QrUtil;
 import Vistas.AgendarCita;
 import Vistas.Menu;
 import Vistas.NuevoPaciente;
+import Vistas.QrCode;
 import clientews.servicio.Areas;
 import clientews.servicio.CatalogoFormaPago;
 import clientews.servicio.Conceptos;
@@ -47,6 +50,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -78,6 +82,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private Pacientes paciente;
     private Conceptos estudio;
     private VentaConceptos venta;
+    private QrCode ventanaQr;
 
     private Date fechaActual;
     private String fechaSeleccionada;
@@ -93,6 +98,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         modeloAreas = new AreasDaoImpl();
         modeloVentaConceptos = new VentaConceptosDaoImp();
         modeloOrdenVenta = new OrdenVentaDaoImp();
+        ventanaQr = new QrCode();
 
         this.vista.radioNombre.addActionListener(this);
         this.vista.radioCurp.addActionListener(this);
@@ -102,6 +108,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         this.vista.btnCancelar.addActionListener(this);
         this.vista.btnGuardar.addActionListener(this);
         this.vista.btnQuitar.addActionListener(this);
+        this.vista.btnFoto.addActionListener(this);
 
         this.vista.comboArea.addActionListener(this);
         this.vista.comboEstudio.addActionListener(this);
@@ -117,10 +124,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
         this.vista.fecha.addPropertyChangeListener(this);
 
-        setRadioNombreEnabled(true);
-        cargarInstituciones();
-        iniciarTablaEstudios();
-        obtenerFechaActual();
+        this.ventanaQr.lblCerrar.addMouseListener(this);
+
     }
 
     private void iniciarTablaEstudios() {
@@ -138,6 +143,11 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         vista.setTitle("Agendar cita");
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
+
+        setRadioNombreEnabled(true);
+        cargarInstituciones();
+        iniciarTablaEstudios();
+        obtenerFechaActual();
     }
 
     @Override
@@ -191,6 +201,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         } else if (e.getSource() == vista.btnGuardar) {
             if (datosValidos() && vista.tableEstudios.getRowCount() != 0 && deseaRegistrar() == 0) {
                 try {
+                    calcularTotales();
                     reiniciarVariables();
                     limpiarCampos();
                 } catch (Exception ex) {
@@ -211,6 +222,13 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                     reiniciarVariables();
                     limpiarCampos();
                 } catch (Exception ex) {
+                }
+            }
+        } else if (e.getSource() == vista.btnFoto) {
+            if (ordenVentaGenerada) {
+                try {
+                    mostrarQr();
+                } catch (Exception exc) {
                 }
             }
         }
@@ -256,6 +274,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             if (vista.tableEstudios.getRowCount() != 0 && vista.tableEstudios.getSelectedRow() != -1) {
                 obtenerVentaSeleccionada();
             }
+        } else if (e.getSource() == ventanaQr.lblCerrar) {
+            cerrarQr();
         }
     }
 
@@ -547,6 +567,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     }
 
     private void agregarVentaConcepto() {
+        obtenerFechaActual();
 
         if (!ordenVentaGenerada) {
             generarOrdenVenta(fechaActualXml);
@@ -767,13 +788,12 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         venta = new VentaConceptos();
         venta.setIdInstitucion(institucion);
         venta.setIdPacienteVc(paciente);
-        venta.setFechaVentaVc(dateToString(fechaActual.getTime()));
+        venta.setFechaVentaVc(dateToStringOrdenVenta(fechaActual.getTime()));
         venta.setEstatusVc(Short.parseShort("3"));
         venta.setUrgenteVc(Short.parseShort("0"));
         venta.setUsuarioEdo1E(426);
         venta.setFechaEdo1E(fechaActualXml);
         venta.setIdConceptoEs(estudio);
-        venta.setIdPacs("1354asd4269");
 
         venta.setIdOrdenVenta(orden);
 
@@ -784,6 +804,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         venta.setEnWorklist(false);
         venta.setIdEquipoDicom(sala);
         venta.setEstado("AGENDADO");
+        venta.setIdPacs(generarIdPacs());
+        System.out.println(venta.getIdPacs());
     }
 
     private void obtenerFechaActual() {
@@ -906,6 +928,46 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 }
             }
         }
+    }
+
+    private void mostrarQr() throws Exception {
+        ventanaQr.setTitle("Escanear el código y subir imagen");
+        ventanaQr.setLocationRelativeTo(null);
+        ImageIcon icono = new ImageIcon(QrUtil.generateQrCode("http://ns1.diagnocons.com/sistema/pruebaUpImg.php?fuente=recepcionQr&idOrdenVenta=" + orden.getIdOv()
+                + "&idPaciente="
+                + paciente.getIdP()
+                + "&nombrePaciente=" + formatea(paciente.getNombreCompletoP()), 400, 260));
+        ventanaQr.lblQr.setIcon(icono);
+        ventanaQr.setVisible(true);
+    }
+
+    private String formatea(String string) {
+        String nueva = "";
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == ' ') {
+                nueva += "%20";
+            } else {
+                nueva += string.charAt(i);
+            }
+        }
+        return nueva;
+    }
+
+    private void cerrarQr() {
+        ventanaQr.dispose();
+    }
+
+    private void calcularTotales() {
+        modeloOrdenVenta.actualizarTotalOrdenVenta(orden);
+    }
+
+    private String generarIdPacs() {
+        GeneradorIdPacs generador = new GeneradorIdPacs();
+        generador.setCurp(paciente.getCurpP());
+        generador.setEquipoDicom(sala.getIdEquipo());
+        generador.setFechaAsignado(venta.getFechaAsignado());
+        generador.setFechaVenta(venta.getFechaVentaVc());
+        return generador.generarIdPacs();
     }
 
 }

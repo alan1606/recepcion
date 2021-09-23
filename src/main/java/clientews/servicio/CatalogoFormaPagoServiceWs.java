@@ -3,6 +3,7 @@ package clientews.servicio;
 
 import java.util.List;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -23,6 +24,36 @@ import javax.xml.ws.ResponseWrapper;
 })
 public interface CatalogoFormaPagoServiceWs {
 
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns clientews.servicio.CatalogoFormaPago
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarFormaPagoPorNombre", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarFormaPagoPorNombre")
+    @ResponseWrapper(localName = "encontrarFormaPagoPorNombreResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarFormaPagoPorNombreResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/encontrarFormaPagoPorNombreRequest", output = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/encontrarFormaPagoPorNombreResponse")
+    public CatalogoFormaPago encontrarFormaPagoPorNombre(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns clientews.servicio.CatalogoFormaPago
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarFormaPagoPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarFormaPagoPorId")
+    @ResponseWrapper(localName = "encontrarFormaPagoPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarFormaPagoPorIdResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/encontrarFormaPagoPorIdRequest", output = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/encontrarFormaPagoPorIdResponse")
+    public CatalogoFormaPago encontrarFormaPagoPorId(
+        @WebParam(name = "arg0", targetNamespace = "")
+        short arg0);
 
     /**
      * 

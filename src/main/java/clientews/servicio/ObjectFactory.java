@@ -24,12 +24,10 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _RegistrarPagoOrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarPagoOrdenVenta");
-    private final static QName _PagoOrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "pagoOrdenVenta");
-    private final static QName _CatalogoFormaPago_QNAME = new QName("http://servicio.sga.gm.com.mx/", "catalogoFormaPago");
-    private final static QName _OrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "ordenVenta");
-    private final static QName _RegistrarPagoOrdenVentaResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarPagoOrdenVentaResponse");
-    private final static QName _Pacientes_QNAME = new QName("http://servicio.sga.gm.com.mx/", "pacientes");
+    private final static QName _RegistrarEnWorklist_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarEnWorklist");
+    private final static QName _RegistrarEnWorklistPorOrdenVentaResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarEnWorklistPorOrdenVentaResponse");
+    private final static QName _RegistrarEnWorklistResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarEnWorklistResponse");
+    private final static QName _RegistrarEnWorklistPorOrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarEnWorklistPorOrdenVenta");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: clientews.servicio
@@ -39,105 +37,71 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CatalogoFormaPago }
+     * Create an instance of {@link RegistrarEnWorklistResponse }
      * 
      */
-    public CatalogoFormaPago createCatalogoFormaPago() {
-        return new CatalogoFormaPago();
+    public RegistrarEnWorklistResponse createRegistrarEnWorklistResponse() {
+        return new RegistrarEnWorklistResponse();
     }
 
     /**
-     * Create an instance of {@link PagoOrdenVenta }
+     * Create an instance of {@link RegistrarEnWorklistPorOrdenVentaResponse }
      * 
      */
-    public PagoOrdenVenta createPagoOrdenVenta() {
-        return new PagoOrdenVenta();
+    public RegistrarEnWorklistPorOrdenVentaResponse createRegistrarEnWorklistPorOrdenVentaResponse() {
+        return new RegistrarEnWorklistPorOrdenVentaResponse();
     }
 
     /**
-     * Create an instance of {@link RegistrarPagoOrdenVenta }
+     * Create an instance of {@link RegistrarEnWorklist }
      * 
      */
-    public RegistrarPagoOrdenVenta createRegistrarPagoOrdenVenta() {
-        return new RegistrarPagoOrdenVenta();
+    public RegistrarEnWorklist createRegistrarEnWorklist() {
+        return new RegistrarEnWorklist();
     }
 
     /**
-     * Create an instance of {@link Pacientes }
+     * Create an instance of {@link RegistrarEnWorklistPorOrdenVenta }
      * 
      */
-    public Pacientes createPacientes() {
-        return new Pacientes();
+    public RegistrarEnWorklistPorOrdenVenta createRegistrarEnWorklistPorOrdenVenta() {
+        return new RegistrarEnWorklistPorOrdenVenta();
     }
 
     /**
-     * Create an instance of {@link RegistrarPagoOrdenVentaResponse }
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarEnWorklist }{@code >}}
      * 
      */
-    public RegistrarPagoOrdenVentaResponse createRegistrarPagoOrdenVentaResponse() {
-        return new RegistrarPagoOrdenVentaResponse();
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarEnWorklist")
+    public JAXBElement<RegistrarEnWorklist> createRegistrarEnWorklist(RegistrarEnWorklist value) {
+        return new JAXBElement<RegistrarEnWorklist>(_RegistrarEnWorklist_QNAME, RegistrarEnWorklist.class, null, value);
     }
 
     /**
-     * Create an instance of {@link OrdenVenta }
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarEnWorklistPorOrdenVentaResponse }{@code >}}
      * 
      */
-    public OrdenVenta createOrdenVenta() {
-        return new OrdenVenta();
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarEnWorklistPorOrdenVentaResponse")
+    public JAXBElement<RegistrarEnWorklistPorOrdenVentaResponse> createRegistrarEnWorklistPorOrdenVentaResponse(RegistrarEnWorklistPorOrdenVentaResponse value) {
+        return new JAXBElement<RegistrarEnWorklistPorOrdenVentaResponse>(_RegistrarEnWorklistPorOrdenVentaResponse_QNAME, RegistrarEnWorklistPorOrdenVentaResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarPagoOrdenVenta }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarEnWorklistResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarPagoOrdenVenta")
-    public JAXBElement<RegistrarPagoOrdenVenta> createRegistrarPagoOrdenVenta(RegistrarPagoOrdenVenta value) {
-        return new JAXBElement<RegistrarPagoOrdenVenta>(_RegistrarPagoOrdenVenta_QNAME, RegistrarPagoOrdenVenta.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarEnWorklistResponse")
+    public JAXBElement<RegistrarEnWorklistResponse> createRegistrarEnWorklistResponse(RegistrarEnWorklistResponse value) {
+        return new JAXBElement<RegistrarEnWorklistResponse>(_RegistrarEnWorklistResponse_QNAME, RegistrarEnWorklistResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PagoOrdenVenta }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarEnWorklistPorOrdenVenta }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "pagoOrdenVenta")
-    public JAXBElement<PagoOrdenVenta> createPagoOrdenVenta(PagoOrdenVenta value) {
-        return new JAXBElement<PagoOrdenVenta>(_PagoOrdenVenta_QNAME, PagoOrdenVenta.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CatalogoFormaPago }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "catalogoFormaPago")
-    public JAXBElement<CatalogoFormaPago> createCatalogoFormaPago(CatalogoFormaPago value) {
-        return new JAXBElement<CatalogoFormaPago>(_CatalogoFormaPago_QNAME, CatalogoFormaPago.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrdenVenta }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "ordenVenta")
-    public JAXBElement<OrdenVenta> createOrdenVenta(OrdenVenta value) {
-        return new JAXBElement<OrdenVenta>(_OrdenVenta_QNAME, OrdenVenta.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarPagoOrdenVentaResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarPagoOrdenVentaResponse")
-    public JAXBElement<RegistrarPagoOrdenVentaResponse> createRegistrarPagoOrdenVentaResponse(RegistrarPagoOrdenVentaResponse value) {
-        return new JAXBElement<RegistrarPagoOrdenVentaResponse>(_RegistrarPagoOrdenVentaResponse_QNAME, RegistrarPagoOrdenVentaResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Pacientes }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "pacientes")
-    public JAXBElement<Pacientes> createPacientes(Pacientes value) {
-        return new JAXBElement<Pacientes>(_Pacientes_QNAME, Pacientes.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarEnWorklistPorOrdenVenta")
+    public JAXBElement<RegistrarEnWorklistPorOrdenVenta> createRegistrarEnWorklistPorOrdenVenta(RegistrarEnWorklistPorOrdenVenta value) {
+        return new JAXBElement<RegistrarEnWorklistPorOrdenVenta>(_RegistrarEnWorklistPorOrdenVenta_QNAME, RegistrarEnWorklistPorOrdenVenta.class, null, value);
     }
 
 }

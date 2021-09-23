@@ -77,6 +77,11 @@ public class OrdenVentaDaoImp implements OrdenVentaDao {
     public void actualizar(OrdenVenta orden) {
          servicio.actualizarOrdenVenta(orden);
     }
+
+    @Override
+    public void actualizarTotalOrdenVenta(OrdenVenta ordenVenta) {
+        servicio.actualizarTotalOrdenVenta(ordenVenta);
+    }
     
     
 

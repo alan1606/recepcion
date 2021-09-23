@@ -11,4 +11,8 @@ package DAO;
  */
 public interface WorklistDao {
     
+    public void registrarEnWorklist(long idVentaConcepto);
+        public void registrarEnWorklistPorOrdenVenta(long idOrdenVenta);
+
+    
 }
