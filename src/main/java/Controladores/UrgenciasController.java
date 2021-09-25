@@ -393,7 +393,7 @@ public class UrgenciasController implements KeyListener, MouseListener, ActionLi
 
     private void agenda() {
         int horaInicio = horaAInt(area.getHoraInicio().toString(), 11, 14);
-        int horaFin = horaAInt(area.getHoraFin().toString(), 11, 14);
+        int horaFin = horaAInt("23:59", 11, 14);
         boolean par = false;
         boolean alternador = true;
 

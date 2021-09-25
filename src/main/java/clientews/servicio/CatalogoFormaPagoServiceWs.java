@@ -27,18 +27,15 @@ public interface CatalogoFormaPagoServiceWs {
 
     /**
      * 
-     * @param arg0
      * @return
-     *     returns clientews.servicio.CatalogoFormaPago
+     *     returns java.util.List<clientews.servicio.CatalogoFormaPago>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarFormaPagoPorNombre", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarFormaPagoPorNombre")
-    @ResponseWrapper(localName = "encontrarFormaPagoPorNombreResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarFormaPagoPorNombreResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/encontrarFormaPagoPorNombreRequest", output = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/encontrarFormaPagoPorNombreResponse")
-    public CatalogoFormaPago encontrarFormaPagoPorNombre(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+    @RequestWrapper(localName = "listarTodasFormasPago", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasFormasPago")
+    @ResponseWrapper(localName = "listarTodasFormasPagoResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasFormasPagoResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/listarTodasFormasPagoRequest", output = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/listarTodasFormasPagoResponse")
+    public List<CatalogoFormaPago> listarTodasFormasPago();
 
     /**
      * 
@@ -57,14 +54,17 @@ public interface CatalogoFormaPagoServiceWs {
 
     /**
      * 
+     * @param arg0
      * @return
-     *     returns java.util.List<clientews.servicio.CatalogoFormaPago>
+     *     returns clientews.servicio.CatalogoFormaPago
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarTodasFormasPago", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasFormasPago")
-    @ResponseWrapper(localName = "listarTodasFormasPagoResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasFormasPagoResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/listarTodasFormasPagoRequest", output = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/listarTodasFormasPagoResponse")
-    public List<CatalogoFormaPago> listarTodasFormasPago();
+    @RequestWrapper(localName = "encontrarFormaPagoPorNombre", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarFormaPagoPorNombre")
+    @ResponseWrapper(localName = "encontrarFormaPagoPorNombreResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarFormaPagoPorNombreResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/encontrarFormaPagoPorNombreRequest", output = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/encontrarFormaPagoPorNombreResponse")
+    public CatalogoFormaPago encontrarFormaPagoPorNombre(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
 
 }

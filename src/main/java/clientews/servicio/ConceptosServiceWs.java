@@ -29,6 +29,21 @@ public interface ConceptosServiceWs {
      * 
      * @param arg0
      * @return
+     *     returns clientews.servicio.Conceptos
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarConceptoPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptoPorId")
+    @ResponseWrapper(localName = "encontrarConceptoPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptoPorIdResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptoPorIdRequest", output = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptoPorIdResponse")
+    public Conceptos encontrarConceptoPorId(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Conceptos arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns java.util.List<clientews.servicio.Conceptos>
      */
     @WebMethod
@@ -39,24 +54,6 @@ public interface ConceptosServiceWs {
     public List<Conceptos> encontrarConceptosPorIdVentaConceptos(
         @WebParam(name = "arg0", targetNamespace = "")
         Long arg0);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns java.util.List<clientews.servicio.Conceptos>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarConceptosPorInstitucionArea", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptosPorInstitucionArea")
-    @ResponseWrapper(localName = "encontrarConceptosPorInstitucionAreaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptosPorInstitucionAreaResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptosPorInstitucionAreaRequest", output = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptosPorInstitucionAreaResponse")
-    public List<Conceptos> encontrarConceptosPorInstitucionArea(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Long arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        Integer arg1);
 
     /**
      * 
@@ -75,18 +72,21 @@ public interface ConceptosServiceWs {
 
     /**
      * 
+     * @param arg1
      * @param arg0
      * @return
-     *     returns clientews.servicio.Conceptos
+     *     returns java.util.List<clientews.servicio.Conceptos>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarConceptoPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptoPorId")
-    @ResponseWrapper(localName = "encontrarConceptoPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptoPorIdResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptoPorIdRequest", output = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptoPorIdResponse")
-    public Conceptos encontrarConceptoPorId(
+    @RequestWrapper(localName = "encontrarConceptosPorInstitucionArea", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptosPorInstitucionArea")
+    @ResponseWrapper(localName = "encontrarConceptosPorInstitucionAreaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarConceptosPorInstitucionAreaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptosPorInstitucionAreaRequest", output = "http://servicio.sga.gm.com.mx/ConceptosServiceWs/encontrarConceptosPorInstitucionAreaResponse")
+    public List<Conceptos> encontrarConceptosPorInstitucionArea(
         @WebParam(name = "arg0", targetNamespace = "")
-        Conceptos arg0);
+        Long arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        Integer arg1);
 
     /**
      * 
