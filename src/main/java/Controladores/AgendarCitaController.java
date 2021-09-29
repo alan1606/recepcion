@@ -395,8 +395,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     }
 
     private void agenda() {
-        int horaInicio = horaAInt(area.getHoraInicio().toString(), 11, 14);
-        int horaFin = horaAInt(area.getHoraFin().toString(), 11, 14);
+        int horaInicio = horaAInt(area.getHoraInicio().toString(), 0, 5);
+        int horaFin = horaAInt(area.getHoraFin().toString(), 0, 5);
 
         int duracion = area.getDuracionMinutos();
 
@@ -728,7 +728,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
         orden.setSubtotalOv(0);
 
-        orden.setSucursalOv(0);
+        orden.setSucursalOv(1);
 
         orden.setTDescCta(0f);
 
@@ -760,7 +760,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         orden.setRequiereFactura(false);
         orden.setIdFormaPago(formaPago);
         orden.setPagado(false);
-
+        
+        
         //Indicar que ya se generó
         ordenVentaGenerada = true;
 

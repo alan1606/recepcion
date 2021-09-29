@@ -28,15 +28,12 @@ public interface AreasServiceWs {
     /**
      * 
      * @param arg0
-     * @return
-     *     returns clientews.servicio.Areas
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarPorId")
-    @ResponseWrapper(localName = "listarPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarPorIdResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/AreasServiceWs/listarPorIdRequest", output = "http://servicio.sga.gm.com.mx/AreasServiceWs/listarPorIdResponse")
-    public Areas listarPorId(
+    @RequestWrapper(localName = "updateArea", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.UpdateArea")
+    @ResponseWrapper(localName = "updateAreaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.UpdateAreaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/AreasServiceWs/updateAreaRequest", output = "http://servicio.sga.gm.com.mx/AreasServiceWs/updateAreaResponse")
+    public void updateArea(
         @WebParam(name = "arg0", targetNamespace = "")
         Areas arg0);
 
@@ -51,6 +48,48 @@ public interface AreasServiceWs {
     @ResponseWrapper(localName = "listarTodasAreasResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasAreasResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/AreasServiceWs/listarTodasAreasRequest", output = "http://servicio.sga.gm.com.mx/AreasServiceWs/listarTodasAreasResponse")
     public List<Areas> listarTodasAreas();
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns clientews.servicio.Areas
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarPorId", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarPorId")
+    @ResponseWrapper(localName = "listarPorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarPorIdResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/AreasServiceWs/listarPorIdRequest", output = "http://servicio.sga.gm.com.mx/AreasServiceWs/listarPorIdResponse")
+    public Areas listarPorId(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Areas arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "registrarArea", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarArea")
+    @ResponseWrapper(localName = "registrarAreaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarAreaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/AreasServiceWs/registrarAreaRequest", output = "http://servicio.sga.gm.com.mx/AreasServiceWs/registrarAreaResponse")
+    public void registrarArea(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Areas arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<clientews.servicio.Areas>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findAreasLikeNombre", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.FindAreasLikeNombre")
+    @ResponseWrapper(localName = "findAreasLikeNombreResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.FindAreasLikeNombreResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/AreasServiceWs/findAreasLikeNombreRequest", output = "http://servicio.sga.gm.com.mx/AreasServiceWs/findAreasLikeNombreResponse")
+    public List<Areas> findAreasLikeNombre(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
 
     /**
      * 

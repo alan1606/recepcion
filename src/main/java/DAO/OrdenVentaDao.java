@@ -34,5 +34,7 @@ public interface OrdenVentaDao {
 
     public void actualizar(OrdenVenta orden);
         public void actualizarTotalOrdenVenta(OrdenVenta ordenVenta);
+            public Long obtenerTotalOrdenesEnUnDia(String fecha);
+
 
 }

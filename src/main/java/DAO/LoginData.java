@@ -13,4 +13,8 @@ public class LoginData {
     public static final String user = "admin";
     public static final String password = "O9CavZ$cYSlKbk1^m%Q!t8OpaIg5hAIT$fjJR4Hh6VJYVr9xCZ";
     public static final String serverApiAddress = "http://172.17.200.61:8080/wl-jee/webservice";
+    
+     //public static final String user = "admin";
+   // public static final String password = "admin";
+   // public static final String serverApiAddress = "http://localhost:8080/wl-jee/webservice";
 }

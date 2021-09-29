@@ -82,6 +82,11 @@ public class OrdenVentaDaoImp implements OrdenVentaDao {
     public void actualizarTotalOrdenVenta(OrdenVenta ordenVenta) {
         servicio.actualizarTotalOrdenVenta(ordenVenta);
     }
+
+    @Override
+    public Long obtenerTotalOrdenesEnUnDia(String fecha) {
+        return  servicio.obtenerTotalOrdenesEnUnDia(fecha);
+    }
     
     
 

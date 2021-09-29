@@ -27,18 +27,6 @@ public interface CatalogoFormaPagoServiceWs {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<clientews.servicio.CatalogoFormaPago>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarTodasFormasPago", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasFormasPago")
-    @ResponseWrapper(localName = "listarTodasFormasPagoResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasFormasPagoResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/listarTodasFormasPagoRequest", output = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/listarTodasFormasPagoResponse")
-    public List<CatalogoFormaPago> listarTodasFormasPago();
-
-    /**
-     * 
      * @param arg0
      * @return
      *     returns clientews.servicio.CatalogoFormaPago
@@ -66,5 +54,17 @@ public interface CatalogoFormaPagoServiceWs {
     public CatalogoFormaPago encontrarFormaPagoPorNombre(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<clientews.servicio.CatalogoFormaPago>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarTodasFormasPago", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasFormasPago")
+    @ResponseWrapper(localName = "listarTodasFormasPagoResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarTodasFormasPagoResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/listarTodasFormasPagoRequest", output = "http://servicio.sga.gm.com.mx/CatalogoFormaPagoServiceWs/listarTodasFormasPagoResponse")
+    public List<CatalogoFormaPago> listarTodasFormasPago();
 
 }

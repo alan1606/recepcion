@@ -28,6 +28,18 @@ public interface MovimientoCorteServiceWs {
     /**
      * 
      * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "registrarMovimientoCorte", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarMovimientoCorte")
+    @ResponseWrapper(localName = "registrarMovimientoCorteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarMovimientoCorteResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/MovimientoCorteServiceWs/registrarMovimientoCorteRequest", output = "http://servicio.sga.gm.com.mx/MovimientoCorteServiceWs/registrarMovimientoCorteResponse")
+    public void registrarMovimientoCorte(
+        @WebParam(name = "arg0", targetNamespace = "")
+        MovimientoCorte arg0);
+
+    /**
+     * 
+     * @param arg0
      * @return
      *     returns java.util.List<clientews.servicio.MovimientoCorte>
      */
@@ -54,17 +66,5 @@ public interface MovimientoCorteServiceWs {
     public List<MovimientoCorte> obtenerMovimientosDeCorteVespertino(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "registrarMovimientoCorte", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarMovimientoCorte")
-    @ResponseWrapper(localName = "registrarMovimientoCorteResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarMovimientoCorteResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/MovimientoCorteServiceWs/registrarMovimientoCorteRequest", output = "http://servicio.sga.gm.com.mx/MovimientoCorteServiceWs/registrarMovimientoCorteResponse")
-    public void registrarMovimientoCorte(
-        @WebParam(name = "arg0", targetNamespace = "")
-        MovimientoCorte arg0);
 
 }

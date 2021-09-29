@@ -386,14 +386,22 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
 
     private void procesarPagoParticular() {
         if (datosValidosPagoParticular()) {
-            PagoOrdenVenta pago = new PagoOrdenVenta();
-            CatalogoFormaPago formaPagoTemporal;
-            String formaPagoTabla = "";
-            double cantidadTabla = 0d;
-            String fechaActual = dateToStringOrdenVenta();
+            PagoOrdenVenta pago = new PagoOrdenVenta();//Se crea el objeto pago que va a vincular la orden de venta con la forma de pago
+            CatalogoFormaPago formaPagoTemporal; //Este objeto temporal va a ser cada pago hecho en la tablita
+            String formaPagoTabla = ""; //En esta variable se guarda el texto de la tabla
+            double cantidadTabla = 0d; //Aquí la cantidad
+            String fechaActual = dateToStringOrdenVenta(); //Esta es la fecha actual en datetime, para lo fecha de venta 
+            String fechaActualPreparadaBusqueda = dateToString(new Date().getTime()); //Esta fecha sirve para buscar las ordenes que se han hecho en el d+ia
+            Long contador = modeloOrdenesVenta.obtenerTotalOrdenesEnUnDia(fechaActualPreparadaBusqueda); //Se obtiene el total de órdenes hechas en el día
+            ++contador;
+            System.out.println(contador);
+            //Se obtiene el id de la orden dese la ta tabla y se busca en el backend
             ordenSeleccionada = modeloOrdenesVenta.obtenerOrdenVentaPorId(Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(vistaPrincipal.tableOrdenes.getSelectedRow(), 0).toString()));
             ordenSeleccionada.setPagado(true);
             ordenSeleccionada.setFechaVentaOv(fechaActual);
+            ordenSeleccionada.setContadorOv(Integer.parseInt(contador + ""));
+            ordenSeleccionada.setReferenciaOv(formatoADateParaReferencia(fechaActualPreparadaBusqueda) + "-" + contador);
+
             pago.setIdOrdenVenta(ordenSeleccionada);
 
             if (vistaPrincipal.checkFactura.isSelected()) {
@@ -411,16 +419,20 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
                 pago.setCantidad(cantidadTabla);
                 pago.setIdFormaPago(formaPagoTemporal);
                 modeloPagoOrdenVenta.registrarPagoOrdenVenta(pago);
-                System.out.println("me vengoooooooooo");
+                System.out.println("pagado en forma pago");
             }
 
-            modeloOrdenesVenta.actualizar(ordenSeleccionada);
-
+            int i = 1;
             for (VentaConceptos venta : estudiosDeOrden) {
                 venta.setEstado("PAGADO");
                 venta.setFechaVentaVc(fechaActual);
+                venta.setContadorVc(i);
+                venta.setReferenciaVc(ordenSeleccionada.getReferenciaOv());
+                i++;
                 modeloVentaConceptos.actualizarVentaConceptos(venta);
             }
+
+            modeloOrdenesVenta.actualizar(ordenSeleccionada);
 
             limpiarTablaOrdenes();
             limpiarTablaEstudios();
@@ -431,13 +443,17 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
     }
 
     private void procesarPagoNoParticular() {
-
         PagoOrdenVenta pago = new PagoOrdenVenta();
         CatalogoFormaPago formaPagoTemporal = new CatalogoFormaPago();
         String fechaActual = dateToStringOrdenVenta();
+        String fechaActualPreparadaBusqueda = dateToString(new Date().getTime()); //Esta fecha sirve para buscar las ordenes que se han hecho en el d+ia
+        Long contador = modeloOrdenesVenta.obtenerTotalOrdenesEnUnDia(fechaActualPreparadaBusqueda); //Se obtiene el total de órdenes hechas en el día
+        ++contador;
         ordenSeleccionada = modeloOrdenesVenta.obtenerOrdenVentaPorId(Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(vistaPrincipal.tableOrdenes.getSelectedRow(), 0).toString()));
         ordenSeleccionada.setPagado(true);
         ordenSeleccionada.setFechaVentaOv(fechaActual);
+        ordenSeleccionada.setContadorOv(Integer.parseInt(contador + ""));
+        ordenSeleccionada.setReferenciaOv(formatoADateParaReferencia(fechaActualPreparadaBusqueda) + "-" + contador);
         pago.setIdOrdenVenta(ordenSeleccionada);
 
         if (vistaPrincipal.checkFactura.isSelected()) {
@@ -448,13 +464,17 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         pago.setCantidad(0);
         pago.setIdFormaPago(formaPagoTemporal);
         modeloPagoOrdenVenta.registrarPagoOrdenVenta(pago);
-        System.out.println("me vengoooooooooo");
+        System.out.println("pagoNoParticular");
 
         modeloOrdenesVenta.actualizar(ordenSeleccionada);
 
+        int i = 1;
         for (VentaConceptos venta : estudiosDeOrden) {
             venta.setEstado("PAGADO");
             venta.setFechaVentaVc(fechaActual);
+            venta.setContadorVc(i);
+            venta.setReferenciaVc(ordenSeleccionada.getReferenciaOv());
+            i++;
             modeloVentaConceptos.actualizarVentaConceptos(venta);
         }
 
@@ -660,11 +680,21 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         if (fila != -1) {
             try {
                 modeloWorklist.registrarEnWorklistPorOrdenVenta(Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(fila, 0).toString()));
-                System.out.println("Procesada worklist " + Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(fila, 0).toString()) );
+                System.out.println("Procesada worklist " + Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(fila, 0).toString()));
             } catch (Exception e) {
                 System.out.println("Error al procesar worklist");
             }
         }
 
+    }
+
+    private String formatoADateParaReferencia(String fecha) {
+        String formateada = "";
+        for (int i = 0; i < fecha.length(); i++) {
+            if (fecha.charAt(i) != '-') {
+                formateada += fecha.charAt(i);
+            }
+        }
+        return formateada;
     }
 }
