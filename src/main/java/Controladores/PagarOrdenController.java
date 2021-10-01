@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -100,6 +101,8 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         cargarFormasDePago();
         iniciarTablaPagos();
         cargarPacienteVacio();
+        deshabilitar(vistaPrincipal.txtInstitucion);
+        deshabilitar(vistaPrincipal.txtTotal);
     }
 
     @Override
@@ -696,5 +699,9 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             }
         }
         return formateada;
+    }
+
+    private void deshabilitar(JTextField objeto) {
+        objeto.setEditable(false);
     }
 }
