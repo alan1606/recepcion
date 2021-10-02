@@ -202,6 +202,18 @@ public interface OrdenVentaServiceWs {
     /**
      * 
      * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "eliminarOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EliminarOrdenVenta")
+    @ResponseWrapper(localName = "eliminarOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EliminarOrdenVentaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/eliminarOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/OrdenVentaServiceWs/eliminarOrdenVentaResponse")
+    public void eliminarOrdenVenta(
+        @WebParam(name = "arg0", targetNamespace = "")
+        OrdenVenta arg0);
+
+    /**
+     * 
+     * @param arg0
      * @return
      *     returns java.util.List<clientews.servicio.OrdenVenta>
      */

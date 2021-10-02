@@ -35,38 +35,56 @@ public class ConfirmarCita extends javax.swing.JFrame {
         dateFecha = new com.toedter.calendar.JDateChooser();
         btnRegresar = new javax.swing.JButton();
         btnConfirmarManual = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane2.setViewportView(tablePacientes);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 920, 530));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 920, 490));
 
+        btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
+        btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 51));
         btnGuardar.setText("Abrir whatsapp");
+        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 650, -1, 30));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 640, 110, 30));
 
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setText("Fecha");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, -1));
-        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 320, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
+        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 320, -1));
 
+        btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
+        btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
         btnRegresar.setText("Regresar");
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 40));
+        btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 80, 30));
 
+        btnConfirmarManual.setBackground(new java.awt.Color(204, 204, 204));
+        btnConfirmarManual.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnConfirmarManual.setForeground(new java.awt.Color(0, 0, 51));
         btnConfirmarManual.setText("Confirmar manualmente");
+        btnConfirmarManual.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnConfirmarManual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarManualActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfirmarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 650, -1, 30));
+        jPanel1.add(btnConfirmarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 640, 170, 30));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 940, 630));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 720));
 
@@ -127,6 +145,7 @@ public class ConfirmarCita extends javax.swing.JFrame {
     public com.toedter.calendar.JDateChooser dateFecha;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tablePacientes;
     // End of variables declaration//GEN-END:variables

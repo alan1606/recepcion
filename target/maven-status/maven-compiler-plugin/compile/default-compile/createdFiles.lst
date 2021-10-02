@@ -2,6 +2,7 @@ clientews\servicio\RegistrarEnWorklist.class
 clientews\servicio\ConceptosInstitucionServiceImplService.class
 clientews\servicio\PacienteServiceWs.class
 clientews\servicio\EncontrarEquipoDicomPorIdAreaResponse.class
+clientews\servicio\EliminarOrdenVentaResponse.class
 clientews\servicio\EncontrarFormaPagoPorId.class
 Vistas\ConfirmarCita$2.class
 Controladores\EmpalmesController.class
@@ -26,6 +27,7 @@ DAO\ConceptosDao.class
 clientews\servicio\EncontrarEstadosDeMexicoResponse.class
 clientews\servicio\EncontrarInstitucionPorIdResponse.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasFechaPacienteResponse.class
+clientews\servicio\EliminarVentaConceptosPorIdOrdenVentaResponse.class
 clientews\servicio\EncontrarVentaConceptosPorIdPacsResponse.class
 clientews\servicio\MexicoServiceWs.class
 clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFecha.class
@@ -84,6 +86,7 @@ DAO\VentaConceptosDao.class
 Vistas\Menu$2.class
 clientews\servicio\EquipoDicom.class
 DAO\AreasDao.class
+clientews\servicio\EliminarVentaConceptosPorIdOrdenVenta.class
 clientews\servicio\EsCorrectoLoginResponse.class
 Vistas\Cortes$1.class
 Vistas\Menu$5.class
@@ -101,6 +104,7 @@ clientews\servicio\EncontarVentaConceptosPorIdOrdenVenta.class
 clientews\servicio\RegistrarVentaConceptos.class
 clientews\servicio\EncontrarFormaPagoPorNombre.class
 clientews\servicio\EncontrarEnVentaConceptos.class
+Vistas\NuevoPaciente$2.class
 clientews\servicio\MexicoServiceImplService.class
 clientews\servicio\AunEsPosibleAgendarEnInstitucion.class
 clientews\servicio\ConceptosServiceImplService.class
@@ -137,11 +141,13 @@ Vistas\PagarOrden.class
 clientews\servicio\RegistrarEnWorklistPorOrdenVentaResponse.class
 clientews\servicio\EncontrarConceptoPorNombre.class
 Utilidades\UrlUtil.class
+Vistas\Cancelaciones.class
 Vistas\PagarOrden$4.class
 DAO\MexicoDaoImpl.class
 clientews\servicio\ListarTodosPacientes.class
 DAO\MexicoDao.class
 clientews\servicio\EncontrarPacientePorIdResponse.class
+clientews\servicio\EliminarOrdenVenta.class
 clientews\servicio\MovimientoCorteServiceWs.class
 DAO\CatalogoFormaPagoDao.class
 clientews\servicio\VentaConceptosServiceImplService.class
@@ -210,6 +216,7 @@ vo\Worklist.class
 clientews\servicio\VentaConceptosServiceWs.class
 Vistas\AgendarCita$1.class
 Vistas\Empalmes$1.class
+Controladores\CancelacionesController.class
 clientews\servicio\FindAgendadosByFecha.class
 clientews\servicio\FindInstitucionByIdOrdenVenta.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasPaciente.class
@@ -244,6 +251,7 @@ clientews\servicio\EsCorrectoLogin.class
 DAO\OrdenVentaDaoImp.class
 clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFechaInstitucionResponse.class
 clientews\servicio\ObtenerOrdenVentaNoPagadosPaciente.class
+Vistas\Cancelaciones$2.class
 Controladores\CortesController.class
 Controladores\ReagendarController.class
 Vistas\Urgencias$2.class
@@ -270,6 +278,7 @@ curp\CurpGenerator.class
 clientews\servicio\ListarTodosVentaConceptos.class
 Utilidades\QrUtil.class
 clientews\servicio\RegistrarPagoOrdenVentaResponse.class
+Vistas\Cancelaciones$1.class
 clientews\servicio\Mexico.class
 clientews\servicio\Areas.class
 clientews\servicio\EncontrarVentaConceptosPorInstitucionFechas.class

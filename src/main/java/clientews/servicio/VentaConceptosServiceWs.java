@@ -286,4 +286,16 @@ public interface VentaConceptosServiceWs {
         @WebParam(name = "arg0", targetNamespace = "")
         VentaConceptos arg0);
 
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "eliminarVentaConceptosPorIdOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EliminarVentaConceptosPorIdOrdenVenta")
+    @ResponseWrapper(localName = "eliminarVentaConceptosPorIdOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EliminarVentaConceptosPorIdOrdenVentaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/eliminarVentaConceptosPorIdOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/eliminarVentaConceptosPorIdOrdenVentaResponse")
+    public void eliminarVentaConceptosPorIdOrdenVenta(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Long arg0);
+
 }
