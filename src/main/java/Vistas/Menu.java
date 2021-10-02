@@ -55,6 +55,7 @@ public class Menu extends javax.swing.JFrame {
         btnEntradas = new javax.swing.JButton();
         btnUrgencias = new javax.swing.JButton();
         btnReagendar = new javax.swing.JButton();
+        btnCancelaciones = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -114,7 +115,10 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(btnUrgencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 120, 40));
 
         btnReagendar.setText("Reagendar");
-        jPanel1.add(btnReagendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 120, 40));
+        jPanel1.add(btnReagendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 120, 40));
+
+        btnCancelaciones.setText("Cancelaciones");
+        jPanel1.add(btnCancelaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 120, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 330));
 
@@ -178,6 +182,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgendar;
+    public javax.swing.JButton btnCancelaciones;
     public javax.swing.JButton btnConfirmar;
     public javax.swing.JButton btnCortes;
     public javax.swing.JButton btnEntradas;

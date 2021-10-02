@@ -6,6 +6,7 @@
 package Controladores;
 
 import Vistas.AgendarCita;
+import Vistas.Cancelaciones;
 import Vistas.ConfirmarCita;
 import Vistas.Cortes;
 import Vistas.DatosFacturacion;
@@ -46,6 +47,7 @@ public class MenuController implements ActionListener {
         this.vista.btnEntradas.addActionListener(this);
         this.vista.btnUrgencias.addActionListener(this);
         this.vista.btnReagendar.addActionListener(this);
+        this.vista.btnCancelaciones.addActionListener(this);
     }
 
     @Override
@@ -64,6 +66,9 @@ public class MenuController implements ActionListener {
             abrirUrgencias();
         }else if(e.getSource() == this.vista.btnReagendar){
             abrirReagendar();
+        }
+        else if(e.getSource() == this.vista.btnCancelaciones){
+            abrirCancelaciones();
         }
     }
 
@@ -107,6 +112,12 @@ public class MenuController implements ActionListener {
         vista.dispose();
         ReagendarController controladorReagendar = new ReagendarController(new Reagendar());
         controladorReagendar.iniciar();
+    }
+
+    private void abrirCancelaciones() {
+        vista.dispose();
+        CancelacionesController controladorCancelaciones = new CancelacionesController(new Cancelaciones());
+        controladorCancelaciones.iniciar();
     }
 
 }
