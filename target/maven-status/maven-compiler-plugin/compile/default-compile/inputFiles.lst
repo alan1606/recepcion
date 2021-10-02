@@ -63,6 +63,7 @@ C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\serv
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\EncontrarPacientePorId.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\EncontrarPacientePorIdResponse.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaPorIdResponse.java
+C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasFechaPacienteResponse.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFechaResponse.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\EsCorrectoLogin.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\Vistas\PagarOrden.java
@@ -114,6 +115,7 @@ C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\serv
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\MexicoServiceImplService.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\AreasServiceWs.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\EncontrarConceptosPorIdArea.java
+C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasEnFecha.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerAreasPorInstitucion.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaPorId.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\EncontrarConceptoPorIdResponse.java
@@ -135,6 +137,7 @@ C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\serv
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\EncontrarEquipoDicomPorId.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\DAO\EquipoDicomDaoImp.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaNoPagadosPaciente.java
+C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasPacienteResponse.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\Controladores\PagarOrdenController.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerLimiteInstitucion.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerMovimientosDeCorteVespertinoResponse.java
@@ -151,6 +154,7 @@ C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\serv
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerTotalOrdenesEnUnDiaResponse.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\FindAgendadosByFechaResponse.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\Tables\TableOrdenesVenta.java
+C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasFechaPaciente.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\EsCorrectoLoginResponse.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ConceptosInstitucionServiceWs.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\DAO\EquipoDicomDao.java
@@ -162,6 +166,7 @@ C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\Vistas\Confirm
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\vo\Worklist.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\RegistrarMovimientoCorteResponse.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\MovimientoCorte.java
+C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasEnFechaResponse.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\EncontrarEquipoDicomPorNombreResponse.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\InstitucionServiceWs.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\DAO\AreasDao.java
@@ -209,6 +214,7 @@ C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\serv
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\EncontrarEquipoDicomPorNombre.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\Mexico.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasPacienteResponse.java
+C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasPaciente.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\VentaConceptosServiceImplService.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\CatalogoFormaPagoServiceImplService.java
 C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\main\java\clientews\servicio\OrdenVentaServiceImplService.java

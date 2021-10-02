@@ -231,7 +231,7 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
 
     private void mostrarOrdenes(String fecha) {
         TableOrdenesVenta tableOrdenesVenta = new TableOrdenesVenta();
-        tableOrdenesVenta.cargarTabla(vistaPrincipal.tableOrdenes, modeloOrdenesVenta.obtenerConfirmadosEnFecha(fecha));
+        tableOrdenesVenta.cargarTabla(vistaPrincipal.tableOrdenes, modeloOrdenesVenta.obtenerOrdenVentaConfirmadasPagadasEnFecha(fecha));
     }
 
     private void cargarEstudios(Long idOrden) {
@@ -257,12 +257,13 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
 
     private void buscarPorPaciente(Long idPaciente) {
         TableOrdenesVenta tableOrdenesVenta = new TableOrdenesVenta();
-        tableOrdenesVenta.cargarTabla(vistaPrincipal.tableOrdenes, modeloOrdenesVenta.obtenerConfirmadosPaciente(idPaciente));
+        tableOrdenesVenta.cargarTabla(vistaPrincipal.tableOrdenes, modeloOrdenesVenta.obtenerOrdenVentaConfirmadasPagadasPaciente(idPaciente));
+        System.out.println(modeloOrdenesVenta.obtenerOrdenVentaConfirmadasPagadasPaciente(idPaciente).size());
     }
 
     private void buscarPorFechaYPaciente(String fecha, Long idPaciente) {
         TableOrdenesVenta tableOrdenesVenta = new TableOrdenesVenta();
-        tableOrdenesVenta.cargarTabla(vistaPrincipal.tableOrdenes, modeloOrdenesVenta.obtenerConfirmadosFechaPaciente(fecha, idPaciente));
+        tableOrdenesVenta.cargarTabla(vistaPrincipal.tableOrdenes, modeloOrdenesVenta.obtenerOrdenVentaConfirmadasPagadasFechaPaciente(fecha, idPaciente));
     }
 
     private void cargarTablaConceptosVacia() {
@@ -319,8 +320,8 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
     }
 
     private void agenda() {
-        int horaInicio = horaAInt(area.getHoraInicio().toString(), 11, 14);
-        int horaFin = horaAInt(area.getHoraFin().toString(), 11, 14);
+        int horaInicio = horaAInt(area.getHoraInicio().toString(), 0, 3);
+        int horaFin = horaAInt(area.getHoraFin().toString(), 0, 3);
 
         int duracion = area.getDuracionMinutos();
 

@@ -704,4 +704,6 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
     private void deshabilitar(JTextField objeto) {
         objeto.setEditable(false);
     }
+    
+    
 }

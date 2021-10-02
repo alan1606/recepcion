@@ -36,5 +36,10 @@ public interface OrdenVentaDao {
         public void actualizarTotalOrdenVenta(OrdenVenta ordenVenta);
             public Long obtenerTotalOrdenesEnUnDia(String fecha);
 
+                 public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasEnFecha(String date);
+
+    public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasFechaPaciente(String date, Long idPaciente);
+
+    public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasPaciente(Long idPaciente);
 
 }

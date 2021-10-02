@@ -174,6 +174,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 if (!institucion.getNombreInstitucion().equals("PARTICULAR") && vista.fecha.getDate() != null) { //Si no equivale a particular se procede a checar si no se ha superado el limite
                     if (!aunEsPosibleAgendarEnInstitucion()) {
                         JOptionPane.showMessageDialog(null, "La institución ha superado su límite diario en esa fecha");
+                        bloquearDebidoALimiteSuperado(true);
                     }
                 }
             }
@@ -395,8 +396,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     }
 
     private void agenda() {
-        int horaInicio = horaAInt(area.getHoraInicio().toString(), 0, 5);
-        int horaFin = horaAInt(area.getHoraFin().toString(), 0, 5);
+        int horaInicio = horaAInt(area.getHoraInicio().toString(), 0, 3);
+        int horaFin = horaAInt(area.getHoraFin().toString(), 0, 3);
 
         int duracion = area.getDuracionMinutos();
 
@@ -470,9 +471,11 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private void verificarAgendaInstitucion() {
         if (aunEsPosibleAgendarEnInstitucion()) {
             agenda();
+            bloquearDebidoALimiteSuperado(false);
         } else {
             JOptionPane.showMessageDialog(null, "La institución ha superado el límite diario de estudios");
             vaciarComboEstudios();
+            bloquearDebidoALimiteSuperado(true);
         }
     }
 
@@ -599,6 +602,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             return true;
         }
         JOptionPane.showMessageDialog(null, "La institución ha superado su límite diario en esa fecha");
+        bloquearDebidoALimiteSuperado(true);
         return false;
     }
 
@@ -969,6 +973,14 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         generador.setFechaAsignado(venta.getFechaAsignado());
         generador.setFechaVenta(venta.getFechaVentaVc());
         return generador.generarIdPacs();
+    }
+    
+    private void bloquearDebidoALimiteSuperado(boolean valor){
+        valor = !valor;
+        vista.comboArea.setEnabled(valor);
+        vista.comboEstudio.setEnabled(valor);
+        vista.comboSala.setEnabled(valor);
+        vista.comboHora.setEnabled(valor);
     }
 
 }

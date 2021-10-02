@@ -25,6 +25,7 @@ clientews\servicio\FindAgendadosByFechaResponse.class
 DAO\ConceptosDao.class
 clientews\servicio\EncontrarEstadosDeMexicoResponse.class
 clientews\servicio\EncontrarInstitucionPorIdResponse.class
+clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasFechaPacienteResponse.class
 clientews\servicio\EncontrarVentaConceptosPorIdPacsResponse.class
 clientews\servicio\MexicoServiceWs.class
 clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFecha.class
@@ -41,10 +42,12 @@ Vistas\DatosFacturacion.class
 Vistas\PagarOrden$2.class
 clientews\servicio\PagoOrdenVentaServiceImplService.class
 clientews\servicio\EncontrarEquipoDicomPorArea.class
+clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasEnFechaResponse.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasEnFechaResponse.class
 clientews\servicio\ObtenerUltimaOrdenVentaRegistrada.class
 Vistas\Empalmes$2.class
 clientews\servicio\EncontrarConceptosPorIdVentaConceptosResponse.class
+clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasFechaPaciente.class
 clientews\servicio\EncontrarPacienteLikeCurpResponse.class
 clientews\servicio\ActualizarIdOrdenVentaResponse.class
 DAO\ConceptosDaoImp.class
@@ -222,6 +225,7 @@ clientews\servicio\EncontrarVentaConceptosPorPacienteFechaEnWorklist.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasFechaPacienteResponse.class
 Controladores\MenuUrgenciasController.class
 clientews\servicio\ListarTodasFormasPago.class
+clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasPaciente.class
 Controladores\ConfirmarCitaController.class
 Vistas\ConfirmarCita$1.class
 clientews\servicio\EncontrarPacientePorCurp.class
@@ -230,6 +234,7 @@ clientews\servicio\RegistrarEnWorklistPorOrdenVenta.class
 clientews\servicio\ActualizarPaciente.class
 clientews\servicio\RegistrarEnWorklistResponse.class
 clientews\servicio\ObtenerOrdenVentaNoPagadosFechaPaciente.class
+clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasPacienteResponse.class
 clientews\servicio\ListarPorId.class
 clientews\servicio\UsuariosServiceImplService.class
 clientews\servicio\EncontrarEquipoDicomPorModalidad.class
@@ -246,6 +251,7 @@ clientews\servicio\RegistrarConceptosInstitucion.class
 Vistas\MovimientosCorte.class
 Vistas\Urgencias$1.class
 clientews\servicio\Institucion.class
+clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasEnFecha.class
 clientews\servicio\RegistrarVentaConceptosListResponse.class
 clientews\servicio\PagoOrdenVentaServiceWs.class
 clientews\servicio\EncontrarPacienteLikeNombre.class

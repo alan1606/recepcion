@@ -87,6 +87,21 @@ public class OrdenVentaDaoImp implements OrdenVentaDao {
     public Long obtenerTotalOrdenesEnUnDia(String fecha) {
         return  servicio.obtenerTotalOrdenesEnUnDia(fecha);
     }
+
+    @Override
+    public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasEnFecha(String date) {
+        return servicio.obtenerOrdenVentaConfirmadasPagadasEnFecha(date);
+    }
+
+    @Override
+    public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasFechaPaciente(String date, Long idPaciente) {
+        return servicio.obtenerOrdenVentaConfirmadasPagadasFechaPaciente(date, idPaciente);
+        }
+
+    @Override
+    public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasPaciente(Long idPaciente) {
+        return servicio.obtenerOrdenVentaConfirmadasPagadasPaciente(idPaciente);
+    }
     
     
 

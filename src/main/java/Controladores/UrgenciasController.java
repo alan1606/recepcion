@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -392,8 +393,8 @@ public class UrgenciasController implements KeyListener, MouseListener, ActionLi
     }
 
     private void agenda() {
-        int horaInicio = horaAInt(area.getHoraInicio().toString(), 11, 14);
-        int horaFin = horaAInt("23:59", 11, 14);
+        int horaInicio = horaAInt(area.getHoraInicio().toString(), 0, 3);
+        int horaFin = horaAInt("23:59", 0, 3);
         boolean par = false;
         boolean alternador = true;
 

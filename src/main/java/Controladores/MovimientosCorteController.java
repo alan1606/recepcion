@@ -14,6 +14,8 @@ import Vistas.MovimientosCorte;
 import clientews.servicio.MovimientoCorte;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Date;
 import javax.swing.JComboBox;
 
@@ -21,7 +23,7 @@ import javax.swing.JComboBox;
  *
  * @author alanm
  */
-public class MovimientosCorteController implements ActionListener {
+public class MovimientosCorteController implements ActionListener, KeyListener {
 
     private MovimientosCorte vista;
     private MovimientoCorte movimiento;
@@ -32,7 +34,8 @@ public class MovimientosCorteController implements ActionListener {
 
         this.vista.btnGuardar.addActionListener(this);
         this.vista.btnRegresar.addActionListener(this);
-
+        this.vista.txtDescripcion.addKeyListener(this);
+        
         modeloMovimientoCorte = new MovimientoCorteDaoImpl();
     }
 
@@ -125,6 +128,21 @@ public class MovimientosCorteController implements ActionListener {
         vista.comboTipo.setSelectedIndex(0);
         vista.txtCantidad.setText("");
         vista.txtDescripcion.setText("");
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if(e.getSource() == vista.txtDescripcion){
+            vista.txtDescripcion.setText(vista.txtDescripcion.getText().toUpperCase());
+        }
     }
 
 }
