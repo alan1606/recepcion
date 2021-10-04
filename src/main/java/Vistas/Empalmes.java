@@ -46,7 +46,7 @@ public class Empalmes extends javax.swing.JFrame {
         fecha = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         txtPaciente = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,7 +70,7 @@ public class Empalmes extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel12.setText("Fecha");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, -1));
         jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 160, -1));
 
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
@@ -113,9 +113,7 @@ public class Empalmes extends javax.swing.JFrame {
         jLabel5.setText("Fecha");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, -1, 20));
         jPanel1.add(txtPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 330, -1));
-
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 900, 550));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 900, 550));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 650));
 
@@ -207,7 +205,7 @@ public class Empalmes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tableEstudios;

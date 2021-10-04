@@ -41,44 +41,71 @@ public class Cancelaciones extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtPaciente = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
+        jLCanOrden = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setViewportView(tableEstudios);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 520, 210));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 520, 190));
 
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setText("Paciente");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
 
-        jPanel1.add(comboPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 330, -1));
+        jPanel1.add(comboPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, 330, -1));
 
         jScrollPane2.setViewportView(tableOrdenes);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 520, 210));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 520, 190));
 
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel12.setText("Fecha");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
-        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 160, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
+        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 160, -1));
 
+        btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
+        btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
         btnRegresar.setText("Regresar");
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 100, 40));
+        btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 80, 30));
         jPanel1.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 670, 210, 20));
 
         jLabel5.setText("Fecha");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, -1, 20));
-        jPanel1.add(txtPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 330, -1));
+        jPanel1.add(txtPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 330, -1));
 
+        btnCancelar.setBackground(new java.awt.Color(204, 204, 204));
+        btnCancelar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(0, 0, 51));
         btnCancelar.setText("Cancelar órden");
+        btnCancelar.setBorder(null);
+        btnCancelar.setContentAreaFilled(false);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 330, 120, 40));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 340, 110, 30));
+
+        jLCanOrden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar-orden2.png"))); // NOI18N
+        jLCanOrden.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLCanOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 340, 140, -1));
+
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresar2.png"))); // NOI18N
+        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 120, -1));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 1090, 320));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 410));
 
@@ -193,10 +220,13 @@ public class Cancelaciones extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> comboPaciente;
     public com.toedter.calendar.JDateChooser dateFecha;
     public com.toedter.calendar.JDateChooser fecha;
+    private javax.swing.JLabel jLCanOrden;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tableEstudios;

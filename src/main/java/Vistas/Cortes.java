@@ -35,24 +35,25 @@ public class Cortes extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         comboTurnos = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
         btnRegresar.setText("Regresar");
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 70, 30));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 70, 30));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("Fecha");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
         jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 220, -1));
 
-        btnConsultar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnConsultar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnConsultar.setForeground(new java.awt.Color(0, 0, 51));
         btnConsultar.setText("Consultar");
         btnConsultar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -77,6 +78,10 @@ public class Cortes extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 310, 190));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresar2.png"))); // NOI18N
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,6 +140,7 @@ public class Cortes extends javax.swing.JFrame {
     public com.toedter.calendar.JDateChooser dateFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

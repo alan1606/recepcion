@@ -35,6 +35,9 @@ public class ConfirmarCita extends javax.swing.JFrame {
         dateFecha = new com.toedter.calendar.JDateChooser();
         btnRegresar = new javax.swing.JButton();
         btnConfirmarManual = new javax.swing.JButton();
+        jLabrirwhapp = new javax.swing.JLabel();
+        jLConfirmar = new javax.swing.JLabel();
+        jLRegresar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,16 +51,17 @@ public class ConfirmarCita extends javax.swing.JFrame {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 920, 490));
 
         btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
-        btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnGuardar.setForeground(new java.awt.Color(0, 0, 51));
-        btnGuardar.setText("Abrir whatsapp");
-        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText(".");
+        btnGuardar.setBorder(null);
+        btnGuardar.setContentAreaFilled(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 640, 110, 30));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 640, 50, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setText("Fecha");
@@ -69,19 +73,31 @@ public class ConfirmarCita extends javax.swing.JFrame {
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
         btnRegresar.setText("Regresar");
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 80, 30));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 80, 30));
 
         btnConfirmarManual.setBackground(new java.awt.Color(204, 204, 204));
-        btnConfirmarManual.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnConfirmarManual.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnConfirmarManual.setForeground(new java.awt.Color(0, 0, 51));
         btnConfirmarManual.setText("Confirmar manualmente");
-        btnConfirmarManual.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnConfirmarManual.setBorder(null);
+        btnConfirmarManual.setContentAreaFilled(false);
         btnConfirmarManual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarManualActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfirmarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 640, 170, 30));
+        jPanel1.add(btnConfirmarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 640, 170, 30));
+
+        jLabrirwhapp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/whatsapp2.png"))); // NOI18N
+        jPanel1.add(jLabrirwhapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 640, 40, -1));
+
+        jLConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/confirmar2.png"))); // NOI18N
+        jLConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 640, 200, 30));
+
+        jLRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresar2.png"))); // NOI18N
+        jLRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 120, 30));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 940, 630));
@@ -143,7 +159,10 @@ public class ConfirmarCita extends javax.swing.JFrame {
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnRegresar;
     public com.toedter.calendar.JDateChooser dateFecha;
+    private javax.swing.JLabel jLConfirmar;
+    private javax.swing.JLabel jLRegresar;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabrirwhapp;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;

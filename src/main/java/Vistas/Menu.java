@@ -48,27 +48,39 @@ public class Menu extends javax.swing.JFrame {
         btnPagar = new javax.swing.JButton();
         btnConfirmar = new javax.swing.JButton();
         btnAgendar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         btnCortes = new javax.swing.JButton();
         btnEntradas = new javax.swing.JButton();
         btnUrgencias = new javax.swing.JButton();
         btnReagendar = new javax.swing.JButton();
         btnCancelaciones = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnPagar.setBackground(new java.awt.Color(204, 204, 204));
+        btnPagar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnPagar.setForeground(new java.awt.Color(0, 0, 51));
         btnPagar.setText("Pagar orden");
+        btnPagar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 120, 40));
 
+        btnConfirmar.setBackground(new java.awt.Color(204, 204, 204));
+        btnConfirmar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnConfirmar.setForeground(new java.awt.Color(0, 0, 51));
         btnConfirmar.setText("Confirmar cita");
+        btnConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 120, 40));
 
+        btnAgendar.setBackground(new java.awt.Color(204, 204, 204));
+        btnAgendar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnAgendar.setForeground(new java.awt.Color(0, 0, 51));
         btnAgendar.setText("Agendar");
+        btnAgendar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgendarActionPerformed(evt);
@@ -76,34 +88,18 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 120, 40));
 
-        jPanel2.setBackground(new java.awt.Color(52, 73, 94));
-        jPanel2.setForeground(new java.awt.Color(52, 73, 94));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\alanm\\Documents\\NetBeansProjects\\recepcion\\src\\images\\icons8_multiply_30px.png")); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 38, 40));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\alanm\\Documents\\NetBeansProjects\\recepcion\\src\\images\\icons8_minus_50px.png")); // NOI18N
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 35, 40));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 40));
-
+        btnCortes.setBackground(new java.awt.Color(204, 204, 204));
+        btnCortes.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnCortes.setForeground(new java.awt.Color(0, 0, 51));
         btnCortes.setText("Cortes");
+        btnCortes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(btnCortes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 120, 40));
 
+        btnEntradas.setBackground(new java.awt.Color(204, 204, 204));
+        btnEntradas.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnEntradas.setForeground(new java.awt.Color(0, 0, 51));
         btnEntradas.setText("Entradas/salidas");
+        btnEntradas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEntradas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntradasActionPerformed(evt);
@@ -111,29 +107,39 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(btnEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 120, 40));
 
+        btnUrgencias.setBackground(new java.awt.Color(204, 204, 204));
+        btnUrgencias.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnUrgencias.setForeground(new java.awt.Color(0, 0, 51));
         btnUrgencias.setText("Urgencias");
+        btnUrgencias.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(btnUrgencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 120, 40));
 
+        btnReagendar.setBackground(new java.awt.Color(204, 204, 204));
+        btnReagendar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnReagendar.setForeground(new java.awt.Color(0, 0, 51));
         btnReagendar.setText("Reagendar");
+        btnReagendar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(btnReagendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 120, 40));
 
+        btnCancelaciones.setBackground(new java.awt.Color(204, 204, 204));
+        btnCancelaciones.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnCancelaciones.setForeground(new java.awt.Color(0, 0, 51));
         btnCancelaciones.setText("Cancelaciones");
+        btnCancelaciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(btnCancelaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 120, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 330));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("HOLA, BIENVENIDO");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 300, 270));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-        cerrar();
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
-        this.setState(Menu.ICONIFIED);
-    }//GEN-LAST:event_jLabel8MouseClicked
 
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
         // TODO add your handling code here:
@@ -189,8 +195,7 @@ public class Menu extends javax.swing.JFrame {
     public javax.swing.JButton btnPagar;
     public javax.swing.JButton btnReagendar;
     public javax.swing.JButton btnUrgencias;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

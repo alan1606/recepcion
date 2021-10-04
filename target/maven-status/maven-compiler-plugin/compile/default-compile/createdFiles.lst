@@ -89,7 +89,6 @@ DAO\AreasDao.class
 clientews\servicio\EliminarVentaConceptosPorIdOrdenVenta.class
 clientews\servicio\EsCorrectoLoginResponse.class
 Vistas\Cortes$1.class
-Vistas\Menu$5.class
 DAO\MovimientoCorteDaoImpl.class
 DAO\InstitucionDaoImp.class
 clientews\servicio\RegistrarPaciente.class
@@ -130,9 +129,9 @@ clientews\servicio\ListarTodosVentaConceptosResponse.class
 Vistas\Reagendar$2.class
 clientews\servicio\EncontrarEquipoDicomPorAreaResponse.class
 clientews\servicio\CatalogoFormaPagoServiceImplService.class
+clientews\servicio\EliminarPagoOrdenVentaPorIdOrdenVenta.class
 clientews\servicio\RegistrarVentaConceptosResponse.class
 clientews\servicio\EncontrarConceptosPorIdVentaConceptos.class
-Vistas\Menu$4.class
 DAO\AreasDaoImpl.class
 Controladores\MovimientosCorteController.class
 clientews\servicio\EncontrarEnVentaConceptosResponse.class
@@ -162,6 +161,7 @@ DAO\EquipoDicomDaoImp.class
 clientews\servicio\ObtenerMovimientosDeCorteVespertinoResponse.class
 clientews\servicio\EncontrarEquipoDicomPorNombreResponse.class
 clientews\servicio\RegistrarMovimientoCorteResponse.class
+clientews\servicio\EsCandidatoParaEliminarConceptosDeOrden.class
 clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFechaInstitucion.class
 clientews\servicio\EncontrarInstitucionPorId.class
 clientews\servicio\EncontrarConceptosPorIdAreaResponse.class
@@ -198,6 +198,7 @@ clientews\servicio\EncontarVentaConceptosPorIdOrdenVentaResponse.class
 clientews\servicio\ActualizarVentaConceptos.class
 clientews\servicio\MovimientoCorte.class
 clientews\servicio\ObtenerAreaPorNombre.class
+clientews\servicio\EliminarPagoOrdenVentaPorIdOrdenVentaResponse.class
 clientews\servicio\ActualizarVentaConceptosResponse.class
 clientews\servicio\EncontrarConceptosPorIdArea.class
 Vistas\MenuUrgencias.class
@@ -286,6 +287,7 @@ clientews\servicio\Conceptos.class
 clientews\servicio\AreasServiceImplService.class
 clientews\servicio\EncontrarVentaConceptosPorPacienteFechaEnWorklistResponse.class
 clientews\servicio\EncontrarEquipoDicomPorNombre.class
+clientews\servicio\EsCandidatoParaEliminarConceptosDeOrdenResponse.class
 DAO\WorklistDaoImp.class
 clientews\servicio\RegistrarVentaConceptosList.class
 Vistas\DatosFacturacion$1.class

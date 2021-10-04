@@ -127,6 +127,7 @@ C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\Actua
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\Controladores\MovimientosCorteController.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\DAO\MexicoDaoImpl.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\VentaConceptos.java
+C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EliminarPagoOrdenVentaPorIdOrdenVenta.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EliminarOrdenVentaResponse.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\WorklistServiceImplService.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\Conceptos.java
@@ -144,6 +145,7 @@ C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\Obten
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarEquipoDicomPorModalidadResponse.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaNoPagadosEnFecha.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\RegistrarVentaConceptosListResponse.java
+C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EliminarPagoOrdenVentaPorIdOrdenVentaResponse.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\PagoOrdenVenta.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\Vistas\Urgencias.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarVentaConceptosPorIdResponse.java
@@ -196,6 +198,7 @@ C:\Users\alond\Documents\GitHub\recepcion\src\main\java\DAO\ConceptosDaoImp.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EquipoDicomServiceImplService.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\MovimientoCorteServiceWs.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasEnFechaResponse.java
+C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EsCandidatoParaEliminarConceptosDeOrdenResponse.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ConceptosInstitucionServiceImplService.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasFechaPaciente.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\PacienteServiceImplService.java
@@ -229,6 +232,7 @@ C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\Obten
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\Usuarios.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasPacienteResponse.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarEstadosDeMexico.java
+C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EsCandidatoParaEliminarConceptosDeOrden.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFechaInstitucion.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\Vistas\DatosFacturacion.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\Vistas\MenuUrgencias.java
