@@ -48,6 +48,7 @@ public class PagarOrden extends javax.swing.JFrame {
         btnAgregar = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
+        jLAgregar = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablePagos = new javax.swing.JTable();
         btnPagar = new javax.swing.JButton();
@@ -55,6 +56,7 @@ public class PagarOrden extends javax.swing.JFrame {
         txtSubtotal = new javax.swing.JTextField();
         txtPaciente = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,11 +98,11 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 160, -1));
 
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
-        btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
         btnRegresar.setText("Regresar");
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 30));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 80, 30));
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel14.setText("Institución");
@@ -117,21 +119,26 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel2.add(comboFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 270, 20));
 
         btnAgregar.setBackground(new java.awt.Color(204, 204, 204));
-        btnAgregar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnAgregar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(0, 0, 51));
         btnAgregar.setText("Agregar");
         btnAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAgregar.setContentAreaFilled(false);
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 90, 30));
+        jPanel2.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 80, 30));
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel13.setText("Cantidad");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
         jPanel2.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 270, 20));
+
+        jLAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar2.png"))); // NOI18N
+        jLAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(jLAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 110, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 340, 210));
         jPanel2.getAccessibleContext().setAccessibleName("PAGO");
@@ -141,7 +148,7 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 340, 160));
 
         btnPagar.setBackground(new java.awt.Color(204, 204, 204));
-        btnPagar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnPagar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnPagar.setForeground(new java.awt.Color(0, 0, 51));
         btnPagar.setText("Pagar");
         btnPagar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -150,7 +157,7 @@ public class PagarOrden extends javax.swing.JFrame {
                 btnPagarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 610, 90, 40));
+        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 610, 80, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel10.setText("Subtotal");
@@ -160,6 +167,10 @@ public class PagarOrden extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 910, 620));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresarr2.png"))); // NOI18N
+        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 110, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 700));
 
@@ -236,6 +247,8 @@ public class PagarOrden extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> comboFormaPago;
     public javax.swing.JComboBox<String> comboPaciente;
     public com.toedter.calendar.JDateChooser dateFecha;
+    private javax.swing.JLabel jLAgregar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

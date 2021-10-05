@@ -30,6 +30,7 @@ clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasFechaPacienteResponse.clas
 clientews\servicio\EliminarVentaConceptosPorIdOrdenVentaResponse.class
 clientews\servicio\EncontrarVentaConceptosPorIdPacsResponse.class
 clientews\servicio\MexicoServiceWs.class
+Vistas\DatosFacturacion$2.class
 clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFecha.class
 clientews\servicio\EncontrarInstitucionPorNombre.class
 DAO\PacientesDao.class
@@ -132,6 +133,7 @@ clientews\servicio\CatalogoFormaPagoServiceImplService.class
 clientews\servicio\EliminarPagoOrdenVentaPorIdOrdenVenta.class
 clientews\servicio\RegistrarVentaConceptosResponse.class
 clientews\servicio\EncontrarConceptosPorIdVentaConceptos.class
+Vistas\NuevoPaciente$3.class
 DAO\AreasDaoImpl.class
 Controladores\MovimientosCorteController.class
 clientews\servicio\EncontrarEnVentaConceptosResponse.class

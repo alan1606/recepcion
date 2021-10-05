@@ -163,7 +163,7 @@ public class AgendarCita extends javax.swing.JFrame {
         btnQuitar.setText("Quitar");
         btnQuitar.setBorder(null);
         btnQuitar.setContentAreaFilled(false);
-        jPanel1.add(btnQuitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 190, 50, 30));
+        jPanel1.add(btnQuitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 190, 60, 30));
 
         btnNuevoPaciente.setBackground(new java.awt.Color(204, 204, 204));
         btnNuevoPaciente.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -183,7 +183,7 @@ public class AgendarCita extends javax.swing.JFrame {
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
         btnRegresar.setText("Regresar");
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 80, 30));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 90, 30));
 
         btnFoto.setBackground(new java.awt.Color(204, 204, 204));
         btnFoto.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -212,14 +212,14 @@ public class AgendarCita extends javax.swing.JFrame {
 
         jLQuitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar2.png"))); // NOI18N
         jLQuitar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLQuitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 190, 90, -1));
+        jPanel1.add(jLQuitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 190, 100, -1));
 
         jLIconoNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/anadir-Paciente2.png"))); // NOI18N
         jLIconoNew.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jLIconoNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 140, 30));
 
         jLIconoRegresar.setBackground(new java.awt.Color(204, 204, 204));
-        jLIconoRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresar2.png"))); // NOI18N
+        jLIconoRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresarr2.png"))); // NOI18N
         jLIconoRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jLIconoRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 120, -1));
 
