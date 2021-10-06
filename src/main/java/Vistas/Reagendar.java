@@ -78,9 +78,9 @@ public class Reagendar extends javax.swing.JFrame {
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
-        btnRegresar.setText("Regresar");
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 90, 30));
+        btnRegresar.setContentAreaFilled(false);
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 40, 40));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Reagendar"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,9 +123,9 @@ public class Reagendar extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 890, 540));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresarr2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 40, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 650));
 

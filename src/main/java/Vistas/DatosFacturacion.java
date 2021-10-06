@@ -56,14 +56,14 @@ public class DatosFacturacion extends javax.swing.JFrame {
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
-        btnRegresar.setText("Regresar");
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRegresar.setContentAreaFilled(false);
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 90, 30));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 40, 40));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -105,9 +105,9 @@ public class DatosFacturacion extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 290, 210));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresarr2.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
         jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 110, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

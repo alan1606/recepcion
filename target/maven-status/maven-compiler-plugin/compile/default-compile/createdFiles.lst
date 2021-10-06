@@ -21,6 +21,7 @@ clientews\servicio\ConceptosInstitucionServiceWs.class
 clientews\servicio\RegistrarArea.class
 clientews\servicio\ObtenerMovimientosDeCorteMatutinoResponse.class
 clientews\servicio\EncontrarConceptosPorInstitucionAreaResponse.class
+Vistas\AgendarCita$3.class
 clientews\servicio\ObtenerLimiteInstitucionResponse.class
 clientews\servicio\FindAgendadosByFechaResponse.class
 DAO\ConceptosDao.class
@@ -37,6 +38,7 @@ DAO\PacientesDao.class
 clientews\servicio\ActualizarIdOrdenVenta.class
 Vistas\Reagendar$1.class
 clientews\servicio\ActualizarOrdenVenta.class
+Vistas\MenuUrgencias$2.class
 clientews\servicio\PagoOrdenVenta.class
 DAO\PacientesDaoImp.class
 DAO\UsuariosDao.class
@@ -183,6 +185,7 @@ clientews\servicio\EncontrarConceptosPorInstitucionArea.class
 clientews\servicio\OrdenVentaServiceImplService.class
 clientews\servicio\RegistrarAreaResponse.class
 clientews\servicio\UpdateAreaResponse.class
+Vistas\Cortes$2.class
 clientews\servicio\ObtenerCantidadDeEstudiosHechosEnInstitucionFechaResponse.class
 clientews\servicio\EncontrarPacienteLikeCurp.class
 clientews\servicio\EncontrarVentaConceptoPorOrdenVentaConceptoHoraAsignadoResponse.class

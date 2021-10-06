@@ -150,13 +150,13 @@ public class NuevoPaciente extends javax.swing.JFrame {
 
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        btnRegresar.setText("Regresar");
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 80, 30));
+        btnRegresar.setContentAreaFilled(false);
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 40));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresarr2.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
         jLabel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 30));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 40));
 
         btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(0, 0, 51));

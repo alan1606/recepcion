@@ -302,14 +302,14 @@ public interface VentaConceptosServiceWs {
      * 
      * @param arg0
      * @return
-     *     returns boolean
+     *     returns java.lang.Long
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "esCandidatoParaEliminarConceptosDeOrden", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EsCandidatoParaEliminarConceptosDeOrden")
     @ResponseWrapper(localName = "esCandidatoParaEliminarConceptosDeOrdenResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EsCandidatoParaEliminarConceptosDeOrdenResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/esCandidatoParaEliminarConceptosDeOrdenRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/esCandidatoParaEliminarConceptosDeOrdenResponse")
-    public boolean esCandidatoParaEliminarConceptosDeOrden(
+    public Long esCandidatoParaEliminarConceptosDeOrden(
         @WebParam(name = "arg0", targetNamespace = "")
         Long arg0);
 

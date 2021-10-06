@@ -181,9 +181,14 @@ public class AgendarCita extends javax.swing.JFrame {
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
-        btnRegresar.setText("Regresar");
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 90, 30));
+        btnRegresar.setContentAreaFilled(false);
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 40, 40));
 
         btnFoto.setBackground(new java.awt.Color(204, 204, 204));
         btnFoto.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -219,9 +224,9 @@ public class AgendarCita extends javax.swing.JFrame {
         jPanel1.add(jLIconoNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 140, 30));
 
         jLIconoRegresar.setBackground(new java.awt.Color(204, 204, 204));
-        jLIconoRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresarr2.png"))); // NOI18N
+        jLIconoRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
         jLIconoRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLIconoRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 120, -1));
+        jPanel1.add(jLIconoRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 40, -1));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 1220, 560));
@@ -235,6 +240,10 @@ public class AgendarCita extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_tablePacientesKeyReleased
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments

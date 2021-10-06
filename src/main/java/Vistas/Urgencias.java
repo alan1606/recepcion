@@ -181,9 +181,9 @@ public class Urgencias extends javax.swing.JFrame {
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
-        btnRegresar.setText("Regresar");
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 80, 30));
+        btnRegresar.setContentAreaFilled(false);
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 40));
 
         btnFoto.setBackground(new java.awt.Color(204, 204, 204));
         btnFoto.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -193,9 +193,9 @@ public class Urgencias extends javax.swing.JFrame {
         btnFoto.setContentAreaFilled(false);
         jPanel1.add(btnFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 620, 110, 30));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresarr2.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
         jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 110, 30));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 40));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/anadir-Paciente2.png"))); // NOI18N
         jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
