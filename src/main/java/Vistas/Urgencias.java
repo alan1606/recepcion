@@ -57,54 +57,72 @@ public class Urgencias extends javax.swing.JFrame {
         fecha = new com.toedter.calendar.JDateChooser();
         btnRegresar = new javax.swing.JButton();
         btnFoto = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("Buscar paciente");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 670, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 670, -1));
 
+        radioNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         radioNombre.setText("Nombre");
-        jPanel1.add(radioNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanel1.add(radioNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
+        radioCurp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         radioCurp.setText("CURP");
-        jPanel1.add(radioCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+        jPanel1.add(radioCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
         jScrollPane1.setViewportView(tableEstudios);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 220, 470, 420));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 270, 470, 300));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Paciente");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 650, -1, 20));
-        jPanel1.add(txtPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, 160, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 610, -1, 20));
+        jPanel1.add(txtPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, 160, 20));
 
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Área");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 100, -1, -1));
 
-        jPanel1.add(comboArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 120, -1));
+        jPanel1.add(comboArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, 120, -1));
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setText("Estudio");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 40, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 100, -1, -1));
 
-        jPanel1.add(comboEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 60, 330, -1));
+        jPanel1.add(comboEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 120, 330, -1));
 
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setText("Convenio");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 650, -1, 20));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 610, -1, 20));
 
-        jPanel1.add(comboInstitucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 670, 190, 20));
+        jPanel1.add(comboInstitucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 630, 190, 20));
 
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setText("Hora");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 100, -1, 20));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 160, -1, 20));
 
-        jPanel1.add(comboHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 120, 120, -1));
+        jPanel1.add(comboHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 180, 120, -1));
 
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel10.setText("Sala");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 100, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 160, -1, -1));
 
-        jPanel1.add(comboSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, 330, -1));
+        jPanel1.add(comboSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, 330, -1));
 
         tablePacientes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -113,34 +131,100 @@ public class Urgencias extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablePacientes);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 670, 460));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 670, 360));
 
+        btnAgregar.setBackground(new java.awt.Color(204, 204, 204));
+        btnAgregar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 51));
         btnAgregar.setText("Agregar");
-        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 180, -1, -1));
+        btnAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAgregar.setContentAreaFilled(false);
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 220, 80, 30));
 
+        btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
+        btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 51));
         btnGuardar.setText("Guardar");
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 670, -1, 30));
+        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGuardar.setContentAreaFilled(false);
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 620, 70, 30));
 
+        btnCancelar.setBackground(new java.awt.Color(204, 204, 204));
+        btnCancelar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(0, 0, 51));
         btnCancelar.setText("Limpiar");
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 670, -1, 30));
+        btnCancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancelar.setContentAreaFilled(false);
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 620, 70, 30));
 
+        btnQuitar.setBackground(new java.awt.Color(204, 204, 204));
+        btnQuitar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnQuitar.setForeground(new java.awt.Color(0, 0, 51));
         btnQuitar.setText("Quitar");
-        jPanel1.add(btnQuitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 180, -1, -1));
+        btnQuitar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnQuitar.setContentAreaFilled(false);
+        jPanel1.add(btnQuitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 220, 70, 30));
 
+        btnNuevoPaciente.setBackground(new java.awt.Color(204, 204, 204));
+        btnNuevoPaciente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnNuevoPaciente.setForeground(new java.awt.Color(0, 0, 51));
         btnNuevoPaciente.setText("Nuevo paciente");
-        jPanel1.add(btnNuevoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, -1, -1));
+        btnNuevoPaciente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNuevoPaciente.setContentAreaFilled(false);
+        jPanel1.add(btnNuevoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, 110, 30));
 
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setText("Fecha");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, -1, 20));
-        jPanel1.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 670, 210, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, -1, 20));
+        jPanel1.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 630, 210, 20));
 
-        btnRegresar.setText("Regresar");
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
+        btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
+        btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRegresar.setContentAreaFilled(false);
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 40));
 
-        btnFoto.setText("Agregar foto de órden");
-        jPanel1.add(btnFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 670, -1, 30));
+        btnFoto.setBackground(new java.awt.Color(204, 204, 204));
+        btnFoto.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnFoto.setForeground(new java.awt.Color(0, 0, 51));
+        btnFoto.setText("Agregar órden");
+        btnFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFoto.setContentAreaFilled(false);
+        jPanel1.add(btnFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 620, 110, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
+        jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 40, 40));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/anadir-Paciente2.png"))); // NOI18N
+        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 140, 30));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar2.png"))); // NOI18N
+        jLabel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 220, 100, 30));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar2.png"))); // NOI18N
+        jLabel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 220, 110, 30));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limpiar2.png"))); // NOI18N
+        jLabel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 620, 100, 30));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/camara2.png"))); // NOI18N
+        jLabel14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 620, 150, 30));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/guardar2.png"))); // NOI18N
+        jLabel15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 620, 100, 30));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 1230, 600));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,6 +263,10 @@ public class Urgencias extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -204,13 +292,21 @@ public class Urgencias extends javax.swing.JFrame {
     public com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JRadioButton radioCurp;
