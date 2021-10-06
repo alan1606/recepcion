@@ -102,6 +102,11 @@ public class OrdenVentaDaoImp implements OrdenVentaDao {
     public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasPaciente(Long idPaciente) {
         return servicio.obtenerOrdenVentaConfirmadasPagadasPaciente(idPaciente);
     }
+
+    @Override
+    public void eliminarOrdenVenta(OrdenVenta ordenVenta) {
+        servicio.eliminarOrdenVenta(ordenVenta);
+    }
     
     
 

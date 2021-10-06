@@ -32,5 +32,10 @@ public class PagoOrdenVentaDaoImp implements PagoOrdenVentaDao{
     public void registrarPagoOrdenVenta(PagoOrdenVenta pago) {
         servicio.registrarPagoOrdenVenta(pago);
     }
+
+    @Override
+    public void eliminarPagoOrdenVentaPorIdOrdenVenta(Long idOrdenVenta) {
+        servicio.eliminarPagoOrdenVentaPorIdOrdenVenta(idOrdenVenta);
+    }
     
 }

@@ -13,4 +13,6 @@ import clientews.servicio.PagoOrdenVenta;
  */
 public interface PagoOrdenVentaDao {
     public void registrarPagoOrdenVenta(PagoOrdenVenta pago);
+        public void eliminarPagoOrdenVentaPorIdOrdenVenta(Long idOrdenVenta);
+
 }

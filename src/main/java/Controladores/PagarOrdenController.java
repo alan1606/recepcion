@@ -163,6 +163,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         } else if (e.getSource() == vistaPrincipal.btnPagar) {
             if (datosValidos() && deseaPagar() == 0) {
                 procesarWorklist();
+                actualizarEstadoDeConceptosAEnWorklist();
                 procesarPago();
             }
         } else if (e.getSource() == vistaFacturacion.btnGuardar) {
@@ -703,6 +704,14 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
 
     private void deshabilitar(JTextField objeto) {
         objeto.setEditable(false);
+    }
+
+    private void actualizarEstadoDeConceptosAEnWorklist() {
+        for(VentaConceptos venta : estudiosDeOrden){
+            venta.setEnWorklist(true);
+            modeloVentaConceptos.actualizarVentaConceptos(venta);
+            System.out.println("Venta " + venta.getIdVc() + " en worklist (booleano)");
+        }
     }
     
     

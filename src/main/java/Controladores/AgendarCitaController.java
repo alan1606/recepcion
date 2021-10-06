@@ -204,6 +204,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 try {
                     calcularTotales();
                     reiniciarVariables();
+                    bloquearDebidoALimiteSuperado(false);
                     limpiarCampos();
                 } catch (Exception ex) {
                 }

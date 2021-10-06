@@ -15,7 +15,7 @@ import java.util.List;
 public interface OrdenVentaDao {
 
     public OrdenVenta obtenerOrdenVentaPorId(Long idOrdenVenta);
-    
+
     public OrdenVenta encontrarUltimno();
 
     public void registrar(OrdenVenta orden);
@@ -33,13 +33,17 @@ public interface OrdenVentaDao {
     public List<OrdenVenta> obtenerConfirmadosPaciente(Long idPaciente);
 
     public void actualizar(OrdenVenta orden);
-        public void actualizarTotalOrdenVenta(OrdenVenta ordenVenta);
-            public Long obtenerTotalOrdenesEnUnDia(String fecha);
 
-                 public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasEnFecha(String date);
+    public void actualizarTotalOrdenVenta(OrdenVenta ordenVenta);
+
+    public Long obtenerTotalOrdenesEnUnDia(String fecha);
+
+    public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasEnFecha(String date);
 
     public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasFechaPaciente(String date, Long idPaciente);
 
     public List<OrdenVenta> obtenerOrdenVentaConfirmadasPagadasPaciente(Long idPaciente);
+
+    public void eliminarOrdenVenta(OrdenVenta ordenVenta);
 
 }

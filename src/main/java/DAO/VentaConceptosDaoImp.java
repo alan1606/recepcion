@@ -112,5 +112,15 @@ public class VentaConceptosDaoImp implements VentaConceptosDao{
     public void actualizarVentaConceptos(VentaConceptos venta) {
         servicio.actualizarVentaConceptos(venta);
     }
+
+    @Override
+    public void eliminarVentaConceptosPorIdOrdenVenta(Long idOrdenVenta) {
+        servicio.eliminarVentaConceptosPorIdOrdenVenta(idOrdenVenta);
+    }
+
+    @Override
+    public Long esCandidatoParaEliminarConceptosDeOrden(Long idOrdenVenta) {
+        return servicio.esCandidatoParaEliminarConceptosDeOrden(idOrdenVenta);
+    }
     
 }

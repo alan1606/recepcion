@@ -17,6 +17,8 @@ import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
+import DAO.WorklistDao;
+import DAO.WorklistDaoImp;
 import Tables.TableConceptos;
 import Tables.TableOrdenesVenta;
 import Utilidades.DateUtil;
@@ -67,6 +69,7 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
     private Institucion institucion;
     private String fechaSeleccionada;
     private InstitucionDao modeloInstituciones;
+    private WorklistDao modeloWorklist;
 
     public ReagendarController(Reagendar vista) {
         this.vistaPrincipal = vista;
@@ -78,6 +81,7 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
         modeloPacientes = new PacientesDaoImp();
         ordenSeleccionada = new OrdenVenta();
         modeloInstituciones = new InstitucionDaoImp();
+        modeloWorklist = new WorklistDaoImp();
 
         this.vistaPrincipal.btnGuardar.addActionListener(this);
         this.vistaPrincipal.comboPaciente.addActionListener(this);
@@ -128,12 +132,20 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
                 if (enRealidadEstaDisponibleElEstudio()) {
                     if (deseaActualizar() == 0) {
                         actualizarEstudio();
+                        if (estudioSeleccionado.isEnWorklist()) {
+                            modeloWorklist.registrarEnWorklist(estudioSeleccionado.getIdVc());
+                            System.out.println("Actualicé la worklist");
+                        } else {
+                            System.out.println("No hay que registrar en worklist");
+                        }
+
                         cargarEstudios(ordenSeleccionada.getIdOv());
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Se acaba de agendar un estudio en esa hora, intente otra");
                 }
-                agenda();
+                cargarHoraVacio();
+                vistaPrincipal.dateNuevaFecha.setDate(null);
             }
         }
     }
@@ -157,7 +169,7 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
             if (vistaPrincipal.tableOrdenes.getRowCount() == 0) {
                 cargarTablaConceptosVacia();
             }
-        } else if (evt.getSource() == vistaPrincipal.dateNuevaFecha) {
+        } else if (evt.getSource() == vistaPrincipal.dateNuevaFecha && vistaPrincipal.dateNuevaFecha.getDate() != null) {
             //checar agenda
             if (vistaPrincipal.tableEstudios.getSelectedRow() != -1) {
                 //Aquí checamos que sea una fecha igual o superior que el día de hoy
@@ -320,6 +332,7 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
     }
 
     private void agenda() {
+        System.out.println("Cargando agenda del " + dateToString(vistaPrincipal.dateNuevaFecha.getDate().getTime()) + " de " + sala.getNombre());
         int horaInicio = horaAInt(area.getHoraInicio().toString(), 0, 3);
         int horaFin = horaAInt(area.getHoraFin().toString(), 0, 3);
 
@@ -572,11 +585,10 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
         Long idPaciente = 0l;
         boolean dosPuntosSuperado = false;
         String texto = vistaPrincipal.comboPaciente.getSelectedItem().toString();
-        for(int i=0; i<texto.length(); i++){
-            if(texto.charAt(i) == ':'){
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) == ':') {
                 dosPuntosSuperado = true;
-            }
-            else if(dosPuntosSuperado){
+            } else if (dosPuntosSuperado) {
                 id += texto.charAt(i);
             }
         }

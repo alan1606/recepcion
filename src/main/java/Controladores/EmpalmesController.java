@@ -15,6 +15,8 @@ import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
+import DAO.WorklistDao;
+import DAO.WorklistDaoImp;
 import Tables.TableConceptos;
 import Tables.TableOrdenesVenta;
 import Utilidades.DateUtil;
@@ -60,7 +62,8 @@ public class EmpalmesController implements ActionListener, PropertyChangeListene
     private AreasDao modeloAreas;
     private EquipoDicomDao modeloEquipoDicom;
     private VentaConceptos estudioSeleccionado;
-
+    private WorklistDao modeloWorklist;
+    
     public EmpalmesController(Empalmes vista) {
         this.vistaPrincipal = vista;
 
@@ -69,6 +72,7 @@ public class EmpalmesController implements ActionListener, PropertyChangeListene
         modeloAreas = new AreasDaoImpl();
         modeloEquipoDicom = new EquipoDicomDaoImp();
         modeloPacientes = new PacientesDaoImp();
+        modeloWorklist = new WorklistDaoImp();
         ordenSeleccionada = new OrdenVenta();
 
         this.vistaPrincipal.btnGuardar.addActionListener(this);
@@ -87,6 +91,7 @@ public class EmpalmesController implements ActionListener, PropertyChangeListene
         vistaPrincipal.setVisible(true);
 
         cargarPacienteVacio();
+        cargarHoraVacio();
     }
 
     @Override
@@ -119,13 +124,21 @@ public class EmpalmesController implements ActionListener, PropertyChangeListene
                 if (enRealidadEstaDisponibleElEstudio()) {
                     if (deseaActualizar() == 0) {
                         actualizarEstudio();
+                         if (estudioSeleccionado.isEnWorklist()) {
+                            modeloWorklist.registrarEnWorklist(estudioSeleccionado.getIdVc());
+                            System.out.println("Actualicé la worklist");
+                        } else {
+                            System.out.println("No hay que registrar en worklist");
+                        }
                         cargarEstudios(ordenSeleccionada.getIdOv());
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Se acaba de agendar un estudio en esa hora, intente otra");
                 }
-                agenda();
 
+                cargarHoraVacio();
+                vistaPrincipal.dateNuevaFecha.setDate(null);
+                    
             }
         }
     }
@@ -310,6 +323,7 @@ public class EmpalmesController implements ActionListener, PropertyChangeListene
     }
 
     private void agenda() {
+        System.out.println("Buscando agenda");
         int horaInicio = horaAInt(area.getHoraInicio().toString(), 0, 3);
         int horaFin = horaAInt(area.getHoraFin().toString(), 0, 3);
         boolean par = false;
@@ -461,22 +475,33 @@ public class EmpalmesController implements ActionListener, PropertyChangeListene
         int dialog = JOptionPane.YES_NO_OPTION;
         return (JOptionPane.showConfirmDialog(null, "Confirme con " + pacienteSeleccionado.getNombreCompletoP() + "\nAl teléfono " + pacienteSeleccionado.getTCelularp() + "\n\n¿Desea reagendar la cita?", "Confirmar", dialog));
     }
-    
+
     private Long obtenerIdPacienteDeComboBox() {
         String id = "";
         Long idPaciente = 0l;
         boolean dosPuntosSuperado = false;
         String texto = vistaPrincipal.comboPaciente.getSelectedItem().toString();
-        for(int i=0; i<texto.length(); i++){
-            if(texto.charAt(i) == ':'){
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) == ':') {
                 dosPuntosSuperado = true;
-            }
-            else if(dosPuntosSuperado){
+            } else if (dosPuntosSuperado) {
                 id += texto.charAt(i);
             }
         }
         System.out.println(id);
         return Long.parseLong(id);
+    }
+
+    private void cargarHoraVacio() {
+        try {
+            JComboBox combo = new JComboBox();
+            combo.removeAllItems();
+            combo.addItem("SELECCIONE UNA OPCIÓN");
+
+            vistaPrincipal.comboHora.setModel(combo.getModel());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
     }
 
 }

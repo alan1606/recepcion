@@ -15,6 +15,8 @@ import DAO.OrdenVentaDao;
 import DAO.OrdenVentaDaoImp;
 import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
+import DAO.PagoOrdenVentaDao;
+import DAO.PagoOrdenVentaDaoImp;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TableConceptos;
@@ -26,6 +28,7 @@ import clientews.servicio.EquipoDicom;
 import clientews.servicio.Institucion;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
+import clientews.servicio.PagoOrdenVenta;
 import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -53,29 +56,26 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
     private OrdenVentaDao modeloOrdenesVenta;
     private VentaConceptosDao modeloVentaConceptos;
     private PacientesDao modeloPacientes;
+    private PagoOrdenVentaDao modeloPagos;
     private Pacientes pacienteSeleccionado;
     private OrdenVenta ordenSeleccionada;
     private ArrayList<VentaConceptos> estudiosDeOrden;
     private Areas area;
     private EquipoDicom sala;
-    private AreasDao modeloAreas;
-    private EquipoDicomDao modeloEquipoDicom;
     private VentaConceptos estudioSeleccionado;
     private Institucion institucion;
     private String fechaSeleccionada;
-    private InstitucionDao modeloInstituciones;
 
     public CancelacionesController(Cancelaciones vista) {
         this.vistaPrincipal = vista;
 
         modeloOrdenesVenta = new OrdenVentaDaoImp();
         modeloVentaConceptos = new VentaConceptosDaoImp();
-        modeloAreas = new AreasDaoImpl();
-        modeloEquipoDicom = new EquipoDicomDaoImp();
         modeloPacientes = new PacientesDaoImp();
+        modeloPagos = new PagoOrdenVentaDaoImp();
         ordenSeleccionada = new OrdenVenta();
-        modeloInstituciones = new InstitucionDaoImp();
 
+        
         this.vistaPrincipal.btnCancelar.addActionListener(this);
         this.vistaPrincipal.comboPaciente.addActionListener(this);
         this.vistaPrincipal.dateFecha.addPropertyChangeListener(this);
@@ -117,7 +117,21 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
             menu.iniciar();
         } else if (e.getSource() == vistaPrincipal.btnCancelar) {
             if (datosValidos()) {
-                
+                System.out.println(modeloVentaConceptos.esCandidatoParaEliminarConceptosDeOrden(ordenSeleccionada.getIdOv()));
+                if (modeloVentaConceptos.esCandidatoParaEliminarConceptosDeOrden(ordenSeleccionada.getIdOv()) < 1) {
+                    if (deseaCancelar() == 0) {
+                        eliminarVentaConceptos();
+                        eliminarPagosOrdenVenta();
+                        eliminarOrdenVenta();
+                        limpiar();
+                        limpiarTablaOrdenes();
+                        limpiarTablaEstudios();
+                        JOptionPane.showMessageDialog(null, "Se ha cancelado la órden");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se puede eliminar la órden porque ya ha sido tomado un estudio de esta");
+                }
+
             }
         }
     }
@@ -126,7 +140,6 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
     public void propertyChange(PropertyChangeEvent evt) {
         if (evt.getSource() == vistaPrincipal.dateFecha) {
             if (vistaPrincipal.dateFecha.getDate() != null) {
-
                 //Este código lo puedo simplificar en una funcion
                 if (vistaPrincipal.comboPaciente.getSelectedIndex() == 0) {
                     mostrarOrdenes(dateToString(vistaPrincipal.dateFecha.getDate().getTime()));
@@ -141,7 +154,7 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
             if (vistaPrincipal.tableOrdenes.getRowCount() == 0) {
                 cargarTablaConceptosVacia();
             }
-        } 
+        }
     }
 
     @Override
@@ -153,6 +166,7 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
                 Long idPaciente = Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(fila, 4).toString());
                 cargarEstudios(idOrden);
                 pacienteSeleccionado = buscarPacientePorId(idPaciente);
+                ordenSeleccionada = modeloOrdenesVenta.obtenerOrdenVentaPorId(idOrden);
             }
         }
     }
@@ -222,7 +236,6 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
     }
 
     private void limpiarTablaOrdenes() {
-
         DefaultTableModel dt = (DefaultTableModel) vistaPrincipal.tableOrdenes.getModel();
 
         while (dt.getRowCount() > 0) {
@@ -246,7 +259,7 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
     private void limpiar() {
         vistaPrincipal.dateFecha.setDate(null);
         vistaPrincipal.comboPaciente.setSelectedIndex(0);
-
+        vistaPrincipal.txtPaciente.setText("");
     }
 
     private Pacientes buscarPacientePorId(Long idPaciente) {
@@ -266,26 +279,20 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
         if (e.getSource() == vistaPrincipal.txtPaciente && !vistaPrincipal.txtPaciente.getText().equals("")) {
             cargarPacientes();
         }
-
     }
-
 
     private boolean datosValidos() {
         if (vistaPrincipal.tableOrdenes.getSelectedRow() == -1) {
             return false;
         }
-       
         return true;
     }
-
-
 
     private int deseaCancelar() {
         int dialog = JOptionPane.YES_NO_OPTION;
         return (JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea cancelar la órden?", "Confirmar", dialog));
     }
 
- 
     private ComboBoxModel comboBoxVacio(JComboBox combo) {
         try {
             combo.removeAllItems();
@@ -308,22 +315,34 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
         }
     }
 
-    
     private Long obtenerIdPacienteDeComboBox() {
         String id = "";
         Long idPaciente = 0l;
         boolean dosPuntosSuperado = false;
         String texto = vistaPrincipal.comboPaciente.getSelectedItem().toString();
-        for(int i=0; i<texto.length(); i++){
-            if(texto.charAt(i) == ':'){
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) == ':') {
                 dosPuntosSuperado = true;
-            }
-            else if(dosPuntosSuperado){
+            } else if (dosPuntosSuperado) {
                 id += texto.charAt(i);
             }
         }
         System.out.println(id);
         return Long.parseLong(id);
+    }
+
+    private void eliminarVentaConceptos() {
+        modeloVentaConceptos.eliminarVentaConceptosPorIdOrdenVenta(ordenSeleccionada.getIdOv());
+        System.out.println("Venta conceptos eliminados");
+    }
+
+    private void eliminarOrdenVenta() {
+        modeloOrdenesVenta.eliminarOrdenVenta(ordenSeleccionada);
+        System.out.println("Órden seleccionada");
+    }
+
+    private void eliminarPagosOrdenVenta() {
+        modeloPagos.eliminarPagoOrdenVentaPorIdOrdenVenta(ordenSeleccionada.getIdOv());
     }
 
 }
