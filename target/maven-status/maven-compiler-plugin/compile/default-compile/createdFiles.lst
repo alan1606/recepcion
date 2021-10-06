@@ -1,6 +1,7 @@
 clientews\servicio\RegistrarEnWorklist.class
 clientews\servicio\ConceptosInstitucionServiceImplService.class
 clientews\servicio\PacienteServiceWs.class
+Vistas\ModificarPaciente$1.class
 clientews\servicio\EncontrarEquipoDicomPorIdAreaResponse.class
 clientews\servicio\EliminarOrdenVentaResponse.class
 clientews\servicio\EncontrarFormaPagoPorId.class
@@ -98,6 +99,7 @@ clientews\servicio\RegistrarPaciente.class
 clientews\servicio\EncontrarVentaConceptosPorIdResponse.class
 clientews\servicio\UsuariosServiceWs.class
 Vistas\PagarOrden$3.class
+Vistas\ModificarPaciente.class
 clientews\servicio\ObjectFactory.class
 clientews\servicio\EncontrarConceptoPorNombreResponse.class
 clientews\servicio\ListarTodasAreas.class
@@ -107,6 +109,7 @@ clientews\servicio\RegistrarVentaConceptos.class
 clientews\servicio\EncontrarFormaPagoPorNombre.class
 clientews\servicio\EncontrarEnVentaConceptos.class
 Vistas\NuevoPaciente$2.class
+Vistas\ModificarPaciente$3.class
 clientews\servicio\MexicoServiceImplService.class
 clientews\servicio\AunEsPosibleAgendarEnInstitucion.class
 clientews\servicio\ConceptosServiceImplService.class
@@ -133,6 +136,7 @@ Vistas\Reagendar$2.class
 clientews\servicio\EncontrarEquipoDicomPorAreaResponse.class
 clientews\servicio\CatalogoFormaPagoServiceImplService.class
 clientews\servicio\EliminarPagoOrdenVentaPorIdOrdenVenta.class
+Vistas\ModificarPaciente$2.class
 clientews\servicio\RegistrarVentaConceptosResponse.class
 clientews\servicio\EncontrarConceptosPorIdVentaConceptos.class
 Vistas\NuevoPaciente$3.class
@@ -228,6 +232,7 @@ clientews\servicio\FindInstitucionByIdOrdenVenta.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasPaciente.class
 clientews\servicio\VentaConceptos.class
 Vistas\Menu$1.class
+Controladores\ModificarPacienteController.class
 Controladores\DatosFacturacionController.class
 clientews\servicio\EncontrarEquipoDicomPorId.class
 Vistas\MenuUrgencias$1.class

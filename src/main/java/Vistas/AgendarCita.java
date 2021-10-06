@@ -15,7 +15,12 @@ public class AgendarCita extends javax.swing.JFrame {
      * Creates new form RegistrarVenta
      */
     public AgendarCita() {
-        initComponents();
+        try {
+                    initComponents();
+
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
     }
 
     /**

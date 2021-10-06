@@ -15,6 +15,7 @@ public class ConfirmarCita extends javax.swing.JFrame {
      * Creates new form RegistrarVenta
      */
     public ConfirmarCita() {
+        System.out.println(getClass());
         initComponents();
     }
 
