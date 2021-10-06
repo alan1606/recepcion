@@ -10,6 +10,7 @@ import DAO.MexicoDaoImpl;
 import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
 import Vistas.AgendarCita;
+import Vistas.ModificarPaciente;
 import Vistas.NuevoPaciente;
 import clientews.servicio.Mexico;
 import clientews.servicio.Pacientes;
@@ -36,14 +37,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 public class ModificarPacienteController implements ActionListener, KeyListener {
 
-    private NuevoPaciente vista;
+    private ModificarPaciente vista;
     private Pacientes paciente;
     private Date fechaActual;
     private XMLGregorianCalendar fechaActualXml;
     private MexicoDao modeloMexico;
     private PacientesDao modeloPacientes;
 
-    public ModificarPacienteController(NuevoPaciente vista) {
+    public ModificarPacienteController(ModificarPaciente vista) {
         this.vista = vista;
 
         obtenerFechaActual();
@@ -68,7 +69,7 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
     }
 
     public void iniciar() {
-        vista.setTitle("Nuevo paciente");
+        vista.setTitle("Modificar paciente");
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }

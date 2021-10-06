@@ -70,6 +70,8 @@ public class AgendarCita extends javax.swing.JFrame {
         jLIconoNew = new javax.swing.JLabel();
         jLIconoRegresar = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jLIconoNew1 = new javax.swing.JLabel();
+        btnModificarPaciente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -234,6 +236,20 @@ public class AgendarCita extends javax.swing.JFrame {
         jPanel1.add(jLIconoRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 40, -1));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLIconoNew1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/anadir-Paciente2.png"))); // NOI18N
+        jLIconoNew1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.add(jLIconoNew1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 170, 30));
+
+        btnModificarPaciente.setBackground(new java.awt.Color(204, 204, 204));
+        btnModificarPaciente.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnModificarPaciente.setForeground(new java.awt.Color(0, 0, 51));
+        btnModificarPaciente.setText("Modificar paciente");
+        btnModificarPaciente.setBorder(null);
+        btnModificarPaciente.setContentAreaFilled(false);
+        jPanel3.add(btnModificarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 140, 30));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 1220, 560));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
@@ -293,6 +309,7 @@ public class AgendarCita extends javax.swing.JFrame {
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnFoto;
     public javax.swing.JButton btnGuardar;
+    public javax.swing.JButton btnModificarPaciente;
     public javax.swing.JButton btnNuevoPaciente;
     public javax.swing.JButton btnQuitar;
     public javax.swing.JButton btnRegresar;
@@ -306,6 +323,7 @@ public class AgendarCita extends javax.swing.JFrame {
     private javax.swing.JLabel jLCapturar;
     private javax.swing.JLabel jLGuardar;
     private javax.swing.JLabel jLIconoNew;
+    private javax.swing.JLabel jLIconoNew1;
     private javax.swing.JLabel jLIconoRegresar;
     private javax.swing.JLabel jLQuitar;
     private javax.swing.JLabel jLabel1;

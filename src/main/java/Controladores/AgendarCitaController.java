@@ -24,6 +24,7 @@ import Utilidades.GeneradorIdPacs;
 import Utilidades.QrUtil;
 import Vistas.AgendarCita;
 import Vistas.Menu;
+import Vistas.ModificarPaciente;
 import Vistas.NuevoPaciente;
 import Vistas.QrCode;
 import clientews.servicio.Areas;
@@ -109,6 +110,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         this.vista.btnGuardar.addActionListener(this);
         this.vista.btnQuitar.addActionListener(this);
         this.vista.btnFoto.addActionListener(this);
+        this.vista.btnModificarPaciente.addActionListener(this);
 
         this.vista.comboArea.addActionListener(this);
         this.vista.comboEstudio.addActionListener(this);
@@ -233,6 +235,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 } catch (Exception exc) {
                 }
             }
+        } else if (e.getSource() == vista.btnModificarPaciente && vista.tablePacientes.getSelectedRow()!=-1) {
+            abrirModificarPaciente();
         }
     }
 
@@ -765,8 +769,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         orden.setRequiereFactura(false);
         orden.setIdFormaPago(formaPago);
         orden.setPagado(false);
-        
-        
+
         //Indicar que ya se generó
         ordenVentaGenerada = true;
 
@@ -975,13 +978,19 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         generador.setFechaVenta(venta.getFechaVentaVc());
         return generador.generarIdPacs();
     }
-    
-    private void bloquearDebidoALimiteSuperado(boolean valor){
+
+    private void bloquearDebidoALimiteSuperado(boolean valor) {
         valor = !valor;
         vista.comboArea.setEnabled(valor);
         vista.comboEstudio.setEnabled(valor);
         vista.comboSala.setEnabled(valor);
         vista.comboHora.setEnabled(valor);
+    }
+
+    private void abrirModificarPaciente() {
+        vista.dispose();
+        ModificarPacienteController controladorModificarPaciente = new ModificarPacienteController(new ModificarPaciente());
+        controladorModificarPaciente.iniciar();
     }
 
 }
