@@ -217,7 +217,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelAgenda;
-    private javax.swing.JButton btnAgendar;
+    public javax.swing.JButton btnAgendar;
     public javax.swing.JButton btnCancelaciones;
     public javax.swing.JButton btnConfirmar;
     public javax.swing.JButton btnCortes;

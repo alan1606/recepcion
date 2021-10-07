@@ -235,7 +235,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 } catch (Exception exc) {
                 }
             }
-        } else if (e.getSource() == vista.btnModificarPaciente && vista.tablePacientes.getSelectedRow()!=-1) {
+        } else if (e.getSource() == vista.btnModificarPaciente && vista.tablePacientes.getSelectedRow()!=-1) {//Se hizo clic sobre el paciente, ese mismo ya está guardado en 
+            //La variable paciente, por lo tanto, es posible mandarle el paciente de una vez
             abrirModificarPaciente();
         }
     }
@@ -990,6 +991,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private void abrirModificarPaciente() {
         vista.dispose();
         ModificarPacienteController controladorModificarPaciente = new ModificarPacienteController(new ModificarPaciente());
+        controladorModificarPaciente.setPaciente(paciente);//Se le envía a la clase el paciente que se seleccionó
         controladorModificarPaciente.iniciar();
     }
 

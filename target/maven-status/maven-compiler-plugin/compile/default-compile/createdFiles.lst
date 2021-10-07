@@ -78,6 +78,7 @@ clientews\servicio\CatalogoFormaPago.class
 clientews\servicio\EncontrarVentaConceptoPorOrdenVentaConceptoHoraAsignado.class
 DAO\InstitucionDao.class
 Vistas\AgendarCita.class
+clientews\servicio\EncontrarEstadoPorNombreResponse.class
 clientews\servicio\ListarTodasFormasPagoResponse.class
 clientews\servicio\EquipoDicomServiceWs.class
 clientews\servicio\ObtenerAreaPorNombreResponse.class
@@ -197,6 +198,7 @@ Vistas\MovimientosCorte$1.class
 Controladores\UrgenciasController.class
 clientews\servicio\ObtenerOrdenVentaNoPagadosEnFechaResponse.class
 clientews\servicio\RegistrarOrdenVentaResponse.class
+clientews\servicio\EncontrarEstadoPorNombre.class
 DAO\OrdenVentaDao.class
 Vistas\Reagendar.class
 clientews\servicio\ObtenerOrdenVentaPorIdResponse.class
@@ -247,6 +249,7 @@ clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasPaciente.class
 Controladores\ConfirmarCitaController.class
 Vistas\ConfirmarCita$1.class
 clientews\servicio\EncontrarPacientePorCurp.class
+clientews\servicio\EncontrarEstadoPorId.class
 Vistas\NuevoPaciente.class
 clientews\servicio\RegistrarEnWorklistPorOrdenVenta.class
 clientews\servicio\ActualizarPaciente.class
@@ -292,6 +295,7 @@ clientews\servicio\RegistrarPagoOrdenVentaResponse.class
 Vistas\Cancelaciones$1.class
 clientews\servicio\Mexico.class
 clientews\servicio\Areas.class
+clientews\servicio\EncontrarEstadoPorIdResponse.class
 clientews\servicio\EncontrarVentaConceptosPorInstitucionFechas.class
 clientews\servicio\Conceptos.class
 clientews\servicio\AreasServiceImplService.class

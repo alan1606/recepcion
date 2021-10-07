@@ -9,9 +9,9 @@ import DAO.MexicoDao;
 import DAO.MexicoDaoImpl;
 import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
+import Utilidades.DateUtil;
 import Vistas.AgendarCita;
 import Vistas.ModificarPaciente;
-import Vistas.NuevoPaciente;
 import clientews.servicio.Mexico;
 import clientews.servicio.Pacientes;
 import curp.CurpGenerator;
@@ -43,6 +43,7 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
     private XMLGregorianCalendar fechaActualXml;
     private MexicoDao modeloMexico;
     private PacientesDao modeloPacientes;
+    private Mexico entidadSeleccionada;
 
     public ModificarPacienteController(ModificarPaciente vista) {
         this.vista = vista;
@@ -61,7 +62,8 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
         this.vista.btnLimpiar.addActionListener(this);
         this.vista.comboSexo.addActionListener(this);
         this.vista.btnRegresar.addActionListener(this);
-        
+        this.vista.comboEntidad.addActionListener(this);
+
         this.vista.txtNombre.addKeyListener(this);
         this.vista.txtApellidoMaterno.addKeyListener(this);
         this.vista.txtApellidoPaterno.addKeyListener(this);
@@ -72,6 +74,8 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
         vista.setTitle("Modificar paciente");
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
+
+        cargarVentanaRespectoAlPaciente();
     }
 
     @Override
@@ -109,6 +113,9 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
             habilitarEstados(true);
         } else if (e.getSource() == vista.btnCancelar || e.getSource() == vista.btnRegresar) {
             abrirAgenda();
+        } else if (e.getSource() == vista.comboEntidad && vista.comboEntidad.getSelectedIndex() != 0) { //Se seleccionó una entidad
+            System.out.println(vista.comboEntidad.getSelectedItem().toString());
+            entidadSeleccionada = modeloMexico.encontrarEstadoPorNombre(vista.comboEntidad.getSelectedItem().toString());
         }
     }
 
@@ -166,15 +173,19 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
 
     private void registrar() {
         if (deseaRegistrar() == 0) {
-            modeloPacientes.guardar(paciente);
-            JOptionPane.showMessageDialog(null, "Paciente registrado");
+            modeloPacientes.actualizar(paciente);
+            JOptionPane.showMessageDialog(null, "Paciente actualizado");
+            System.out.println(paciente.getIdP());
             limpiar();
             habilitarEstados(true);
+            //A lo mejor conviene regresar a la ventana anterior aquí
+            abrirAgenda();
         }
     }
 
+    //Este método dice crear pero en realidad asigna los valores modificados al objeto transferido anteriormente
     private void crearPaciente() throws Exception {
-        paciente = new Pacientes();
+
         String curp = vista.txtCurp.getText();
         //Estos sí importan o hay que ponerlos por defecto
         paciente.setAmaternoP(vista.txtApellidoMaterno.getText());
@@ -183,7 +194,6 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
 
         paciente.setFNacp(aXmlDate(vista.dateFechaNacimiento.getDate()));
 
-        paciente.setIdP(0l);
         paciente.setNombreCompletoP(vista.txtNombre.getText() + " " + vista.txtApellidoPaterno.getText() + " " + vista.txtApellidoMaterno.getText());
         paciente.setNombreP(vista.txtNombre.getText());
 
@@ -194,10 +204,21 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
         paciente.setIdSucursalp(Short.parseShort("1")); //Todos están así
         paciente.setIdUsuarioRp(3);
         paciente.setFechaRp(fechaActualXml);
-        paciente.setNacionalidadP(Short.parseShort("146"));
+
+        if (vista.comboPais.getSelectedIndex() == 1) {//Si es mexicano se le asigna el id del país México
+            paciente.setNacionalidadP(Short.parseShort("146"));
+        } else {//Si no, cualquier otro
+            paciente.setNacionalidadP(Short.parseShort("100"));
+        }
+
         paciente.setActivoP(Short.parseShort("1"));
 
-        paciente.setEntidadNacimientoP(0);
+        if (vista.comboEntidad.getSelectedIndex() != 0) {//Si se seleccionó una entidad
+            paciente.setEntidadNacimientoP(entidadSeleccionada.getIdMx());
+        } else {//No se seleccionó entidad, a lo mejor no es mexicano
+            paciente.setEntidadNacimientoP(0);
+        }
+
         paciente.setEntidadFederativap(0);
         paciente.setEntidadFederativapf(0);
         paciente.setEmailPf("");
@@ -426,7 +447,7 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
 
     private int deseaRegistrar() {
         int dialog = JOptionPane.YES_NO_OPTION;
-        return (JOptionPane.showConfirmDialog(null, "¿Seguro que desea registrar el paciente? ", "Registrar", dialog));
+        return (JOptionPane.showConfirmDialog(null, "¿Seguro que desea actualizar el paciente? ", "Actualizar", dialog));
     }
 
     private void limpiar() {
@@ -460,6 +481,56 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
         vista.dispose();
         AgendarCitaController controladorCitas = new AgendarCitaController(new AgendarCita());
         controladorCitas.iniciar();
+    }
+
+    public Pacientes getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Pacientes paciente) {
+        this.paciente = paciente;
+    }
+
+    private void cargarVentanaRespectoAlPaciente() {
+        try {
+            vista.txtNombre.setText(paciente.getNombreP());
+            vista.txtApellidoMaterno.setText(paciente.getAmaternoP());
+            vista.txtApellidoPaterno.setText(paciente.getApaternoP());
+            //vista.dateFechaNacimiento.setDate(paciente.getFNacp());
+            vista.txtCorreo.setText(paciente.getEmailP());
+            vista.txtCurp.setText(paciente.getCurpP());
+            vista.txtTelefono.setText(paciente.getTCelularp());
+            vista.comboSexo.setSelectedIndex(paciente.getSexoP());
+            if (paciente.getNacionalidadP() == 146) {//Es mexicano
+                vista.comboPais.setSelectedIndex(1); //Se selecciona méxico
+                //Aquí hay que cargar la entidad
+                Mexico entidad = modeloMexico.encontrarEstadoPorId(paciente.getEntidadNacimientoP());
+                System.out.println(entidad.getDEstado());
+                seleccionarEntidad(entidad);
+            } else {
+                vista.comboPais.setSelectedIndex(2); //Se selecciona cualquier otro 
+            }
+
+            vista.dateFechaNacimiento.setDate(new Date(string(paciente.getFNacp().toString())));
+        } catch (Exception e) {
+        }
+    }
+
+    private void seleccionarEntidad(Mexico estado) {
+        vista.comboEntidad.setSelectedItem(estado.getDEstado());
+    }
+
+    private String string(String fecha) {
+        String recortada = "";
+        for (int i = 0; i < 10; i++) {
+            if (fecha.charAt(i) == '-') {
+                recortada += '/';
+            } else {
+                recortada += fecha.charAt(i);
+            }
+        }
+        System.out.println(recortada);
+        return recortada;
     }
 
 }
