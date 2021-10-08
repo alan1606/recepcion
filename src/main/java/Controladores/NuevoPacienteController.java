@@ -11,6 +11,7 @@ import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
 import Vistas.AgendarCita;
 import Vistas.NuevoPaciente;
+import clientews.servicio.Firma;
 import clientews.servicio.Mexico;
 import clientews.servicio.Pacientes;
 import curp.CurpGenerator;
@@ -179,6 +180,8 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
 
     private void crearPaciente() throws Exception {
         paciente = new Pacientes();
+        Firma firma = new Firma();
+        firma.setId(1l); //Este id de firma es el de firma vacía
         String curp = vista.txtCurp.getText();
         //Estos sí importan o hay que ponerlos por defecto
         paciente.setAmaternoP(vista.txtApellidoMaterno.getText());
@@ -250,6 +253,7 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         paciente.setTTrabajop("");
         paciente.setTViviendap(Short.parseShort("0"));
         paciente.setTamizP(Short.parseShort("0"));
+        paciente.setIdFirma(firma);
 
     }
 

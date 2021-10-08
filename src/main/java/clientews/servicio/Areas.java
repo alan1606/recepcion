@@ -22,8 +22,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="departamentoA" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="duracionMinutos" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="fechaA" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *         &lt;element name="horaFin" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="horaInicio" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="horaFin" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="horaInicio" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="idA" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="nombreA" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="usuarioA" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
@@ -54,8 +54,10 @@ public class Areas {
     protected int duracionMinutos;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar fechaA;
-    protected String horaFin;
-    protected String horaInicio;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar horaFin;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar horaInicio;
     protected Integer idA;
     protected String nombreA;
     protected Integer usuarioA;
@@ -145,10 +147,10 @@ public class Areas {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public String getHoraFin() {
+    public XMLGregorianCalendar getHoraFin() {
         return horaFin;
     }
 
@@ -157,10 +159,10 @@ public class Areas {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setHoraFin(String value) {
+    public void setHoraFin(XMLGregorianCalendar value) {
         this.horaFin = value;
     }
 
@@ -169,10 +171,10 @@ public class Areas {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public String getHoraInicio() {
+    public XMLGregorianCalendar getHoraInicio() {
         return horaInicio;
     }
 
@@ -181,10 +183,10 @@ public class Areas {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setHoraInicio(String value) {
+    public void setHoraInicio(XMLGregorianCalendar value) {
         this.horaInicio = value;
     }
 

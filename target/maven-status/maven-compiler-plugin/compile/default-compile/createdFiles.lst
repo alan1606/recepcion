@@ -43,6 +43,7 @@ Vistas\MenuUrgencias$2.class
 clientews\servicio\PagoOrdenVenta.class
 DAO\PacientesDaoImp.class
 DAO\UsuariosDao.class
+clientews\servicio\Firma.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasPacienteResponse.class
 Vistas\DatosFacturacion.class
 Vistas\PagarOrden$2.class
@@ -283,6 +284,7 @@ clientews\servicio\ListarPorIdResponse.class
 clientews\servicio\EncontrarNumeroVentaConceptosPorEquipoFechaHoraResponse.class
 clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFechaResponse.class
 clientews\servicio\EncontrarConceptoPorId.class
+clientews\servicio\Instrucciones.class
 clientews\servicio\EncontrarFormaPagoPorNombreResponse.class
 clientews\servicio\RegistrarConceptosInstitucionResponse.class
 DAO\UsuariosDaoImpl.class
