@@ -62,6 +62,22 @@ public class Menu extends javax.swing.JFrame {
         jLabelCancelar = new javax.swing.JLabel();
         jLabelREAgendar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabelEyS = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        btnsalir = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,49 +88,54 @@ public class Menu extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("HOLA, BIENVENIDO");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 670, 70));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 700, 60));
 
         btnCortes.setBackground(new java.awt.Color(204, 204, 204));
-        btnCortes.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnCortes.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCortes.setForeground(new java.awt.Color(0, 0, 51));
         btnCortes.setText("Cortes");
         btnCortes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(btnCortes, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 120, 40));
+        btnCortes.setContentAreaFilled(false);
+        getContentPane().add(btnCortes, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 120, 30));
 
         btnUrgencias.setBackground(new java.awt.Color(204, 204, 204));
-        btnUrgencias.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnUrgencias.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnUrgencias.setForeground(new java.awt.Color(0, 0, 51));
         btnUrgencias.setText("Urgencias");
         btnUrgencias.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(btnUrgencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 120, 40));
+        btnUrgencias.setContentAreaFilled(false);
+        getContentPane().add(btnUrgencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 120, 30));
 
         btnEntradas.setBackground(new java.awt.Color(204, 204, 204));
-        btnEntradas.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnEntradas.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnEntradas.setForeground(new java.awt.Color(0, 0, 51));
         btnEntradas.setText("Entradas/salidas");
         btnEntradas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEntradas.setContentAreaFilled(false);
         btnEntradas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntradasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 120, 40));
+        getContentPane().add(btnEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 120, 30));
 
         btnPagar.setBackground(new java.awt.Color(204, 204, 204));
-        btnPagar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnPagar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnPagar.setForeground(new java.awt.Color(0, 0, 51));
         btnPagar.setText("Pagar orden");
         btnPagar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 120, 40));
+        btnPagar.setContentAreaFilled(false);
+        getContentPane().add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 120, 30));
 
         btnConfirmar.setBackground(new java.awt.Color(204, 204, 204));
-        btnConfirmar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnConfirmar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnConfirmar.setForeground(new java.awt.Color(0, 0, 51));
         btnConfirmar.setText("Confirmar cita");
         btnConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 120, 40));
+        btnConfirmar.setContentAreaFilled(false);
+        getContentPane().add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 120, 30));
 
         btnAgendar.setBackground(new java.awt.Color(204, 204, 204));
         btnAgendar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -127,45 +148,109 @@ public class Menu extends javax.swing.JFrame {
                 btnAgendarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 110, 30));
+        getContentPane().add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 120, 30));
 
         btnCancelaciones.setBackground(new java.awt.Color(204, 204, 204));
-        btnCancelaciones.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnCancelaciones.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCancelaciones.setForeground(new java.awt.Color(0, 0, 51));
         btnCancelaciones.setText("Cancelaciones");
         btnCancelaciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(btnCancelaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 120, 40));
+        btnCancelaciones.setContentAreaFilled(false);
+        getContentPane().add(btnCancelaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 120, 30));
 
         btnReagendar.setBackground(new java.awt.Color(204, 204, 204));
-        btnReagendar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnReagendar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnReagendar.setForeground(new java.awt.Color(0, 0, 51));
         btnReagendar.setText("Reagendar");
         btnReagendar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(btnReagendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 120, 40));
+        btnReagendar.setContentAreaFilled(false);
+        getContentPane().add(btnReagendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 120, 30));
 
         LabelAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agendarmenu1.png"))); // NOI18N
-        getContentPane().add(LabelAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
+        getContentPane().add(LabelAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
 
-        jLabelConCita.setText("jLabel1");
-        getContentPane().add(jLabelConCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
+        jLabelConCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/confirmar_menu.png"))); // NOI18N
+        getContentPane().add(jLabelConCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
 
-        jLabelPO.setText("jLabel1");
-        getContentPane().add(jLabelPO, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, -1));
+        jLabelPO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pagodenmenu.png"))); // NOI18N
+        getContentPane().add(jLabelPO, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+        getContentPane().add(jLabelEYS, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 204, -1, 10));
 
-        jLabelEYS.setText("jLabel1");
-        getContentPane().add(jLabelEYS, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, -1, -1));
+        jLabelUrge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/urgenciamenu.png"))); // NOI18N
+        getContentPane().add(jLabelUrge, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
-        jLabelUrge.setText("jLabel1");
-        getContentPane().add(jLabelUrge, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
+        jLabelCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar-citamenu.png"))); // NOI18N
+        getContentPane().add(jLabelCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
 
-        jLabelCancelar.setText("jLabel1");
-        getContentPane().add(jLabelCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
+        jLabelREAgendar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regadendar1.png"))); // NOI18N
+        getContentPane().add(jLabelREAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, -1, -1));
 
-        jLabelREAgendar.setText("jLabel1");
-        getContentPane().add(jLabelREAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cortemenu.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, -1, -1));
 
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, -1, -1));
+        jLabelEyS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/EySmenu.png"))); // NOI18N
+        getContentPane().add(jLabelEyS, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 50, 50));
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 140, 110));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 140, 110));
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 140, 110));
+
+        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 140, 110));
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 140, 110));
+
+        jPanel8.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 140, 110));
+
+        jPanel9.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 140, 110));
+
+        jPanel11.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 140, 110));
+
+        btnsalir.setBackground(new java.awt.Color(204, 204, 255));
+        btnsalir.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnsalir.setForeground(new java.awt.Color(0, 0, 51));
+        btnsalir.setText("     Salir");
+        btnsalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnsalir.setContentAreaFilled(false);
+        getContentPane().add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salirmenu.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 40, 40));
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrar1.png"))); // NOI18N
+        jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, -1, 30));
+
+        jButton1.setContentAreaFilled(false);
+        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 0, 40, 30));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minimizar1.png"))); // NOI18N
+        jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, -1, 30));
+
+        jButton2.setContentAreaFilled(false);
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 0, 30, 30));
+
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -217,7 +302,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelAgenda;
-    private javax.swing.JButton btnAgendar;
+    public javax.swing.JButton btnAgendar;
     public javax.swing.JButton btnCancelaciones;
     public javax.swing.JButton btnConfirmar;
     public javax.swing.JButton btnCortes;
@@ -225,14 +310,30 @@ public class Menu extends javax.swing.JFrame {
     public javax.swing.JButton btnPagar;
     public javax.swing.JButton btnReagendar;
     public javax.swing.JButton btnUrgencias;
+    private javax.swing.JButton btnsalir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelCancelar;
     private javax.swing.JLabel jLabelConCita;
     private javax.swing.JLabel jLabelEYS;
+    private javax.swing.JLabel jLabelEyS;
     private javax.swing.JLabel jLabelPO;
     private javax.swing.JLabel jLabelREAgendar;
     private javax.swing.JLabel jLabelUrge;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
 }
