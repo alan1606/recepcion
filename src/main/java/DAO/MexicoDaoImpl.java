@@ -32,4 +32,14 @@ public class MexicoDaoImpl implements MexicoDao {
         return servicio.encontrarEstadosDeMexico();
     }
 
+    @Override
+    public Mexico encontrarEstadoPorId(Integer id) {
+        return servicio.encontrarEstadoPorId(id);
+    }
+
+    @Override
+    public Mexico encontrarEstadoPorNombre(String nombre) {
+        return servicio.encontrarEstadoPorNombre(nombre);
+    }
+
 }

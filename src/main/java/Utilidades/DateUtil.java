@@ -6,25 +6,30 @@
 package Utilidades;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author alanm
  */
 public class DateUtil {
+
     public static String dateToString(Long date) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String strDate = dateFormat.format(date);
         return strDate;
     }
-    
+
     public static String dateTimeToString(long date) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String strDate = dateFormat.format(date);
         return strDate;
     }
-    
+
     public static String dateToNaturalDate(Long date) {
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String strDate = dateFormat.format(date);
@@ -35,15 +40,24 @@ public class DateUtil {
         String anio = "";
         String mes = "";
         String dia = "";
-        for(int i=0; i<4; i++){
+        for (int i = 0; i < 4; i++) {
             anio += fecha.charAt(i);
         }
-        for(int i=5; i<7; i++){
+        for (int i = 5; i < 7; i++) {
             mes += fecha.charAt(i);
         }
-        for(int i=8; i<10; i++){
+        for (int i = 8; i < 10; i++) {
             dia += fecha.charAt(i);
         }
         return dia + "/" + mes + "/" + anio;
+    }
+
+    public static Date stringToDate(String fecha) {
+        try {
+            return new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(DateUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

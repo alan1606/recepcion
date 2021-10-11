@@ -11,6 +11,7 @@ import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
 import Vistas.AgendarCita;
 import Vistas.NuevoPaciente;
+import clientews.servicio.Firma;
 import clientews.servicio.Mexico;
 import clientews.servicio.Pacientes;
 import curp.CurpGenerator;
@@ -42,6 +43,7 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
     private XMLGregorianCalendar fechaActualXml;
     private MexicoDao modeloMexico;
     private PacientesDao modeloPacientes;
+    private Mexico entidadSeleccionada;
 
     public NuevoPacienteController(NuevoPaciente vista) {
         this.vista = vista;
@@ -60,7 +62,8 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         this.vista.btnLimpiar.addActionListener(this);
         this.vista.comboSexo.addActionListener(this);
         this.vista.btnRegresar.addActionListener(this);
-        
+        this.vista.comboEntidad.addActionListener(this);
+
         this.vista.txtNombre.addKeyListener(this);
         this.vista.txtApellidoMaterno.addKeyListener(this);
         this.vista.txtApellidoPaterno.addKeyListener(this);
@@ -108,6 +111,9 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
             habilitarEstados(true);
         } else if (e.getSource() == vista.btnCancelar || e.getSource() == vista.btnRegresar) {
             abrirAgenda();
+        } else if (e.getSource() == vista.comboEntidad && vista.comboEntidad.getSelectedIndex() != 0) { //Se seleccionó una entidad
+            System.out.println(vista.comboEntidad.getSelectedItem().toString());
+            entidadSeleccionada = modeloMexico.encontrarEstadoPorNombre(vista.comboEntidad.getSelectedItem().toString());
         }
     }
 
@@ -157,7 +163,7 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         }
 
         //Tratar entidades
-        if (vista.comboPais.getSelectedItem().toString() == "MEXICO" && vista.comboEntidad.getSelectedIndex() == 0) {
+        if ("MEXICO".equals(vista.comboPais.getSelectedItem().toString()) && vista.comboEntidad.getSelectedIndex() == 0) {
             return false;
         }
         return true;
@@ -174,6 +180,8 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
 
     private void crearPaciente() throws Exception {
         paciente = new Pacientes();
+        Firma firma = new Firma();
+        firma.setId(1l); //Este id de firma es el de firma vacía
         String curp = vista.txtCurp.getText();
         //Estos sí importan o hay que ponerlos por defecto
         paciente.setAmaternoP(vista.txtApellidoMaterno.getText());
@@ -193,10 +201,20 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         paciente.setIdSucursalp(Short.parseShort("1")); //Todos están así
         paciente.setIdUsuarioRp(3);
         paciente.setFechaRp(fechaActualXml);
-        paciente.setNacionalidadP(Short.parseShort("146"));
-        paciente.setActivoP(Short.parseShort("1"));
 
-        paciente.setEntidadNacimientoP(0);
+        if (vista.comboPais.getSelectedIndex() == 1) {//Si es mexicano se le asigna el id del país México
+            paciente.setNacionalidadP(Short.parseShort("146"));
+        } else {//Si no, cualquier otro
+            paciente.setNacionalidadP(Short.parseShort("100"));
+        }
+
+        if (vista.comboEntidad.getSelectedIndex() != 0) {//Si se seleccionó una entidad
+            paciente.setEntidadNacimientoP(entidadSeleccionada.getIdMx());
+        } else {//No se seleccionó entidad, a lo mejor no es mexicano
+            paciente.setEntidadNacimientoP(0);
+        }
+
+        paciente.setActivoP(Short.parseShort("1"));
         paciente.setEntidadFederativap(0);
         paciente.setEntidadFederativapf(0);
         paciente.setEmailPf("");
@@ -235,6 +253,7 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         paciente.setTTrabajop("");
         paciente.setTViviendap(Short.parseShort("0"));
         paciente.setTamizP(Short.parseShort("0"));
+        paciente.setIdFirma(firma);
 
     }
 
