@@ -53,6 +53,7 @@ public class Reagendar extends javax.swing.JFrame {
         btnCerrar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnMin = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,7 +86,7 @@ public class Reagendar extends javax.swing.JFrame {
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegresar.setContentAreaFilled(false);
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 40, 40));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 40, 40));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Reagendar"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -130,7 +131,7 @@ public class Reagendar extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 40, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 40, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, 30));
@@ -143,6 +144,11 @@ public class Reagendar extends javax.swing.JFrame {
 
         btnMin.setContentAreaFilled(false);
         jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(903, 0, 30, 30));
+
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("LOGO");
+        jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 160, 45));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 650));
 
@@ -252,9 +258,9 @@ public class Reagendar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCerrar;
+    public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnMin;
+    public javax.swing.JButton btnMin;
     public javax.swing.JButton btnRegresar;
     public javax.swing.JComboBox<String> comboHora;
     public javax.swing.JComboBox<String> comboPaciente;
@@ -270,6 +276,7 @@ public class Reagendar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

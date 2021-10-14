@@ -73,9 +73,10 @@ public class AgendarCita extends javax.swing.JFrame {
         jLIconoNew1 = new javax.swing.JLabel();
         btnModificarPaciente = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnMin = new javax.swing.JButton();
+        jLabelLOGO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -260,14 +261,19 @@ public class AgendarCita extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1254, 0, 20, 30));
 
-        jButton1.setContentAreaFilled(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 0, 30, 30));
+        btnSalir.setContentAreaFilled(false);
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 0, 30, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 0, -1, 30));
 
-        jButton2.setContentAreaFilled(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 0, 30, 30));
+        btnMin.setContentAreaFilled(false);
+        jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 0, 30, 30));
+
+        jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelLOGO.setText("logo");
+        jLabelLOGO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabelLOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 160, 45));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 650));
 
@@ -325,18 +331,18 @@ public class AgendarCita extends javax.swing.JFrame {
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnFoto;
     public javax.swing.JButton btnGuardar;
+    public javax.swing.JButton btnMin;
     public javax.swing.JButton btnModificarPaciente;
     public javax.swing.JButton btnNuevoPaciente;
     public javax.swing.JButton btnQuitar;
     public javax.swing.JButton btnRegresar;
+    public javax.swing.JButton btnSalir;
     public javax.swing.JComboBox<String> comboArea;
     public javax.swing.JComboBox<String> comboEstudio;
     public javax.swing.JComboBox<String> comboHora;
     public javax.swing.JComboBox<String> comboInstitucion;
     public javax.swing.JComboBox<String> comboSala;
     public com.toedter.calendar.JDateChooser fecha;
-    public javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLAgregar;
     private javax.swing.JLabel jLCapturar;
     private javax.swing.JLabel jLGuardar;
@@ -354,6 +360,7 @@ public class AgendarCita extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelLOGO;
     private javax.swing.JLabel jLimpiar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

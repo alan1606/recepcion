@@ -69,6 +69,7 @@ public class Urgencias extends javax.swing.JFrame {
         btnCerrar = new javax.swing.JButton();
         jLMin = new javax.swing.JLabel();
         btnMin = new javax.swing.JButton();
+        jLabelLOGO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -242,6 +243,11 @@ public class Urgencias extends javax.swing.JFrame {
         btnMin.setContentAreaFilled(false);
         jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1223, 0, 30, 30));
 
+        jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelLOGO.setText("LOGO");
+        jLabelLOGO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(jLabelLOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 160, 45));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
 
         pack();
@@ -297,10 +303,10 @@ public class Urgencias extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCerrar;
+    public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnFoto;
     public javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnMin;
+    public javax.swing.JButton btnMin;
     public javax.swing.JButton btnNuevoPaciente;
     public javax.swing.JButton btnQuitar;
     public javax.swing.JButton btnRegresar;
@@ -327,6 +333,7 @@ public class Urgencias extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelLOGO;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

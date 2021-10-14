@@ -61,6 +61,7 @@ public class PagarOrden extends javax.swing.JFrame {
         btnCerrar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnMin = new javax.swing.JButton();
+        jLabelLOGO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -190,6 +191,11 @@ public class PagarOrden extends javax.swing.JFrame {
         btnMin.setContentAreaFilled(false);
         jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(923, 0, 30, 30));
 
+        jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelLOGO.setText("logo");
+        jLabelLOGO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(jLabelLOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 160, 45));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 680));
 
         pack();
@@ -259,8 +265,8 @@ public class PagarOrden extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnCerrar;
-    private javax.swing.JButton btnMin;
+    public javax.swing.JButton btnCerrar;
+    public javax.swing.JButton btnMin;
     public javax.swing.JButton btnPagar;
     public javax.swing.JButton btnRegresar;
     public javax.swing.JCheckBox checkFactura;
@@ -278,6 +284,7 @@ public class PagarOrden extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelLOGO;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

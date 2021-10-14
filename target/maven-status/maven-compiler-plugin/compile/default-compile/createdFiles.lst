@@ -1,20 +1,24 @@
+clientews\servicio\RegistrarConcepto.class
 clientews\servicio\RegistrarEnWorklist.class
 clientews\servicio\ConceptosInstitucionServiceImplService.class
 clientews\servicio\PacienteServiceWs.class
 Vistas\ModificarPaciente$1.class
 clientews\servicio\EncontrarEquipoDicomPorIdAreaResponse.class
 clientews\servicio\EliminarOrdenVentaResponse.class
+clientews\servicio\RegistrarInstitucion.class
 clientews\servicio\EncontrarFormaPagoPorId.class
 Vistas\ConfirmarCita$2.class
 Controladores\EmpalmesController.class
 clientews\servicio\ConceptosInstitucion.class
 clientews\servicio\ActualizarTotalOrdenVenta.class
 clientews\servicio\ActualizarConceptosInstitucionResponse.class
+clientews\servicio\EncontrarConceptoLikeNombre.class
 clientews\servicio\WorklistServiceWs.class
 Vistas\QrCode$2.class
 clientews\servicio\FindInstitucionByIdOrdenVentaResponse.class
 clientews\servicio\ListarTodasAreasResponse.class
 DAO\WorklistDao.class
+clientews\servicio\EncontrarTodosConceptosResponse.class
 clientews\servicio\ObtenerTotalDeVenta.class
 Vistas\NuevoPaciente$1.class
 clientews\servicio\EncontrarEquipoDicomPorIdArea.class
@@ -44,6 +48,7 @@ clientews\servicio\PagoOrdenVenta.class
 DAO\PacientesDaoImp.class
 DAO\UsuariosDao.class
 clientews\servicio\Firma.class
+clientews\servicio\ActualizarInstitucionResponse.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasPacienteResponse.class
 Vistas\DatosFacturacion.class
 Vistas\PagarOrden$2.class
@@ -55,6 +60,7 @@ clientews\servicio\ObtenerUltimaOrdenVentaRegistrada.class
 Vistas\Empalmes$2.class
 clientews\servicio\EncontrarConceptosPorIdVentaConceptosResponse.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasFechaPaciente.class
+clientews\servicio\EncontrarConceptosPorAreaYNombreResponse.class
 clientews\servicio\EncontrarPacienteLikeCurpResponse.class
 clientews\servicio\ActualizarIdOrdenVentaResponse.class
 DAO\ConceptosDaoImp.class
@@ -74,6 +80,8 @@ Vistas\ConfirmarCita.class
 clientews\servicio\ActualizarConceptosInstitucion.class
 clientews\servicio\ObtenerTotalDeVentaResponse.class
 Vistas\PagarOrden$1.class
+clientews\servicio\EncontrarConceptoLikeNombreResponse.class
+clientews\servicio\EncontrarInstitucionesLikeNombreResponse.class
 clientews\servicio\ObtenerAreasPorInstitucionResponse.class
 clientews\servicio\CatalogoFormaPago.class
 clientews\servicio\EncontrarVentaConceptoPorOrdenVentaConceptoHoraAsignado.class
@@ -97,6 +105,7 @@ clientews\servicio\EsCorrectoLoginResponse.class
 Vistas\Cortes$1.class
 DAO\MovimientoCorteDaoImpl.class
 DAO\InstitucionDaoImp.class
+clientews\servicio\RegistrarConceptoResponse.class
 clientews\servicio\RegistrarPaciente.class
 clientews\servicio\EncontrarVentaConceptosPorIdResponse.class
 clientews\servicio\UsuariosServiceWs.class
@@ -164,6 +173,7 @@ clientews\servicio\Pacientes.class
 Vistas\Urgencias.class
 Controladores\AgendarCitaController.class
 clientews\servicio\EncontrarPacientePorCurpResponse.class
+clientews\servicio\RegistrarInstitucionResponse.class
 clientews\servicio\ObtenerOrdenVentaNoPagadosFechaPacienteResponse.class
 DAO\PagoOrdenVentaDao.class
 clientews\servicio\ListarTodosPacientesResponse.class
@@ -213,6 +223,7 @@ clientews\servicio\ObtenerAreaPorNombre.class
 clientews\servicio\EliminarPagoOrdenVentaPorIdOrdenVentaResponse.class
 clientews\servicio\ActualizarVentaConceptosResponse.class
 clientews\servicio\EncontrarConceptosPorIdArea.class
+clientews\servicio\EncontrarInstitucionesLikeNombre.class
 Vistas\MenuUrgencias.class
 clientews\servicio\EncontrarNumeroVentaConceptosPorEquipoFechaHora.class
 Controladores\NuevoPacienteController.class
@@ -249,6 +260,7 @@ clientews\servicio\ListarTodasFormasPago.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasPaciente.class
 Controladores\ConfirmarCitaController.class
 Vistas\ConfirmarCita$1.class
+clientews\servicio\EncontrarTodosConceptos.class
 clientews\servicio\EncontrarPacientePorCurp.class
 clientews\servicio\EncontrarEstadoPorId.class
 Vistas\NuevoPaciente.class
@@ -302,6 +314,8 @@ clientews\servicio\EncontrarVentaConceptosPorInstitucionFechas.class
 clientews\servicio\Conceptos.class
 clientews\servicio\AreasServiceImplService.class
 clientews\servicio\EncontrarVentaConceptosPorPacienteFechaEnWorklistResponse.class
+clientews\servicio\ActualizarInstitucion.class
+clientews\servicio\EncontrarConceptosPorAreaYNombre.class
 clientews\servicio\EncontrarEquipoDicomPorNombre.class
 clientews\servicio\EsCandidatoParaEliminarConceptosDeOrdenResponse.class
 DAO\WorklistDaoImp.class

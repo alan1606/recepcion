@@ -38,12 +38,13 @@ public class ConfirmarCita extends javax.swing.JFrame {
         jLConfirmar = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         jLabrirwhapp = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelFecha = new javax.swing.JLabel();
         dateFecha = new com.toedter.calendar.JDateChooser();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jLabelSalir = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
+        jLabelMin = new javax.swing.JLabel();
+        jButtonMinimizar = new javax.swing.JButton();
+        jLabelLOGO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,7 +69,7 @@ public class ConfirmarCita extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(tablePacientes);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 920, 460));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 920, 430));
 
         btnConfirmarManual.setBackground(new java.awt.Color(204, 204, 204));
         btnConfirmarManual.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -81,11 +82,11 @@ public class ConfirmarCita extends javax.swing.JFrame {
                 btnConfirmarManualActionPerformed(evt);
             }
         });
-        jPanel2.add(btnConfirmarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 540, 170, 30));
+        jPanel2.add(btnConfirmarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 530, 170, 30));
 
         jLConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/confirmar2.png"))); // NOI18N
         jLConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jLConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 540, 200, 30));
+        jPanel2.add(jLConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, 200, 30));
 
         btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
         btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -98,30 +99,35 @@ public class ConfirmarCita extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 50, 30));
+        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 530, 50, 30));
 
         jLabrirwhapp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/whatsapp2.png"))); // NOI18N
-        jPanel2.add(jLabrirwhapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 540, 40, -1));
+        jPanel2.add(jLabrirwhapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, 40, -1));
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel5.setText("Fecha");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
-        jPanel2.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 320, -1));
+        jLabelFecha.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelFecha.setText("Fecha");
+        jPanel2.add(jLabelFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+        jPanel2.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 320, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 940, 590));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 940, 580));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 0, 20, 30));
+        jLabelSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
+        jPanel1.add(jLabelSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 0, 20, 30));
 
-        jButton1.setText("jButton1");
-        jButton1.setContentAreaFilled(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 30, 30));
+        btnSalir.setText("jButton1");
+        btnSalir.setContentAreaFilled(false);
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 30, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, 30));
+        jLabelMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
+        jPanel1.add(jLabelMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, 30));
 
-        jButton2.setContentAreaFilled(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, 30, 30));
+        jButtonMinimizar.setContentAreaFilled(false);
+        jPanel1.add(jButtonMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, 30, 30));
+
+        jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelLOGO.setText("LOGO");
+        jLabelLOGO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(jLabelLOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 160, 45));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 680));
 
@@ -179,14 +185,15 @@ public class ConfirmarCita extends javax.swing.JFrame {
     public javax.swing.JButton btnConfirmarManual;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnRegresar;
+    public javax.swing.JButton btnSalir;
     public com.toedter.calendar.JDateChooser dateFecha;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButtonMinimizar;
     private javax.swing.JLabel jLConfirmar;
     private javax.swing.JLabel jLRegresar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelFecha;
+    private javax.swing.JLabel jLabelLOGO;
+    private javax.swing.JLabel jLabelMin;
+    private javax.swing.JLabel jLabelSalir;
     private javax.swing.JLabel jLabrirwhapp;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
