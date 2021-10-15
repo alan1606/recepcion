@@ -20,11 +20,13 @@ clientews\servicio\ListarTodasAreasResponse.class
 DAO\WorklistDao.class
 clientews\servicio\EncontrarTodosConceptosResponse.class
 clientews\servicio\ObtenerTotalDeVenta.class
+clientews\servicio\EncontrarConceptosPorIdInstitucionResponse.class
 Vistas\NuevoPaciente$1.class
 clientews\servicio\EncontrarEquipoDicomPorIdArea.class
 clientews\servicio\ConceptosInstitucionServiceWs.class
 clientews\servicio\RegistrarArea.class
 clientews\servicio\ObtenerMovimientosDeCorteMatutinoResponse.class
+Vistas\Empalmes$3.class
 clientews\servicio\EncontrarConceptosPorInstitucionAreaResponse.class
 Vistas\AgendarCita$3.class
 clientews\servicio\ObtenerLimiteInstitucionResponse.class
@@ -52,6 +54,7 @@ clientews\servicio\ActualizarInstitucionResponse.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasPacienteResponse.class
 Vistas\DatosFacturacion.class
 Vistas\PagarOrden$2.class
+clientews\servicio\EncontrarConceptosPorIdInstitucion.class
 clientews\servicio\PagoOrdenVentaServiceImplService.class
 clientews\servicio\EncontrarEquipoDicomPorArea.class
 clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasEnFechaResponse.class
@@ -148,6 +151,7 @@ clientews\servicio\EncontrarEquipoDicomPorAreaResponse.class
 clientews\servicio\CatalogoFormaPagoServiceImplService.class
 clientews\servicio\EliminarPagoOrdenVentaPorIdOrdenVenta.class
 Vistas\ModificarPaciente$2.class
+Vistas\Reagendar$3.class
 clientews\servicio\RegistrarVentaConceptosResponse.class
 clientews\servicio\EncontrarConceptosPorIdVentaConceptos.class
 Vistas\NuevoPaciente$3.class
@@ -181,9 +185,11 @@ DAO\EquipoDicomDaoImp.class
 clientews\servicio\ObtenerMovimientosDeCorteVespertinoResponse.class
 clientews\servicio\EncontrarEquipoDicomPorNombreResponse.class
 clientews\servicio\RegistrarMovimientoCorteResponse.class
+Vistas\ModificarPaciente$4.class
 clientews\servicio\EsCandidatoParaEliminarConceptosDeOrden.class
 clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFechaInstitucion.class
 clientews\servicio\EncontrarInstitucionPorId.class
+Vistas\Urgencias$3.class
 clientews\servicio\EncontrarConceptosPorIdAreaResponse.class
 DAO\VentaConceptosDaoImp.class
 clientews\servicio\ObtenerLimiteInstitucion.class

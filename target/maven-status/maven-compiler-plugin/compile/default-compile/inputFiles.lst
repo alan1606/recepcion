@@ -184,6 +184,7 @@ C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\Encon
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EliminarVentaConceptosPorIdOrdenVentaResponse.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\Tables\TableConceptos.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\Areas.java
+C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarConceptosPorIdInstitucionResponse.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ActualizarInstitucionResponse.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarNumeroVentaConceptosPorEquipoFechaHora.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarEquipoDicomPorIdResponse.java
@@ -211,6 +212,7 @@ C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\AunEs
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarConceptosPorIdArea.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\DAO\InstitucionDao.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaNoPagadosPaciente.java
+C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarConceptosPorIdInstitucion.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\RegistrarPacienteResponse.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\DAO\ConceptosDaoImp.java
 C:\Users\alond\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EquipoDicomServiceImplService.java

@@ -32,13 +32,9 @@ public class MenuUrgencias extends javax.swing.JFrame {
         btnEmpalme = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         btnUrgencia = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
-        jLCerrar = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JButton();
-        jLMin = new javax.swing.JLabel();
         btnMin = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabelLOGO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,10 +48,11 @@ public class MenuUrgencias extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnEmpalme.setBackground(new java.awt.Color(204, 204, 204));
-        btnEmpalme.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnEmpalme.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnEmpalme.setForeground(new java.awt.Color(0, 0, 51));
         btnEmpalme.setText("Empalmar citas");
         btnEmpalme.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEmpalme.setContentAreaFilled(false);
         jPanel3.add(btnEmpalme, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 157, 35));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 280, 80));
@@ -66,18 +63,18 @@ public class MenuUrgencias extends javax.swing.JFrame {
         btnUrgencia.setBackground(new java.awt.Color(204, 204, 204));
         btnUrgencia.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnUrgencia.setForeground(new java.awt.Color(204, 0, 0));
+        btnUrgencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sirena2.png"))); // NOI18N
         btnUrgencia.setText("Ingresar urgencia");
         btnUrgencia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel4.add(btnUrgencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 155, 32));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sirena2.png"))); // NOI18N
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 39, 59));
+        btnUrgencia.setContentAreaFilled(false);
+        jPanel4.add(btnUrgencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 20, 190, 40));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 280, 80));
 
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegresar.setContentAreaFilled(false);
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,26 +82,17 @@ public class MenuUrgencias extends javax.swing.JFrame {
                 btnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
-        jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
-        jPanel1.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 20, 30));
-
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
         btnCerrar.setContentAreaFilled(false);
         jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 30, 30));
 
-        jLMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
-        jPanel1.add(jLMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, -1, 30));
-
+        btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
         btnMin.setContentAreaFilled(false);
         jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 0, 30, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
-        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
-
         jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLOGO.setText("LOGO");
         jLabelLOGO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jLabelLOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 160, 45));
 
@@ -161,10 +149,6 @@ public class MenuUrgencias extends javax.swing.JFrame {
     public javax.swing.JButton btnMin;
     public javax.swing.JButton btnRegresar;
     public javax.swing.JButton btnUrgencia;
-    private javax.swing.JLabel jLCerrar;
-    private javax.swing.JLabel jLMin;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelLOGO;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
