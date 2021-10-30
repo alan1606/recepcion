@@ -15,12 +15,15 @@ import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
 import DAO.PagoOrdenVentaDao;
 import DAO.PagoOrdenVentaDaoImp;
+import DAO.UsuariosDao;
+import DAO.UsuariosDaoImpl;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import DAO.WorklistDao;
 import DAO.WorklistDaoImp;
 import Tables.TableConceptos;
 import Tables.TableOrdenesVenta;
+import Utilidades.Md5Util;
 import Vistas.DatosFacturacion;
 import Vistas.Menu;
 import Vistas.PagarOrden;
@@ -29,6 +32,7 @@ import clientews.servicio.Institucion;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
 import clientews.servicio.PagoOrdenVenta;
+import clientews.servicio.Usuarios;
 import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,7 +47,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -66,6 +72,8 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
     private PagoOrdenVentaDao modeloPagoOrdenVenta;
     private OrdenVenta ordenSeleccionada;
     private ArrayList<VentaConceptos> estudiosDeOrden;
+    private Usuarios usuario;
+    private UsuariosDao modeloUsuarios;
 
     public PagarOrdenController(PagarOrden vistaPrincipal, DatosFacturacion vistaFacturacion) {
         this.vistaPrincipal = vistaPrincipal;
@@ -79,6 +87,11 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         modeloPagoOrdenVenta = new PagoOrdenVentaDaoImp();
         modeloWorklist = new WorklistDaoImp();
         ordenSeleccionada = new OrdenVenta();
+
+        usuario = new Usuarios();
+        usuario.setUsuarioU("ADMINURGENCIAS");
+
+        modeloUsuarios = new UsuariosDaoImpl();
 
         this.vistaPrincipal.btnAgregar.addActionListener(this);
         this.vistaPrincipal.comboPaciente.addActionListener(this);
@@ -173,9 +186,20 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
 
         } else if (e.getSource() == vistaPrincipal.btnPagar) {
             if (datosValidos() && deseaPagar() == 0) {
-                procesarWorklist();
-                actualizarEstadoDeConceptosAEnWorklist();
-                procesarPago();
+                if (!hayCortesiaAgregada()) {
+                    procesarWorklist();
+                    actualizarEstadoDeConceptosAEnWorklist();
+                    procesarPago();
+                } else if (adminAutorizado()) {
+                    procesarWorklist();
+                    actualizarEstadoDeConceptosAEnWorklist();
+                    procesarPago();
+                } else {
+                    limpiarTablaOrdenes();
+                    limpiarTablaEstudios();
+                    limpiarTablaPagos();
+                    limpiar();
+                }
             }
         } else if (e.getSource() == vistaFacturacion.btnGuardar) {
             if (datosFacturacionValidos()) {
@@ -734,6 +758,28 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             }
         }
         return yaExistia;
+    }
+
+    public boolean adminAutorizado() {
+        JLabel jPassword = new JLabel("Contraseña");
+        JTextField password = new JPasswordField();
+        Object[] ob = {jPassword, password};
+        int result = JOptionPane.showConfirmDialog(null, ob, "Ingrese la contraseña del administrador", JOptionPane.OK_CANCEL_OPTION);
+
+        if (result == JOptionPane.OK_OPTION) {
+            String passwordValue = password.getText();
+            usuario.setContrasenaU(Md5Util.getMD5(passwordValue));
+            System.out.println(usuario.getContrasenaU());
+            boolean loginValido = modeloUsuarios.loginValido(usuario);
+            if (loginValido) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Favor de solicitar autorización");
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
 }
