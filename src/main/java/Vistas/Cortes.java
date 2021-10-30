@@ -35,10 +35,7 @@ public class Cortes extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         btnMin = new javax.swing.JButton();
         jLabelLOGO = new javax.swing.JLabel();
 
@@ -50,6 +47,7 @@ public class Cortes extends javax.swing.JFrame {
 
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegresar.setContentAreaFilled(false);
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -57,13 +55,14 @@ public class Cortes extends javax.swing.JFrame {
                 btnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 40, 40));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
         jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 220, -1));
 
         btnConsultar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnConsultar.setForeground(new java.awt.Color(0, 0, 51));
         btnConsultar.setText("Consultar");
         btnConsultar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnConsultar.setContentAreaFilled(false);
         jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 80, 30));
         jPanel1.add(comboTurnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 220, -1));
 
@@ -99,25 +98,16 @@ public class Cortes extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 310, 190));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
-        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 40, 40));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, -1, 30));
-
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
         btnCerrar.setText("jButton1");
         btnCerrar.setContentAreaFilled(false);
         jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 30, 30));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 20, 30));
-
+        btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
         btnMin.setContentAreaFilled(false);
         jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 30, 30));
 
         jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLOGO.setText("LOGO");
         jLabelLOGO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jLabelLOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 160, 45));
 
@@ -188,9 +178,6 @@ public class Cortes extends javax.swing.JFrame {
     public com.toedter.calendar.JDateChooser dateFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelLOGO;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

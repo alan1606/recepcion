@@ -41,11 +41,7 @@ public class Cancelaciones extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtPaciente = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
-        jLCanOrden = new javax.swing.JLabel();
-        jLabelRegresar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         btnMin = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabelLOGO = new javax.swing.JLabel();
@@ -79,6 +75,7 @@ public class Cancelaciones extends javax.swing.JFrame {
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegresar.setContentAreaFilled(false);
         jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 40, 40));
@@ -91,43 +88,30 @@ public class Cancelaciones extends javax.swing.JFrame {
         btnCancelar.setBackground(new java.awt.Color(204, 204, 204));
         btnCancelar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(0, 0, 51));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar-orden2.png"))); // NOI18N
         btnCancelar.setText("Cancelar órden");
-        btnCancelar.setBorder(null);
+        btnCancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCancelar.setContentAreaFilled(false);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 350, 110, 20));
-
-        jLCanOrden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar-orden2.png"))); // NOI18N
-        jLCanOrden.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLCanOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 340, 140, -1));
-
-        jLabelRegresar.setBackground(new java.awt.Color(204, 204, 204));
-        jLabelRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
-        jLabelRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabelRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 40, 40));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 330, 160, 40));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 1090, 320));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 0, 20, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 0, -1, 30));
-
+        btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
         btnMin.setText("jButton2");
         btnMin.setContentAreaFilled(false);
-        jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1093, 0, 30, 30));
+        jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 20, 30));
 
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
         btnSalir.setContentAreaFilled(false);
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1123, 0, 40, 30));
 
         jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLOGO.setText("LOGO");
         jLabelLOGO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jLabelLOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 160, 45));
 
@@ -246,14 +230,10 @@ public class Cancelaciones extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> comboPaciente;
     public com.toedter.calendar.JDateChooser dateFecha;
     public com.toedter.calendar.JDateChooser fecha;
-    private javax.swing.JLabel jLCanOrden;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelLOGO;
-    private javax.swing.JLabel jLabelRegresar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

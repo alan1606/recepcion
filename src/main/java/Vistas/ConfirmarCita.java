@@ -30,19 +30,14 @@ public class ConfirmarCita extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnRegresar = new javax.swing.JButton();
-        jLRegresar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePacientes = new javax.swing.JTable();
         btnConfirmarManual = new javax.swing.JButton();
-        jLConfirmar = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
-        jLabrirwhapp = new javax.swing.JLabel();
         jLabelFecha = new javax.swing.JLabel();
         dateFecha = new com.toedter.calendar.JDateChooser();
-        jLabelSalir = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
-        jLabelMin = new javax.swing.JLabel();
         jButtonMinimizar = new javax.swing.JButton();
         jLabelLOGO = new javax.swing.JLabel();
 
@@ -56,13 +51,10 @@ public class ConfirmarCita extends javax.swing.JFrame {
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
         btnRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegresar.setContentAreaFilled(false);
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 40, 40));
-
-        jLRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/flecha-regresar.png"))); // NOI18N
-        jLRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 40, 40));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 40, 40));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -74,24 +66,21 @@ public class ConfirmarCita extends javax.swing.JFrame {
         btnConfirmarManual.setBackground(new java.awt.Color(204, 204, 204));
         btnConfirmarManual.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnConfirmarManual.setForeground(new java.awt.Color(0, 0, 51));
+        btnConfirmarManual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/confirmar2.png"))); // NOI18N
         btnConfirmarManual.setText("Confirmar manualmente");
-        btnConfirmarManual.setBorder(null);
+        btnConfirmarManual.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnConfirmarManual.setContentAreaFilled(false);
         btnConfirmarManual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarManualActionPerformed(evt);
             }
         });
-        jPanel2.add(btnConfirmarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 530, 170, 30));
-
-        jLConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/confirmar2.png"))); // NOI18N
-        jLConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jLConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, 200, 30));
+        jPanel2.add(btnConfirmarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, 200, 30));
 
         btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
         btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setText(".");
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/whatsapp2.png"))); // NOI18N
         btnGuardar.setBorder(null);
         btnGuardar.setContentAreaFilled(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,9 +90,6 @@ public class ConfirmarCita extends javax.swing.JFrame {
         });
         jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 530, 50, 30));
 
-        jLabrirwhapp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/whatsapp2.png"))); // NOI18N
-        jPanel2.add(jLabrirwhapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, 40, -1));
-
         jLabelFecha.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabelFecha.setText("Fecha");
         jPanel2.add(jLabelFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
@@ -111,21 +97,16 @@ public class ConfirmarCita extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 940, 580));
 
-        jLabelSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
-        jPanel1.add(jLabelSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 0, 20, 30));
-
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
         btnSalir.setText("jButton1");
         btnSalir.setContentAreaFilled(false);
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 30, 30));
 
-        jLabelMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
-        jPanel1.add(jLabelMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, 30));
-
+        jButtonMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
         jButtonMinimizar.setContentAreaFilled(false);
-        jPanel1.add(jButtonMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, 30, 30));
+        jPanel1.add(jButtonMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 30, 30));
 
         jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLOGO.setText("LOGO");
         jLabelLOGO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jLabelLOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 160, 45));
 
@@ -188,13 +169,8 @@ public class ConfirmarCita extends javax.swing.JFrame {
     public javax.swing.JButton btnSalir;
     public com.toedter.calendar.JDateChooser dateFecha;
     public javax.swing.JButton jButtonMinimizar;
-    private javax.swing.JLabel jLConfirmar;
-    private javax.swing.JLabel jLRegresar;
     private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelLOGO;
-    private javax.swing.JLabel jLabelMin;
-    private javax.swing.JLabel jLabelSalir;
-    private javax.swing.JLabel jLabrirwhapp;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;

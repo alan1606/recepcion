@@ -31,7 +31,6 @@ public class MovimientosCorte extends javax.swing.JFrame {
         btnRegresar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        jLGuardar = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
@@ -41,9 +40,7 @@ public class MovimientosCorte extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableMovimientos = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        jLCerrar = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JButton();
-        jLMin = new javax.swing.JLabel();
         btnMin = new javax.swing.JButton();
         jLabelLOGO = new javax.swing.JLabel();
 
@@ -67,15 +64,11 @@ public class MovimientosCorte extends javax.swing.JFrame {
         btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
         btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(0, 0, 51));
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/guardar2.png"))); // NOI18N
         btnGuardar.setText("Guardar");
-        btnGuardar.setBorder(null);
+        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardar.setContentAreaFilled(false);
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 230, 60, 30));
-
-        jLGuardar.setBackground(new java.awt.Color(204, 204, 204));
-        jLGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/guardar2.png"))); // NOI18N
-        jLGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jLGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 230, 90, 30));
+        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 230, 90, 30));
         jPanel2.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 192, 230, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -111,20 +104,15 @@ public class MovimientosCorte extends javax.swing.JFrame {
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, -1));
 
-        jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
-        jPanel1.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, -1, 30));
-
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
         btnCerrar.setContentAreaFilled(false);
         jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 30, 30));
 
-        jLMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
-        jPanel1.add(jLMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, -1, 30));
-
+        btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
         btnMin.setContentAreaFilled(false);
         jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 30, 30));
 
         jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLOGO.setText("LOGO");
         jLabelLOGO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(jLabelLOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 160, 45));
 
@@ -181,9 +169,6 @@ public class MovimientosCorte extends javax.swing.JFrame {
     public javax.swing.JButton btnMin;
     public javax.swing.JButton btnRegresar;
     public javax.swing.JComboBox<String> comboTipo;
-    private javax.swing.JLabel jLCerrar;
-    private javax.swing.JLabel jLGuardar;
-    private javax.swing.JLabel jLMin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
