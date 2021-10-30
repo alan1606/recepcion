@@ -32,8 +32,10 @@ import clientews.servicio.CatalogoFormaPago;
 import clientews.servicio.Conceptos;
 import clientews.servicio.EquipoDicom;
 import clientews.servicio.Institucion;
+import clientews.servicio.Medico;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
+import clientews.servicio.Tecnico;
 import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -817,6 +819,16 @@ public class UrgenciasController implements KeyListener, MouseListener, ActionLi
         venta.setHoraAsignado(horaSeleccionada);
         venta.setEnWorklist(false);
         venta.setIdEquipoDicom(sala);
+        
+        Medico medicoTemporal = new Medico();
+        Tecnico tecnicoTemporal = new Tecnico();
+        
+        medicoTemporal.setId(1);
+        tecnicoTemporal.setId(1);
+        
+        venta.setIdMedicoRadiologo(medicoTemporal);
+        venta.setIdTecnico(tecnicoTemporal);
+        
         venta.setEstado("AGENDADO");
     }
 

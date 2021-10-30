@@ -2,7 +2,6 @@ package curp;
 
 import org.apache.commons.lang.StringUtils;
 
-import javax.swing.*;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -108,10 +107,10 @@ public class CurpGenerator {
 
         // generar Curp
         StringBuilder curp = new StringBuilder();
-        curp.append(primerApellido.charAt(0));
+        curp.append(primerApellido.charAt(0)); //Puede haber ñ 
         curp.append(primeraVocal(primerApellido.substring(1)));
-        curp.append(segundoApellido.charAt(0));
-        curp.append(nombres.charAt(0));
+        curp.append(segundoApellido.charAt(0)); //Puede haber ñ
+        curp.append(nombres.charAt(0)); //Puede haber ñ
         curp.append(fechaDeNacimiento.substring(2, 4)); //8,10
         curp.append(fechaDeNacimiento.substring(5, 7)); //0,2
         curp.append(fechaDeNacimiento.substring(8, 10));//3,5
@@ -126,7 +125,7 @@ public class CurpGenerator {
             curp.append(0);
         }
         curp.append((int)calculaDigito(curp.toString()) + "");
-        return curp.toString();
+        return sinEnie(curp.toString());
     }
 
     public static String trim(String s) {
@@ -216,5 +215,18 @@ public class CurpGenerator {
         }
 
         return lngDigito;
+    }
+
+    private static String sinEnie(String text) {
+       String cadena = "";
+       for(int i=0; i<text.length(); i++){
+           if(text.charAt(i) == 'Ñ'){
+               cadena += 'X';
+           }
+           else{
+               cadena += text.charAt(i);
+           }
+       }
+       return cadena;
     }
 }

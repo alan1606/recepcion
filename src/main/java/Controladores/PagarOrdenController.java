@@ -103,6 +103,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         cargarPacienteVacio();
         deshabilitar(vistaPrincipal.txtInstitucion);
         deshabilitar(vistaPrincipal.txtTotal);
+        deshabilitar(vistaPrincipal.txtSubtotal);
     }
 
     @Override
@@ -130,29 +131,38 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             menu.iniciar();
         } else if (e.getSource() == vistaPrincipal.btnAgregar) {
             if (vistaPrincipal.comboFormaPago.getSelectedIndex() != 0 && !vistaPrincipal.txtCantidad.getText().equals("")) {
-                if (esNumeroCantidad(vistaPrincipal.txtCantidad.getText())) {
-                    double cantidad = Double.parseDouble(vistaPrincipal.txtCantidad.getText());
-                    double total = Double.parseDouble(vistaPrincipal.txtTotal.getText());
-                    double subtotalAcumuladoEnTabla = sumarSubPagos();
-                    if (cantidad + subtotalAcumuladoEnTabla <= total) {
-                        //Ya se completó la cantidad, exactamente, hay que registrar el pago
-                        // o
-                        //Aún no se completa para pagar, aún asi hay que registrar el pago
+                if (formaPagoSeleccionada.getFormaPagoFp().equals("CORTESIA")) {
+                    if (vistaPrincipal.tablePagos.getRowCount() == 0) {
+                        double cantidad = Double.parseDouble(vistaPrincipal.txtCantidad.getText());
                         agregarATablaPagos(formaPagoSeleccionada.getFormaPagoFp(), cantidad);
-                        vistaPrincipal.txtSubtotal.setText((cantidad + subtotalAcumuladoEnTabla) + "");
-                    } else {
-                        /*
+                        vistaPrincipal.txtSubtotal.setText(cantidad + "");
+                    }
+                    limpiarPago();
+                } else if (esNumeroCantidad(vistaPrincipal.txtCantidad.getText())) {
+                    if (!hayCortesiaAgregada()) {
+                        double cantidad = Double.parseDouble(vistaPrincipal.txtCantidad.getText());
+                        double total = Double.parseDouble(vistaPrincipal.txtTotal.getText());
+                        double subtotalAcumuladoEnTabla = sumarSubPagos();
+                        if (cantidad + subtotalAcumuladoEnTabla <= total) {
+                            //Ya se completó la cantidad, exactamente, hay que registrar el pago
+                            // o
+                            //Aún no se completa para pagar, aún asi hay que registrar el pago
+                            agregarATablaPagos(formaPagoSeleccionada.getFormaPagoFp(), cantidad);
+                            vistaPrincipal.txtSubtotal.setText((cantidad + subtotalAcumuladoEnTabla) + "");
+                        } else {
+                            /*
                         Ya se pasó, hay que dar cambio, este caso puede suceder solo cuando en las formas de pago se incluye el efectivo, 
                         porque si se va a cobrar con tarjeta lo normal es que se pague exacto, el caso en el que hay que devolver dinero es que el efetivo que se va a pagar
                         es mayor a lo restante, por lo tanto, se le entrega efectivo, sin embargo, en la base de datos no hay que hacer ningún cambio
                         solamente mostrar en el cliente que hay que devolver cambio en efectivo y la cantidad, 
                         En el registro de la base de datos, el dinero ingresado en efectivo es solamnente lo restante, puesto que ya se le hubo entregado su cambio 
-                         */
-                        agregarATablaPagos("EFECTIVO", total - subtotalAcumuladoEnTabla);
-                        vistaPrincipal.txtSubtotal.setText(total + "");
-                        JOptionPane.showMessageDialog(null, "Regresar $" + ((subtotalAcumuladoEnTabla + cantidad) - total) + " de cambio en efectivo");
+                             */
+                            agregarATablaPagos("EFECTIVO", total - subtotalAcumuladoEnTabla);
+                            vistaPrincipal.txtSubtotal.setText(total + "");
+                            JOptionPane.showMessageDialog(null, "Regresar $" + ((subtotalAcumuladoEnTabla + cantidad) - total) + " de cambio en efectivo");
+                        }
+                        limpiarPago();
                     }
-                    limpiarPago();
                 }
             }
         } else if (e.getSource() == vistaPrincipal.comboFormaPago) {
@@ -160,6 +170,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
                 formaPagoSeleccionada = obtenerFormaPagoPorId(obtenerIdFormaPago(vistaPrincipal.comboFormaPago.getSelectedItem().toString()));
                 System.out.println(formaPagoSeleccionada.getIdFp() + " " + formaPagoSeleccionada.getFormaPagoFp());
             }
+
         } else if (e.getSource() == vistaPrincipal.btnPagar) {
             if (datosValidos() && deseaPagar() == 0) {
                 procesarWorklist();
@@ -599,7 +610,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         } catch (Exception e) {
             return false;
         }
-        if (subtotal < total) {
+        if (subtotal < total && !hayCortesiaAgregada()) {
             return false;
         }
         return true;
@@ -707,12 +718,22 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
     }
 
     private void actualizarEstadoDeConceptosAEnWorklist() {
-        for(VentaConceptos venta : estudiosDeOrden){
+        for (VentaConceptos venta : estudiosDeOrden) {
             venta.setEnWorklist(true);
             modeloVentaConceptos.actualizarVentaConceptos(venta);
             System.out.println("Venta " + venta.getIdVc() + " en worklist (booleano)");
         }
     }
-    
-    
+
+    private boolean hayCortesiaAgregada() {
+        boolean yaExistia = false;
+        for (int i = 0; i < vistaPrincipal.tablePagos.getRowCount(); i++) {
+            if (vistaPrincipal.tablePagos.getValueAt(i, 0).toString().equals("CORTESIA")) {
+                yaExistia = true;
+                break;
+            }
+        }
+        return yaExistia;
+    }
+
 }

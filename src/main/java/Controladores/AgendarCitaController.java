@@ -32,8 +32,10 @@ import clientews.servicio.CatalogoFormaPago;
 import clientews.servicio.Conceptos;
 import clientews.servicio.EquipoDicom;
 import clientews.servicio.Institucion;
+import clientews.servicio.Medico;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
+import clientews.servicio.Tecnico;
 import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -48,7 +50,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -815,6 +819,19 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         venta.setIdEquipoDicom(sala);
         venta.setEstado("AGENDADO");
         venta.setIdPacs(generarIdPacs());
+        
+        Medico medicoTemporal = new Medico();
+        Tecnico tecnicoTemporal = new Tecnico();
+        
+                
+        medicoTemporal.setId(1);
+        tecnicoTemporal.setId(1);
+        
+        venta.setIdMedicoRadiologo(medicoTemporal);
+        venta.setIdTecnico(tecnicoTemporal);
+        
+        
+        
         System.out.println(venta.getIdPacs());
     }
 
