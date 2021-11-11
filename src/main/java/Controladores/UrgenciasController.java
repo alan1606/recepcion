@@ -18,14 +18,10 @@ import DAO.OrdenVentaDao;
 import DAO.OrdenVentaDaoImp;
 import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
-import DAO.UsuariosDao;
-import DAO.UsuariosDaoImpl;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TablePacientes;
-import Utilidades.Md5Util;
 import Utilidades.QrUtil;
-import Vistas.Menu;
 import Vistas.MenuUrgencias;
 import Vistas.NuevoPaciente;
 import Vistas.QrCode;
@@ -39,7 +35,6 @@ import clientews.servicio.Medico;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
 import clientews.servicio.Tecnico;
-import clientews.servicio.Usuarios;
 import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -59,10 +54,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -833,8 +825,8 @@ public class UrgenciasController implements KeyListener, MouseListener, ActionLi
         medicoTemporal.setId(1);
         tecnicoTemporal.setId(1);
 
-        venta.setIdMedicoRadiologo(medicoTemporal);
-        venta.setIdTecnico(tecnicoTemporal);
+//        venta.setIdMedicoRadiologo(medicoTemporal);
+        //venta.setIdTecnico(tecnicoTemporal);
 
         venta.setEstado("AGENDADO");
     }

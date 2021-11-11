@@ -743,9 +743,11 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
 
     private void actualizarEstadoDeConceptosAEnWorklist() {
         for (VentaConceptos venta : estudiosDeOrden) {
-            venta.setEnWorklist(true);
-            modeloVentaConceptos.actualizarVentaConceptos(venta);
-            System.out.println("Venta " + venta.getIdVc() + " en worklist (booleano)");
+            if (venta.getIdConceptoEs().getDicom() == Short.parseShort("1")) {
+                venta.setEnWorklist(true);
+                modeloVentaConceptos.actualizarVentaConceptos(venta);
+                System.out.println("Venta " + venta.getIdVc() + " en worklist (booleano)");
+            }
         }
     }
 

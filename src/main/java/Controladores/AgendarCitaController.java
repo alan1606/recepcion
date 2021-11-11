@@ -17,6 +17,8 @@ import DAO.OrdenVentaDao;
 import DAO.OrdenVentaDaoImp;
 import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
+import DAO.PaqueteDao;
+import DAO.PaqueteDaoImpl;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TablePacientes;
@@ -35,6 +37,7 @@ import clientews.servicio.Institucion;
 import clientews.servicio.Medico;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
+import clientews.servicio.Paquete;
 import clientews.servicio.Tecnico;
 import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
@@ -48,13 +51,11 @@ import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -71,6 +72,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
     private AgendarCita vista;
 
+    private Paquete paqueteSeleccionado;
+    private PaqueteDao modeloPaquetes;
     private PacientesDao modeloPacientes;
     private InstitucionDao modeloInstituciones;
     private ConceptosDao modeloConceptos;
@@ -80,6 +83,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private OrdenVentaDao modeloOrdenVenta;
 
     private boolean ordenVentaGenerada = false;
+    private boolean procesarPaquete = false;
     private OrdenVenta orden;
     private Areas area;
     private Institucion institucion;
@@ -88,6 +92,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private Conceptos estudio;
     private VentaConceptos venta;
     private QrCode ventanaQr;
+
+    private int conceptoDePaqueteActual = 0;
+    private List<Conceptos> conceptosDePaquete = Arrays.asList(new Conceptos());
 
     private Date fechaActual;
     private String fechaSeleccionada;
@@ -103,6 +110,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         modeloAreas = new AreasDaoImpl();
         modeloVentaConceptos = new VentaConceptosDaoImp();
         modeloOrdenVenta = new OrdenVentaDaoImp();
+        modeloPaquetes = new PaqueteDaoImpl();
         ventanaQr = new QrCode();
 
         this.vista.radioNombre.addActionListener(this);
@@ -167,8 +175,14 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         } else if (e.getSource() == this.vista.comboArea) {
             if (this.vista.comboArea.getSelectedIndex() != 0) {//Se selecciona una opción que es diferente de "Seleccione una opción"
                 area = modeloAreas.encontrarPorNombre(vista.comboArea.getSelectedItem().toString());
-                cargarEstudiosDeAreaInstitucion();
-                cargarSalasDeArea();
+                if (area.getNombreA().equals("PAQUETES") && !vista.comboInstitucion.getSelectedItem().toString().equals("PARTICULAR")) {
+                    //Se quiere agregar un paquete, pero se seleccionó algo que no es particular
+                    JOptionPane.showMessageDialog(null, "Los paquetes se pueden vender únicamente a particulares");
+                    vista.comboArea.setSelectedIndex(0);
+                } else {
+                    cargarEstudiosDeAreaInstitucion();
+                    cargarSalasDeArea();
+                }
             }
         } else if (e.getSource() == this.vista.comboInstitucion) {
             if (this.vista.comboInstitucion.getSelectedIndex() != 0) //Selección de opción válida
@@ -192,10 +206,47 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         } else if (e.getSource() == vista.comboEstudio) {
             if (vista.comboEstudio.getSelectedIndex() != 0) {
                 obtenerConcepto();
+                if (estudio.getIdAreaTo().getNombreA().equals("PAQUETES")) {
+                    //Si se seleccionó un concepto que pertenece a un paquete
+                    //Se debe generar orden de venta y agregar el paquete a la lista, también, indicar que agende el estudio i(n)
+                    if (deseaVenderPaquete()) {
+                        procesarPaquete = true;
+                        paqueteSeleccionado = modeloPaquetes.obtenerPaquetePorNombre(estudio.getConceptoTo());
+                        conceptosDePaquete = modeloPaquetes.obtenerConceptosDePaquete(paqueteSeleccionado.getId()).stream().map(ci -> ci.getIdConcepto()).collect(Collectors.toList());
+                        conceptoDePaqueteActual = 0;
+                        if (paciente != null) {
+                            agregarPaqueteALista();
+                            bloquearAreaYEstudio(true);
+                            cargarConcepto(conceptoDePaqueteActual);
+                            vista.comboSala.setSelectedIndex(0);
+                            if (vista.comboHora.getItemCount() > 0) {
+                                vista.comboHora.setSelectedIndex(0);
+                            }
+                            JOptionPane.showMessageDialog(null, "Agende el estudio: " + conceptosDePaquete.get(0).getConceptoTo());
+                        }
+                    }
+                }
             }
         } else if (e.getSource() == this.vista.btnAgregar) {
-            if (datosValidos() && vista.comboHora.getSelectedIndex() != 0) {
-                agregarVentaConcepto();
+            if (datosValidosAgregar() && vista.comboHora.getSelectedIndex() != 0) {
+                if (procesarPaquete) {
+                    estudio = conceptosDePaquete.get(conceptoDePaqueteActual);
+                    agregarVentaConcepto();
+                    System.out.println("Concepto " + (conceptoDePaqueteActual + 1) + " Tamaño del paquete = " + conceptosDePaquete.size());
+                    if ((conceptoDePaqueteActual + 1) < conceptosDePaquete.size()) {
+                        ++conceptoDePaqueteActual;
+                        cargarConcepto(conceptoDePaqueteActual);
+                        vista.comboSala.setSelectedIndex(0);
+                        if (vista.comboHora.getItemCount() > 0) {
+                            vista.comboHora.setSelectedIndex(0);
+                        }
+                        JOptionPane.showMessageDialog(null, "Agende el estudio: " + conceptosDePaquete.get(conceptoDePaqueteActual).getConceptoTo());
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Ya se agendaron todos los conceptos del paquete");
+                    }
+                } else {
+                    agregarVentaConcepto();
+                }
             }
         } else if (e.getSource() == vista.btnQuitar) {
             if (vista.tableEstudios.getSelectedRow() != -1) {
@@ -208,11 +259,15 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         } else if (e.getSource() == vista.btnGuardar) {
             if (datosValidos() && vista.tableEstudios.getRowCount() != 0 && deseaRegistrar() == 0) {
                 try {
-                    calcularTotales();
+                    if (!procesarPaquete) {
+                        calcularTotales();
+                    }
                     reiniciarVariables();
                     bloquearDebidoALimiteSuperado(false);
                     limpiarCampos();
+
                 } catch (Exception ex) {
+                    ex.printStackTrace(System.out);
                 }
             }
         } else if (e.getSource() == vista.btnNuevoPaciente) {
@@ -239,7 +294,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                 } catch (Exception exc) {
                 }
             }
-        } else if (e.getSource() == vista.btnModificarPaciente && vista.tablePacientes.getSelectedRow()!=-1) {//Se hizo clic sobre el paciente, ese mismo ya está guardado en 
+        } else if (e.getSource() == vista.btnModificarPaciente && vista.tablePacientes.getSelectedRow() != -1) {//Se hizo clic sobre el paciente, ese mismo ya está guardado en 
             //La variable paciente, por lo tanto, es posible mandarle el paciente de una vez
             abrirModificarPaciente();
         }
@@ -413,6 +468,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
         String fecha = dateToString(vista.fecha.getDate().getTime());
 
+        System.out.println("Buscando agenndados del area " + area.getNombreA());
         List<VentaConceptos> agendados = modeloVentaConceptos.findAgendadosByAreaEquipoDicomFecha(area.getIdA(), sala.getIdEquipo(), fecha);
 
         List<Integer> horasList = new ArrayList<>();
@@ -635,6 +691,13 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         if (vista.fecha.getDate() == null) {
             return false;
         }
+        System.out.println((conceptoDePaqueteActual + 1) + " " + conceptosDePaquete.size());
+        if (procesarPaquete) {
+            if ((conceptoDePaqueteActual + 1) == conceptosDePaquete.size()) {
+                return true;
+            }
+            return false;
+        }
         return true;
     }
 
@@ -799,6 +862,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     }
 
     private void generarVentaConceptos() {
+        System.out.println("Generando venta conceptos de estudio " + estudio.getIdAreaTo().getNombreA() + " " + estudio.getConceptoTo());
+
         venta = new VentaConceptos();
         venta.setIdInstitucion(institucion);
         venta.setIdPacienteVc(paciente);
@@ -819,19 +884,15 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         venta.setIdEquipoDicom(sala);
         venta.setEstado("AGENDADO");
         venta.setIdPacs(generarIdPacs());
-        
+
         Medico medicoTemporal = new Medico();
         Tecnico tecnicoTemporal = new Tecnico();
-        
-                
+
         medicoTemporal.setId(1);
         tecnicoTemporal.setId(1);
-        
-        venta.setIdMedicoRadiologo(medicoTemporal);
-        venta.setIdTecnico(tecnicoTemporal);
-        
-        
-        
+
+        // venta.setIdMedicoRadiologo(medicoTemporal);
+        //venta.setIdTecnico(tecnicoTemporal);
         System.out.println(venta.getIdPacs());
     }
 
@@ -843,7 +904,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         try {
             fechaActualXml = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
         } catch (DatatypeConfigurationException ex) {
-            Logger.getLogger(AgendarCitaController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace(System.out);
         }
     }
 
@@ -887,7 +948,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         paciente = new Pacientes();
         estudio = new Conceptos();
         venta = new VentaConceptos();
-
+        procesarPaquete = false;
+        bloquearAreaYEstudio(false);
     }
 
     private void limpiarCampos() {
@@ -948,6 +1010,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         if (evt.getSource() == vista.fecha) {
             if (vista.fecha.getDate() != null) {
                 fechaSeleccionada = dateToString(vista.fecha.getDate().getTime());
+                if (todoListoVerificarAgenda()) {
+                    agenda();
+                }
             }
             if (vista.fecha.getDate() != null && vista.comboInstitucion.getSelectedIndex() != 0 && !vista.comboInstitucion.getSelectedItem().toString().equals("PARTICULAR")) {
                 if (!aunEsPosibleAgendarEnInstitucion()) { //Ya no hay
@@ -1010,6 +1075,250 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         ModificarPacienteController controladorModificarPaciente = new ModificarPacienteController(new ModificarPaciente());
         controladorModificarPaciente.setPaciente(paciente);//Se le envía a la clase el paciente que se seleccionó
         controladorModificarPaciente.iniciar();
+    }
+
+    private boolean deseaVenderPaquete() {
+        int dialog = JOptionPane.YES_NO_OPTION;
+        return (JOptionPane.showConfirmDialog(null, "¿Seguro que desea vender el paquete seleccionado? ", "Confirmar", dialog)) == 0;
+    }
+
+    private void bloquearAreaYEstudio(boolean b) {
+        vista.comboArea.setEnabled(!b);
+        vista.comboEstudio.setEnabled(!b);
+    }
+
+    private void cargarConcepto(int indice) {
+        vista.comboArea.setSelectedItem(conceptosDePaquete.get(indice).getIdAreaTo().getNombreA());
+        vista.comboEstudio.setSelectedItem(conceptosDePaquete.get(indice).getConceptoTo());
+    }
+
+    private void agregarPaqueteALista() {
+        try {
+            obtenerFechaActual();
+
+            generarOrdenVentaPaquete(fechaActualXml);
+
+            generarVentaConceptosPaquete();
+
+            registrarVenta();
+
+            obtenerVentaHechaPaquete();
+
+            //Actualizar iuid
+            agregarATabla(venta);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocurrió un error");
+        }
+    }
+
+    private void generarOrdenVentaPaquete(XMLGregorianCalendar fechaActualXml) {
+        CatalogoFormaPago formaPago = new CatalogoFormaPago();
+        formaPago.setIdFp(Short.parseShort("1"));
+
+        orden = new OrdenVenta();
+
+        orden.setAdicionalesCOv(0f);
+
+        orden.setAdicionalesEiOv(0f);
+
+        orden.setAdicionalesElOv(0f);
+
+        orden.setAdicionalesPOv(0f);
+
+        orden.setAdicionalesSOv(0f);
+
+        orden.setContadorOv(0);
+
+        orden.setDescDCta(0);
+
+        orden.setDescDImg(0);
+
+        orden.setDescDLab(0);
+
+        orden.setDescDPro(0);
+
+        orden.setDescDServ(0);
+
+        orden.setEstatusOv(Short.parseShort("0"));
+
+        orden.setFacturadaOv(Short.parseShort("0"));
+
+        orden.setFechaVentaOv(dateToStringOrdenVenta(fechaActual.getTime()));
+
+        orden.setGranTotalOv(0f);
+
+        orden.setIdFormaPago(formaPago);
+
+        orden.setIdOv(0l);
+
+        orden.setIdPacienteOv(paciente);
+
+        orden.setIvaOv(0);
+
+        orden.setMedicoCOv(0);
+
+        orden.setMedicoEiOv(0);
+
+        orden.setMedicoElOv(0);
+
+        orden.setMotivoCOv("");
+
+        orden.setMotivoDescCOv("");
+
+        orden.setMotivoDescFOv("");
+
+        orden.setMotivoDescIOv("");
+
+        orden.setMotivoDescLOv("");
+
+        orden.setMotivoDescSOv("");
+
+        orden.setMuestrasOv("");
+
+        orden.setNoTempOv("");
+
+        orden.setObservacionesIOv("");
+
+        orden.setObservacionesLOv("");
+
+        orden.setObservacionesSOv("");
+
+        orden.setPDescCta(Short.parseShort("0"));
+
+        orden.setPDescImg(Short.parseShort("0"));
+
+        orden.setPDescLab(Short.parseShort("0"));
+
+        orden.setPDescPro(Short.parseShort("0"));
+
+        orden.setPDescServ(Short.parseShort("0"));
+
+        orden.setPagado(false);
+
+        orden.setPersonalSOv(0);
+
+        orden.setProcedenciaOv(Short.parseShort("0"));
+
+        orden.setReferenciaOv("");
+
+        orden.setRequiereFactura(false);
+
+        orden.setSubTotalC(0f);
+
+        orden.setSubTotalI(0f);
+
+        orden.setSubTotalL(0f);
+
+        orden.setSubTotalP(0f);
+
+        orden.setSubTotalS(0f);
+
+        orden.setSubtotalOv(0);
+
+        orden.setSucursalOv(1);
+
+        orden.setTDescCta(0f);
+
+        orden.setTDescCta(0f);
+
+        orden.setTDescImg(0f);
+
+        orden.setTDescLab(0f);
+
+        orden.setTDescPro(0f);
+
+        orden.setTDescServ(0f);
+
+        orden.setTotalC(0f);
+
+        orden.setTotalEi(Float.parseFloat(paqueteSeleccionado.getPrecio() + ""));
+
+        orden.setTotalEl(0f);
+
+        orden.setTotalP(0f);
+
+        orden.setTotalS(0f);
+
+        orden.setUsuarioOv(0);
+
+        orden.setObservacionesIOv("");
+        orden.setEstatusOv(Short.parseShort("1"));
+        orden.setProcedenciaOv(Short.parseShort("1"));
+        orden.setRequiereFactura(false);
+        orden.setIdFormaPago(formaPago);
+        orden.setPagado(false);
+
+        //Indicar que ya se generó
+        ordenVentaGenerada = true;
+
+        registrarOrdenVenta();
+        obtenerUltimaOrdenVenta();
+    }
+
+    private void generarVentaConceptosPaquete() {
+        venta = new VentaConceptos();
+        venta.setIdInstitucion(institucion);
+        venta.setIdPacienteVc(paciente);
+        venta.setFechaVentaVc(dateToStringOrdenVenta(fechaActual.getTime()));
+        venta.setEstatusVc(Short.parseShort("3"));
+        venta.setUrgenteVc(Short.parseShort("0"));
+        venta.setUsuarioEdo1E(426);
+        venta.setFechaEdo1E(fechaActualXml);
+        venta.setIdConceptoEs(estudio);
+
+        venta.setIdOrdenVenta(orden);
+
+        //Aquí
+        String horaSeleccionada = "00:00";
+
+        venta.setFechaAsignado(dateToString(fechaActual.getTime()));
+        venta.setHoraAsignado(horaSeleccionada);
+
+        venta.setEnWorklist(false);
+
+        EquipoDicom nada = new EquipoDicom();
+        nada = modeloEquipoDicom.encontrarEquipoDicomPorNombre("NO ASIGNADO");
+
+        venta.setIdEquipoDicom(nada);
+        venta.setEstado("AGENDADO");
+        venta.setIdPacs("");
+
+        /* Medico medicoTemporal = new Medico();
+        Tecnico tecnicoTemporal = new Tecnico();
+
+        medicoTemporal.setId(1);
+        tecnicoTemporal.setId(1);
+         */
+        // venta.setIdMedicoRadiologo(medicoTemporal);
+        //venta.setIdTecnico(tecnicoTemporal);
+        System.out.println(venta.getIdPacs());
+    }
+
+    private void obtenerVentaHechaPaquete() {
+        venta = modeloVentaConceptos.encontrarVentaConceptoPorOrdenVentaConceptoHoraAsignado(orden, estudio, "00:00");
+    }
+
+    private boolean datosValidosAgregar() {
+        if (vista.txtPaciente.getText().equals("")) {
+            return false;
+        }
+        if (vista.comboInstitucion.getSelectedIndex() == 0) {
+            return false;
+        }
+        if (vista.comboArea.getSelectedIndex() == 0) {
+            return false;
+        }
+        if (vista.comboEstudio.getSelectedIndex() == 0) {
+            return false;
+        }
+        if (vista.comboSala.getSelectedIndex() == 0) {
+            return false;
+        }
+        if (vista.fecha.getDate() == null) {
+            return false;
+        }
+
+        return true;
     }
 
 }
