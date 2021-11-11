@@ -55,11 +55,12 @@ public class PagarOrden extends javax.swing.JFrame {
         txtSubtotal = new javax.swing.JTextField();
         txtPaciente = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        btnCerrar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         btnMin = new javax.swing.JButton();
         jLabelLOGO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
@@ -169,14 +170,19 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 910, 580));
 
-        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
-        btnCerrar.setText("jButton1");
-        btnCerrar.setContentAreaFilled(false);
-        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(953, 0, 40, 30));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
+        btnSalir.setText("jButton1");
+        btnSalir.setContentAreaFilled(false);
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(963, 0, 30, 30));
 
         btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
         btnMin.setContentAreaFilled(false);
-        jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(923, 0, 30, 30));
+        btnMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 30, 30));
 
         jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLOGO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -198,6 +204,10 @@ public class PagarOrden extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,10 +261,10 @@ public class PagarOrden extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregar;
-    public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnMin;
     public javax.swing.JButton btnPagar;
     public javax.swing.JButton btnRegresar;
+    public javax.swing.JButton btnSalir;
     public javax.swing.JCheckBox checkFactura;
     public javax.swing.JComboBox<String> comboFormaPago;
     public javax.swing.JComboBox<String> comboPaciente;

@@ -46,11 +46,12 @@ public class Empalmes extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         dateFecha = new com.toedter.calendar.JDateChooser();
         jLabel12 = new javax.swing.JLabel();
-        btnCerrar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         btnMin = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
@@ -127,9 +128,9 @@ public class Empalmes extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 900, 550));
 
-        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
-        btnCerrar.setContentAreaFilled(false);
-        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 30, 30));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
+        btnSalir.setContentAreaFilled(false);
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 30, 30));
 
         btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
         btnMin.setContentAreaFilled(false);
@@ -219,10 +220,10 @@ public class Empalmes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnMin;
     public javax.swing.JButton btnRegresar;
+    public javax.swing.JButton btnSalir;
     public javax.swing.JComboBox<String> comboHora;
     public javax.swing.JComboBox<String> comboPaciente;
     public com.toedter.calendar.JDateChooser dateFecha;

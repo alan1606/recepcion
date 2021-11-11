@@ -47,6 +47,7 @@ public class Cancelaciones extends javax.swing.JFrame {
         jLabelLOGO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
@@ -109,7 +110,7 @@ public class Cancelaciones extends javax.swing.JFrame {
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
         btnSalir.setContentAreaFilled(false);
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1123, 0, 40, 30));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 0, 20, 30));
 
         jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLOGO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

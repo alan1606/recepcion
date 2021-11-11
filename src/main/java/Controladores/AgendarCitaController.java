@@ -22,6 +22,7 @@ import DAO.PaqueteDaoImpl;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TablePacientes;
+import Utilidades.BarUtil;
 import Utilidades.GeneradorIdPacs;
 import Utilidades.QrUtil;
 import Vistas.AgendarCita;
@@ -123,6 +124,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         this.vista.btnQuitar.addActionListener(this);
         this.vista.btnFoto.addActionListener(this);
         this.vista.btnModificarPaciente.addActionListener(this);
+        this.vista.btnSalir.addActionListener(this);
+        this.vista.btnMin.addActionListener(this);
 
         this.vista.comboArea.addActionListener(this);
         this.vista.comboEstudio.addActionListener(this);
@@ -297,6 +300,12 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         } else if (e.getSource() == vista.btnModificarPaciente && vista.tablePacientes.getSelectedRow() != -1) {//Se hizo clic sobre el paciente, ese mismo ya está guardado en 
             //La variable paciente, por lo tanto, es posible mandarle el paciente de una vez
             abrirModificarPaciente();
+        }
+        else if(e.getSource() == vista.btnSalir){
+            BarUtil.cerrar(vista);
+        }
+        else if(e.getSource() == vista.btnMin){
+            BarUtil.minimizar(vista);
         }
     }
 

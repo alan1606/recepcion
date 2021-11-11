@@ -23,6 +23,7 @@ import DAO.WorklistDao;
 import DAO.WorklistDaoImp;
 import Tables.TableConceptos;
 import Tables.TableOrdenesVenta;
+import Utilidades.BarUtil;
 import Utilidades.Md5Util;
 import Vistas.DatosFacturacion;
 import Vistas.Menu;
@@ -105,6 +106,11 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         this.vistaPrincipal.txtPaciente.addKeyListener(this);
 
         this.vistaFacturacion.btnGuardar.addActionListener(this);
+        
+        this.vistaPrincipal.btnSalir.addActionListener(this);
+        this.vistaPrincipal.btnMin.addActionListener(this);
+        this.vistaFacturacion.btnSalir.addActionListener(this);
+        this.vistaFacturacion.btnMin.addActionListener(this);
     }
 
     public void iniciar() {
@@ -214,6 +220,14 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             } else {
                 ordenSeleccionada.setRequiereFactura(false);
             }
+        }
+        else if(e.getSource() == vistaPrincipal.btnSalir || e.getSource() == vistaFacturacion.btnSalir){
+            BarUtil.cerrar(vistaPrincipal);
+            BarUtil.minimizar(vistaFacturacion);
+        }
+        else if(e.getSource() == vistaPrincipal.btnMin || e.getSource() == vistaFacturacion.btnMin){
+            BarUtil.minimizar(vistaPrincipal);
+            BarUtil.minimizar(vistaFacturacion);
         }
     }
 

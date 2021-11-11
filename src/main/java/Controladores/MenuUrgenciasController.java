@@ -7,6 +7,7 @@ package Controladores;
 
 import DAO.UsuariosDao;
 import DAO.UsuariosDaoImpl;
+import Utilidades.BarUtil;
 import Utilidades.Md5Util;
 import Vistas.Empalmes;
 import Vistas.Menu;
@@ -41,6 +42,8 @@ public class MenuUrgenciasController implements ActionListener {
         this.vista.btnEmpalme.addActionListener(this);
         this.vista.btnRegresar.addActionListener(this);
         this.vista.btnUrgencia.addActionListener(this);
+        this.vista.btnSalir.addActionListener(this);
+        this.vista.btnMin.addActionListener(this);
     }
 
     public void iniciar() {
@@ -77,6 +80,12 @@ public class MenuUrgenciasController implements ActionListener {
         }
         else if(e.getSource() == vista.btnEmpalme){
             abrirEmpalmes();
+        }
+        else if(e.getSource() == vista.btnSalir){
+            BarUtil.cerrar(vista);
+        }
+        else if (e.getSource() == vista.btnMin){
+            BarUtil.minimizar(vista);
         }
     }
 

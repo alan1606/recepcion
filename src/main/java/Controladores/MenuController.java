@@ -5,6 +5,7 @@
  */
 package Controladores;
 
+import Utilidades.BarUtil;
 import Vistas.AgendarCita;
 import Vistas.Cancelaciones;
 import Vistas.ConfirmarCita;
@@ -48,6 +49,10 @@ public class MenuController implements ActionListener {
         this.vista.btnUrgencias.addActionListener(this);
         this.vista.btnReagendar.addActionListener(this);
         this.vista.btnCancelaciones.addActionListener(this);
+        
+        this.vista.btnSalir.addActionListener(this);
+        this.vista.btnMin.addActionListener(this);
+        this.vista.btnSalirGrande.addActionListener(this);
     }
 
     @Override
@@ -69,6 +74,12 @@ public class MenuController implements ActionListener {
         }
         else if(e.getSource() == this.vista.btnCancelaciones){
             abrirCancelaciones();
+        }
+        else if(e.getSource() == vista.btnSalir || e.getSource() == vista.btnSalirGrande){
+            BarUtil.cerrar(vista);
+        }
+        else if(e.getSource() == vista.btnMin){
+            BarUtil.minimizar(vista);
         }
     }
 

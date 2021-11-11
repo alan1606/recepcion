@@ -21,6 +21,7 @@ import DAO.PacientesDaoImp;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TablePacientes;
+import Utilidades.BarUtil;
 import Utilidades.QrUtil;
 import Vistas.MenuUrgencias;
 import Vistas.NuevoPaciente;
@@ -127,6 +128,9 @@ public class UrgenciasController implements KeyListener, MouseListener, ActionLi
         this.vista.fecha.addPropertyChangeListener(this);
 
         this.ventanaQr.lblCerrar.addMouseListener(this);
+        
+        this.vista.btnSalir.addActionListener(this);
+        this.vista.btnMin.addActionListener(this);
     }
 
     public void iniciar() {
@@ -230,6 +234,12 @@ public class UrgenciasController implements KeyListener, MouseListener, ActionLi
                 } catch (Exception exc) {
                 }
             }
+        }
+        else if(e.getSource() == vista.btnSalir){
+            BarUtil.cerrar(vista);
+        }
+        else if(e.getSource() == vista.btnMin){
+            BarUtil.minimizar(vista);
         }
     }
 

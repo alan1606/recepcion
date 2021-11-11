@@ -58,11 +58,12 @@ public class Urgencias extends javax.swing.JFrame {
         btnRegresar = new javax.swing.JButton();
         btnFoto = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        btnCerrar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         btnMin = new javax.swing.JButton();
         jLabelLOGO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
@@ -206,9 +207,9 @@ public class Urgencias extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 1230, 600));
 
-        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
-        btnCerrar.setContentAreaFilled(false);
-        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 0, 30, 30));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
+        btnSalir.setContentAreaFilled(false);
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 0, 30, 30));
 
         btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
         btnMin.setContentAreaFilled(false);
@@ -277,13 +278,13 @@ public class Urgencias extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnCancelar;
-    public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnFoto;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnMin;
     public javax.swing.JButton btnNuevoPaciente;
     public javax.swing.JButton btnQuitar;
     public javax.swing.JButton btnRegresar;
+    public javax.swing.JButton btnSalir;
     public javax.swing.JComboBox<String> comboArea;
     public javax.swing.JComboBox<String> comboEstudio;
     public javax.swing.JComboBox<String> comboHora;

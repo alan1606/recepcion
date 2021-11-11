@@ -38,10 +38,11 @@ public class ConfirmarCita extends javax.swing.JFrame {
         jLabelFecha = new javax.swing.JLabel();
         dateFecha = new com.toedter.calendar.JDateChooser();
         btnSalir = new javax.swing.JButton();
-        jButtonMinimizar = new javax.swing.JButton();
+        btnMin = new javax.swing.JButton();
         jLabelLOGO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
@@ -102,9 +103,9 @@ public class ConfirmarCita extends javax.swing.JFrame {
         btnSalir.setContentAreaFilled(false);
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 30, 30));
 
-        jButtonMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
-        jButtonMinimizar.setContentAreaFilled(false);
-        jPanel1.add(jButtonMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 30, 30));
+        btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minSecundario.png"))); // NOI18N
+        btnMin.setContentAreaFilled(false);
+        jPanel1.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 30, 30));
 
         jLabelLOGO.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLOGO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -165,10 +166,10 @@ public class ConfirmarCita extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnConfirmarManual;
     public javax.swing.JButton btnGuardar;
+    public javax.swing.JButton btnMin;
     public javax.swing.JButton btnRegresar;
     public javax.swing.JButton btnSalir;
     public com.toedter.calendar.JDateChooser dateFecha;
-    public javax.swing.JButton jButtonMinimizar;
     private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelLOGO;
     private javax.swing.JPanel jPanel1;

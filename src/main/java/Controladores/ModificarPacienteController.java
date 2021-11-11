@@ -9,6 +9,7 @@ import DAO.MexicoDao;
 import DAO.MexicoDaoImpl;
 import DAO.PacientesDao;
 import DAO.PacientesDaoImp;
+import Utilidades.BarUtil;
 import Utilidades.DateUtil;
 import Vistas.AgendarCita;
 import Vistas.ModificarPaciente;
@@ -68,6 +69,9 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
         this.vista.txtApellidoMaterno.addKeyListener(this);
         this.vista.txtApellidoPaterno.addKeyListener(this);
 
+        this.vista.btnSalir.addActionListener(this);
+        this.vista.btnMin.addActionListener(this);
+        
     }
 
     public void iniciar() {
@@ -116,6 +120,12 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
         } else if (e.getSource() == vista.comboEntidad && vista.comboEntidad.getSelectedIndex() != 0) { //Se seleccionó una entidad
             System.out.println(vista.comboEntidad.getSelectedItem().toString());
             entidadSeleccionada = modeloMexico.encontrarEstadoPorNombre(vista.comboEntidad.getSelectedItem().toString());
+        }
+        else if (e.getSource() == vista.btnSalir){
+            BarUtil.cerrar(vista);
+        }
+        else if (e.getSource() == vista.btnMin){
+            BarUtil.minimizar(vista);
         }
     }
 

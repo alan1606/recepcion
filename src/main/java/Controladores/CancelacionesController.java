@@ -5,12 +5,7 @@
  */
 package Controladores;
 
-import DAO.AreasDao;
-import DAO.AreasDaoImpl;
-import DAO.EquipoDicomDao;
-import DAO.EquipoDicomDaoImp;
-import DAO.InstitucionDao;
-import DAO.InstitucionDaoImp;
+
 import DAO.OrdenVentaDao;
 import DAO.OrdenVentaDaoImp;
 import DAO.PacientesDao;
@@ -21,6 +16,7 @@ import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TableConceptos;
 import Tables.TableOrdenesVenta;
+import Utilidades.BarUtil;
 import Vistas.Cancelaciones;
 import Vistas.Menu;
 import clientews.servicio.Areas;
@@ -28,7 +24,6 @@ import clientews.servicio.EquipoDicom;
 import clientews.servicio.Institucion;
 import clientews.servicio.OrdenVenta;
 import clientews.servicio.Pacientes;
-import clientews.servicio.PagoOrdenVenta;
 import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -82,6 +77,9 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
         this.vistaPrincipal.tableOrdenes.addMouseListener(this);
         this.vistaPrincipal.btnRegresar.addActionListener(this);
         this.vistaPrincipal.txtPaciente.addKeyListener(this);
+        
+        this.vistaPrincipal.btnSalir.addActionListener(this);
+        this.vistaPrincipal.btnMin.addActionListener(this);
     }
 
     public void iniciar() {
@@ -133,6 +131,12 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
                 }
 
             }
+        }
+        else if(e.getSource() == vistaPrincipal.btnSalir){
+            BarUtil.cerrar(vistaPrincipal);
+        }
+        else if(e.getSource() == vistaPrincipal.btnMin){
+            BarUtil.minimizar(vistaPrincipal);
         }
     }
 

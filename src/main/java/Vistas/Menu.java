@@ -75,9 +75,10 @@ public class Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabelLOGO = new javax.swing.JLabel();
-        btnsalir = new javax.swing.JButton();
+        btnSalirGrande = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnCortes.setBackground(new java.awt.Color(204, 204, 204));
@@ -217,11 +218,11 @@ public class Menu extends javax.swing.JFrame {
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrar1.png"))); // NOI18N
         btnSalir.setContentAreaFilled(false);
-        jPanel7.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 0, 40, 30));
+        jPanel7.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 30, 30));
 
         btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/minimizar1.png"))); // NOI18N
         btnMin.setContentAreaFilled(false);
-        jPanel7.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 0, 30, 30));
+        jPanel7.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 30, 30));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -236,14 +237,14 @@ public class Menu extends javax.swing.JFrame {
         jLabelLOGO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel7.add(jLabelLOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 180, 60));
 
-        btnsalir.setBackground(new java.awt.Color(204, 204, 255));
-        btnsalir.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnsalir.setForeground(new java.awt.Color(0, 0, 51));
-        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salirmenu.png"))); // NOI18N
-        btnsalir.setText("Salir");
-        btnsalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnsalir.setContentAreaFilled(false);
-        jPanel7.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 40));
+        btnSalirGrande.setBackground(new java.awt.Color(204, 204, 255));
+        btnSalirGrande.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnSalirGrande.setForeground(new java.awt.Color(0, 0, 51));
+        btnSalirGrande.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salirmenu.png"))); // NOI18N
+        btnSalirGrande.setText("Salir");
+        btnSalirGrande.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSalirGrande.setContentAreaFilled(false);
+        jPanel7.add(btnSalirGrande, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 40));
 
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 450));
 
@@ -306,8 +307,8 @@ public class Menu extends javax.swing.JFrame {
     public javax.swing.JButton btnPagar;
     public javax.swing.JButton btnReagendar;
     public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnSalirGrande;
     public javax.swing.JButton btnUrgencias;
-    public javax.swing.JButton btnsalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCancelar;

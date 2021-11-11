@@ -8,6 +8,7 @@ package Controladores;
 import DAO.MovimientoCorteDao;
 import DAO.MovimientoCorteDaoImpl;
 import Tables.TableMovimientosCortes;
+import Utilidades.BarUtil;
 import Utilidades.DateUtil;
 import Vistas.Menu;
 import Vistas.MovimientosCorte;
@@ -36,6 +37,9 @@ public class MovimientosCorteController implements ActionListener, KeyListener {
         this.vista.btnRegresar.addActionListener(this);
         this.vista.txtDescripcion.addKeyListener(this);
         
+        this.vista.btnSalir.addActionListener(this);
+        this.vista.btnMin.addActionListener(this);
+        
         modeloMovimientoCorte = new MovimientoCorteDaoImpl();
     }
 
@@ -58,6 +62,12 @@ public class MovimientosCorteController implements ActionListener, KeyListener {
             }
         } else if (e.getSource() == vista.btnRegresar) {
             regresar();
+        }
+        else if(e.getSource() == vista.btnSalir){
+            BarUtil.cerrar(vista);
+        }
+        else if(e.getSource() == vista.btnMin){
+            BarUtil.minimizar(vista);
         }
 
     }

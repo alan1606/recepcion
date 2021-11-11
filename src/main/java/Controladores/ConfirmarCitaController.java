@@ -10,10 +10,10 @@ import DAO.PacientesDaoImp;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
 import Tables.TableConceptos;
+import Utilidades.BarUtil;
 import Utilidades.UrlUtil;
 import Vistas.ConfirmarCita;
 import Vistas.Menu;
-import clientews.servicio.OrdenVenta;
 import clientews.servicio.VentaConceptos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -48,6 +48,9 @@ public class ConfirmarCitaController implements ActionListener, KeyListener, Mou
         this.vista.btnRegresar.addActionListener(this);
         this.vista.btnConfirmarManual.addActionListener(this);
 
+        this.vista.btnSalir.addActionListener(this);
+        this.vista.btnMin.addActionListener(this);
+        
         this.vista.dateFecha.addPropertyChangeListener(this);
 
     }
@@ -65,6 +68,12 @@ public class ConfirmarCitaController implements ActionListener, KeyListener, Mou
             if (deseaConfirmar() == 0) {
                 confirmacionManual();
             }
+        }
+        else if(e.getSource() == vista.btnSalir){
+            BarUtil.cerrar(vista);
+        }
+        else if(e.getSource() == vista.btnMin){
+            BarUtil.minimizar(vista);
         }
     }
 

@@ -21,6 +21,7 @@ import DAO.WorklistDao;
 import DAO.WorklistDaoImp;
 import Tables.TableConceptos;
 import Tables.TableOrdenesVenta;
+import Utilidades.BarUtil;
 import Utilidades.DateUtil;
 import Vistas.Menu;
 import Vistas.Reagendar;
@@ -91,6 +92,9 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
         this.vistaPrincipal.tableEstudios.addMouseListener(this);
         this.vistaPrincipal.btnRegresar.addActionListener(this);
         this.vistaPrincipal.txtPaciente.addKeyListener(this);
+        
+        this.vistaPrincipal.btnSalir.addActionListener(this);
+        this.vistaPrincipal.btnMin.addActionListener(this);
     }
 
     public void iniciar() {
@@ -147,6 +151,12 @@ public class ReagendarController implements ActionListener, PropertyChangeListen
                 cargarHoraVacio();
                 vistaPrincipal.dateNuevaFecha.setDate(null);
             }
+        }
+        else if(e.getSource() == vistaPrincipal.btnSalir){
+            BarUtil.cerrar(vistaPrincipal);
+        }
+        else if(e.getSource() == vistaPrincipal.btnMin){
+            BarUtil.minimizar(vistaPrincipal);
         }
     }
 
