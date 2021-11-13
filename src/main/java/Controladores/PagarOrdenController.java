@@ -27,6 +27,7 @@ import Utilidades.BarUtil;
 import Utilidades.Md5Util;
 import Vistas.DatosFacturacion;
 import Vistas.Menu;
+import Vistas.PagarCortesia;
 import Vistas.PagarOrden;
 import clientews.servicio.CatalogoFormaPago;
 import clientews.servicio.Institucion;
@@ -106,7 +107,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         this.vistaPrincipal.txtPaciente.addKeyListener(this);
 
         this.vistaFacturacion.btnGuardar.addActionListener(this);
-        
+
         this.vistaPrincipal.btnSalir.addActionListener(this);
         this.vistaPrincipal.btnMin.addActionListener(this);
         this.vistaFacturacion.btnSalir.addActionListener(this);
@@ -189,17 +190,30 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
                 formaPagoSeleccionada = obtenerFormaPagoPorId(obtenerIdFormaPago(vistaPrincipal.comboFormaPago.getSelectedItem().toString()));
                 System.out.println(formaPagoSeleccionada.getIdFp() + " " + formaPagoSeleccionada.getFormaPagoFp());
             }
-
         } else if (e.getSource() == vistaPrincipal.btnPagar) {
             if (datosValidos() && deseaPagar() == 0) {
                 if (!hayCortesiaAgregada()) {
                     procesarWorklist();
                     actualizarEstadoDeConceptosAEnWorklist();
                     procesarPago();
+                    limpiarTablaOrdenes();
+                    limpiarTablaEstudios();
+                    limpiarTablaPagos();
+                    limpiar();
                 } else if (adminAutorizado()) {
                     procesarWorklist();
                     actualizarEstadoDeConceptosAEnWorklist();
                     procesarPago();
+                    ordenSeleccionada.setTotalEl(ordenSeleccionada.getTotalEi());
+                    ordenSeleccionada.setTotalEi(Float.parseFloat(vistaPrincipal.txtSubtotal.getText()));
+                    modeloOrdenesVenta.actualizar(ordenSeleccionada);
+                    PagarCortesiaController pagoCortesia = new PagarCortesiaController(new PagarCortesia());
+                    pagoCortesia.setOrdenVenta(ordenSeleccionada);
+                    pagoCortesia.iniciar();
+                    limpiarTablaOrdenes();
+                    limpiarTablaEstudios();
+                    limpiarTablaPagos();
+                    limpiar();
                 } else {
                     limpiarTablaOrdenes();
                     limpiarTablaEstudios();
@@ -220,12 +234,10 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             } else {
                 ordenSeleccionada.setRequiereFactura(false);
             }
-        }
-        else if(e.getSource() == vistaPrincipal.btnSalir || e.getSource() == vistaFacturacion.btnSalir){
+        } else if (e.getSource() == vistaPrincipal.btnSalir || e.getSource() == vistaFacturacion.btnSalir) {
             BarUtil.cerrar(vistaPrincipal);
             BarUtil.minimizar(vistaFacturacion);
-        }
-        else if(e.getSource() == vistaPrincipal.btnMin || e.getSource() == vistaFacturacion.btnMin){
+        } else if (e.getSource() == vistaPrincipal.btnMin || e.getSource() == vistaFacturacion.btnMin) {
             BarUtil.minimizar(vistaPrincipal);
             BarUtil.minimizar(vistaFacturacion);
         }
@@ -487,11 +499,6 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
 
             modeloOrdenesVenta.actualizar(ordenSeleccionada);
 
-            limpiarTablaOrdenes();
-            limpiarTablaEstudios();
-            limpiarTablaPagos();
-            limpiar();
-
         }
     }
 
@@ -530,11 +537,6 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             i++;
             modeloVentaConceptos.actualizarVentaConceptos(venta);
         }
-
-        limpiarTablaOrdenes();
-        limpiarTablaEstudios();
-        limpiarTablaPagos();
-        limpiar();
 
     }
 
