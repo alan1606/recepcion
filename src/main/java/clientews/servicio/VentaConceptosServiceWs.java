@@ -27,6 +27,21 @@ public interface VentaConceptosServiceWs {
 
     /**
      * 
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "actualizarEstadoVentaConceptosPorIdOrdenVenta", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarEstadoVentaConceptosPorIdOrdenVenta")
+    @ResponseWrapper(localName = "actualizarEstadoVentaConceptosPorIdOrdenVentaResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ActualizarEstadoVentaConceptosPorIdOrdenVentaResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/actualizarEstadoVentaConceptosPorIdOrdenVentaRequest", output = "http://servicio.sga.gm.com.mx/VentaConceptosServiceWs/actualizarEstadoVentaConceptosPorIdOrdenVentaResponse")
+    public void actualizarEstadoVentaConceptosPorIdOrdenVenta(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Long arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
+
+    /**
+     * 
      * @param arg2
      * @param arg1
      * @param arg0

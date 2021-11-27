@@ -5,9 +5,11 @@
  */
 package DAO;
 
+import clientews.servicio.OrdenVenta;
 import clientews.servicio.PagoOrdenVenta;
 import clientews.servicio.PagoOrdenVentaServiceImplService;
 import clientews.servicio.PagoOrdenVentaServiceWs;
+import java.util.List;
 import javax.xml.ws.BindingProvider;
 
 /**
@@ -37,5 +39,11 @@ public class PagoOrdenVentaDaoImp implements PagoOrdenVentaDao{
     public void eliminarPagoOrdenVentaPorIdOrdenVenta(Long idOrdenVenta) {
         servicio.eliminarPagoOrdenVentaPorIdOrdenVenta(idOrdenVenta);
     }
-    
+
+    @Override
+    public List<PagoOrdenVenta> obtenerPagosDeOrdenVenta(OrdenVenta ordenVenta) {
+        return servicio.obtenerPagosDeOrdenVenta(ordenVenta);
+    }
+
+
 }

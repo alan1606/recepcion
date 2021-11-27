@@ -25,7 +25,7 @@ import Tables.TableConceptos;
 import Tables.TableOrdenesVenta;
 import Utilidades.BarUtil;
 import Utilidades.Md5Util;
-import Vistas.DatosFacturacion;
+import Vistas.DatosFacturacionVista;
 import Vistas.Menu;
 import Vistas.PagarCortesia;
 import Vistas.PagarOrden;
@@ -62,7 +62,6 @@ import javax.swing.table.DefaultTableModel;
 public class PagarOrdenController implements ActionListener, PropertyChangeListener, MouseListener, KeyListener {
 
     private PagarOrden vistaPrincipal;
-    private DatosFacturacion vistaFacturacion;
     private OrdenVentaDao modeloOrdenesVenta;
     private VentaConceptosDao modeloVentaConceptos;
     private PacientesDao modeloPacientes;
@@ -77,9 +76,8 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
     private Usuarios usuario;
     private UsuariosDao modeloUsuarios;
 
-    public PagarOrdenController(PagarOrden vistaPrincipal, DatosFacturacion vistaFacturacion) {
+    public PagarOrdenController(PagarOrden vistaPrincipal, DatosFacturacionVista vistaFacturacion) {
         this.vistaPrincipal = vistaPrincipal;
-        this.vistaFacturacion = vistaFacturacion;
 
         modeloOrdenesVenta = new OrdenVentaDaoImp();
         modeloVentaConceptos = new VentaConceptosDaoImp();
@@ -106,12 +104,8 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
 
         this.vistaPrincipal.txtPaciente.addKeyListener(this);
 
-        this.vistaFacturacion.btnGuardar.addActionListener(this);
-
         this.vistaPrincipal.btnSalir.addActionListener(this);
         this.vistaPrincipal.btnMin.addActionListener(this);
-        this.vistaFacturacion.btnSalir.addActionListener(this);
-        this.vistaFacturacion.btnMin.addActionListener(this);
     }
 
     public void iniciar() {
@@ -196,6 +190,9 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
                     procesarWorklist();
                     actualizarEstadoDeConceptosAEnWorklist();
                     procesarPago();
+                    if (vistaPrincipal.checkFactura.isSelected() && vistaPrincipal.txtInstitucion.getText().equals("PARTICULAR")) {
+                        abrirDatosFacturacion();
+                    }
                     limpiarTablaOrdenes();
                     limpiarTablaEstudios();
                     limpiarTablaPagos();
@@ -207,9 +204,10 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
                     ordenSeleccionada.setTotalEl(ordenSeleccionada.getTotalEi());
                     ordenSeleccionada.setTotalEi(Float.parseFloat(vistaPrincipal.txtSubtotal.getText()));
                     modeloOrdenesVenta.actualizar(ordenSeleccionada);
-                    PagarCortesiaController pagoCortesia = new PagarCortesiaController(new PagarCortesia());
-                    pagoCortesia.setOrdenVenta(ordenSeleccionada);
+                    PagarCortesiaController pagoCortesia = new PagarCortesiaController(new PagarCortesia(), ordenSeleccionada);
+                    System.out.println("antes de abrir cortesia, requiere factura = " + ordenSeleccionada.isRequiereFactura());
                     pagoCortesia.iniciar();
+               
                     limpiarTablaOrdenes();
                     limpiarTablaEstudios();
                     limpiarTablaPagos();
@@ -221,25 +219,18 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
                     limpiar();
                 }
             }
-        } else if (e.getSource() == vistaFacturacion.btnGuardar) {
-            if (datosFacturacionValidos()) {
-                actualizarDatosFacturacion();
-                limpiarFacturacion();
-                vistaFacturacion.setVisible(false);
-            }
         } else if (e.getSource() == vistaPrincipal.checkFactura) {
             if (vistaPrincipal.checkFactura.isSelected()) {
                 ordenSeleccionada.setRequiereFactura(true);
-                pedirDatosFacturacion();
+                System.out.println("factura");
             } else {
                 ordenSeleccionada.setRequiereFactura(false);
+                System.out.println("ya no factura");
             }
-        } else if (e.getSource() == vistaPrincipal.btnSalir || e.getSource() == vistaFacturacion.btnSalir) {
+        } else if (e.getSource() == vistaPrincipal.btnSalir) {
             BarUtil.cerrar(vistaPrincipal);
-            BarUtil.minimizar(vistaFacturacion);
-        } else if (e.getSource() == vistaPrincipal.btnMin || e.getSource() == vistaFacturacion.btnMin) {
+        } else if (e.getSource() == vistaPrincipal.btnMin) {
             BarUtil.minimizar(vistaPrincipal);
-            BarUtil.minimizar(vistaFacturacion);
         }
     }
 
@@ -468,13 +459,8 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             ordenSeleccionada.setReferenciaOv(formatoADateParaReferencia(fechaActualPreparadaBusqueda) + "-" + contador);
 
             pago.setIdOrdenVenta(ordenSeleccionada);
-
-            if (vistaPrincipal.checkFactura.isSelected()) {
-                ordenSeleccionada.setRequiereFactura(true);
-                while (pacienteSeleccionado.getRazonSocialP().equals("") || pacienteSeleccionado.getRfcP().equals("")) {
-                    pedirDatosFacturacion();
-                }
-            }
+            ordenSeleccionada.setRequiereFactura(vistaPrincipal.checkFactura.isSelected());
+            System.out.println("Requiere factura" + ordenSeleccionada.isRequiereFactura() );
 
             for (int i = 0; i < vistaPrincipal.tablePagos.getRowCount(); i++) {
                 formaPagoTabla = vistaPrincipal.tablePagos.getValueAt(i, 0).toString();
@@ -545,44 +531,6 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             return false;
         }
         return true;
-    }
-
-    private void pedirDatosFacturacion() {
-        vistaFacturacion.setTitle("Registrar datos");
-        vistaFacturacion.setLocationRelativeTo(null);
-        vistaFacturacion.setVisible(true);
-
-        try {
-            if (pacienteSeleccionado.getRazonSocialP() != null) {
-                vistaFacturacion.txtNombre.setText(pacienteSeleccionado.getRazonSocialP());
-            }
-            if (pacienteSeleccionado.getRfcP() != null) {
-                vistaFacturacion.txtRfc.setText(pacienteSeleccionado.getRfcP());
-            }
-        } catch (Exception e) {
-        }
-
-    }
-
-    private boolean datosFacturacionValidos() {
-        if (vistaFacturacion.txtNombre.getText().equals("")) {
-            return false;
-        }
-        if (vistaFacturacion.txtRfc.getText().equals("")) {
-            return false;
-        }
-        return true;
-    }
-
-    private void actualizarDatosFacturacion() {
-        pacienteSeleccionado.setRazonSocialP(vistaFacturacion.txtNombre.getText());
-        pacienteSeleccionado.setRfcP(vistaFacturacion.txtRfc.getText());
-        modeloPacientes.actualizar(pacienteSeleccionado);
-    }
-
-    private void limpiarFacturacion() {
-        vistaFacturacion.txtNombre.setText("");
-        vistaFacturacion.txtRfc.setText("");
     }
 
     private void limpiarTablaOrdenes() {
@@ -798,6 +746,12 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         } else {
             return false;
         }
+    }
+
+    private void abrirDatosFacturacion() {
+        DatosFacturacionController controladorDatosFacturacion = new DatosFacturacionController(new DatosFacturacionVista());
+        controladorDatosFacturacion.setOrdenVenta(ordenSeleccionada);
+        controladorDatosFacturacion.iniciar();
     }
 
 }

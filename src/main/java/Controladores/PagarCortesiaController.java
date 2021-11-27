@@ -7,8 +7,11 @@ package Controladores;
 
 import DAO.CatalogoFormaPagoDao;
 import DAO.CatalogoFormaPagoDaoImp;
+import DAO.OrdenVentaDao;
+import DAO.OrdenVentaDaoImp;
 import DAO.PagoOrdenVentaDao;
 import DAO.PagoOrdenVentaDaoImp;
+import Vistas.DatosFacturacionVista;
 
 import Vistas.PagarCortesia;
 import clientews.servicio.CatalogoFormaPago;
@@ -28,42 +31,46 @@ import javax.swing.JOptionPane;
  * @author alanm
  */
 public class PagarCortesiaController implements ActionListener, MouseListener, KeyListener {
-    
-    private OrdenVenta ordenVenta = null;
+
+    private OrdenVenta ordenVenta;
     private PagoOrdenVentaDao modeloPagoOrdenVenta;
     private CatalogoFormaPagoDao modeloFormasDePago;
     private CatalogoFormaPago formaPagoSeleccionada;
+    private OrdenVentaDao modeloOrdenVenta;
     
     private PagarCortesia vista;
-    
-    public PagarCortesiaController(PagarCortesia vista) {
+
+    public PagarCortesiaController(PagarCortesia vista, OrdenVenta ordenVenta) {
+        this.ordenVenta = ordenVenta;
         this.vista = vista;
         this.vista.btnAgregar.addActionListener(this);;
         this.vista.comboFormaDePago.addActionListener(this);
-        
+
     }
-    
+
     public void iniciar() {
-        
+
         vista.setTitle("Pagar cortesía");
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
-        
+
         vista.txtTotal.setEditable(false);
         vista.txtSubtotal.setEditable(false);
         vista.txtSubtotal.setText("0");
-        
+
         modeloPagoOrdenVenta = new PagoOrdenVentaDaoImp();
         modeloFormasDePago = new CatalogoFormaPagoDaoImp();
+        modeloOrdenVenta = new OrdenVentaDaoImp();
         
         if (ordenVenta != null) {
             //Hay que cargar el total
             vista.txtTotal.setText(ordenVenta.getTotalEi() + "");
+            System.out.println("en funcion iniciar pago cortesia, requiere factura = " + ordenVenta.isRequiereFactura());
         }
-        
+
         cargarFormasDePago();
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.comboFormaDePago) {
@@ -76,6 +83,10 @@ public class PagarCortesiaController implements ActionListener, MouseListener, K
                 if ((Double.parseDouble(vista.txtSubtotal.getText()) + Double.parseDouble(vista.txtCantidad.getText())) <= ordenVenta.getTotalEi()) {
                     procesarPago();
                     if ((Double.parseDouble(vista.txtSubtotal.getText()) + Double.parseDouble(vista.txtCantidad.getText())) == ordenVenta.getTotalEi()) {
+                        ordenVenta = modeloOrdenVenta.obtenerOrdenVentaPorId(ordenVenta.getIdOv());
+                        if (ordenVenta.isRequiereFactura()) {
+                            abrirDatosFacturacion();
+                        }
                         salir();
                     } else {
                         vista.txtSubtotal.setText((Double.parseDouble(vista.txtSubtotal.getText()) + Double.parseDouble(vista.txtCantidad.getText())) + "");
@@ -91,67 +102,67 @@ public class PagarCortesiaController implements ActionListener, MouseListener, K
             }
         }
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
-        
+
     }
-    
+
     @Override
     public void mousePressed(MouseEvent e) {
-        
+
     }
-    
+
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+
     }
-    
+
     @Override
     public void mouseEntered(MouseEvent e) {
-        
+
     }
-    
+
     @Override
     public void mouseExited(MouseEvent e) {
-        
+
     }
-    
+
     @Override
     public void keyTyped(KeyEvent e) {
-        
+
     }
-    
+
     @Override
     public void keyPressed(KeyEvent e) {
-        
+
     }
-    
+
     @Override
     public void keyReleased(KeyEvent e) {
-        
+
     }
-    
+
     public OrdenVenta getOrdenVenta() {
         return ordenVenta;
     }
-    
+
     public void setOrdenVenta(OrdenVenta ordenVenta) {
         this.ordenVenta = ordenVenta;
     }
-    
+
     private void procesarPago() {
-        
+
         PagoOrdenVenta pago = new PagoOrdenVenta();//Se crea el objeto pago que va a vincular la orden de venta con la forma de pago
 
         pago.setIdOrdenVenta(ordenVenta);
-        
+
         pago.setCantidad(Double.parseDouble(vista.txtCantidad.getText()));
         pago.setIdFormaPago(formaPagoSeleccionada);
         modeloPagoOrdenVenta.registrarPagoOrdenVenta(pago);
-        
+
     }
-    
+
     private void cargarFormasDePago() {
         try {
             JComboBox combo = new JComboBox();
@@ -165,11 +176,11 @@ public class PagarCortesiaController implements ActionListener, MouseListener, K
             e.printStackTrace(System.out);
         }
     }
-    
+
     private CatalogoFormaPago obtenerFormaPagoPorId(short idFormaPago) {
         return modeloFormasDePago.encontrarFormaPagoPorId(idFormaPago);
     }
-    
+
     private short obtenerIdFormaPago(String formaPago) {
         String id = "";
         boolean dosPuntosSuperado = false;
@@ -182,7 +193,7 @@ public class PagarCortesiaController implements ActionListener, MouseListener, K
         }
         return Short.parseShort(id);
     }
-    
+
     private boolean datosValidos() {
         if (vista.comboFormaDePago.getSelectedIndex() == 0) {
             System.out.println("forma de pago no seleccionada");
@@ -198,7 +209,7 @@ public class PagarCortesiaController implements ActionListener, MouseListener, K
         }
         return true;
     }
-    
+
     public boolean esDouble(String text) {
         try {
             Double.parseDouble(text);
@@ -208,10 +219,16 @@ public class PagarCortesiaController implements ActionListener, MouseListener, K
             return false;
         }
     }
-    
+
     private void salir() {
         JOptionPane.showMessageDialog(null, "El pago ha sido realizado");
         vista.dispose();
     }
-    
+
+    private void abrirDatosFacturacion() {
+        DatosFacturacionController controladorDatosFacturacion = new DatosFacturacionController(new DatosFacturacionVista());
+        controladorDatosFacturacion.setOrdenVenta(ordenVenta);
+        controladorDatosFacturacion.iniciar();
+    }
+
 }

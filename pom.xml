@@ -96,9 +96,12 @@
                                 <wsdlUrl>http://201.116.155.166:9999/UsuariosServiceImplService/UsuariosServiceImpl?wsdl</wsdlUrl>
                                 <wsdlUrl>http://201.116.155.166:9999/WorklistServiceImplService/WorklistServiceImpl?wsdl</wsdlUrl>
                                 <wsdlUrl>http://201.116.155.166:9999/PaquetesServiceImplService/PaquetesServiceImpl?wsdl</wsdlUrl>
+                                <wsdlUrl>http://201.116.155.166:9999/DevolucionServiceImplService/DevolucionServiceImpl?wsdl</wsdlUrl>
+                                <wsdlUrl>http://201.116.155.166:9999/CfdiServiceImplService/CfdiServiceImpl?wsdl</wsdlUrl>
+                                <wsdlUrl>http://201.116.155.166:9999/DatosFacturacionServiceImplService/DatosFacturacionServiceImpl?wsdl</wsdlUrl>
                             </wsdlUrls>
-                            <packageName>clientews.servicio</packageName>
-                            <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                        <packageName>clientews.servicio</packageName>
+                        <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
                         </configuration>
                     </execution>
                 </executions>

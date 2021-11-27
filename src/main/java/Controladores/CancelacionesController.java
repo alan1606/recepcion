@@ -5,7 +5,6 @@
  */
 package Controladores;
 
-
 import DAO.OrdenVentaDao;
 import DAO.OrdenVentaDaoImp;
 import DAO.PacientesDao;
@@ -70,14 +69,13 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
         modeloPagos = new PagoOrdenVentaDaoImp();
         ordenSeleccionada = new OrdenVenta();
 
-        
         this.vistaPrincipal.btnCancelar.addActionListener(this);
         this.vistaPrincipal.comboPaciente.addActionListener(this);
         this.vistaPrincipal.dateFecha.addPropertyChangeListener(this);
         this.vistaPrincipal.tableOrdenes.addMouseListener(this);
         this.vistaPrincipal.btnRegresar.addActionListener(this);
         this.vistaPrincipal.txtPaciente.addKeyListener(this);
-        
+
         this.vistaPrincipal.btnSalir.addActionListener(this);
         this.vistaPrincipal.btnMin.addActionListener(this);
     }
@@ -115,27 +113,37 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
             menu.iniciar();
         } else if (e.getSource() == vistaPrincipal.btnCancelar) {
             if (datosValidos()) {
-                System.out.println(modeloVentaConceptos.esCandidatoParaEliminarConceptosDeOrden(ordenSeleccionada.getIdOv()));
-                if (modeloVentaConceptos.esCandidatoParaEliminarConceptosDeOrden(ordenSeleccionada.getIdOv()) < 1) {
+                Long cantidadSuperiores = modeloVentaConceptos.esCandidatoParaEliminarConceptosDeOrden(ordenSeleccionada.getIdOv());
+                System.out.println(cantidadSuperiores); //Obtiene los conceptos que están en estado superior a pagado
+                if (cantidadSuperiores < 1) {
                     if (deseaCancelar() == 0) {
-                        eliminarVentaConceptos();
-                        eliminarPagosOrdenVenta();
-                        eliminarOrdenVenta();
-                        limpiar();
-                        limpiarTablaOrdenes();
-                        limpiarTablaEstudios();
-                        JOptionPane.showMessageDialog(null, "Se ha cancelado la órden");
+                        if (!ordenSeleccionada.isPagado()) {
+                            //Si no es pagado pues simplemente eliminamos todo
+                            eliminarVentaConceptos();
+                            eliminarPagosOrdenVenta();
+                            eliminarOrdenVenta();
+                            limpiar();
+                            limpiarTablaOrdenes();
+                            limpiarTablaEstudios();
+                            JOptionPane.showMessageDialog(null, "Se ha cancelado la órden");
+                        }else{
+                            //Si ya fue pagado es necesario hacer una devolución, por lo tanto, se actualiza el estado de sus ventas conceptos en cancelados
+                            actualizarVentaConceptos();
+                            limpiar();
+                            limpiarTablaOrdenes();
+                            limpiarTablaEstudios();
+                            JOptionPane.showMessageDialog(null, "Contablidad realizará una devolución debido a que la órden de venta ya ha sido pagada");
+                            
+                        }
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "No se puede eliminar la órden porque ya ha sido tomado un estudio de esta");
                 }
 
             }
-        }
-        else if(e.getSource() == vistaPrincipal.btnSalir){
+        } else if (e.getSource() == vistaPrincipal.btnSalir) {
             BarUtil.cerrar(vistaPrincipal);
-        }
-        else if(e.getSource() == vistaPrincipal.btnMin){
+        } else if (e.getSource() == vistaPrincipal.btnMin) {
             BarUtil.minimizar(vistaPrincipal);
         }
     }
@@ -347,6 +355,15 @@ public class CancelacionesController implements ActionListener, PropertyChangeLi
 
     private void eliminarPagosOrdenVenta() {
         modeloPagos.eliminarPagoOrdenVentaPorIdOrdenVenta(ordenSeleccionada.getIdOv());
+    }
+
+    private void actualizarVentaConceptos() {
+        try {
+            modeloVentaConceptos.actualizarEstadoVentaConceptosPorIdOrdenVenta(ordenSeleccionada.getIdOv(), "CANCELADO");
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+            JOptionPane.showMessageDialog(null, "No pude actualizar el estado de la órden");
+        }
     }
 
 }

@@ -28,20 +28,17 @@ public class PagarOrden extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableEstudios = new javax.swing.JTable();
-        checkFactura = new javax.swing.JCheckBox();
-        jLabel9 = new javax.swing.JLabel();
-        txtTotal = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        comboPaciente = new javax.swing.JComboBox<>();
+        btnRegresar = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableOrdenes = new javax.swing.JTable();
-        jLabel12 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableEstudios = new javax.swing.JTable();
         dateFecha = new com.toedter.calendar.JDateChooser();
-        btnRegresar = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        txtInstitucion = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtPaciente = new javax.swing.JTextField();
+        comboPaciente = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         comboFormaPago = new javax.swing.JComboBox<>();
@@ -50,11 +47,14 @@ public class PagarOrden extends javax.swing.JFrame {
         txtCantidad = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablePagos = new javax.swing.JTable();
-        btnPagar = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         txtSubtotal = new javax.swing.JTextField();
-        txtPaciente = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        checkFactura = new javax.swing.JCheckBox();
+        btnPagar = new javax.swing.JButton();
+        txtTotal = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtInstitucion = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         btnMin = new javax.swing.JButton();
         jLabelLOGO = new javax.swing.JLabel();
@@ -67,39 +67,6 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane1.setViewportView(tableEstudios);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 520, 200));
-
-        checkFactura.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        checkFactura.setText("Requiere factura");
-        checkFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkFacturaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(checkFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 560, 140, 30));
-
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel9.setText("Total");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, 50, -1));
-        jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 610, 200, 20));
-
-        jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel11.setText("Paciente");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
-
-        jPanel1.add(comboPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 360, -1));
-
-        jScrollPane2.setViewportView(tableOrdenes);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 520, 190));
-
-        jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel12.setText("Fecha");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
-        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 160, -1));
-
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 0, 51));
@@ -108,10 +75,28 @@ public class PagarOrden extends javax.swing.JFrame {
         btnRegresar.setContentAreaFilled(false);
         jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 40, 40));
 
-        jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel14.setText("Institución");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 590, 80, -1));
-        jPanel1.add(txtInstitucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 610, 200, 20));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane2.setViewportView(tableOrdenes);
+
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 520, 190));
+
+        jScrollPane1.setViewportView(tableEstudios);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 520, 200));
+        jPanel4.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 160, -1));
+
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel12.setText("Fecha");
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel11.setText("Paciente");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+        jPanel4.add(txtPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 340, -1));
+
+        jPanel4.add(comboPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 340, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Pago"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -141,12 +126,26 @@ public class PagarOrden extends javax.swing.JFrame {
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
         jPanel2.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 270, 20));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 340, 190));
+        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 340, 190));
         jPanel2.getAccessibleContext().setAccessibleName("PAGO");
 
         jScrollPane3.setViewportView(tablePagos);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 340, 160));
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 340, 170));
+        jPanel4.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, 160, 30));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel10.setText("Subtotal");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 90, 20));
+
+        checkFactura.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        checkFactura.setText("Requiere factura");
+        checkFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkFacturaActionPerformed(evt);
+            }
+        });
+        jPanel4.add(checkFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, 140, 30));
 
         btnPagar.setBackground(new java.awt.Color(204, 204, 204));
         btnPagar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -159,15 +158,18 @@ public class PagarOrden extends javax.swing.JFrame {
                 btnPagarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 610, 80, 30));
+        jPanel4.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 540, 80, 30));
+        jPanel4.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, 200, -1));
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel10.setText("Subtotal");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 540, 90, 20));
-        jPanel1.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 560, 160, 30));
-        jPanel1.add(txtPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 360, -1));
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel9.setText("Total");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, 50, -1));
+        jPanel4.add(txtInstitucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 200, -1));
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel14.setText("Institución");
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 80, -1));
+
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 910, 580));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N

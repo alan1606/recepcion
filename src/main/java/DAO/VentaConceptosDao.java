@@ -56,5 +56,7 @@ public interface VentaConceptosDao {
     
         public Long esCandidatoParaEliminarConceptosDeOrden(Long idOrdenVenta);
 
+            public void actualizarEstadoVentaConceptosPorIdOrdenVenta(Long idOrdenVenta, String estado);
+
 
 }

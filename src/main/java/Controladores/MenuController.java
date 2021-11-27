@@ -10,7 +10,7 @@ import Vistas.AgendarCita;
 import Vistas.Cancelaciones;
 import Vistas.ConfirmarCita;
 import Vistas.Cortes;
-import Vistas.DatosFacturacion;
+import Vistas.DatosFacturacionVista;
 import Vistas.Menu;
 import Vistas.MenuUrgencias;
 import Vistas.MovimientosCorte;
@@ -97,7 +97,7 @@ public class MenuController implements ActionListener {
 
     private void abrirPagarOrden() {
         vista.dispose();
-        PagarOrdenController controladorPagarOrden = new PagarOrdenController(new PagarOrden(), new DatosFacturacion());
+        PagarOrdenController controladorPagarOrden = new PagarOrdenController(new PagarOrden(), new DatosFacturacionVista());
         controladorPagarOrden.iniciar();
     }
 

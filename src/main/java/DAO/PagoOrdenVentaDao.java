@@ -5,7 +5,9 @@
  */
 package DAO;
 
+import clientews.servicio.OrdenVenta;
 import clientews.servicio.PagoOrdenVenta;
+import java.util.List;
 
 /**
  *
@@ -14,5 +16,6 @@ import clientews.servicio.PagoOrdenVenta;
 public interface PagoOrdenVentaDao {
     public void registrarPagoOrdenVenta(PagoOrdenVenta pago);
         public void eliminarPagoOrdenVentaPorIdOrdenVenta(Long idOrdenVenta);
+    public List<PagoOrdenVenta> obtenerPagosDeOrdenVenta(OrdenVenta ordenVenta);
 
 }

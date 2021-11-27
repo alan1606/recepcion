@@ -122,5 +122,10 @@ public class VentaConceptosDaoImp implements VentaConceptosDao{
     public Long esCandidatoParaEliminarConceptosDeOrden(Long idOrdenVenta) {
         return servicio.esCandidatoParaEliminarConceptosDeOrden(idOrdenVenta);
     }
+
+    @Override
+    public void actualizarEstadoVentaConceptosPorIdOrdenVenta(Long idOrdenVenta, String estado) {
+        servicio.actualizarEstadoVentaConceptosPorIdOrdenVenta(idOrdenVenta, estado);
+    }
     
 }
