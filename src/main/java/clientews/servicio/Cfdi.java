@@ -84,4 +84,11 @@ public class Cfdi {
         this.descripcion = value;
     }
 
+    @Override
+    public String toString() {
+        return  descripcion ;
+    }
+
+    
+    
 }

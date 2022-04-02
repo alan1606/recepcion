@@ -5,6 +5,8 @@
  */
 package Controladores;
 
+import DAO.AntecedentesDao;
+import DAO.AntecedentesDaoImpl;
 import DAO.AreasDao;
 import DAO.AreasDaoImpl;
 import DAO.ConceptosDao;
@@ -13,6 +15,8 @@ import DAO.EquipoDicomDao;
 import DAO.EquipoDicomDaoImp;
 import DAO.InstitucionDao;
 import DAO.InstitucionDaoImp;
+import DAO.MedicoDao;
+import DAO.MedicoDaoImpl;
 import DAO.OrdenVentaDao;
 import DAO.OrdenVentaDaoImp;
 import DAO.PacientesDao;
@@ -30,6 +34,8 @@ import Vistas.Menu;
 import Vistas.ModificarPaciente;
 import Vistas.NuevoPaciente;
 import Vistas.QrCode;
+import clientews.servicio.AntecedenteEstudio;
+import clientews.servicio.Antecedentes;
 import clientews.servicio.Areas;
 import clientews.servicio.CatalogoFormaPago;
 import clientews.servicio.Conceptos;
@@ -82,6 +88,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private AreasDao modeloAreas;
     private VentaConceptosDao modeloVentaConceptos;
     private OrdenVentaDao modeloOrdenVenta;
+    private AntecedentesDao modeloAntecedentes;
+    private MedicoDao modeloMedico;
 
     private boolean ordenVentaGenerada = false;
     private boolean procesarPaquete = false;
@@ -112,6 +120,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         modeloVentaConceptos = new VentaConceptosDaoImp();
         modeloOrdenVenta = new OrdenVentaDaoImp();
         modeloPaquetes = new PaqueteDaoImpl();
+        modeloMedico = new MedicoDaoImpl();
+        modeloAntecedentes = new AntecedentesDaoImpl();
+
         ventanaQr = new QrCode();
 
         this.vista.radioNombre.addActionListener(this);
@@ -165,6 +176,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         cargarInstituciones();
         iniciarTablaEstudios();
         obtenerFechaActual();
+
+        cargarMedicosReferentes();
     }
 
     @Override
@@ -265,6 +278,24 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                     if (!procesarPaquete) {
                         calcularTotales();
                     }
+                    if (estudio.isRequiereSaberAntecedentes()) {
+                        //Se me ocurre hacer un for de los antecedentes y que vaya preguntando si el paciente tiene (x), con un sí y no
+                        List<AntecedenteEstudio> antecedentesConLosQueSeCuentan = new ArrayList<>();
+                        for (Antecedentes antecedente : modeloAntecedentes.encontrarAntecedentesPorConcepto(estudio.getIdTo())) {
+                            if (tieneAntecedente(antecedente)) {
+                                AntecedenteEstudio antecedenteSeCuenta = new AntecedenteEstudio();
+                                antecedenteSeCuenta.setIdAntecedente(antecedente);
+                                antecedenteSeCuenta.setIdVentaConcepto(venta);
+                                antecedentesConLosQueSeCuentan.add(antecedenteSeCuenta);
+                            }
+                        }
+                        try {
+                            modeloAntecedentes.registrarAntecedentesEstudio(antecedentesConLosQueSeCuentan);
+                        } catch (Exception ex) {
+                            JOptionPane.showMessageDialog(null, "Error al registrar antecdedentes");
+                        }
+                    }
+                    actualizarMedicoReferenteYMotivo();
                     reiniciarVariables();
                     bloquearDebidoALimiteSuperado(false);
                     limpiarCampos();
@@ -278,10 +309,12 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             NuevoPacienteController controladorNuevoPaciente = new NuevoPacienteController(new NuevoPaciente());
             controladorNuevoPaciente.iniciar();
         } else if (e.getSource() == vista.btnRegresar) {
-            vista.dispose();
-            Menu vista = new Menu();
-            MenuController menu = new MenuController(vista);
-            menu.iniciar();
+            if (vista.tableEstudios.getRowCount() == 0) {
+                abrirMenu();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Termine la agendación o quite los estudios agendados");
+            }
         } else if (e.getSource() == vista.btnCancelar) {
             if (deseaCancelar() == 0) {
                 try {
@@ -300,11 +333,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         } else if (e.getSource() == vista.btnModificarPaciente && vista.tablePacientes.getSelectedRow() != -1) {//Se hizo clic sobre el paciente, ese mismo ya está guardado en 
             //La variable paciente, por lo tanto, es posible mandarle el paciente de una vez
             abrirModificarPaciente();
-        }
-        else if(e.getSource() == vista.btnSalir){
+        } else if (e.getSource() == vista.btnSalir) {
             BarUtil.cerrar(vista);
-        }
-        else if(e.getSource() == vista.btnMin){
+        } else if (e.getSource() == vista.btnMin) {
             BarUtil.minimizar(vista);
         }
     }
@@ -714,6 +745,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         CatalogoFormaPago formaPago = new CatalogoFormaPago();
         formaPago.setIdFp(Short.parseShort("1"));
 
+        Medico ninguno = new Medico();
+        ninguno.setId(2);
+
         orden = new OrdenVenta();
 
         orden.setAdicionalesCOv(0f);
@@ -754,7 +788,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
         orden.setIvaOv(0);
 
-        orden.setMedicoCOv(0);
+        orden.setMedicoCOv(ninguno);
 
         orden.setMedicoEiOv(0);
 
@@ -851,6 +885,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         ordenVentaGenerada = true;
 
         registrarOrdenVenta();
+        System.out.println("orden de venta registrada");
         obtenerUltimaOrdenVenta();
     }
 
@@ -900,8 +935,8 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         medicoTemporal.setId(1);
         tecnicoTemporal.setId(1);
 
-        // venta.setIdMedicoRadiologo(medicoTemporal);
-        //venta.setIdTecnico(tecnicoTemporal);
+        venta.setIdMedicoRadiologo(medicoTemporal);
+        venta.setIdTecnico(tecnicoTemporal);
         System.out.println(venta.getIdPacs());
     }
 
@@ -963,6 +998,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
     private void limpiarCampos() {
         vista.txtBuscar.setText("");
+        vista.txtMotivo.setText("");
         vista.radioNombre.setSelected(true);
         vista.radioCurp.setSelected(false);
         vista.txtPaciente.setText("");
@@ -974,6 +1010,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         vista.comboHora.setSelectedIndex(0);
         vista.comboSala.setSelectedIndex(0);
 
+        vista.comboMedicoReferente.setSelectedIndex(0);
         limpiarTabla();
     }
 
@@ -1124,6 +1161,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         CatalogoFormaPago formaPago = new CatalogoFormaPago();
         formaPago.setIdFp(Short.parseShort("1"));
 
+        Medico ninguno = new Medico();
+        ninguno.setId(2);
+
         orden = new OrdenVenta();
 
         orden.setAdicionalesCOv(0f);
@@ -1164,7 +1204,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
         orden.setIvaOv(0);
 
-        orden.setMedicoCOv(0);
+        orden.setMedicoCOv(ninguno);
 
         orden.setMedicoEiOv(0);
 
@@ -1328,6 +1368,77 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         }
 
         return true;
+    }
+
+    private void actualizarMedicoReferenteYMotivo() {
+        String motivo = vista.txtMotivo.getText();
+        Medico medico = new Medico();
+        orden = modeloOrdenVenta.obtenerOrdenVentaPorId(orden.getIdOv());
+        if (!motivo.equals("")) {
+            orden.setMotivoCOv(motivo);
+        }
+        if (vista.comboMedicoReferente.getSelectedIndex() == 0) {
+            medico.setId(1); //El médico no asignado
+        } else {
+            int idMedico = 1;
+            String id = "";
+            String contenidoCombo = vista.comboMedicoReferente.getSelectedItem().toString();
+            boolean superadoPuntoYComa = false;
+            for (int i = 0; i < contenidoCombo.length(); i++) {
+                if (contenidoCombo.charAt(i) == ';') {
+                    superadoPuntoYComa = true;
+                } else if (superadoPuntoYComa) {
+                    id += contenidoCombo.charAt(i);
+                }
+            }
+            System.out.println("id: " + id);
+            try {
+                idMedico = Integer.parseInt(id);
+            } catch (Exception e) {
+                System.out.println("error al convertir el id a entero");
+            }
+            try {
+                medico = modeloMedico.buscarMedicoPorId(idMedico);
+                orden.setMedicoCOv(medico);
+            } catch (Exception e) {
+                System.out.println("No se pudo asignar el medico referente");
+            }
+        }
+
+        modeloOrdenVenta.actualizar(orden);
+    }
+
+    private boolean tieneAntecedente(Antecedentes antecedente) {
+        int dialog = JOptionPane.YES_NO_OPTION;
+        return (JOptionPane.showConfirmDialog(null, "¿El paciente tiene el antecedente: " + antecedente.getNombre() + " ? ", "Confirmar", dialog)) == 0;
+    }
+
+    private void cargarMedicosReferentes() {
+        JComboBox combo = new JComboBox();
+        combo.removeAllItems();
+        combo.addItem("SELECCIONE UNA OPCIÓN");
+
+        modeloMedico.obtenerMedicosReferentes().forEach(m -> {
+            try {
+                combo.addItem(m.getNombres() + " " + m.getApellidos() + " : " + m.getEspecialidad() + ";" + m.getId());
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
+            }
+        });
+
+        try {
+            vista.comboMedicoReferente.setModel(combo.getModel());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+
+    }
+
+    private void abrirMenu() {
+        vista.dispose();
+        Menu vista = new Menu();
+        MenuController menu = new MenuController(vista);
+        menu.iniciar();
     }
 
 }

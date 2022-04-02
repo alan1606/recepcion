@@ -37,7 +37,7 @@ public class PagarCortesiaController implements ActionListener, MouseListener, K
     private CatalogoFormaPagoDao modeloFormasDePago;
     private CatalogoFormaPago formaPagoSeleccionada;
     private OrdenVentaDao modeloOrdenVenta;
-    
+
     private PagarCortesia vista;
 
     public PagarCortesiaController(PagarCortesia vista, OrdenVenta ordenVenta) {
@@ -61,7 +61,7 @@ public class PagarCortesiaController implements ActionListener, MouseListener, K
         modeloPagoOrdenVenta = new PagoOrdenVentaDaoImp();
         modeloFormasDePago = new CatalogoFormaPagoDaoImp();
         modeloOrdenVenta = new OrdenVentaDaoImp();
-        
+
         if (ordenVenta != null) {
             //Hay que cargar el total
             vista.txtTotal.setText(ordenVenta.getTotalEi() + "");
@@ -169,7 +169,9 @@ public class PagarCortesiaController implements ActionListener, MouseListener, K
             combo.removeAllItems();
             combo.addItem("SELECCIONE UNA OPCIÓN");
             for (CatalogoFormaPago formaPagoFor : modeloFormasDePago.obtenerFormasDePago()) {
-                combo.addItem(formaPagoFor.getFormaPagoFp() + " :" + formaPagoFor.getIdFp());
+                if (formaPagoFor.getIdFp() != 1 && !formaPagoFor.getFormaPagoFp().equals("CORTESIA")) {
+                    combo.addItem(formaPagoFor.getFormaPagoFp() + " :" + formaPagoFor.getIdFp());
+                }
             }
             vista.comboFormaDePago.setModel(combo.getModel());
         } catch (Exception e) {

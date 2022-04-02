@@ -11,6 +11,7 @@ import Vistas.Cancelaciones;
 import Vistas.ConfirmarCita;
 import Vistas.Cortes;
 import Vistas.DatosFacturacionVista;
+import Vistas.Medicos;
 import Vistas.Menu;
 import Vistas.MenuUrgencias;
 import Vistas.MovimientosCorte;
@@ -32,13 +33,14 @@ public class MenuController implements ActionListener {
         MenuController menu = new MenuController(vista);
         menu.iniciar();
     }
-    
+
     public void iniciar() {
         vista.setTitle("Menú");
         vista.setLocationRelativeTo(null);
+        //this.vista.setExtendedState(6);
         vista.setVisible(true);
     }
-    
+
     public MenuController(Menu vista) {
         this.vista = vista;
         this.vista.btnAgendar.addActionListener(this);
@@ -49,10 +51,12 @@ public class MenuController implements ActionListener {
         this.vista.btnUrgencias.addActionListener(this);
         this.vista.btnReagendar.addActionListener(this);
         this.vista.btnCancelaciones.addActionListener(this);
-        
+        this.vista.btnMedicos.addActionListener(this);
+
         this.vista.btnSalir.addActionListener(this);
         this.vista.btnMin.addActionListener(this);
         this.vista.btnSalirGrande.addActionListener(this);
+
     }
 
     @Override
@@ -63,23 +67,22 @@ public class MenuController implements ActionListener {
             abrirConfirmarCita();
         } else if (e.getSource() == this.vista.btnPagar) {
             abrirPagarOrden();
-        } else if(e.getSource() == this.vista.btnCortes){
+        } else if (e.getSource() == this.vista.btnCortes) {
             abrirCortes();
-        }else if(e.getSource() == this.vista.btnEntradas){
+        } else if (e.getSource() == this.vista.btnEntradas) {
             abrirMovimientosCortes();
-        }else if(e.getSource() == this.vista.btnUrgencias){
+        } else if (e.getSource() == this.vista.btnUrgencias) {
             abrirUrgencias();
-        }else if(e.getSource() == this.vista.btnReagendar){
+        } else if (e.getSource() == this.vista.btnReagendar) {
             abrirReagendar();
-        }
-        else if(e.getSource() == this.vista.btnCancelaciones){
+        } else if (e.getSource() == this.vista.btnCancelaciones) {
             abrirCancelaciones();
-        }
-        else if(e.getSource() == vista.btnSalir || e.getSource() == vista.btnSalirGrande){
+        } else if (e.getSource() == vista.btnSalir || e.getSource() == vista.btnSalirGrande) {
             BarUtil.cerrar(vista);
-        }
-        else if(e.getSource() == vista.btnMin){
+        } else if (e.getSource() == vista.btnMin) {
             BarUtil.minimizar(vista);
+        } else if (e.getSource() == vista.btnMedicos) {
+            abrirMedicos();
         }
     }
 
@@ -129,6 +132,12 @@ public class MenuController implements ActionListener {
         vista.dispose();
         CancelacionesController controladorCancelaciones = new CancelacionesController(new Cancelaciones());
         controladorCancelaciones.iniciar();
+    }
+
+    private void abrirMedicos() {
+        vista.dispose();
+        MedicoController controladorMedicos = new MedicoController(new Medicos());
+        controladorMedicos.iniciar();
     }
 
 }

@@ -86,7 +86,7 @@ public class CatalogoFormaPago {
 
     @Override
     public String toString() {
-        return formaPagoFp;
+        return  formaPagoFp ;
     }
 
     

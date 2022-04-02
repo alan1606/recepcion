@@ -24,23 +24,29 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ModificarDatosFacturacion_QNAME = new QName("http://servicio.sga.gm.com.mx/", "modificarDatosFacturacion");
-    private final static QName _CatalogoFormaPago_QNAME = new QName("http://servicio.sga.gm.com.mx/", "catalogoFormaPago");
-    private final static QName _RegistrarDatosFacturacionResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarDatosFacturacionResponse");
-    private final static QName _ObtenerDatosFacturacionPorIdOrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerDatosFacturacionPorIdOrdenVenta");
-    private final static QName _ObtenerDatosFacturacionPorIdOrdenVentaResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerDatosFacturacionPorIdOrdenVentaResponse");
-    private final static QName _DatosFacturacion_QNAME = new QName("http://servicio.sga.gm.com.mx/", "datosFacturacion");
-    private final static QName _OrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "ordenVenta");
-    private final static QName _Pacientes_QNAME = new QName("http://servicio.sga.gm.com.mx/", "pacientes");
-    private final static QName _ObtenerDatosFacturacionPorPagoOrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerDatosFacturacionPorPagoOrdenVenta");
-    private final static QName _Cfdi_QNAME = new QName("http://servicio.sga.gm.com.mx/", "cfdi");
-    private final static QName _ObtenerDatosFacturacionPorIdResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerDatosFacturacionPorIdResponse");
-    private final static QName _ObtenerDatosFacturacionPorId_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerDatosFacturacionPorId");
-    private final static QName _ModificarDatosFacturacionResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "modificarDatosFacturacionResponse");
-    private final static QName _PagoOrdenVenta_QNAME = new QName("http://servicio.sga.gm.com.mx/", "pagoOrdenVenta");
-    private final static QName _Firma_QNAME = new QName("http://servicio.sga.gm.com.mx/", "firma");
-    private final static QName _ObtenerDatosFacturacionPorPagoOrdenVentaResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerDatosFacturacionPorPagoOrdenVentaResponse");
-    private final static QName _RegistrarDatosFacturacion_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarDatosFacturacion");
+    private final static QName _Medico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "medico");
+    private final static QName _ObtenerTodosLosMedicos_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerTodosLosMedicos");
+    private final static QName _BuscarMedicoPorTelefono_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorTelefono");
+    private final static QName _RegistrarMedico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarMedico");
+    private final static QName _RegistrarMedicoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarMedicoResponse");
+    private final static QName _ObtenerMedicosReferentesResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerMedicosReferentesResponse");
+    private final static QName _ObtenerTodosLosMedicosResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerTodosLosMedicosResponse");
+    private final static QName _ObtenerMedicosReferentes_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerMedicosReferentes");
+    private final static QName _BuscarMedicoPorCorreo_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorCorreo");
+    private final static QName _BuscarMedicoPorEspecialidadResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorEspecialidadResponse");
+    private final static QName _ObtenerMedicosRadiologos_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerMedicosRadiologos");
+    private final static QName _BuscarMedicosPorNombreResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicosPorNombreResponse");
+    private final static QName _ActualizarMedico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "actualizarMedico");
+    private final static QName _BuscarMedicoPorIdResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorIdResponse");
+    private final static QName _BuscarMedicosPorNombre_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicosPorNombre");
+    private final static QName _BuscarMedicoPorCorreoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorCorreoResponse");
+    private final static QName _BuscarMedicoPorEspecialidad_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorEspecialidad");
+    private final static QName _ActualizarMedicoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "actualizarMedicoResponse");
+    private final static QName _BuscarMedicoPorId_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorId");
+    private final static QName _EliminarMedico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "eliminarMedico");
+    private final static QName _ObtenerMedicosRadiologosResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerMedicosRadiologosResponse");
+    private final static QName _EliminarMedicoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "eliminarMedicoResponse");
+    private final static QName _BuscarMedicoPorTelefonoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorTelefonoResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: clientews.servicio
@@ -50,292 +56,394 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ModificarDatosFacturacionResponse }
+     * Create an instance of {@link ActualizarMedicoResponse }
      * 
      */
-    public ModificarDatosFacturacionResponse createModificarDatosFacturacionResponse() {
-        return new ModificarDatosFacturacionResponse();
+    public ActualizarMedicoResponse createActualizarMedicoResponse() {
+        return new ActualizarMedicoResponse();
     }
 
     /**
-     * Create an instance of {@link PagoOrdenVenta }
+     * Create an instance of {@link BuscarMedicoPorId }
      * 
      */
-    public PagoOrdenVenta createPagoOrdenVenta() {
-        return new PagoOrdenVenta();
+    public BuscarMedicoPorId createBuscarMedicoPorId() {
+        return new BuscarMedicoPorId();
     }
 
     /**
-     * Create an instance of {@link ObtenerDatosFacturacionPorId }
+     * Create an instance of {@link BuscarMedicoPorEspecialidad }
      * 
      */
-    public ObtenerDatosFacturacionPorId createObtenerDatosFacturacionPorId() {
-        return new ObtenerDatosFacturacionPorId();
+    public BuscarMedicoPorEspecialidad createBuscarMedicoPorEspecialidad() {
+        return new BuscarMedicoPorEspecialidad();
     }
 
     /**
-     * Create an instance of {@link Cfdi }
+     * Create an instance of {@link BuscarMedicoPorTelefonoResponse }
      * 
      */
-    public Cfdi createCfdi() {
-        return new Cfdi();
+    public BuscarMedicoPorTelefonoResponse createBuscarMedicoPorTelefonoResponse() {
+        return new BuscarMedicoPorTelefonoResponse();
     }
 
     /**
-     * Create an instance of {@link ObtenerDatosFacturacionPorIdResponse }
+     * Create an instance of {@link EliminarMedicoResponse }
      * 
      */
-    public ObtenerDatosFacturacionPorIdResponse createObtenerDatosFacturacionPorIdResponse() {
-        return new ObtenerDatosFacturacionPorIdResponse();
+    public EliminarMedicoResponse createEliminarMedicoResponse() {
+        return new EliminarMedicoResponse();
     }
 
     /**
-     * Create an instance of {@link ObtenerDatosFacturacionPorPagoOrdenVenta }
+     * Create an instance of {@link ObtenerMedicosRadiologosResponse }
      * 
      */
-    public ObtenerDatosFacturacionPorPagoOrdenVenta createObtenerDatosFacturacionPorPagoOrdenVenta() {
-        return new ObtenerDatosFacturacionPorPagoOrdenVenta();
+    public ObtenerMedicosRadiologosResponse createObtenerMedicosRadiologosResponse() {
+        return new ObtenerMedicosRadiologosResponse();
     }
 
     /**
-     * Create an instance of {@link RegistrarDatosFacturacion }
+     * Create an instance of {@link EliminarMedico }
      * 
      */
-    public RegistrarDatosFacturacion createRegistrarDatosFacturacion() {
-        return new RegistrarDatosFacturacion();
+    public EliminarMedico createEliminarMedico() {
+        return new EliminarMedico();
     }
 
     /**
-     * Create an instance of {@link ObtenerDatosFacturacionPorPagoOrdenVentaResponse }
+     * Create an instance of {@link ObtenerMedicosReferentesResponse }
      * 
      */
-    public ObtenerDatosFacturacionPorPagoOrdenVentaResponse createObtenerDatosFacturacionPorPagoOrdenVentaResponse() {
-        return new ObtenerDatosFacturacionPorPagoOrdenVentaResponse();
+    public ObtenerMedicosReferentesResponse createObtenerMedicosReferentesResponse() {
+        return new ObtenerMedicosReferentesResponse();
     }
 
     /**
-     * Create an instance of {@link Firma }
+     * Create an instance of {@link ObtenerTodosLosMedicosResponse }
      * 
      */
-    public Firma createFirma() {
-        return new Firma();
+    public ObtenerTodosLosMedicosResponse createObtenerTodosLosMedicosResponse() {
+        return new ObtenerTodosLosMedicosResponse();
     }
 
     /**
-     * Create an instance of {@link ObtenerDatosFacturacionPorIdOrdenVenta }
+     * Create an instance of {@link RegistrarMedicoResponse }
      * 
      */
-    public ObtenerDatosFacturacionPorIdOrdenVenta createObtenerDatosFacturacionPorIdOrdenVenta() {
-        return new ObtenerDatosFacturacionPorIdOrdenVenta();
+    public RegistrarMedicoResponse createRegistrarMedicoResponse() {
+        return new RegistrarMedicoResponse();
     }
 
     /**
-     * Create an instance of {@link ObtenerDatosFacturacionPorIdOrdenVentaResponse }
+     * Create an instance of {@link RegistrarMedico }
      * 
      */
-    public ObtenerDatosFacturacionPorIdOrdenVentaResponse createObtenerDatosFacturacionPorIdOrdenVentaResponse() {
-        return new ObtenerDatosFacturacionPorIdOrdenVentaResponse();
+    public RegistrarMedico createRegistrarMedico() {
+        return new RegistrarMedico();
     }
 
     /**
-     * Create an instance of {@link CatalogoFormaPago }
+     * Create an instance of {@link BuscarMedicoPorTelefono }
      * 
      */
-    public CatalogoFormaPago createCatalogoFormaPago() {
-        return new CatalogoFormaPago();
+    public BuscarMedicoPorTelefono createBuscarMedicoPorTelefono() {
+        return new BuscarMedicoPorTelefono();
     }
 
     /**
-     * Create an instance of {@link RegistrarDatosFacturacionResponse }
+     * Create an instance of {@link Medico }
      * 
      */
-    public RegistrarDatosFacturacionResponse createRegistrarDatosFacturacionResponse() {
-        return new RegistrarDatosFacturacionResponse();
+    public Medico createMedico() {
+        return new Medico();
     }
 
     /**
-     * Create an instance of {@link ModificarDatosFacturacion }
+     * Create an instance of {@link ObtenerTodosLosMedicos }
      * 
      */
-    public ModificarDatosFacturacion createModificarDatosFacturacion() {
-        return new ModificarDatosFacturacion();
+    public ObtenerTodosLosMedicos createObtenerTodosLosMedicos() {
+        return new ObtenerTodosLosMedicos();
     }
 
     /**
-     * Create an instance of {@link Pacientes }
+     * Create an instance of {@link BuscarMedicoPorCorreoResponse }
      * 
      */
-    public Pacientes createPacientes() {
-        return new Pacientes();
+    public BuscarMedicoPorCorreoResponse createBuscarMedicoPorCorreoResponse() {
+        return new BuscarMedicoPorCorreoResponse();
     }
 
     /**
-     * Create an instance of {@link OrdenVenta }
+     * Create an instance of {@link ActualizarMedico }
      * 
      */
-    public OrdenVenta createOrdenVenta() {
-        return new OrdenVenta();
+    public ActualizarMedico createActualizarMedico() {
+        return new ActualizarMedico();
     }
 
     /**
-     * Create an instance of {@link DatosFacturacion }
+     * Create an instance of {@link BuscarMedicoPorIdResponse }
      * 
      */
-    public DatosFacturacion createDatosFacturacion() {
-        return new DatosFacturacion();
+    public BuscarMedicoPorIdResponse createBuscarMedicoPorIdResponse() {
+        return new BuscarMedicoPorIdResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarDatosFacturacion }{@code >}}
+     * Create an instance of {@link BuscarMedicosPorNombre }
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "modificarDatosFacturacion")
-    public JAXBElement<ModificarDatosFacturacion> createModificarDatosFacturacion(ModificarDatosFacturacion value) {
-        return new JAXBElement<ModificarDatosFacturacion>(_ModificarDatosFacturacion_QNAME, ModificarDatosFacturacion.class, null, value);
+    public BuscarMedicosPorNombre createBuscarMedicosPorNombre() {
+        return new BuscarMedicosPorNombre();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CatalogoFormaPago }{@code >}}
+     * Create an instance of {@link BuscarMedicosPorNombreResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "catalogoFormaPago")
-    public JAXBElement<CatalogoFormaPago> createCatalogoFormaPago(CatalogoFormaPago value) {
-        return new JAXBElement<CatalogoFormaPago>(_CatalogoFormaPago_QNAME, CatalogoFormaPago.class, null, value);
+    public BuscarMedicosPorNombreResponse createBuscarMedicosPorNombreResponse() {
+        return new BuscarMedicosPorNombreResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarDatosFacturacionResponse }{@code >}}
+     * Create an instance of {@link ObtenerMedicosRadiologos }
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarDatosFacturacionResponse")
-    public JAXBElement<RegistrarDatosFacturacionResponse> createRegistrarDatosFacturacionResponse(RegistrarDatosFacturacionResponse value) {
-        return new JAXBElement<RegistrarDatosFacturacionResponse>(_RegistrarDatosFacturacionResponse_QNAME, RegistrarDatosFacturacionResponse.class, null, value);
+    public ObtenerMedicosRadiologos createObtenerMedicosRadiologos() {
+        return new ObtenerMedicosRadiologos();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerDatosFacturacionPorIdOrdenVenta }{@code >}}
+     * Create an instance of {@link BuscarMedicoPorCorreo }
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerDatosFacturacionPorIdOrdenVenta")
-    public JAXBElement<ObtenerDatosFacturacionPorIdOrdenVenta> createObtenerDatosFacturacionPorIdOrdenVenta(ObtenerDatosFacturacionPorIdOrdenVenta value) {
-        return new JAXBElement<ObtenerDatosFacturacionPorIdOrdenVenta>(_ObtenerDatosFacturacionPorIdOrdenVenta_QNAME, ObtenerDatosFacturacionPorIdOrdenVenta.class, null, value);
+    public BuscarMedicoPorCorreo createBuscarMedicoPorCorreo() {
+        return new BuscarMedicoPorCorreo();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerDatosFacturacionPorIdOrdenVentaResponse }{@code >}}
+     * Create an instance of {@link BuscarMedicoPorEspecialidadResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerDatosFacturacionPorIdOrdenVentaResponse")
-    public JAXBElement<ObtenerDatosFacturacionPorIdOrdenVentaResponse> createObtenerDatosFacturacionPorIdOrdenVentaResponse(ObtenerDatosFacturacionPorIdOrdenVentaResponse value) {
-        return new JAXBElement<ObtenerDatosFacturacionPorIdOrdenVentaResponse>(_ObtenerDatosFacturacionPorIdOrdenVentaResponse_QNAME, ObtenerDatosFacturacionPorIdOrdenVentaResponse.class, null, value);
+    public BuscarMedicoPorEspecialidadResponse createBuscarMedicoPorEspecialidadResponse() {
+        return new BuscarMedicoPorEspecialidadResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatosFacturacion }{@code >}}
+     * Create an instance of {@link ObtenerMedicosReferentes }
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "datosFacturacion")
-    public JAXBElement<DatosFacturacion> createDatosFacturacion(DatosFacturacion value) {
-        return new JAXBElement<DatosFacturacion>(_DatosFacturacion_QNAME, DatosFacturacion.class, null, value);
+    public ObtenerMedicosReferentes createObtenerMedicosReferentes() {
+        return new ObtenerMedicosReferentes();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrdenVenta }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Medico }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "ordenVenta")
-    public JAXBElement<OrdenVenta> createOrdenVenta(OrdenVenta value) {
-        return new JAXBElement<OrdenVenta>(_OrdenVenta_QNAME, OrdenVenta.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "medico")
+    public JAXBElement<Medico> createMedico(Medico value) {
+        return new JAXBElement<Medico>(_Medico_QNAME, Medico.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Pacientes }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerTodosLosMedicos }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "pacientes")
-    public JAXBElement<Pacientes> createPacientes(Pacientes value) {
-        return new JAXBElement<Pacientes>(_Pacientes_QNAME, Pacientes.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerTodosLosMedicos")
+    public JAXBElement<ObtenerTodosLosMedicos> createObtenerTodosLosMedicos(ObtenerTodosLosMedicos value) {
+        return new JAXBElement<ObtenerTodosLosMedicos>(_ObtenerTodosLosMedicos_QNAME, ObtenerTodosLosMedicos.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerDatosFacturacionPorPagoOrdenVenta }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorTelefono }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerDatosFacturacionPorPagoOrdenVenta")
-    public JAXBElement<ObtenerDatosFacturacionPorPagoOrdenVenta> createObtenerDatosFacturacionPorPagoOrdenVenta(ObtenerDatosFacturacionPorPagoOrdenVenta value) {
-        return new JAXBElement<ObtenerDatosFacturacionPorPagoOrdenVenta>(_ObtenerDatosFacturacionPorPagoOrdenVenta_QNAME, ObtenerDatosFacturacionPorPagoOrdenVenta.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorTelefono")
+    public JAXBElement<BuscarMedicoPorTelefono> createBuscarMedicoPorTelefono(BuscarMedicoPorTelefono value) {
+        return new JAXBElement<BuscarMedicoPorTelefono>(_BuscarMedicoPorTelefono_QNAME, BuscarMedicoPorTelefono.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Cfdi }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarMedico }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "cfdi")
-    public JAXBElement<Cfdi> createCfdi(Cfdi value) {
-        return new JAXBElement<Cfdi>(_Cfdi_QNAME, Cfdi.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarMedico")
+    public JAXBElement<RegistrarMedico> createRegistrarMedico(RegistrarMedico value) {
+        return new JAXBElement<RegistrarMedico>(_RegistrarMedico_QNAME, RegistrarMedico.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerDatosFacturacionPorIdResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarMedicoResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerDatosFacturacionPorIdResponse")
-    public JAXBElement<ObtenerDatosFacturacionPorIdResponse> createObtenerDatosFacturacionPorIdResponse(ObtenerDatosFacturacionPorIdResponse value) {
-        return new JAXBElement<ObtenerDatosFacturacionPorIdResponse>(_ObtenerDatosFacturacionPorIdResponse_QNAME, ObtenerDatosFacturacionPorIdResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarMedicoResponse")
+    public JAXBElement<RegistrarMedicoResponse> createRegistrarMedicoResponse(RegistrarMedicoResponse value) {
+        return new JAXBElement<RegistrarMedicoResponse>(_RegistrarMedicoResponse_QNAME, RegistrarMedicoResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerDatosFacturacionPorId }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerMedicosReferentesResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerDatosFacturacionPorId")
-    public JAXBElement<ObtenerDatosFacturacionPorId> createObtenerDatosFacturacionPorId(ObtenerDatosFacturacionPorId value) {
-        return new JAXBElement<ObtenerDatosFacturacionPorId>(_ObtenerDatosFacturacionPorId_QNAME, ObtenerDatosFacturacionPorId.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerMedicosReferentesResponse")
+    public JAXBElement<ObtenerMedicosReferentesResponse> createObtenerMedicosReferentesResponse(ObtenerMedicosReferentesResponse value) {
+        return new JAXBElement<ObtenerMedicosReferentesResponse>(_ObtenerMedicosReferentesResponse_QNAME, ObtenerMedicosReferentesResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarDatosFacturacionResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerTodosLosMedicosResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "modificarDatosFacturacionResponse")
-    public JAXBElement<ModificarDatosFacturacionResponse> createModificarDatosFacturacionResponse(ModificarDatosFacturacionResponse value) {
-        return new JAXBElement<ModificarDatosFacturacionResponse>(_ModificarDatosFacturacionResponse_QNAME, ModificarDatosFacturacionResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerTodosLosMedicosResponse")
+    public JAXBElement<ObtenerTodosLosMedicosResponse> createObtenerTodosLosMedicosResponse(ObtenerTodosLosMedicosResponse value) {
+        return new JAXBElement<ObtenerTodosLosMedicosResponse>(_ObtenerTodosLosMedicosResponse_QNAME, ObtenerTodosLosMedicosResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PagoOrdenVenta }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerMedicosReferentes }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "pagoOrdenVenta")
-    public JAXBElement<PagoOrdenVenta> createPagoOrdenVenta(PagoOrdenVenta value) {
-        return new JAXBElement<PagoOrdenVenta>(_PagoOrdenVenta_QNAME, PagoOrdenVenta.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerMedicosReferentes")
+    public JAXBElement<ObtenerMedicosReferentes> createObtenerMedicosReferentes(ObtenerMedicosReferentes value) {
+        return new JAXBElement<ObtenerMedicosReferentes>(_ObtenerMedicosReferentes_QNAME, ObtenerMedicosReferentes.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Firma }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorCorreo }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "firma")
-    public JAXBElement<Firma> createFirma(Firma value) {
-        return new JAXBElement<Firma>(_Firma_QNAME, Firma.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorCorreo")
+    public JAXBElement<BuscarMedicoPorCorreo> createBuscarMedicoPorCorreo(BuscarMedicoPorCorreo value) {
+        return new JAXBElement<BuscarMedicoPorCorreo>(_BuscarMedicoPorCorreo_QNAME, BuscarMedicoPorCorreo.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerDatosFacturacionPorPagoOrdenVentaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorEspecialidadResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerDatosFacturacionPorPagoOrdenVentaResponse")
-    public JAXBElement<ObtenerDatosFacturacionPorPagoOrdenVentaResponse> createObtenerDatosFacturacionPorPagoOrdenVentaResponse(ObtenerDatosFacturacionPorPagoOrdenVentaResponse value) {
-        return new JAXBElement<ObtenerDatosFacturacionPorPagoOrdenVentaResponse>(_ObtenerDatosFacturacionPorPagoOrdenVentaResponse_QNAME, ObtenerDatosFacturacionPorPagoOrdenVentaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorEspecialidadResponse")
+    public JAXBElement<BuscarMedicoPorEspecialidadResponse> createBuscarMedicoPorEspecialidadResponse(BuscarMedicoPorEspecialidadResponse value) {
+        return new JAXBElement<BuscarMedicoPorEspecialidadResponse>(_BuscarMedicoPorEspecialidadResponse_QNAME, BuscarMedicoPorEspecialidadResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarDatosFacturacion }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerMedicosRadiologos }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarDatosFacturacion")
-    public JAXBElement<RegistrarDatosFacturacion> createRegistrarDatosFacturacion(RegistrarDatosFacturacion value) {
-        return new JAXBElement<RegistrarDatosFacturacion>(_RegistrarDatosFacturacion_QNAME, RegistrarDatosFacturacion.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerMedicosRadiologos")
+    public JAXBElement<ObtenerMedicosRadiologos> createObtenerMedicosRadiologos(ObtenerMedicosRadiologos value) {
+        return new JAXBElement<ObtenerMedicosRadiologos>(_ObtenerMedicosRadiologos_QNAME, ObtenerMedicosRadiologos.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicosPorNombreResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicosPorNombreResponse")
+    public JAXBElement<BuscarMedicosPorNombreResponse> createBuscarMedicosPorNombreResponse(BuscarMedicosPorNombreResponse value) {
+        return new JAXBElement<BuscarMedicosPorNombreResponse>(_BuscarMedicosPorNombreResponse_QNAME, BuscarMedicosPorNombreResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ActualizarMedico }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "actualizarMedico")
+    public JAXBElement<ActualizarMedico> createActualizarMedico(ActualizarMedico value) {
+        return new JAXBElement<ActualizarMedico>(_ActualizarMedico_QNAME, ActualizarMedico.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorIdResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorIdResponse")
+    public JAXBElement<BuscarMedicoPorIdResponse> createBuscarMedicoPorIdResponse(BuscarMedicoPorIdResponse value) {
+        return new JAXBElement<BuscarMedicoPorIdResponse>(_BuscarMedicoPorIdResponse_QNAME, BuscarMedicoPorIdResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicosPorNombre }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicosPorNombre")
+    public JAXBElement<BuscarMedicosPorNombre> createBuscarMedicosPorNombre(BuscarMedicosPorNombre value) {
+        return new JAXBElement<BuscarMedicosPorNombre>(_BuscarMedicosPorNombre_QNAME, BuscarMedicosPorNombre.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorCorreoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorCorreoResponse")
+    public JAXBElement<BuscarMedicoPorCorreoResponse> createBuscarMedicoPorCorreoResponse(BuscarMedicoPorCorreoResponse value) {
+        return new JAXBElement<BuscarMedicoPorCorreoResponse>(_BuscarMedicoPorCorreoResponse_QNAME, BuscarMedicoPorCorreoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorEspecialidad }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorEspecialidad")
+    public JAXBElement<BuscarMedicoPorEspecialidad> createBuscarMedicoPorEspecialidad(BuscarMedicoPorEspecialidad value) {
+        return new JAXBElement<BuscarMedicoPorEspecialidad>(_BuscarMedicoPorEspecialidad_QNAME, BuscarMedicoPorEspecialidad.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ActualizarMedicoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "actualizarMedicoResponse")
+    public JAXBElement<ActualizarMedicoResponse> createActualizarMedicoResponse(ActualizarMedicoResponse value) {
+        return new JAXBElement<ActualizarMedicoResponse>(_ActualizarMedicoResponse_QNAME, ActualizarMedicoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorId }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorId")
+    public JAXBElement<BuscarMedicoPorId> createBuscarMedicoPorId(BuscarMedicoPorId value) {
+        return new JAXBElement<BuscarMedicoPorId>(_BuscarMedicoPorId_QNAME, BuscarMedicoPorId.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarMedico }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "eliminarMedico")
+    public JAXBElement<EliminarMedico> createEliminarMedico(EliminarMedico value) {
+        return new JAXBElement<EliminarMedico>(_EliminarMedico_QNAME, EliminarMedico.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerMedicosRadiologosResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerMedicosRadiologosResponse")
+    public JAXBElement<ObtenerMedicosRadiologosResponse> createObtenerMedicosRadiologosResponse(ObtenerMedicosRadiologosResponse value) {
+        return new JAXBElement<ObtenerMedicosRadiologosResponse>(_ObtenerMedicosRadiologosResponse_QNAME, ObtenerMedicosRadiologosResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarMedicoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "eliminarMedicoResponse")
+    public JAXBElement<EliminarMedicoResponse> createEliminarMedicoResponse(EliminarMedicoResponse value) {
+        return new JAXBElement<EliminarMedicoResponse>(_EliminarMedicoResponse_QNAME, EliminarMedicoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorTelefonoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorTelefonoResponse")
+    public JAXBElement<BuscarMedicoPorTelefonoResponse> createBuscarMedicoPorTelefonoResponse(BuscarMedicoPorTelefonoResponse value) {
+        return new JAXBElement<BuscarMedicoPorTelefonoResponse>(_BuscarMedicoPorTelefonoResponse_QNAME, BuscarMedicoPorTelefonoResponse.class, null, value);
     }
 
 }

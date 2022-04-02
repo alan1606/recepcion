@@ -207,7 +207,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
                     PagarCortesiaController pagoCortesia = new PagarCortesiaController(new PagarCortesia(), ordenSeleccionada);
                     System.out.println("antes de abrir cortesia, requiere factura = " + ordenSeleccionada.isRequiereFactura());
                     pagoCortesia.iniciar();
-               
+
                     limpiarTablaOrdenes();
                     limpiarTablaEstudios();
                     limpiarTablaPagos();
@@ -362,7 +362,9 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
             combo.removeAllItems();
             combo.addItem("SELECCIONE UNA OPCIÓN");
             for (CatalogoFormaPago formaPagoFor : modeloFormasDePago.obtenerFormasDePago()) {
-                combo.addItem(formaPagoFor.getFormaPagoFp() + " :" + formaPagoFor.getIdFp());
+                if (formaPagoFor.getIdFp() != 1) {
+                    combo.addItem(formaPagoFor.getFormaPagoFp() + " :" + formaPagoFor.getIdFp());
+                }
             }
             vistaPrincipal.comboFormaPago.setModel(combo.getModel());
         } catch (Exception e) {
@@ -460,7 +462,7 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
 
             pago.setIdOrdenVenta(ordenSeleccionada);
             ordenSeleccionada.setRequiereFactura(vistaPrincipal.checkFactura.isSelected());
-            System.out.println("Requiere factura" + ordenSeleccionada.isRequiereFactura() );
+            System.out.println("Requiere factura" + ordenSeleccionada.isRequiereFactura());
 
             for (int i = 0; i < vistaPrincipal.tablePagos.getRowCount(); i++) {
                 formaPagoTabla = vistaPrincipal.tablePagos.getValueAt(i, 0).toString();

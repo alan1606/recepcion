@@ -27,6 +27,18 @@ public interface PaquetesServiceWs {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<clientews.servicio.Paquete>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarPaquetes", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarPaquetes")
+    @ResponseWrapper(localName = "listarPaquetesResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarPaquetesResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/PaquetesServiceWs/listarPaquetesRequest", output = "http://servicio.sga.gm.com.mx/PaquetesServiceWs/listarPaquetesResponse")
+    public List<Paquete> listarPaquetes();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns clientews.servicio.Paquete
@@ -105,18 +117,6 @@ public interface PaquetesServiceWs {
     public List<Paquete> obtenerPaquetesLikeNombre(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<clientews.servicio.Paquete>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarPaquetes", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarPaquetes")
-    @ResponseWrapper(localName = "listarPaquetesResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarPaquetesResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/PaquetesServiceWs/listarPaquetesRequest", output = "http://servicio.sga.gm.com.mx/PaquetesServiceWs/listarPaquetesResponse")
-    public List<Paquete> listarPaquetes();
 
     /**
      * 
