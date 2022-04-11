@@ -30,9 +30,11 @@ import Utilidades.BarUtil;
 import Utilidades.GeneradorIdPacs;
 import Utilidades.QrUtil;
 import Vistas.AgendarCita;
+import Vistas.DatosFacturacionVista;
 import Vistas.Menu;
 import Vistas.ModificarPaciente;
 import Vistas.NuevoPaciente;
+import Vistas.PagarOrden;
 import Vistas.QrCode;
 import clientews.servicio.AntecedenteEstudio;
 import clientews.servicio.Antecedentes;
@@ -295,7 +297,14 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                             JOptionPane.showMessageDialog(null, "Error al registrar antecdedentes");
                         }
                     }
+
                     actualizarMedicoReferenteYMotivo();
+
+                    if (hayEstudiosDelDiaDeHoy()) {
+                        confirmarOrdenVenta();
+                        abrirPago();
+                    }
+
                     reiniciarVariables();
                     bloquearDebidoALimiteSuperado(false);
                     limpiarCampos();
@@ -311,8 +320,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         } else if (e.getSource() == vista.btnRegresar) {
             if (vista.tableEstudios.getRowCount() == 0) {
                 abrirMenu();
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Termine la agendación o quite los estudios agendados");
             }
         } else if (e.getSource() == vista.btnCancelar) {
@@ -1440,5 +1448,34 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         MenuController menu = new MenuController(vista);
         menu.iniciar();
     }
+
+    private boolean hayEstudiosDelDiaDeHoy() {
+        List<VentaConceptos> estudios = modeloVentaConceptos.findByIdOrdenVenta(orden.getIdOv());
+
+        for (VentaConceptos conceptoActual : estudios) {
+            if (conceptoActual.getFechaAsignado().equals(dateToString(fechaActual.getTime()))) {
+                System.out.println("Hay un estudio agendado del día de hoy");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void confirmarOrdenVenta() {
+        List<VentaConceptos> estudios = modeloVentaConceptos.findByIdOrdenVenta(orden.getIdOv());
+
+        for (VentaConceptos conceptoActual : estudios) {
+            conceptoActual.setEstado("CONFIRMADO");
+            modeloVentaConceptos.actualizarVentaConceptos(conceptoActual);
+        }
+        
+    }
+
+    private void abrirPago() {
+        vista.dispose();
+        PagarOrdenController pagos = new PagarOrdenController(new PagarOrden(), new DatosFacturacionVista());
+        pagos.iniciar(orden);
+    }
+
 
 }

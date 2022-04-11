@@ -44,30 +44,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCortes = new javax.swing.JButton();
-        btnUrgencias = new javax.swing.JButton();
-        btnEntradas = new javax.swing.JButton();
-        btnPagar = new javax.swing.JButton();
-        btnConfirmar = new javax.swing.JButton();
-        btnAgendar = new javax.swing.JButton();
-        btnCancelaciones = new javax.swing.JButton();
-        btnReagendar = new javax.swing.JButton();
-        LabelAgenda = new javax.swing.JLabel();
-        jLabelConCita = new javax.swing.JLabel();
-        jLabelPO = new javax.swing.JLabel();
         jLabelEYS = new javax.swing.JLabel();
-        jLabelUrge = new javax.swing.JLabel();
-        jLabelCancelar = new javax.swing.JLabel();
-        jLabelREAgendar = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabelEyS = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
         btnMin = new javax.swing.JButton();
@@ -76,139 +53,38 @@ public class Menu extends javax.swing.JFrame {
         jLabelLOGO = new javax.swing.JLabel();
         btnSalirGrande = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
+        btnCortes = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
+        btnPrecios = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        jLabelREAgendar = new javax.swing.JLabel();
+        btnReagendar = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jLabelCancelar = new javax.swing.JLabel();
+        btnCancelaciones = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabelUrge = new javax.swing.JLabel();
+        btnUrgencias = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        btnEntradas = new javax.swing.JButton();
+        jLabelEyS = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        btnPagar = new javax.swing.JButton();
+        jLabelPO = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnConfirmar = new javax.swing.JButton();
+        jLabelConCita = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        LabelAgenda = new javax.swing.JLabel();
+        btnAgendar = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
         btnMedicos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnCortes.setBackground(new java.awt.Color(204, 204, 204));
-        btnCortes.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnCortes.setForeground(new java.awt.Color(0, 0, 51));
-        btnCortes.setText("Cortes");
-        btnCortes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCortes.setContentAreaFilled(false);
-        getContentPane().add(btnCortes, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 120, 30));
-
-        btnUrgencias.setBackground(new java.awt.Color(204, 204, 204));
-        btnUrgencias.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnUrgencias.setForeground(new java.awt.Color(0, 0, 51));
-        btnUrgencias.setText("Urgencias");
-        btnUrgencias.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnUrgencias.setContentAreaFilled(false);
-        getContentPane().add(btnUrgencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 120, 30));
-
-        btnEntradas.setBackground(new java.awt.Color(204, 204, 204));
-        btnEntradas.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        btnEntradas.setForeground(new java.awt.Color(0, 0, 51));
-        btnEntradas.setText("Entradas/salidas");
-        btnEntradas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnEntradas.setContentAreaFilled(false);
-        btnEntradas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntradasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 120, 30));
-
-        btnPagar.setBackground(new java.awt.Color(204, 204, 204));
-        btnPagar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnPagar.setForeground(new java.awt.Color(0, 0, 51));
-        btnPagar.setText("Pagar orden");
-        btnPagar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnPagar.setContentAreaFilled(false);
-        getContentPane().add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 120, 30));
-
-        btnConfirmar.setBackground(new java.awt.Color(204, 204, 204));
-        btnConfirmar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        btnConfirmar.setForeground(new java.awt.Color(0, 0, 51));
-        btnConfirmar.setText("Confirmar cita");
-        btnConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnConfirmar.setContentAreaFilled(false);
-        getContentPane().add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 120, 30));
-
-        btnAgendar.setBackground(new java.awt.Color(204, 204, 204));
-        btnAgendar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnAgendar.setForeground(new java.awt.Color(0, 0, 51));
-        btnAgendar.setText("Agendar");
-        btnAgendar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAgendar.setContentAreaFilled(false);
-        btnAgendar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgendarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 120, 30));
-
-        btnCancelaciones.setBackground(new java.awt.Color(204, 204, 204));
-        btnCancelaciones.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnCancelaciones.setForeground(new java.awt.Color(0, 0, 51));
-        btnCancelaciones.setText("Cancelaciones");
-        btnCancelaciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCancelaciones.setContentAreaFilled(false);
-        getContentPane().add(btnCancelaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 120, 30));
-
-        btnReagendar.setBackground(new java.awt.Color(204, 204, 204));
-        btnReagendar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnReagendar.setForeground(new java.awt.Color(0, 0, 51));
-        btnReagendar.setText("Reagendar");
-        btnReagendar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnReagendar.setContentAreaFilled(false);
-        getContentPane().add(btnReagendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 120, 30));
-
-        LabelAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agendarmenu1.png"))); // NOI18N
-        getContentPane().add(LabelAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
-
-        jLabelConCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/confirmar_menu.png"))); // NOI18N
-        getContentPane().add(jLabelConCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
-
-        jLabelPO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pagodenmenu.png"))); // NOI18N
-        getContentPane().add(jLabelPO, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
         getContentPane().add(jLabelEYS, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 204, -1, 10));
-
-        jLabelUrge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/urgenciamenu.png"))); // NOI18N
-        getContentPane().add(jLabelUrge, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
-
-        jLabelCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar-citamenu.png"))); // NOI18N
-        getContentPane().add(jLabelCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
-
-        jLabelREAgendar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regadendar1.png"))); // NOI18N
-        getContentPane().add(jLabelREAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cortemenu.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, -1, -1));
-
-        jLabelEyS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/EySmenu.png"))); // NOI18N
-        getContentPane().add(jLabelEyS, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 50, 50));
-
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 140, 110));
-
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 140, 110));
-
-        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 140, 110));
-
-        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 140, 110));
-
-        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 140, 110));
-
-        jPanel8.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 140, 110));
-
-        jPanel9.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 140, 110));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
@@ -241,31 +117,182 @@ public class Menu extends javax.swing.JFrame {
         btnSalirGrande.setForeground(new java.awt.Color(0, 0, 51));
         btnSalirGrande.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salirmenu.png"))); // NOI18N
         btnSalirGrande.setText("Salir");
-        btnSalirGrande.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSalirGrande.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         btnSalirGrande.setContentAreaFilled(false);
         jPanel7.add(btnSalirGrande, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 40));
 
         jPanel13.setBackground(new java.awt.Color(204, 204, 255));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel7.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 140, 110));
+
+        btnCortes.setBackground(new java.awt.Color(204, 204, 204));
+        btnCortes.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCortes.setForeground(new java.awt.Color(0, 0, 51));
+        btnCortes.setText("Cortes");
+        btnCortes.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnCortes.setContentAreaFilled(false);
+        jPanel13.add(btnCortes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cortemenu.png"))); // NOI18N
+        jPanel13.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        jPanel7.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, 140, 110));
 
         jPanel11.setBackground(new java.awt.Color(204, 204, 255));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnPrecios.setBackground(new java.awt.Color(204, 204, 204));
+        btnPrecios.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnPrecios.setForeground(new java.awt.Color(0, 0, 51));
+        btnPrecios.setText("Ver precios");
+        btnPrecios.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnPrecios.setContentAreaFilled(false);
+        btnPrecios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreciosActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnPrecios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+
+        jPanel7.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 140, 110));
+
+        jPanel9.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelREAgendar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regadendar1.png"))); // NOI18N
+        jPanel9.add(jLabelREAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        btnReagendar.setBackground(new java.awt.Color(204, 204, 204));
+        btnReagendar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnReagendar.setForeground(new java.awt.Color(0, 0, 51));
+        btnReagendar.setText("Reagendar");
+        btnReagendar.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnReagendar.setContentAreaFilled(false);
+        jPanel9.add(btnReagendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+
+        jPanel7.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 140, 110));
+
+        jPanel8.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar-citamenu.png"))); // NOI18N
+        jPanel8.add(jLabelCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        btnCancelaciones.setBackground(new java.awt.Color(204, 204, 204));
+        btnCancelaciones.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCancelaciones.setForeground(new java.awt.Color(0, 0, 51));
+        btnCancelaciones.setText("Cancelaciones");
+        btnCancelaciones.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnCancelaciones.setContentAreaFilled(false);
+        jPanel8.add(btnCancelaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 140, 110));
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelUrge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/urgenciamenu.png"))); // NOI18N
+        jPanel6.add(jLabelUrge, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        btnUrgencias.setBackground(new java.awt.Color(204, 204, 204));
+        btnUrgencias.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnUrgencias.setForeground(new java.awt.Color(0, 0, 51));
+        btnUrgencias.setText("Urgencias");
+        btnUrgencias.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnUrgencias.setContentAreaFilled(false);
+        jPanel6.add(btnUrgencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+
+        jPanel7.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 140, 110));
+
+        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnEntradas.setBackground(new java.awt.Color(204, 204, 204));
+        btnEntradas.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnEntradas.setForeground(new java.awt.Color(0, 0, 51));
+        btnEntradas.setText("Entradas/salidas");
+        btnEntradas.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnEntradas.setContentAreaFilled(false);
+        btnEntradas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntradasActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+
+        jLabelEyS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/EySmenu.png"))); // NOI18N
+        jPanel5.add(jLabelEyS, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 50, 50));
+
+        jPanel7.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 140, 110));
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnPagar.setBackground(new java.awt.Color(204, 204, 204));
+        btnPagar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnPagar.setForeground(new java.awt.Color(0, 0, 51));
+        btnPagar.setText("Pagar orden");
+        btnPagar.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnPagar.setContentAreaFilled(false);
+        jPanel4.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+
+        jLabelPO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pagodenmenu.png"))); // NOI18N
+        jPanel4.add(jLabelPO, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
+        jPanel7.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 140, 110));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnConfirmar.setBackground(new java.awt.Color(204, 204, 204));
+        btnConfirmar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnConfirmar.setForeground(new java.awt.Color(0, 0, 51));
+        btnConfirmar.setText("Confirmar cita");
+        btnConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnConfirmar.setContentAreaFilled(false);
+        jPanel2.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+
+        jLabelConCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/confirmar_menu.png"))); // NOI18N
+        jPanel2.add(jLabelConCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
+        jPanel7.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 140, 110));
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agendarmenu1.png"))); // NOI18N
+        jPanel3.add(LabelAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        btnAgendar.setBackground(new java.awt.Color(204, 204, 204));
+        btnAgendar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnAgendar.setForeground(new java.awt.Color(0, 0, 51));
+        btnAgendar.setText("Agendar");
+        btnAgendar.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnAgendar.setContentAreaFilled(false);
+        btnAgendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgendarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+
+        jPanel7.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 140, 110));
+
+        jPanel12.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnMedicos.setBackground(new java.awt.Color(204, 204, 204));
         btnMedicos.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnMedicos.setForeground(new java.awt.Color(0, 0, 51));
-        btnMedicos.setText("Médicos");
-        btnMedicos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnMedicos.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         btnMedicos.setContentAreaFilled(false);
         btnMedicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMedicosActionPerformed(evt);
             }
         });
-        jPanel11.add(btnMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+        jPanel12.add(btnMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
 
-        jPanel7.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 140, 110));
+        jPanel7.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 140, 110));
 
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 450));
 
@@ -279,6 +306,10 @@ public class Menu extends javax.swing.JFrame {
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgendarActionPerformed
+
+    private void btnPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreciosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPreciosActionPerformed
 
     private void btnMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicosActionPerformed
         // TODO add your handling code here:
@@ -331,6 +362,7 @@ public class Menu extends javax.swing.JFrame {
     public javax.swing.JButton btnMedicos;
     public javax.swing.JButton btnMin;
     public javax.swing.JButton btnPagar;
+    public javax.swing.JButton btnPrecios;
     public javax.swing.JButton btnReagendar;
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnSalirGrande;
@@ -347,6 +379,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUrge;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

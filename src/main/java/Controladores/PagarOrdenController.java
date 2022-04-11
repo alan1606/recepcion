@@ -47,6 +47,7 @@ import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -118,6 +119,29 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         deshabilitar(vistaPrincipal.txtInstitucion);
         deshabilitar(vistaPrincipal.txtTotal);
         deshabilitar(vistaPrincipal.txtSubtotal);
+    }
+
+    public void iniciar(OrdenVenta ordenVentaDesdeAgenda) {
+        this.ordenSeleccionada = ordenVentaDesdeAgenda;
+        mostrarOrdenes(ordenVentaDesdeAgenda);
+        vistaPrincipal.tableOrdenes.getSelectionModel().setSelectionInterval(0,1);
+        
+        vistaPrincipal.setTitle("Pagar órdenes");
+        vistaPrincipal.setLocationRelativeTo(null);
+        vistaPrincipal.setVisible(true);
+        cargarFormasDePago();
+        iniciarTablaPagos();
+        cargarPacienteVacio();
+        deshabilitar(vistaPrincipal.txtInstitucion);
+        deshabilitar(vistaPrincipal.txtTotal);
+        deshabilitar(vistaPrincipal.txtSubtotal);
+
+        cargarEstudios(ordenSeleccionada.getIdOv());
+        Long idPaciente = Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(0, 4).toString());
+        pacienteSeleccionado = buscarPacientePorId(idPaciente);
+        vistaPrincipal.txtTotal.setText(ordenVentaDesdeAgenda.getTotalEi() + ""); //Cargar total
+        cargarInstitucionDesdeAgenda();
+
     }
 
     @Override
@@ -339,6 +363,19 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
 
     private void cargarInstitucion() {
         Institucion institucion = modeloInstituciones.findInstitucionByIdOrdenVenta(Long.parseLong(vistaPrincipal.tableOrdenes.getValueAt(vistaPrincipal.tableOrdenes.getSelectedRow(), 0).toString()));
+        vistaPrincipal.txtInstitucion.setText(institucion.getNombreInstitucion());
+        if (institucion.getNombreInstitucion().equals("PARTICULAR")) {
+            habilitarPagos(true);
+            vistaPrincipal.checkFactura.setSelected(false);
+        } else {
+            habilitarPagos(false);
+            vistaPrincipal.checkFactura.setSelected(true);
+        }
+
+    }
+
+    private void cargarInstitucionDesdeAgenda() {
+        Institucion institucion = modeloInstituciones.findInstitucionByIdOrdenVenta(ordenSeleccionada.getIdOv());
         vistaPrincipal.txtInstitucion.setText(institucion.getNombreInstitucion());
         if (institucion.getNombreInstitucion().equals("PARTICULAR")) {
             habilitarPagos(true);
@@ -754,6 +791,11 @@ public class PagarOrdenController implements ActionListener, PropertyChangeListe
         DatosFacturacionController controladorDatosFacturacion = new DatosFacturacionController(new DatosFacturacionVista());
         controladorDatosFacturacion.setOrdenVenta(ordenSeleccionada);
         controladorDatosFacturacion.iniciar();
+    }
+
+    private void mostrarOrdenes(OrdenVenta ordenVentaDesdeAgenda) {
+        TableOrdenesVenta tableOrdenesVenta = new TableOrdenesVenta();
+        tableOrdenesVenta.cargarTabla(vistaPrincipal.tableOrdenes, Arrays.asList(ordenVentaDesdeAgenda));
     }
 
 }

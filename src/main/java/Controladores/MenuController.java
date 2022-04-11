@@ -16,6 +16,7 @@ import Vistas.Menu;
 import Vistas.MenuUrgencias;
 import Vistas.MovimientosCorte;
 import Vistas.PagarOrden;
+import Vistas.Precios;
 import Vistas.Reagendar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -56,6 +57,7 @@ public class MenuController implements ActionListener {
         this.vista.btnSalir.addActionListener(this);
         this.vista.btnMin.addActionListener(this);
         this.vista.btnSalirGrande.addActionListener(this);
+        this.vista.btnPrecios.addActionListener(this);
 
     }
 
@@ -83,6 +85,8 @@ public class MenuController implements ActionListener {
             BarUtil.minimizar(vista);
         } else if (e.getSource() == vista.btnMedicos) {
             abrirMedicos();
+        } else if (e.getSource() == vista.btnPrecios) {
+            abrirPrecios();
         }
     }
 
@@ -138,6 +142,12 @@ public class MenuController implements ActionListener {
         vista.dispose();
         MedicoController controladorMedicos = new MedicoController(new Medicos());
         controladorMedicos.iniciar();
+    }
+
+    private void abrirPrecios() {
+        vista.dispose();
+        PreciosController controladorPrecios = new PreciosController(new Precios());
+        controladorPrecios.iniciar();
     }
 
 }

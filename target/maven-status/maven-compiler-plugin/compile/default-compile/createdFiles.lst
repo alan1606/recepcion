@@ -70,6 +70,7 @@ DAO\AreasDao.class
 clientews\servicio\EliminarVentaConceptosPorIdOrdenVenta.class
 clientews\servicio\EsCorrectoLoginResponse.class
 Tables\TableMedicos.class
+Vistas\Menu$5.class
 Vistas\Medicos$3.class
 clientews\servicio\EliminarAntecedentesConcepto.class
 clientews\servicio\UsuariosServiceWs.class
@@ -99,6 +100,7 @@ clientews\servicio\ObtenerDatosFacturacionPorId.class
 clientews\servicio\BuscarMedicoPorId.class
 clientews\servicio\ActualizarOrdenVentaResponse.class
 clientews\servicio\ObtenerOrdenVentaNoPagadosEnFecha.class
+Vistas\Precios$2.class
 clientews\servicio\Antecedentes.class
 clientews\servicio\EncontrarEquipoDicomPorAreaResponse.class
 Vistas\Reagendar$3.class
@@ -290,6 +292,7 @@ clientews\servicio\ActualizarAntecedentes.class
 clientews\servicio\ActualizarMedicoResponse.class
 clientews\servicio\AntecedentesServiceImplService.class
 clientews\servicio\ListarPaquetesResponse.class
+Vistas\Precios.class
 clientews\servicio\EncontrarPacientePorId.class
 clientews\servicio\RegistrarPagoOrdenVenta.class
 clientews\servicio\EncontrarAntecedentePorNombreResponse.class
@@ -364,11 +367,14 @@ clientews\servicio\EliminarPaquete.class
 clientews\servicio\ListarTodosVentaConceptosResponse.class
 Vistas\Reagendar$2.class
 clientews\servicio\RegistrarAntecedentes.class
+Controladores\PreciosController.class
 clientews\servicio\CatalogoFormaPagoServiceImplService.class
+Vistas\Precios$1.class
 clientews\servicio\EliminarPagoOrdenVentaPorIdOrdenVenta.class
 Vistas\ModificarPaciente$2.class
 clientews\servicio\RegistrarVentaConceptosResponse.class
 Vistas\Medicos$2.class
+DAO\ConceptosInstitucionDaoImpl.class
 Vistas\NuevoPaciente$3.class
 Vistas\Menu$4.class
 Controladores\MovimientosCorteController.class
@@ -496,6 +502,7 @@ clientews\servicio\ObtenerConceptosPorPorIdInstitucionPorArea.class
 clientews\servicio\EncontrarEquipoDicomPorNombre.class
 clientews\servicio\EsCandidatoParaEliminarConceptosDeOrdenResponse.class
 clientews\servicio\RegistrarConceptoPaqueteResponse.class
+DAO\ConceptosInstitucionDao.class
 clientews\servicio\ActualizarEstadoVentaConceptosPorIdOrdenVenta.class
 clientews\servicio\RegistrarVentaConceptosList.class
 clientews\servicio\Paquete.class

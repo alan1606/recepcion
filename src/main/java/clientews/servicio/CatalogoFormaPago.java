@@ -84,11 +84,4 @@ public class CatalogoFormaPago {
         this.idFp = value;
     }
 
-    @Override
-    public String toString() {
-        return  formaPagoFp ;
-    }
-
-    
-    
 }
