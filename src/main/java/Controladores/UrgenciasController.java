@@ -28,7 +28,6 @@ import Tables.TablePacientes;
 import Utilidades.BarUtil;
 import Utilidades.QrUtil;
 import Vistas.Menu;
-import Vistas.MenuUrgencias;
 import Vistas.NuevoPaciente;
 import Vistas.QrCode;
 import Vistas.Urgencias;
@@ -143,6 +142,7 @@ public class UrgenciasController implements KeyListener, MouseListener, ActionLi
 
         this.vista.btnSalir.addActionListener(this);
         this.vista.btnMin.addActionListener(this);
+        this.vista.txtMedicoReferente.addKeyListener(this);
     }
 
     public void iniciar() {
@@ -298,6 +298,9 @@ public class UrgenciasController implements KeyListener, MouseListener, ActionLi
                     buscarPacientePorCurp(this.vista.txtBuscar.getText());
                 }
             }
+        }
+        else if(e.getSource() == this.vista.txtMedicoReferente){
+            cargarMedicosReferentes(this.vista.txtMedicoReferente.getText());
         }
     }
 
@@ -1000,13 +1003,10 @@ public class UrgenciasController implements KeyListener, MouseListener, ActionLi
         }
     }
 
-    private void mostrarQr() throws Exception {
+   private void mostrarQr() throws Exception {
         ventanaQr.setTitle("Escanear el código y subir imagen");
         ventanaQr.setLocationRelativeTo(null);
-        ImageIcon icono = new ImageIcon(QrUtil.generateQrCode("http://ns1.diagnocons.com/sistema/pruebaUpImg.php?fuente=recepcionQr&idOrdenVenta=" + orden.getIdOv()
-                + "&idPaciente="
-                + paciente.getIdP()
-                + "&nombrePaciente=" + formatea(paciente.getNombreCompletoP()), 400, 260));
+        ImageIcon icono = new ImageIcon(QrUtil.generateQrCode("http://201.116.155.166:4222/ris/subir-foto-orden/" + orden.getIdOv(), 400, 260));
         ventanaQr.lblQr.setIcon(icono);
         ventanaQr.setVisible(true);
     }
@@ -1076,6 +1076,26 @@ public class UrgenciasController implements KeyListener, MouseListener, ActionLi
         combo.addItem("SELECCIONE UNA OPCIÓN");
 
         modeloMedico.obtenerMedicosReferentes().forEach(m -> {
+            try {
+                combo.addItem(m.getNombres() + " " + m.getApellidos() + " : " + m.getEspecialidad() + ";" + m.getId());
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
+            }
+        });
+
+        try {
+            vista.comboMedicoReferente.setModel(combo.getModel());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+
+    }
+     private void cargarMedicosReferentes(String nombre) {
+        JComboBox combo = new JComboBox();
+        combo.removeAllItems();
+        combo.addItem("SELECCIONE UNA OPCIÓN");
+
+        modeloMedico.buscarReferentesLikeNombre(nombre).forEach(m -> {
             try {
                 combo.addItem(m.getNombres() + " " + m.getApellidos() + " : " + m.getEspecialidad() + ";" + m.getId());
             } catch (Exception e) {

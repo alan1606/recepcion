@@ -255,6 +255,7 @@ clientews\servicio\EncontrarEquipoDicomPorIdAreaResponse.class
 clientews\servicio\EliminarOrdenVentaResponse.class
 clientews\servicio\RegistrarInstitucion.class
 DAO\DatosFacturacionDaoImpl.class
+clientews\servicio\BuscarRerefenteLikeNombreResponse.class
 clientews\servicio\ActualizarConceptosInstitucionResponse.class
 clientews\servicio\EncontrarConceptoLikeNombre.class
 Vistas\QrCode$2.class
@@ -407,6 +408,7 @@ clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFechaInstitucion.class
 Vistas\Urgencias$3.class
 clientews\servicio\ObtenerMovimientosDeCorteMatutino.class
 DAO\DevolucionDaoImpl.class
+clientews\servicio\BuscarRerefenteLikeNombre.class
 clientews\servicio\EliminarConceptoPaquete.class
 clientews\servicio\PacienteServiceImplService.class
 clientews\servicio\OrdenVentaServiceWs.class

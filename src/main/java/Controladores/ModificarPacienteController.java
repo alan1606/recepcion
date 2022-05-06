@@ -91,7 +91,11 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
                 } catch (Exception ex) {
                     Logger.getLogger(ModificarPacienteController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                registrar();
+                try {
+                    registrar();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(ModificarPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         } else if (e.getSource() == vista.comboPais) {
             if (vista.comboPais.getSelectedItem().toString().equals("MEXICO")) {
@@ -116,7 +120,11 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
             limpiar();
             habilitarEstados(true);
         } else if (e.getSource() == vista.btnCancelar || e.getSource() == vista.btnRegresar) {
-            abrirAgenda();
+            try {
+                abrirAgenda();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ModificarPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (e.getSource() == vista.comboEntidad && vista.comboEntidad.getSelectedIndex() != 0) { //Se seleccionó una entidad
             System.out.println(vista.comboEntidad.getSelectedItem().toString());
             entidadSeleccionada = modeloMexico.encontrarEstadoPorNombre(vista.comboEntidad.getSelectedItem().toString());
@@ -181,7 +189,7 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
         return true;
     }
 
-    private void registrar() {
+    private void registrar() throws InterruptedException {
         if (deseaRegistrar() == 0) {
             modeloPacientes.actualizar(paciente);
             JOptionPane.showMessageDialog(null, "Paciente actualizado");
@@ -487,7 +495,7 @@ public class ModificarPacienteController implements ActionListener, KeyListener 
         }
     }
 
-    private void abrirAgenda() {
+    private void abrirAgenda() throws InterruptedException {
         vista.dispose();
         AgendarCitaController controladorCitas = new AgendarCitaController(new AgendarCita());
         controladorCitas.iniciar();

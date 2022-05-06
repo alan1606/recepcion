@@ -20,6 +20,8 @@ import Vistas.Precios;
 import Vistas.Reagendar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -64,7 +66,11 @@ public class MenuController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.vista.btnAgendar) {
-            abrirAgendarCita();
+            try {
+                abrirAgendarCita();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (e.getSource() == this.vista.btnConfirmar) {
             abrirConfirmarCita();
         } else if (e.getSource() == this.vista.btnPagar) {
@@ -90,7 +96,7 @@ public class MenuController implements ActionListener {
         }
     }
 
-    private void abrirAgendarCita() {
+    private void abrirAgendarCita() throws InterruptedException {
         vista.dispose();
         AgendarCitaController controladorCitas = new AgendarCitaController(new AgendarCita());
         controladorCitas.iniciar();

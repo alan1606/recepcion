@@ -111,8 +111,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private String fechaSeleccionada;
     private XMLGregorianCalendar fechaActualXml;
 
-    public AgendarCitaController(AgendarCita vista) {
-        this.vista = vista;
+    public AgendarCitaController(AgendarCita vista) throws InterruptedException {
+        try {
+            this.vista = vista;
 
         modeloPacientes = new PacientesDaoImp();
         modeloInstituciones = new InstitucionDaoImp();
@@ -155,6 +156,13 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         this.vista.fecha.addPropertyChangeListener(this);
 
         this.ventanaQr.lblCerrar.addMouseListener(this);
+        
+        this.vista.txtMedicoReferente.addKeyListener(this);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocurrió un error con el servidor");
+            System.exit(0);
+        }
+     
 
     }
 
@@ -370,6 +378,9 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                     buscarPacientePorCurp(this.vista.txtBuscar.getText());
                 }
             }
+        }
+        else if(e.getSource() == this.vista.txtMedicoReferente){
+            cargarMedicosReferentes(this.vista.txtMedicoReferente.getText());
         }
     }
 
@@ -1002,6 +1013,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         venta = new VentaConceptos();
         procesarPaquete = false;
         bloquearAreaYEstudio(false);
+        this.vista.txtMedicoReferente.setText("");
     }
 
     private void limpiarCampos() {
@@ -1079,10 +1091,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private void mostrarQr() throws Exception {
         ventanaQr.setTitle("Escanear el código y subir imagen");
         ventanaQr.setLocationRelativeTo(null);
-        ImageIcon icono = new ImageIcon(QrUtil.generateQrCode("http://ns1.diagnocons.com/sistema/pruebaUpImg.php?fuente=recepcionQr&idOrdenVenta=" + orden.getIdOv()
-                + "&idPaciente="
-                + paciente.getIdP()
-                + "&nombrePaciente=" + formatea(paciente.getNombreCompletoP()), 400, 260));
+        ImageIcon icono = new ImageIcon(QrUtil.generateQrCode("http://201.116.155.166:4222/ris/subir-foto-orden/" + orden.getIdOv(), 400, 260));
         ventanaQr.lblQr.setIcon(icono);
         ventanaQr.setVisible(true);
     }
@@ -1427,6 +1436,27 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         combo.addItem("SELECCIONE UNA OPCIÓN");
 
         modeloMedico.obtenerMedicosReferentes().forEach(m -> {
+            try {
+                combo.addItem(m.getNombres() + " " + m.getApellidos() + " : " + m.getEspecialidad() + ";" + m.getId());
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
+            }
+        });
+
+        try {
+            vista.comboMedicoReferente.setModel(combo.getModel());
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+
+    }
+    
+    private void cargarMedicosReferentes(String nombre) {
+        JComboBox combo = new JComboBox();
+        combo.removeAllItems();
+        combo.addItem("SELECCIONE UNA OPCIÓN");
+
+        modeloMedico.buscarReferentesLikeNombre(nombre).forEach(m -> {
             try {
                 combo.addItem(m.getNombres() + " " + m.getApellidos() + " : " + m.getEspecialidad() + ";" + m.getId());
             } catch (Exception e) {

@@ -82,4 +82,9 @@ public class MedicoDaoImpl implements MedicoDao {
         servicio.actualizarMedico(medico);
     }
 
+    @Override
+    public List<Medico> buscarReferentesLikeNombre(String nombre) {
+        return servicio.buscarRerefenteLikeNombre(nombre);
+    }
+
 }

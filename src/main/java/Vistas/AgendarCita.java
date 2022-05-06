@@ -68,6 +68,7 @@ public class AgendarCita extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         comboMedicoReferente = new javax.swing.JComboBox<>();
         txtMotivo = new javax.swing.JTextField();
+        txtMedicoReferente = new javax.swing.JTextField();
         btnSalir = new javax.swing.JButton();
         btnMin = new javax.swing.JButton();
         jLabelLOGO = new javax.swing.JLabel();
@@ -226,12 +227,13 @@ public class AgendarCita extends javax.swing.JFrame {
         jPanel3.add(comboHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 80, 120, 20));
 
         jLabel8.setText("Médico referente");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 450, -1, -1));
 
         jLabel9.setText("Motivo");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 520, -1, -1));
-        jPanel3.add(comboMedicoReferente, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, 470, -1));
-        jPanel3.add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 470, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 530, -1, -1));
+        jPanel3.add(comboMedicoReferente, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 470, -1));
+        jPanel3.add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 550, 470, -1));
+        jPanel3.add(txtMedicoReferente, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 470, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 1220, 640));
 
@@ -336,6 +338,7 @@ public class AgendarCita extends javax.swing.JFrame {
     public javax.swing.JTable tableEstudios;
     public javax.swing.JTable tablePacientes;
     public javax.swing.JTextField txtBuscar;
+    public javax.swing.JTextField txtMedicoReferente;
     public javax.swing.JTextField txtMotivo;
     public javax.swing.JTextField txtPaciente;
     // End of variables declaration//GEN-END:variables

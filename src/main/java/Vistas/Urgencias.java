@@ -62,6 +62,7 @@ public class Urgencias extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         comboMedicoReferente = new javax.swing.JComboBox<>();
         txtMotivo = new javax.swing.JTextField();
+        txtMedicoReferente = new javax.swing.JTextField();
         btnSalir = new javax.swing.JButton();
         btnMin = new javax.swing.JButton();
         jLabelLOGO = new javax.swing.JLabel();
@@ -214,9 +215,10 @@ public class Urgencias extends javax.swing.JFrame {
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 440, -1, -1));
 
         jLabel9.setText("Motivo");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 500, -1, -1));
-        jPanel2.add(comboMedicoReferente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 460, 480, -1));
-        jPanel2.add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 520, 470, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 520, -1, -1));
+        jPanel2.add(comboMedicoReferente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 490, 480, -1));
+        jPanel2.add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 540, 470, -1));
+        jPanel2.add(txtMedicoReferente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 460, 480, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 1230, 630));
 
@@ -325,6 +327,7 @@ public class Urgencias extends javax.swing.JFrame {
     public javax.swing.JTable tableEstudios;
     public javax.swing.JTable tablePacientes;
     public javax.swing.JTextField txtBuscar;
+    public javax.swing.JTextField txtMedicoReferente;
     public javax.swing.JTextField txtMotivo;
     public javax.swing.JTextField txtPaciente;
     // End of variables declaration//GEN-END:variables

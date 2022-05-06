@@ -117,7 +117,7 @@ public class Menu extends javax.swing.JFrame {
         btnSalirGrande.setForeground(new java.awt.Color(0, 0, 51));
         btnSalirGrande.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salirmenu.png"))); // NOI18N
         btnSalirGrande.setText("Salir");
-        btnSalirGrande.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnSalirGrande.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSalirGrande.setContentAreaFilled(false);
         jPanel7.add(btnSalirGrande, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 40));
 
@@ -128,7 +128,7 @@ public class Menu extends javax.swing.JFrame {
         btnCortes.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCortes.setForeground(new java.awt.Color(0, 0, 51));
         btnCortes.setText("Cortes");
-        btnCortes.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnCortes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCortes.setContentAreaFilled(false);
         jPanel13.add(btnCortes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
 
@@ -144,7 +144,7 @@ public class Menu extends javax.swing.JFrame {
         btnPrecios.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnPrecios.setForeground(new java.awt.Color(0, 0, 51));
         btnPrecios.setText("Ver precios");
-        btnPrecios.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnPrecios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPrecios.setContentAreaFilled(false);
         btnPrecios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +165,7 @@ public class Menu extends javax.swing.JFrame {
         btnReagendar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnReagendar.setForeground(new java.awt.Color(0, 0, 51));
         btnReagendar.setText("Reagendar");
-        btnReagendar.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnReagendar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnReagendar.setContentAreaFilled(false);
         jPanel9.add(btnReagendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
 
@@ -181,7 +181,7 @@ public class Menu extends javax.swing.JFrame {
         btnCancelaciones.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCancelaciones.setForeground(new java.awt.Color(0, 0, 51));
         btnCancelaciones.setText("Cancelaciones");
-        btnCancelaciones.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnCancelaciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCancelaciones.setContentAreaFilled(false);
         jPanel8.add(btnCancelaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
 
@@ -197,7 +197,7 @@ public class Menu extends javax.swing.JFrame {
         btnUrgencias.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnUrgencias.setForeground(new java.awt.Color(0, 0, 51));
         btnUrgencias.setText("Urgencias");
-        btnUrgencias.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnUrgencias.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnUrgencias.setContentAreaFilled(false);
         jPanel6.add(btnUrgencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
 
@@ -210,7 +210,7 @@ public class Menu extends javax.swing.JFrame {
         btnEntradas.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnEntradas.setForeground(new java.awt.Color(0, 0, 51));
         btnEntradas.setText("Entradas/salidas");
-        btnEntradas.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnEntradas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEntradas.setContentAreaFilled(false);
         btnEntradas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,7 +231,7 @@ public class Menu extends javax.swing.JFrame {
         btnPagar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnPagar.setForeground(new java.awt.Color(0, 0, 51));
         btnPagar.setText("Pagar orden");
-        btnPagar.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnPagar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPagar.setContentAreaFilled(false);
         jPanel4.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
 
@@ -247,7 +247,7 @@ public class Menu extends javax.swing.JFrame {
         btnConfirmar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnConfirmar.setForeground(new java.awt.Color(0, 0, 51));
         btnConfirmar.setText("Confirmar cita");
-        btnConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnConfirmar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnConfirmar.setContentAreaFilled(false);
         jPanel2.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
 
@@ -266,7 +266,7 @@ public class Menu extends javax.swing.JFrame {
         btnAgendar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnAgendar.setForeground(new java.awt.Color(0, 0, 51));
         btnAgendar.setText("Agendar");
-        btnAgendar.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnAgendar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAgendar.setContentAreaFilled(false);
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,7 +283,8 @@ public class Menu extends javax.swing.JFrame {
         btnMedicos.setBackground(new java.awt.Color(204, 204, 204));
         btnMedicos.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnMedicos.setForeground(new java.awt.Color(0, 0, 51));
-        btnMedicos.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        btnMedicos.setText("Medicos");
+        btnMedicos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnMedicos.setContentAreaFilled(false);
         btnMedicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -25,27 +25,29 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _Medico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "medico");
-    private final static QName _ObtenerTodosLosMedicos_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerTodosLosMedicos");
-    private final static QName _BuscarMedicoPorTelefono_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorTelefono");
-    private final static QName _RegistrarMedico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarMedico");
+    private final static QName _BuscarRerefenteLikeNombreResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarRerefenteLikeNombreResponse");
     private final static QName _RegistrarMedicoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarMedicoResponse");
     private final static QName _ObtenerMedicosReferentesResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerMedicosReferentesResponse");
-    private final static QName _ObtenerTodosLosMedicosResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerTodosLosMedicosResponse");
-    private final static QName _ObtenerMedicosReferentes_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerMedicosReferentes");
-    private final static QName _BuscarMedicoPorCorreo_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorCorreo");
     private final static QName _BuscarMedicoPorEspecialidadResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorEspecialidadResponse");
-    private final static QName _ObtenerMedicosRadiologos_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerMedicosRadiologos");
+    private final static QName _BuscarRerefenteLikeNombre_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarRerefenteLikeNombre");
     private final static QName _BuscarMedicosPorNombreResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicosPorNombreResponse");
-    private final static QName _ActualizarMedico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "actualizarMedico");
     private final static QName _BuscarMedicoPorIdResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorIdResponse");
     private final static QName _BuscarMedicosPorNombre_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicosPorNombre");
     private final static QName _BuscarMedicoPorCorreoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorCorreoResponse");
+    private final static QName _BuscarMedicoPorId_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorId");
+    private final static QName _EliminarMedicoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "eliminarMedicoResponse");
+    private final static QName _ObtenerTodosLosMedicos_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerTodosLosMedicos");
+    private final static QName _BuscarMedicoPorTelefono_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorTelefono");
+    private final static QName _RegistrarMedico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "registrarMedico");
+    private final static QName _ObtenerTodosLosMedicosResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerTodosLosMedicosResponse");
+    private final static QName _ObtenerMedicosReferentes_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerMedicosReferentes");
+    private final static QName _BuscarMedicoPorCorreo_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorCorreo");
+    private final static QName _ObtenerMedicosRadiologos_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerMedicosRadiologos");
+    private final static QName _ActualizarMedico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "actualizarMedico");
     private final static QName _BuscarMedicoPorEspecialidad_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorEspecialidad");
     private final static QName _ActualizarMedicoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "actualizarMedicoResponse");
-    private final static QName _BuscarMedicoPorId_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorId");
     private final static QName _EliminarMedico_QNAME = new QName("http://servicio.sga.gm.com.mx/", "eliminarMedico");
     private final static QName _ObtenerMedicosRadiologosResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "obtenerMedicosRadiologosResponse");
-    private final static QName _EliminarMedicoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "eliminarMedicoResponse");
     private final static QName _BuscarMedicoPorTelefonoResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "buscarMedicoPorTelefonoResponse");
 
     /**
@@ -61,14 +63,6 @@ public class ObjectFactory {
      */
     public ActualizarMedicoResponse createActualizarMedicoResponse() {
         return new ActualizarMedicoResponse();
-    }
-
-    /**
-     * Create an instance of {@link BuscarMedicoPorId }
-     * 
-     */
-    public BuscarMedicoPorId createBuscarMedicoPorId() {
-        return new BuscarMedicoPorId();
     }
 
     /**
@@ -88,14 +82,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EliminarMedicoResponse }
-     * 
-     */
-    public EliminarMedicoResponse createEliminarMedicoResponse() {
-        return new EliminarMedicoResponse();
-    }
-
-    /**
      * Create an instance of {@link ObtenerMedicosRadiologosResponse }
      * 
      */
@@ -112,27 +98,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ObtenerMedicosReferentesResponse }
-     * 
-     */
-    public ObtenerMedicosReferentesResponse createObtenerMedicosReferentesResponse() {
-        return new ObtenerMedicosReferentesResponse();
-    }
-
-    /**
      * Create an instance of {@link ObtenerTodosLosMedicosResponse }
      * 
      */
     public ObtenerTodosLosMedicosResponse createObtenerTodosLosMedicosResponse() {
         return new ObtenerTodosLosMedicosResponse();
-    }
-
-    /**
-     * Create an instance of {@link RegistrarMedicoResponse }
-     * 
-     */
-    public RegistrarMedicoResponse createRegistrarMedicoResponse() {
-        return new RegistrarMedicoResponse();
     }
 
     /**
@@ -152,14 +122,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Medico }
-     * 
-     */
-    public Medico createMedico() {
-        return new Medico();
-    }
-
-    /**
      * Create an instance of {@link ObtenerTodosLosMedicos }
      * 
      */
@@ -168,19 +130,91 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BuscarMedicoPorCorreoResponse }
-     * 
-     */
-    public BuscarMedicoPorCorreoResponse createBuscarMedicoPorCorreoResponse() {
-        return new BuscarMedicoPorCorreoResponse();
-    }
-
-    /**
      * Create an instance of {@link ActualizarMedico }
      * 
      */
     public ActualizarMedico createActualizarMedico() {
         return new ActualizarMedico();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerMedicosRadiologos }
+     * 
+     */
+    public ObtenerMedicosRadiologos createObtenerMedicosRadiologos() {
+        return new ObtenerMedicosRadiologos();
+    }
+
+    /**
+     * Create an instance of {@link BuscarMedicoPorCorreo }
+     * 
+     */
+    public BuscarMedicoPorCorreo createBuscarMedicoPorCorreo() {
+        return new BuscarMedicoPorCorreo();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerMedicosReferentes }
+     * 
+     */
+    public ObtenerMedicosReferentes createObtenerMedicosReferentes() {
+        return new ObtenerMedicosReferentes();
+    }
+
+    /**
+     * Create an instance of {@link BuscarMedicoPorId }
+     * 
+     */
+    public BuscarMedicoPorId createBuscarMedicoPorId() {
+        return new BuscarMedicoPorId();
+    }
+
+    /**
+     * Create an instance of {@link EliminarMedicoResponse }
+     * 
+     */
+    public EliminarMedicoResponse createEliminarMedicoResponse() {
+        return new EliminarMedicoResponse();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerMedicosReferentesResponse }
+     * 
+     */
+    public ObtenerMedicosReferentesResponse createObtenerMedicosReferentesResponse() {
+        return new ObtenerMedicosReferentesResponse();
+    }
+
+    /**
+     * Create an instance of {@link RegistrarMedicoResponse }
+     * 
+     */
+    public RegistrarMedicoResponse createRegistrarMedicoResponse() {
+        return new RegistrarMedicoResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuscarRerefenteLikeNombreResponse }
+     * 
+     */
+    public BuscarRerefenteLikeNombreResponse createBuscarRerefenteLikeNombreResponse() {
+        return new BuscarRerefenteLikeNombreResponse();
+    }
+
+    /**
+     * Create an instance of {@link Medico }
+     * 
+     */
+    public Medico createMedico() {
+        return new Medico();
+    }
+
+    /**
+     * Create an instance of {@link BuscarMedicoPorCorreoResponse }
+     * 
+     */
+    public BuscarMedicoPorCorreoResponse createBuscarMedicoPorCorreoResponse() {
+        return new BuscarMedicoPorCorreoResponse();
     }
 
     /**
@@ -208,19 +242,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ObtenerMedicosRadiologos }
+     * Create an instance of {@link BuscarRerefenteLikeNombre }
      * 
      */
-    public ObtenerMedicosRadiologos createObtenerMedicosRadiologos() {
-        return new ObtenerMedicosRadiologos();
-    }
-
-    /**
-     * Create an instance of {@link BuscarMedicoPorCorreo }
-     * 
-     */
-    public BuscarMedicoPorCorreo createBuscarMedicoPorCorreo() {
-        return new BuscarMedicoPorCorreo();
+    public BuscarRerefenteLikeNombre createBuscarRerefenteLikeNombre() {
+        return new BuscarRerefenteLikeNombre();
     }
 
     /**
@@ -229,14 +255,6 @@ public class ObjectFactory {
      */
     public BuscarMedicoPorEspecialidadResponse createBuscarMedicoPorEspecialidadResponse() {
         return new BuscarMedicoPorEspecialidadResponse();
-    }
-
-    /**
-     * Create an instance of {@link ObtenerMedicosReferentes }
-     * 
-     */
-    public ObtenerMedicosReferentes createObtenerMedicosReferentes() {
-        return new ObtenerMedicosReferentes();
     }
 
     /**
@@ -249,30 +267,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerTodosLosMedicos }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarRerefenteLikeNombreResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerTodosLosMedicos")
-    public JAXBElement<ObtenerTodosLosMedicos> createObtenerTodosLosMedicos(ObtenerTodosLosMedicos value) {
-        return new JAXBElement<ObtenerTodosLosMedicos>(_ObtenerTodosLosMedicos_QNAME, ObtenerTodosLosMedicos.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorTelefono }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorTelefono")
-    public JAXBElement<BuscarMedicoPorTelefono> createBuscarMedicoPorTelefono(BuscarMedicoPorTelefono value) {
-        return new JAXBElement<BuscarMedicoPorTelefono>(_BuscarMedicoPorTelefono_QNAME, BuscarMedicoPorTelefono.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarMedico }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarMedico")
-    public JAXBElement<RegistrarMedico> createRegistrarMedico(RegistrarMedico value) {
-        return new JAXBElement<RegistrarMedico>(_RegistrarMedico_QNAME, RegistrarMedico.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarRerefenteLikeNombreResponse")
+    public JAXBElement<BuscarRerefenteLikeNombreResponse> createBuscarRerefenteLikeNombreResponse(BuscarRerefenteLikeNombreResponse value) {
+        return new JAXBElement<BuscarRerefenteLikeNombreResponse>(_BuscarRerefenteLikeNombreResponse_QNAME, BuscarRerefenteLikeNombreResponse.class, null, value);
     }
 
     /**
@@ -294,33 +294,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerTodosLosMedicosResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerTodosLosMedicosResponse")
-    public JAXBElement<ObtenerTodosLosMedicosResponse> createObtenerTodosLosMedicosResponse(ObtenerTodosLosMedicosResponse value) {
-        return new JAXBElement<ObtenerTodosLosMedicosResponse>(_ObtenerTodosLosMedicosResponse_QNAME, ObtenerTodosLosMedicosResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerMedicosReferentes }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerMedicosReferentes")
-    public JAXBElement<ObtenerMedicosReferentes> createObtenerMedicosReferentes(ObtenerMedicosReferentes value) {
-        return new JAXBElement<ObtenerMedicosReferentes>(_ObtenerMedicosReferentes_QNAME, ObtenerMedicosReferentes.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorCorreo }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorCorreo")
-    public JAXBElement<BuscarMedicoPorCorreo> createBuscarMedicoPorCorreo(BuscarMedicoPorCorreo value) {
-        return new JAXBElement<BuscarMedicoPorCorreo>(_BuscarMedicoPorCorreo_QNAME, BuscarMedicoPorCorreo.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorEspecialidadResponse }{@code >}}
      * 
      */
@@ -330,12 +303,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerMedicosRadiologos }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarRerefenteLikeNombre }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerMedicosRadiologos")
-    public JAXBElement<ObtenerMedicosRadiologos> createObtenerMedicosRadiologos(ObtenerMedicosRadiologos value) {
-        return new JAXBElement<ObtenerMedicosRadiologos>(_ObtenerMedicosRadiologos_QNAME, ObtenerMedicosRadiologos.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarRerefenteLikeNombre")
+    public JAXBElement<BuscarRerefenteLikeNombre> createBuscarRerefenteLikeNombre(BuscarRerefenteLikeNombre value) {
+        return new JAXBElement<BuscarRerefenteLikeNombre>(_BuscarRerefenteLikeNombre_QNAME, BuscarRerefenteLikeNombre.class, null, value);
     }
 
     /**
@@ -345,15 +318,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicosPorNombreResponse")
     public JAXBElement<BuscarMedicosPorNombreResponse> createBuscarMedicosPorNombreResponse(BuscarMedicosPorNombreResponse value) {
         return new JAXBElement<BuscarMedicosPorNombreResponse>(_BuscarMedicosPorNombreResponse_QNAME, BuscarMedicosPorNombreResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ActualizarMedico }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "actualizarMedico")
-    public JAXBElement<ActualizarMedico> createActualizarMedico(ActualizarMedico value) {
-        return new JAXBElement<ActualizarMedico>(_ActualizarMedico_QNAME, ActualizarMedico.class, null, value);
     }
 
     /**
@@ -384,6 +348,96 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorId }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorId")
+    public JAXBElement<BuscarMedicoPorId> createBuscarMedicoPorId(BuscarMedicoPorId value) {
+        return new JAXBElement<BuscarMedicoPorId>(_BuscarMedicoPorId_QNAME, BuscarMedicoPorId.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarMedicoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "eliminarMedicoResponse")
+    public JAXBElement<EliminarMedicoResponse> createEliminarMedicoResponse(EliminarMedicoResponse value) {
+        return new JAXBElement<EliminarMedicoResponse>(_EliminarMedicoResponse_QNAME, EliminarMedicoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerTodosLosMedicos }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerTodosLosMedicos")
+    public JAXBElement<ObtenerTodosLosMedicos> createObtenerTodosLosMedicos(ObtenerTodosLosMedicos value) {
+        return new JAXBElement<ObtenerTodosLosMedicos>(_ObtenerTodosLosMedicos_QNAME, ObtenerTodosLosMedicos.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorTelefono }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorTelefono")
+    public JAXBElement<BuscarMedicoPorTelefono> createBuscarMedicoPorTelefono(BuscarMedicoPorTelefono value) {
+        return new JAXBElement<BuscarMedicoPorTelefono>(_BuscarMedicoPorTelefono_QNAME, BuscarMedicoPorTelefono.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegistrarMedico }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "registrarMedico")
+    public JAXBElement<RegistrarMedico> createRegistrarMedico(RegistrarMedico value) {
+        return new JAXBElement<RegistrarMedico>(_RegistrarMedico_QNAME, RegistrarMedico.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerTodosLosMedicosResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerTodosLosMedicosResponse")
+    public JAXBElement<ObtenerTodosLosMedicosResponse> createObtenerTodosLosMedicosResponse(ObtenerTodosLosMedicosResponse value) {
+        return new JAXBElement<ObtenerTodosLosMedicosResponse>(_ObtenerTodosLosMedicosResponse_QNAME, ObtenerTodosLosMedicosResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerMedicosReferentes }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerMedicosReferentes")
+    public JAXBElement<ObtenerMedicosReferentes> createObtenerMedicosReferentes(ObtenerMedicosReferentes value) {
+        return new JAXBElement<ObtenerMedicosReferentes>(_ObtenerMedicosReferentes_QNAME, ObtenerMedicosReferentes.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorCorreo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorCorreo")
+    public JAXBElement<BuscarMedicoPorCorreo> createBuscarMedicoPorCorreo(BuscarMedicoPorCorreo value) {
+        return new JAXBElement<BuscarMedicoPorCorreo>(_BuscarMedicoPorCorreo_QNAME, BuscarMedicoPorCorreo.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerMedicosRadiologos }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerMedicosRadiologos")
+    public JAXBElement<ObtenerMedicosRadiologos> createObtenerMedicosRadiologos(ObtenerMedicosRadiologos value) {
+        return new JAXBElement<ObtenerMedicosRadiologos>(_ObtenerMedicosRadiologos_QNAME, ObtenerMedicosRadiologos.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ActualizarMedico }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "actualizarMedico")
+    public JAXBElement<ActualizarMedico> createActualizarMedico(ActualizarMedico value) {
+        return new JAXBElement<ActualizarMedico>(_ActualizarMedico_QNAME, ActualizarMedico.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorEspecialidad }{@code >}}
      * 
      */
@@ -402,15 +456,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarMedicoPorId }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "buscarMedicoPorId")
-    public JAXBElement<BuscarMedicoPorId> createBuscarMedicoPorId(BuscarMedicoPorId value) {
-        return new JAXBElement<BuscarMedicoPorId>(_BuscarMedicoPorId_QNAME, BuscarMedicoPorId.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EliminarMedico }{@code >}}
      * 
      */
@@ -426,15 +471,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "obtenerMedicosRadiologosResponse")
     public JAXBElement<ObtenerMedicosRadiologosResponse> createObtenerMedicosRadiologosResponse(ObtenerMedicosRadiologosResponse value) {
         return new JAXBElement<ObtenerMedicosRadiologosResponse>(_ObtenerMedicosRadiologosResponse_QNAME, ObtenerMedicosRadiologosResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarMedicoResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "eliminarMedicoResponse")
-    public JAXBElement<EliminarMedicoResponse> createEliminarMedicoResponse(EliminarMedicoResponse value) {
-        return new JAXBElement<EliminarMedicoResponse>(_EliminarMedicoResponse_QNAME, EliminarMedicoResponse.class, null, value);
     }
 
     /**

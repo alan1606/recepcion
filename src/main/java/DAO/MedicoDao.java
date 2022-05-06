@@ -36,4 +36,5 @@ public interface MedicoDao {
 
     public void actualizarMedico(Medico medico);
 
+    public List<Medico> buscarReferentesLikeNombre(String nombre);
 }

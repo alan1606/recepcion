@@ -28,6 +28,21 @@ public interface CfdiServiceWs {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns clientews.servicio.Cfdi
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerCfdiPorClave", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerCfdiPorClave")
+    @ResponseWrapper(localName = "obtenerCfdiPorClaveResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerCfdiPorClaveResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/CfdiServiceWs/obtenerCfdiPorClaveRequest", output = "http://servicio.sga.gm.com.mx/CfdiServiceWs/obtenerCfdiPorClaveResponse")
+    public Cfdi obtenerCfdiPorClave(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
      */
     @WebMethod
     @RequestWrapper(localName = "registrarCfdi", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.RegistrarCfdi")
@@ -60,20 +75,5 @@ public interface CfdiServiceWs {
     @ResponseWrapper(localName = "listarCfdisResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarCfdisResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/CfdiServiceWs/listarCfdisRequest", output = "http://servicio.sga.gm.com.mx/CfdiServiceWs/listarCfdisResponse")
     public List<Cfdi> listarCfdis();
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns clientews.servicio.Cfdi
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerCfdiPorClave", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerCfdiPorClave")
-    @ResponseWrapper(localName = "obtenerCfdiPorClaveResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ObtenerCfdiPorClaveResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/CfdiServiceWs/obtenerCfdiPorClaveRequest", output = "http://servicio.sga.gm.com.mx/CfdiServiceWs/obtenerCfdiPorClaveResponse")
-    public Cfdi obtenerCfdiPorClave(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
 
 }

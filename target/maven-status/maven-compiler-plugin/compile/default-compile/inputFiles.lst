@@ -343,6 +343,7 @@ C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\Tables\TableConceptos.java
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarPacientePorCurpResponse.java
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ObtenerMovimientosDeCorteMatutinoResponse.java
+C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\BuscarRerefenteLikeNombre.java
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\EncontrarAgendadosPorAreaEquipoDicomFechaInstitucionResponse.java
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ObtenerConceptosLikeNombrePorPorIdInstitucion.java
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\RegistrarInstitucion.java
@@ -452,6 +453,7 @@ C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasPagadasFechaPacienteResponse.java
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\Controladores\MenuUrgenciasController.java
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\AntecedenteConceptoIds.java
+C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\BuscarRerefenteLikeNombreResponse.java
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\Controladores\EmpalmesController.java
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ActualizarIdOrdenVentaResponse.java
 C:\Users\Ultrasonido\Documents\GitHub\recepcion\src\main\java\clientews\servicio\ObtenerOrdenVentaConfirmadasEnFecha.java
