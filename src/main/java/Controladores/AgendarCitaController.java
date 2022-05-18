@@ -9,6 +9,8 @@ import DAO.AntecedentesDao;
 import DAO.AntecedentesDaoImpl;
 import DAO.AreasDao;
 import DAO.AreasDaoImpl;
+import DAO.CatalogoFormaPagoDao;
+import DAO.CatalogoFormaPagoDaoImp;
 import DAO.ConceptosDao;
 import DAO.ConceptosDaoImp;
 import DAO.EquipoDicomDao;
@@ -115,54 +117,53 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         try {
             this.vista = vista;
 
-        modeloPacientes = new PacientesDaoImp();
-        modeloInstituciones = new InstitucionDaoImp();
-        modeloConceptos = new ConceptosDaoImp();
-        modeloEquipoDicom = new EquipoDicomDaoImp();
-        modeloAreas = new AreasDaoImpl();
-        modeloVentaConceptos = new VentaConceptosDaoImp();
-        modeloOrdenVenta = new OrdenVentaDaoImp();
-        modeloPaquetes = new PaqueteDaoImpl();
-        modeloMedico = new MedicoDaoImpl();
-        modeloAntecedentes = new AntecedentesDaoImpl();
+            modeloPacientes = new PacientesDaoImp();
+            modeloInstituciones = new InstitucionDaoImp();
+            modeloConceptos = new ConceptosDaoImp();
+            modeloEquipoDicom = new EquipoDicomDaoImp();
+            modeloAreas = new AreasDaoImpl();
+            modeloVentaConceptos = new VentaConceptosDaoImp();
+            modeloOrdenVenta = new OrdenVentaDaoImp();
+            modeloPaquetes = new PaqueteDaoImpl();
+            modeloMedico = new MedicoDaoImpl();
+            modeloAntecedentes = new AntecedentesDaoImpl();
 
-        ventanaQr = new QrCode();
+            ventanaQr = new QrCode();
 
-        this.vista.radioNombre.addActionListener(this);
-        this.vista.radioCurp.addActionListener(this);
+            this.vista.radioNombre.addActionListener(this);
+            this.vista.radioCurp.addActionListener(this);
 
-        this.vista.btnAgregar.addActionListener(this);
-        this.vista.btnNuevoPaciente.addActionListener(this);
-        this.vista.btnCancelar.addActionListener(this);
-        this.vista.btnGuardar.addActionListener(this);
-        this.vista.btnQuitar.addActionListener(this);
-        this.vista.btnFoto.addActionListener(this);
-        this.vista.btnModificarPaciente.addActionListener(this);
-        this.vista.btnSalir.addActionListener(this);
-        this.vista.btnMin.addActionListener(this);
+            this.vista.btnAgregar.addActionListener(this);
+            this.vista.btnNuevoPaciente.addActionListener(this);
+            this.vista.btnCancelar.addActionListener(this);
+            this.vista.btnGuardar.addActionListener(this);
+            this.vista.btnQuitar.addActionListener(this);
+            this.vista.btnFoto.addActionListener(this);
+            this.vista.btnModificarPaciente.addActionListener(this);
+            this.vista.btnSalir.addActionListener(this);
+            this.vista.btnMin.addActionListener(this);
 
-        this.vista.comboArea.addActionListener(this);
-        this.vista.comboEstudio.addActionListener(this);
-        this.vista.comboHora.addActionListener(this);
-        this.vista.comboSala.addActionListener(this);
-        this.vista.comboInstitucion.addActionListener(this);
+            this.vista.comboArea.addActionListener(this);
+            this.vista.comboEstudio.addActionListener(this);
+            this.vista.comboHora.addActionListener(this);
+            this.vista.comboSala.addActionListener(this);
+            this.vista.comboInstitucion.addActionListener(this);
 
-        this.vista.tableEstudios.addMouseListener(this);
-        this.vista.tablePacientes.addMouseListener(this);
+            this.vista.tableEstudios.addMouseListener(this);
+            this.vista.tablePacientes.addMouseListener(this);
 
-        this.vista.txtBuscar.addKeyListener(this);
-        this.vista.btnRegresar.addActionListener(this);
+            this.vista.txtBuscar.addKeyListener(this);
+            this.vista.btnRegresar.addActionListener(this);
 
-        this.vista.fecha.addPropertyChangeListener(this);
+            this.vista.fecha.addPropertyChangeListener(this);
 
-        this.ventanaQr.lblCerrar.addMouseListener(this);
-        
-        this.vista.txtMedicoReferente.addKeyListener(this);
+            this.ventanaQr.lblCerrar.addMouseListener(this);
+
+            this.vista.txtMedicoReferente.addKeyListener(this);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error con el servidor");
             System.exit(0);
         }
-     
 
     }
 
@@ -188,6 +189,25 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         obtenerFechaActual();
 
         cargarMedicosReferentes();
+    }
+
+    void iniciar(String curp) {
+        vista.setTitle("Agendar cita");
+        vista.setLocationRelativeTo(null);
+        vista.setVisible(true);
+
+        setRadioCurpEnabled(true);
+        cargarInstituciones();
+        iniciarTablaEstudios();
+        obtenerFechaActual();
+
+        cargarMedicosReferentes();
+        if (seleccionarPaciente(curp)) {
+            vista.txtBuscar.setText(curp);
+            vista.txtPaciente.setText(curp);
+            buscarPacientePorCurp(curp);
+        }
+
     }
 
     @Override
@@ -310,7 +330,11 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
 
                     if (hayEstudiosDelDiaDeHoy()) {
                         confirmarOrdenVenta();
-                        abrirPago();
+                        if (esParticular()) {
+                            abrirPago();
+                        } else {
+                            pagarOrden();
+                        }
                     }
 
                     reiniciarVariables();
@@ -378,8 +402,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                     buscarPacientePorCurp(this.vista.txtBuscar.getText());
                 }
             }
-        }
-        else if(e.getSource() == this.vista.txtMedicoReferente){
+        } else if (e.getSource() == this.vista.txtMedicoReferente) {
             cargarMedicosReferentes(this.vista.txtMedicoReferente.getText());
         }
     }
@@ -1450,7 +1473,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         }
 
     }
-    
+
     private void cargarMedicosReferentes(String nombre) {
         JComboBox combo = new JComboBox();
         combo.removeAllItems();
@@ -1498,7 +1521,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             conceptoActual.setEstado("CONFIRMADO");
             modeloVentaConceptos.actualizarVentaConceptos(conceptoActual);
         }
-        
+
     }
 
     private void abrirPago() {
@@ -1507,5 +1530,32 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
         pagos.iniciar(orden);
     }
 
+    private boolean esParticular() {
+        String institucionSeleccionada = vista.comboInstitucion.getSelectedItem().toString();
+        return institucionSeleccionada.equals("PARTICULAR");
+    }
+
+    private void pagarOrden() {
+        CatalogoFormaPagoDao modeloFormaPago = new CatalogoFormaPagoDaoImp();
+        CatalogoFormaPago formaPago = modeloFormaPago.encontrarFormaPagoPorNombre("TRANSFERENCIA");
+        List<VentaConceptos> estudios = modeloVentaConceptos.findByIdOrdenVenta(orden.getIdOv());
+        estudios.forEach(e -> {
+            e.setEstado("PAGADO");
+            modeloVentaConceptos.actualizarVentaConceptos(e);
+        });
+        orden.setIdFormaPago(formaPago);
+        orden.setRequiereFactura(true);
+        orden.setPagado(true);
+        modeloOrdenVenta.actualizar(orden);
+    }
+
+    private boolean seleccionarPaciente(String curp) {
+        List<Pacientes> pacientes = modeloPacientes.buscarLikeCurp(curp);
+        if (!pacientes.isEmpty()) {
+            paciente = pacientes.get(0);
+            return true;
+        }
+        return false;
+    }
 
 }

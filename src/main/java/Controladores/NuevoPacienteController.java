@@ -64,7 +64,7 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         this.vista.comboSexo.addActionListener(this);
         this.vista.btnRegresar.addActionListener(this);
         this.vista.comboEntidad.addActionListener(this);
-        
+
         this.vista.btnMin.addActionListener(this);
         this.vista.btnSalir.addActionListener(this);
 
@@ -90,6 +90,12 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
                     Logger.getLogger(NuevoPacienteController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 registrar();
+                try {
+                    abrirAgenda(vista.txtCurp.getText());
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(NuevoPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                limpiar();
             }
         } else if (e.getSource() == vista.comboPais) {
             if (vista.comboPais.getSelectedItem().toString().equals("MEXICO")) {
@@ -122,11 +128,9 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         } else if (e.getSource() == vista.comboEntidad && vista.comboEntidad.getSelectedIndex() != 0) { //Se seleccionó una entidad
             System.out.println(vista.comboEntidad.getSelectedItem().toString());
             entidadSeleccionada = modeloMexico.encontrarEstadoPorNombre(vista.comboEntidad.getSelectedItem().toString());
-        }
-        else if(e.getSource() == vista.btnSalir){
+        } else if (e.getSource() == vista.btnSalir) {
             BarUtil.cerrar(vista);
-        }
-        else if(e.getSource() == vista.btnMin){
+        } else if (e.getSource() == vista.btnMin) {
             BarUtil.minimizar(vista);
         }
     }
@@ -187,7 +191,6 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         if (deseaRegistrar() == 0) {
             modeloPacientes.guardar(paciente);
             JOptionPane.showMessageDialog(null, "Paciente registrado");
-            limpiar();
             habilitarEstados(true);
         }
     }
@@ -492,6 +495,12 @@ public class NuevoPacienteController implements ActionListener, KeyListener {
         vista.dispose();
         AgendarCitaController controladorCitas = new AgendarCitaController(new AgendarCita());
         controladorCitas.iniciar();
+    }
+
+    private void abrirAgenda(String curp) throws InterruptedException  {
+        vista.dispose();
+        AgendarCitaController controladorCitas = new AgendarCitaController(new AgendarCita());
+        controladorCitas.iniciar(curp);
     }
 
 }
