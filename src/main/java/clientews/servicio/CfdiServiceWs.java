@@ -27,6 +27,18 @@ public interface CfdiServiceWs {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<clientews.servicio.Cfdi>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarCfdis", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarCfdis")
+    @ResponseWrapper(localName = "listarCfdisResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarCfdisResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/CfdiServiceWs/listarCfdisRequest", output = "http://servicio.sga.gm.com.mx/CfdiServiceWs/listarCfdisResponse")
+    public List<Cfdi> listarCfdis();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns clientews.servicio.Cfdi
@@ -63,17 +75,5 @@ public interface CfdiServiceWs {
     public void modificarCfdi(
         @WebParam(name = "arg0", targetNamespace = "")
         Cfdi arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<clientews.servicio.Cfdi>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarCfdis", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarCfdis")
-    @ResponseWrapper(localName = "listarCfdisResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.ListarCfdisResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/CfdiServiceWs/listarCfdisRequest", output = "http://servicio.sga.gm.com.mx/CfdiServiceWs/listarCfdisResponse")
-    public List<Cfdi> listarCfdis();
 
 }
