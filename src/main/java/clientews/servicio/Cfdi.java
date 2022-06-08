@@ -87,7 +87,7 @@ public class Cfdi {
     @Override
     public String toString() {
         return descripcion + " : " + clave;
-    }
+}
 
     
     

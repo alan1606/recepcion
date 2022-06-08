@@ -29,21 +29,6 @@ public interface PacienteServiceWs {
      * 
      * @param arg0
      * @return
-     *     returns clientews.servicio.Pacientes
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarPacientePorCurp", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorCurp")
-    @ResponseWrapper(localName = "encontrarPacientePorCurpResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorCurpResponse")
-    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorCurpRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorCurpResponse")
-    public Pacientes encontrarPacientePorCurp(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Pacientes arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
      *     returns java.util.List<clientews.servicio.Pacientes>
      */
     @WebMethod
@@ -133,6 +118,21 @@ public interface PacienteServiceWs {
     @ResponseWrapper(localName = "encontrarPacientePorIdResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorIdResponse")
     @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorIdRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorIdResponse")
     public Pacientes encontrarPacientePorId(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Pacientes arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns clientews.servicio.Pacientes
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarPacientePorCurp", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorCurp")
+    @ResponseWrapper(localName = "encontrarPacientePorCurpResponse", targetNamespace = "http://servicio.sga.gm.com.mx/", className = "clientews.servicio.EncontrarPacientePorCurpResponse")
+    @Action(input = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorCurpRequest", output = "http://servicio.sga.gm.com.mx/PacienteServiceWs/encontrarPacientePorCurpResponse")
+    public Pacientes encontrarPacientePorCurp(
         @WebParam(name = "arg0", targetNamespace = "")
         Pacientes arg0);
 

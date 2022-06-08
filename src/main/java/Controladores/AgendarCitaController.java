@@ -27,6 +27,8 @@ import DAO.PaqueteDao;
 import DAO.PaqueteDaoImpl;
 import DAO.VentaConceptosDao;
 import DAO.VentaConceptosDaoImp;
+import DAO.WorklistDao;
+import DAO.WorklistDaoImp;
 import Tables.TablePacientes;
 import Utilidades.BarUtil;
 import Utilidades.GeneradorIdPacs;
@@ -334,6 +336,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                             abrirPago();
                         } else {
                             pagarOrden();
+                            registrarEnWorklist();
                         }
                     }
 
@@ -1114,7 +1117,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private void mostrarQr() throws Exception {
         ventanaQr.setTitle("Escanear el código y subir imagen");
         ventanaQr.setLocationRelativeTo(null);
-        ImageIcon icono = new ImageIcon(QrUtil.generateQrCode("http://201.116.155.166:4222/ris/subir-foto-orden/" + orden.getIdOv(), 400, 260));
+        ImageIcon icono = new ImageIcon(QrUtil.generateQrCode("https://diagnocons.ga:4222/ris/subir-foto-orden/" + orden.getIdOv(), 400, 260));
         ventanaQr.lblQr.setIcon(icono);
         ventanaQr.setVisible(true);
     }
@@ -1556,6 +1559,19 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
             return true;
         }
         return false;
+    }
+
+    private void registrarEnWorklist() {
+        System.out.println("Id para registrar en worklist: " + orden.getIdOv());
+        try {
+            WorklistDao modeloWorklist = new WorklistDaoImp();
+            modeloWorklist.registrarEnWorklistPorOrdenVenta(orden.getIdOv());
+            System.out.println("Procesada worklist " + orden.getIdOv());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al procesar worklist");
+        }
+        finally{
+        }
     }
 
 }
