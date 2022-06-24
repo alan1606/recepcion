@@ -40,7 +40,6 @@ import Vistas.ModificarPaciente;
 import Vistas.NuevoPaciente;
 import Vistas.PagarOrden;
 import Vistas.QrCode;
-import clientews.servicio.AntecedenteEstudio;
 import clientews.servicio.Antecedentes;
 import clientews.servicio.Areas;
 import clientews.servicio.CatalogoFormaPago;
@@ -310,7 +309,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                     if (!procesarPaquete) {
                         calcularTotales();
                     }
-                    if (estudio.isRequiereSaberAntecedentes()) {
+                    /*if (estudio.isRequiereSaberAntecedentes()) {
                         //Se me ocurre hacer un for de los antecedentes y que vaya preguntando si el paciente tiene (x), con un sí y no
                         List<AntecedenteEstudio> antecedentesConLosQueSeCuentan = new ArrayList<>();
                         for (Antecedentes antecedente : modeloAntecedentes.encontrarAntecedentesPorConcepto(estudio.getIdTo())) {
@@ -326,11 +325,11 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                         } catch (Exception ex) {
                             JOptionPane.showMessageDialog(null, "Error al registrar antecdedentes");
                         }
-                    }
+                    }*/
 
                     actualizarMedicoReferenteYMotivo();
 
-                    if (hayEstudiosDelDiaDeHoy()) {
+                    /*if (hayEstudiosDelDiaDeHoy()) {
                         confirmarOrdenVenta();
                         if (esParticular()) {
                             abrirPago();
@@ -338,11 +337,15 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
                             pagarOrden();
                             registrarEnWorklist();
                         }
-                    }
-
+                    }*/
+                    confirmarOrdenVenta();
+                    pagarOrden();
+                    registrarEnWorklist();
                     reiniciarVariables();
+                    
                     bloquearDebidoALimiteSuperado(false);
                     limpiarCampos();
+                    JOptionPane.showMessageDialog(null, "Agendado correctamente");
 
                 } catch (Exception ex) {
                     ex.printStackTrace(System.out);

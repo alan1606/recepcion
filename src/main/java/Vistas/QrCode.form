@@ -75,7 +75,7 @@
         <Component class="javax.swing.JLabel" name="lblCerrar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\alanm\Documents\NetBeansProjects\recepcion\src\images\icons8_multiply_30px.png"/>
+              <Image iconType="3" name="/iconos/CerrarSecundario.png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -89,7 +89,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="360" y="0" width="38" height="40"/>
+              <AbsoluteConstraints x="368" y="0" width="30" height="40"/>
             </Constraint>
           </Constraints>
         </Component>

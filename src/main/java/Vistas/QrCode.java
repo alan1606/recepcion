@@ -53,14 +53,14 @@ public class QrCode extends javax.swing.JFrame {
         jPanel2.setForeground(new java.awt.Color(52, 73, 94));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblCerrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\alanm\\Documents\\NetBeansProjects\\recepcion\\src\\images\\icons8_multiply_30px.png")); // NOI18N
+        lblCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/CerrarSecundario.png"))); // NOI18N
         lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCerrarMouseClicked(evt);
             }
         });
-        jPanel2.add(lblCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 38, 40));
+        jPanel2.add(lblCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 0, 30, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
