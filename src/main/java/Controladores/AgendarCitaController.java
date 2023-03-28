@@ -1120,7 +1120,7 @@ public class AgendarCitaController implements KeyListener, MouseListener, Action
     private void mostrarQr() throws Exception {
         ventanaQr.setTitle("Escanear el código y subir imagen");
         ventanaQr.setLocationRelativeTo(null);
-        ImageIcon icono = new ImageIcon(QrUtil.generateQrCode("https://diagnocons.ga:4222/ris/subir-foto-orden/" + orden.getIdOv(), 400, 260));
+        ImageIcon icono = new ImageIcon(QrUtil.generateQrCode("https://ris.diagnocons.com/ris/subir-foto-orden/" + orden.getIdOv(), 400, 260));
         ventanaQr.lblQr.setIcon(icono);
         ventanaQr.setVisible(true);
     }
